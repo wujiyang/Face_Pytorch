@@ -1,0 +1,1 @@
+#!/usr/bin/env python# encoding: utf-8'''@author: wujiyang@contact: wujiyang@hust.edu.cn@file: test.py.py@time: 2018/12/21 15:33@desc:'''import torchprint(torch.cuda.is_available())
