@@ -1,1 +1,1 @@
-#!/usr/bin/env python# encoding: utf-8'''@author: wujiyang@contact: wujiyang@hust.edu.cn@file: train.py.py@time: 2018/12/21 17:37@desc:'''import torch
+#!/usr/bin/env python# encoding: utf-8'''@author: wujiyang@contact: wujiyang@hust.edu.cn@file: train.py.py@time: 2018/12/21 17:37@desc: train script for deep face recognition'''import torch
