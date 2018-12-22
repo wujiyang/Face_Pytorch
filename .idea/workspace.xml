@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arcface/ArcMarginProduct.py" beforeDir="false" afterPath="$PROJECT_DIR$/arcface/ArcMarginProduct.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lfw_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfw_eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/casia_webface.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/casia_webface.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +13,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Face_Pytorch$lfw_test.coverage" NAME="lfw_test Coverage Results" MODIFIED="1545447947133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Face_Pytorch$train.coverage" NAME="train Coverage Results" MODIFIED="1545454974623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_Pytorch$train.coverage" NAME="train Coverage Results" MODIFIED="1545457166338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$test.coverage" NAME="test Coverage Results" MODIFIED="1545377961349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$mobilefacenet.coverage" NAME="mobilefacenet Coverage Results" MODIFIED="1545381568601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backbone" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$lfw.coverage" NAME="lfw Coverage Results" MODIFIED="1545452137311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
@@ -46,14 +42,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="5263" />
+          <entry key="py" value="5367" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="5262" />
+          <entry key="Python" value="5366" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -78,12 +74,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataset/casia_webface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="65" column="49" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="49" />
+            <state relative-caret-position="491">
+              <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
               <folding>
-                <element signature="e#182#213#0" expanded="true" />
+                <element signature="e#181#224#0" expanded="true" />
                 <element signature="e#282#524#0" expanded="true" />
-                <element signature="e#645#1171#0" expanded="true" />
+                <element signature="e#667#1193#0" expanded="true" />
                 <element signature="e#1215#1453#0" expanded="true" />
                 <element signature="e#1486#1513#0" expanded="true" />
               </folding>
@@ -94,10 +90,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lfw_eval.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="107" column="75" selection-start-line="107" selection-start-column="58" selection-end-line="107" selection-end-column="75" />
+            <state relative-caret-position="285">
+              <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="43" />
               <folding>
-                <element signature="e#148#166#0" expanded="true" />
                 <element signature="e#1478#1607#0" expanded="true" />
                 <element signature="e#1654#1994#0" expanded="true" />
                 <element signature="e#2060#3129#0" expanded="true" />
@@ -110,8 +105,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataset/lfw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
+            <state relative-caret-position="284">
+              <caret line="87" column="6" selection-start-line="84" selection-start-column="4" selection-end-line="87" selection-end-column="6" />
               <folding>
                 <element signature="e#165#183#0" expanded="true" />
                 <element signature="e#236#478#0" expanded="true" />
@@ -154,13 +149,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="59" column="77" selection-start-line="59" selection-start-column="77" selection-end-line="59" selection-end-column="77" />
+            <state relative-caret-position="477">
+              <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
-                <element signature="e#4552#5330#0" />
-                <marker date="1545455134684" expanded="true" signature="858:863" ph="..." />
-                <marker date="1545455134684" expanded="true" signature="858:7603" ph="..." />
+                <marker date="1545457245495" expanded="true" signature="858:863" ph="..." />
+                <marker date="1545457245495" expanded="true" signature="858:7607" ph="..." />
               </folding>
             </state>
           </provider>
@@ -170,7 +164,7 @@
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -195,10 +189,10 @@
         <option value="$PROJECT_DIR$/utils/logging.py" />
         <option value="$PROJECT_DIR$/lfw_test.py" />
         <option value="$PROJECT_DIR$/dataset/lfw.py" />
-        <option value="$PROJECT_DIR$/dataset/casia_webface.py" />
         <option value="$PROJECT_DIR$/lfw_eval.py" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/arcface/ArcMarginProduct.py" />
+        <option value="$PROJECT_DIR$/dataset/casia_webface.py" />
         <option value="$PROJECT_DIR$/train.py" />
       </list>
     </option>
@@ -450,7 +444,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28308025" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30477223" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -494,21 +488,6 @@
     <entry file="file://$PROJECT_DIR$/utils/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataset/lfw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-          <folding>
-            <element signature="e#165#183#0" expanded="true" />
-            <element signature="e#236#478#0" expanded="true" />
-            <element signature="e#584#1667#0" expanded="true" />
-            <element signature="e#1725#2313#0" expanded="true" />
-            <element signature="e#1887#1914#0" expanded="true" />
-            <marker date="1545452135380" expanded="true" signature="666:1686" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -539,34 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataset/casia_webface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="65" column="49" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="49" />
-          <folding>
-            <element signature="e#182#213#0" expanded="true" />
-            <element signature="e#282#524#0" expanded="true" />
-            <element signature="e#645#1171#0" expanded="true" />
-            <element signature="e#1215#1453#0" expanded="true" />
-            <element signature="e#1486#1513#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lfw_eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="107" column="75" selection-start-line="107" selection-start-column="58" selection-end-line="107" selection-end-column="75" />
-          <folding>
-            <element signature="e#148#166#0" expanded="true" />
-            <element signature="e#1478#1607#0" expanded="true" />
-            <element signature="e#1654#1994#0" expanded="true" />
-            <element signature="e#2060#3129#0" expanded="true" />
-            <element signature="e#3199#4986#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/arcface/ArcMarginProduct.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -582,19 +533,60 @@
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/lfw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="87" column="6" selection-start-line="84" selection-start-column="4" selection-end-line="87" selection-end-column="6" />
+          <folding>
+            <element signature="e#165#183#0" expanded="true" />
+            <element signature="e#236#478#0" expanded="true" />
+            <element signature="e#584#1667#0" expanded="true" />
+            <element signature="e#1725#2313#0" expanded="true" />
+            <element signature="e#1887#1914#0" expanded="true" />
+            <marker date="1545452135380" expanded="true" signature="666:1686" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lfw_eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="43" />
+          <folding>
+            <element signature="e#1478#1607#0" expanded="true" />
+            <element signature="e#1654#1994#0" expanded="true" />
+            <element signature="e#2060#3129#0" expanded="true" />
+            <element signature="e#3199#4986#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/casia_webface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+          <folding>
+            <element signature="e#181#224#0" expanded="true" />
+            <element signature="e#282#524#0" expanded="true" />
+            <element signature="e#667#1193#0" expanded="true" />
+            <element signature="e#1215#1453#0" expanded="true" />
+            <element signature="e#1486#1513#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="59" column="77" selection-start-line="59" selection-start-column="77" selection-end-line="59" selection-end-column="77" />
+        <state relative-caret-position="477">
+          <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
           <folding>
             <element signature="e#187#196#0" expanded="true" />
-            <element signature="e#4552#5330#0" />
-            <marker date="1545455134684" expanded="true" signature="858:863" ph="..." />
-            <marker date="1545455134684" expanded="true" signature="858:7603" ph="..." />
+            <marker date="1545457245495" expanded="true" signature="858:863" ph="..." />
+            <marker date="1545457245495" expanded="true" signature="858:7607" ph="..." />
           </folding>
         </state>
       </provider>
