@@ -1,1 +1,0 @@
-#!/usr/bin/env python# encoding: utf-8'''@author: wujiyang@contact: wujiyang@hust.edu.cn@file: config.py@time: 2018/12/21 19:05@desc: baisc config for face training'''BATCH_SIZE = 200SAVE_FREQ = 1TEST_FREQ = 1TOTAL_EPOCH = 65RESUME = ''PRETRAIN = ''SAVE_DIR = './model'MODEL_PRE = 'CASIA_B200_'GPU = 0
