@@ -2,10 +2,10 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="InsightFace_Pytorch">
+      <paths name="Face_Pytorch">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/Face_Pytorch" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
