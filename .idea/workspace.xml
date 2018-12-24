@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arcface/ArcMarginProduct.py" beforeDir="false" afterPath="$PROJECT_DIR$/arcface/ArcMarginProduct.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arcface/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/arcface/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backbone/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backbone/mobilefacenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/mobilefacenet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backbone/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/resnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosface/CosineMarginProduct.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosface/CosineMarginProduct.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosface/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosface/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset/casia_webface.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/casia_webface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset/lfw.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/lfw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset/megaface.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/megaface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lfw_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfw_eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/megaface_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/megaface_eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphereface/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sphereface/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/logging.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,14 +49,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="9654" />
+          <entry key="py" value="9660" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="9653" />
+          <entry key="Python" value="9659" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -85,13 +67,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="226" column="83" lean-forward="true" selection-start-line="226" selection-start-column="83" selection-end-line="226" selection-end-column="83" />
+            <state relative-caret-position="409">
+              <caret line="236" lean-forward="true" selection-start-line="236" selection-end-line="236" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
                 <element signature="e#830#8056#0" expanded="true" />
-                <marker date="1545650256085" expanded="true" signature="748:753" ph="..." />
-                <marker date="1545650256085" expanded="true" signature="748:7984" ph="..." />
+                <marker date="1545651252477" expanded="true" signature="748:753" ph="..." />
+                <marker date="1545651252477" expanded="true" signature="748:7984" ph="..." />
               </folding>
             </state>
           </provider>
@@ -168,8 +150,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cosface/CosineMarginProduct.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            <state relative-caret-position="176">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="e#188#200#0" expanded="true" />
                 <element signature="e#421#694#0" expanded="true" />
@@ -183,8 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backbone/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="180" column="26" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
+            <state relative-caret-position="323">
+              <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
               <folding>
                 <element signature="e#170#182#0" expanded="true" />
                 <element signature="e#289#449#0" expanded="true" />
@@ -234,7 +216,6 @@
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/arcface/ArcMarginProduct.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/cosface/CosineMarginProduct.py" />
         <option value="$PROJECT_DIR$/backbone/mobilefacenet.py" />
         <option value="$PROJECT_DIR$/dataset/casia_webface.py" />
@@ -243,6 +224,7 @@
         <option value="$PROJECT_DIR$/dataset/megaface.py" />
         <option value="$PROJECT_DIR$/lfw_eval.py" />
         <option value="$PROJECT_DIR$/megaface_eval.py" />
+        <option value="$PROJECT_DIR$/train.py" />
       </list>
     </option>
   </component>
@@ -491,15 +473,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15191898" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15191898" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36008677" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36008677" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -548,48 +529,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cosface/CosineMarginProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-          <folding>
-            <element signature="e#188#200#0" expanded="true" />
-            <element signature="e#421#694#0" expanded="true" />
-            <element signature="e#743#1081#0" expanded="true" />
-            <marker date="1545650379805" expanded="true" signature="325:330" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/resnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="180" column="26" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
-          <folding>
-            <element signature="e#170#182#0" expanded="true" />
-            <element signature="e#289#449#0" expanded="true" />
-            <element signature="e#498#658#0" expanded="true" />
-            <element signature="e#708#868#0" expanded="true" />
-            <element signature="e#918#1080#0" expanded="true" />
-            <element signature="e#1130#1292#0" expanded="true" />
-            <element signature="e#791#943#0" expanded="true" />
-            <element signature="e#996#1103#0" expanded="true" />
-            <element signature="e#1139#1907#0" />
-            <element signature="e#1231#1557#0" expanded="true" />
-            <element signature="e#1593#1907#0" expanded="true" />
-            <element signature="e#2035#2482#0" expanded="true" />
-            <element signature="e#2518#2920#0" expanded="true" />
-            <element signature="e#3148#3184#0" expanded="true" />
-            <element signature="e#3219#5146#0" expanded="true" />
-            <element signature="e#4666#5210#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -681,15 +624,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cosface/CosineMarginProduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#188#200#0" expanded="true" />
+            <element signature="e#421#694#0" expanded="true" />
+            <element signature="e#743#1081#0" expanded="true" />
+            <marker date="1545650379805" expanded="true" signature="325:330" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backbone/resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+          <folding>
+            <element signature="e#170#182#0" expanded="true" />
+            <element signature="e#289#449#0" expanded="true" />
+            <element signature="e#498#658#0" expanded="true" />
+            <element signature="e#708#868#0" expanded="true" />
+            <element signature="e#918#1080#0" expanded="true" />
+            <element signature="e#1130#1292#0" expanded="true" />
+            <element signature="e#791#943#0" expanded="true" />
+            <element signature="e#996#1103#0" expanded="true" />
+            <element signature="e#1139#1907#0" />
+            <element signature="e#1231#1557#0" expanded="true" />
+            <element signature="e#1593#1907#0" expanded="true" />
+            <element signature="e#2035#2482#0" expanded="true" />
+            <element signature="e#2518#2920#0" expanded="true" />
+            <element signature="e#3148#3184#0" expanded="true" />
+            <element signature="e#3219#5146#0" expanded="true" />
+            <element signature="e#4666#5210#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="226" column="83" lean-forward="true" selection-start-line="226" selection-start-column="83" selection-end-line="226" selection-end-column="83" />
+        <state relative-caret-position="409">
+          <caret line="236" lean-forward="true" selection-start-line="236" selection-end-line="236" />
           <folding>
             <element signature="e#187#196#0" expanded="true" />
             <element signature="e#830#8056#0" expanded="true" />
-            <marker date="1545650256085" expanded="true" signature="748:753" ph="..." />
-            <marker date="1545650256085" expanded="true" signature="748:7984" ph="..." />
+            <marker date="1545651252477" expanded="true" signature="748:753" ph="..." />
+            <marker date="1545651252477" expanded="true" signature="748:7984" ph="..." />
           </folding>
         </state>
       </provider>
