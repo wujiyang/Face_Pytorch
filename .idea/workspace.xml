@@ -4,6 +4,8 @@
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/lfw.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/lfw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/megaface.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/megaface.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,24 +41,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="24" />
+          <entry key="py" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="24" />
+          <entry key="Python" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="9660" />
+          <entry key="py" value="9672" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="9659" />
+          <entry key="Python" value="9671" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -67,123 +69,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="236" lean-forward="true" selection-start-line="236" selection-end-line="236" />
+            <state relative-caret-position="390">
+              <caret line="94" column="51" lean-forward="true" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
-                <element signature="e#830#8056#0" expanded="true" />
-                <marker date="1545651252477" expanded="true" signature="748:753" ph="..." />
-                <marker date="1545651252477" expanded="true" signature="748:7984" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataset/casia_webface.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
-              <folding>
-                <element signature="e#182#225#0" expanded="true" />
-                <element signature="e#339#581#0" expanded="true" />
-                <element signature="e#1273#1707#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lfw_eval.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
-              <folding>
-                <element signature="e#147#165#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataset/lfw.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-              <folding>
-                <element signature="e#165#183#0" expanded="true" />
-                <element signature="e#676#1680#0" expanded="true" />
-                <marker date="1545650360676" expanded="true" signature="666:1686" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataset/megaface.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
-              <folding>
-                <element signature="e#148#191#0" expanded="true" />
-                <element signature="e#1811#1838#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/megaface_eval.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="103" column="80" selection-start-line="103" selection-start-column="80" selection-end-line="103" selection-end-column="80" />
-              <folding>
-                <element signature="e#182#200#0" expanded="true" />
-                <element signature="e#362#682#0" expanded="true" />
-                <element signature="e#713#1031#0" expanded="true" />
-                <marker date="1545650272829" expanded="true" signature="1426:3205" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cosface/CosineMarginProduct.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="e#188#200#0" expanded="true" />
-                <element signature="e#421#694#0" expanded="true" />
-                <element signature="e#743#1081#0" expanded="true" />
-                <marker date="1545650379805" expanded="true" signature="325:330" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backbone/resnet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
-              <folding>
-                <element signature="e#170#182#0" expanded="true" />
-                <element signature="e#289#449#0" expanded="true" />
-                <element signature="e#498#658#0" expanded="true" />
-                <element signature="e#708#868#0" expanded="true" />
-                <element signature="e#918#1080#0" expanded="true" />
-                <element signature="e#1130#1292#0" expanded="true" />
-                <element signature="e#791#943#0" expanded="true" />
-                <element signature="e#996#1103#0" expanded="true" />
-                <element signature="e#1139#1907#0" />
-                <element signature="e#1231#1557#0" expanded="true" />
-                <element signature="e#1593#1907#0" expanded="true" />
-                <element signature="e#2035#2482#0" expanded="true" />
-                <element signature="e#2518#2920#0" expanded="true" />
-                <element signature="e#3148#3184#0" expanded="true" />
-                <element signature="e#3219#5146#0" expanded="true" />
-                <element signature="e#4666#5210#0" expanded="true" />
+                <marker date="1545652129503" expanded="true" signature="748:753" ph="..." />
+                <marker date="1545652129503" expanded="true" signature="748:7984" ph="..." />
               </folding>
             </state>
           </provider>
@@ -203,6 +94,7 @@
       <find>test_freq</find>
       <find>cuda</find>
       <find>device</find>
+      <find>float</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -219,12 +111,12 @@
         <option value="$PROJECT_DIR$/cosface/CosineMarginProduct.py" />
         <option value="$PROJECT_DIR$/backbone/mobilefacenet.py" />
         <option value="$PROJECT_DIR$/dataset/casia_webface.py" />
-        <option value="$PROJECT_DIR$/dataset/lfw.py" />
         <option value="$PROJECT_DIR$/backbone/resnet.py" />
-        <option value="$PROJECT_DIR$/dataset/megaface.py" />
         <option value="$PROJECT_DIR$/lfw_eval.py" />
         <option value="$PROJECT_DIR$/megaface_eval.py" />
         <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/dataset/lfw.py" />
+        <option value="$PROJECT_DIR$/dataset/megaface.py" />
       </list>
     </option>
   </component>
@@ -234,7 +126,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="53" />
     <option name="y" value="30" />
     <option name="width" value="1936" />
@@ -269,6 +161,16 @@
             <path>
               <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
               <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
+              <item name="backbone" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
+              <item name="cosface" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
@@ -473,6 +375,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15191898" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -536,10 +439,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/arcface/ArcMarginProduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+          <folding>
+            <element signature="e#426#974#0" expanded="true" />
+            <marker date="1545650413102" expanded="true" signature="323:328" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backbone/mobilefacenet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+        <state relative-caret-position="377">
+          <caret line="124" column="18" lean-forward="true" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
           <folding>
             <element signature="e#469#1121#0" expanded="true" />
             <element signature="e#1157#1255#0" expanded="true" />
@@ -555,45 +469,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/arcface/ArcMarginProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
-          <folding>
-            <element signature="e#426#974#0" expanded="true" />
-            <marker date="1545650413102" expanded="true" signature="323:328" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataset/megaface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
-          <folding>
-            <element signature="e#148#191#0" expanded="true" />
-            <element signature="e#1811#1838#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/megaface_eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="103" column="80" selection-start-line="103" selection-start-column="80" selection-end-line="103" selection-end-column="80" />
-          <folding>
-            <element signature="e#182#200#0" expanded="true" />
-            <element signature="e#362#682#0" expanded="true" />
-            <element signature="e#713#1031#0" expanded="true" />
-            <marker date="1545650272829" expanded="true" signature="1426:3205" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataset/casia_webface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+        <state relative-caret-position="320">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
           <folding>
             <element signature="e#182#225#0" expanded="true" />
             <element signature="e#339#581#0" expanded="true" />
@@ -604,8 +483,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lfw_eval.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+        <state relative-caret-position="113">
+          <caret line="72" column="33" lean-forward="true" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
           <folding>
             <element signature="e#147#165#0" expanded="true" />
           </folding>
@@ -614,20 +493,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dataset/lfw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
+        <state relative-caret-position="347">
+          <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
           <folding>
             <element signature="e#165#183#0" expanded="true" />
             <element signature="e#676#1680#0" expanded="true" />
-            <marker date="1545650360676" expanded="true" signature="666:1686" ph="..." />
+            <element signature="e#1725#2297#0" expanded="true" />
+            <marker date="1545652556272" expanded="true" signature="666:1686" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/megaface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="77" column="28" lean-forward="true" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+          <folding>
+            <element signature="e#148#191#0" expanded="true" />
+            <element signature="e#304#546#0" expanded="true" />
+            <element signature="e#676#1503#0" expanded="true" />
+            <element signature="e#1547#1778#0" expanded="true" />
+            <element signature="e#1811#1838#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/megaface_eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="80" column="44" lean-forward="true" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+          <folding>
+            <element signature="e#182#200#0" expanded="true" />
+            <element signature="e#362#682#0" expanded="true" />
+            <element signature="e#713#1031#0" expanded="true" />
+            <marker date="1545650272829" expanded="true" signature="1426:3205" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cosface/CosineMarginProduct.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="366">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="e#188#200#0" expanded="true" />
             <element signature="e#421#694#0" expanded="true" />
@@ -639,8 +546,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backbone/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+        <state relative-caret-position="643">
+          <caret line="191" lean-forward="true" selection-start-line="191" selection-end-line="191" />
           <folding>
             <element signature="e#170#182#0" expanded="true" />
             <element signature="e#289#449#0" expanded="true" />
@@ -658,19 +565,19 @@
             <element signature="e#3148#3184#0" expanded="true" />
             <element signature="e#3219#5146#0" expanded="true" />
             <element signature="e#4666#5210#0" expanded="true" />
+            <element signature="e#5246#5553#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="236" lean-forward="true" selection-start-line="236" selection-end-line="236" />
+        <state relative-caret-position="390">
+          <caret line="94" column="51" lean-forward="true" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
           <folding>
             <element signature="e#187#196#0" expanded="true" />
-            <element signature="e#830#8056#0" expanded="true" />
-            <marker date="1545651252477" expanded="true" signature="748:753" ph="..." />
-            <marker date="1545651252477" expanded="true" signature="748:7984" ph="..." />
+            <marker date="1545652129503" expanded="true" signature="748:753" ph="..." />
+            <marker date="1545652129503" expanded="true" signature="748:7984" ph="..." />
           </folding>
         </state>
       </provider>

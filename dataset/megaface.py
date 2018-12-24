@@ -73,7 +73,7 @@ if __name__ == '__main__':
         transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))  # range [0.0, 1.0] -> [-1.0,1.0]
     ])
     dataset = MegaFace(facescrub, megaface, transform=transform)
-    trainloader = data.DataLoader(dataset, batch_size=64, shuffle=True, num_workers=2, drop_last=False)
+    trainloader = data.DataLoader(dataset, batch_size=64, shuffle=False, num_workers=2, drop_last=False)
     print(len(dataset))
     for data in trainloader:
         print(data.shape)

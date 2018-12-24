@@ -64,11 +64,10 @@ class LFW(data.Dataset):
         imglist = [img_l, cv2.flip(img_l, 1), img_r, cv2.flip(img_r, 1)]
 
         if self.transform is not None:
-            img_l = self.transform(img_l)
             for i in range(len(imglist)):
                 imglist[i] = self.transform(imglist[i])
 
-            imgs = [imglist[i] for i in range(len(imglist))]
+            imgs = imglist
             return imgs
         else:
             imgs = [torch.from_numpy(i) for i in imglist]
@@ -89,7 +88,7 @@ if __name__ == '__main__':
 
     dataset = LFW(root, file_list, transform=transform)
     #dataset = LFW(root, file_list)
-    trainloader = data.DataLoader(dataset, batch_size=64, shuffle=True, num_workers=2, drop_last=False)
+    trainloader = data.DataLoader(dataset, batch_size=64, shuffle=False, num_workers=2, drop_last=False)
     print(len(dataset))
     for data in trainloader:
         for d in data:
