@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="" />
+    <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arcface/ArcMarginProduct.py" beforeDir="false" afterPath="$PROJECT_DIR$/arcface/ArcMarginProduct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arcface/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/arcface/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backbone/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backbone/mobilefacenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/mobilefacenet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backbone/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/resnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cosface/CosineMarginProduct.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosface/CosineMarginProduct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cosface/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosface/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/casia_webface.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/casia_webface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/lfw.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/lfw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/megaface.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/megaface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lfw_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfw_eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/megaface_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/megaface_eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphereface/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sphereface/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/logging.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +90,8 @@
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
                 <element signature="e#830#8056#0" expanded="true" />
-                <marker date="1545637575147" expanded="true" signature="748:753" ph="..." />
-                <marker date="1545637575147" expanded="true" signature="748:7984" ph="..." />
+                <marker date="1545650256085" expanded="true" signature="748:753" ph="..." />
+                <marker date="1545650256085" expanded="true" signature="748:7984" ph="..." />
               </folding>
             </state>
           </provider>
@@ -109,7 +131,7 @@
               <folding>
                 <element signature="e#165#183#0" expanded="true" />
                 <element signature="e#676#1680#0" expanded="true" />
-                <marker date="1545644288261" expanded="true" signature="666:1686" ph="..." />
+                <marker date="1545650360676" expanded="true" signature="666:1686" ph="..." />
               </folding>
             </state>
           </provider>
@@ -137,7 +159,7 @@
                 <element signature="e#182#200#0" expanded="true" />
                 <element signature="e#362#682#0" expanded="true" />
                 <element signature="e#713#1031#0" expanded="true" />
-                <marker date="1545646000693" expanded="true" signature="1426:3205" ph="..." />
+                <marker date="1545650272829" expanded="true" signature="1426:3205" ph="..." />
               </folding>
             </state>
           </provider>
@@ -152,7 +174,7 @@
                 <element signature="e#188#200#0" expanded="true" />
                 <element signature="e#421#694#0" expanded="true" />
                 <element signature="e#743#1081#0" expanded="true" />
-                <marker date="1545639147616" expanded="true" signature="325:330" ph="..." />
+                <marker date="1545650379805" expanded="true" signature="325:330" ph="..." />
               </folding>
             </state>
           </provider>
@@ -230,7 +252,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="53" />
     <option name="y" value="30" />
     <option name="width" value="1936" />
@@ -469,6 +491,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15191898" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -533,7 +556,7 @@
             <element signature="e#188#200#0" expanded="true" />
             <element signature="e#421#694#0" expanded="true" />
             <element signature="e#743#1081#0" expanded="true" />
-            <marker date="1545639147616" expanded="true" signature="325:330" ph="..." />
+            <marker date="1545650379805" expanded="true" signature="325:330" ph="..." />
           </folding>
         </state>
       </provider>
@@ -582,9 +605,9 @@
             <element signature="e#1982#2771#0" expanded="true" />
             <element signature="e#2824#3162#0" expanded="true" />
             <element signature="e#3198#3405#0" expanded="true" />
-            <marker date="1545644013877" expanded="true" signature="407:412" ph="..." />
-            <marker date="1545644013877" expanded="true" signature="1285:1290" ph="..." />
-            <marker date="1545644013877" expanded="true" signature="1896:1901" ph="..." />
+            <marker date="1545650396681" expanded="true" signature="407:412" ph="..." />
+            <marker date="1545650396681" expanded="true" signature="1285:1290" ph="..." />
+            <marker date="1545650396681" expanded="true" signature="1896:1901" ph="..." />
           </folding>
         </state>
       </provider>
@@ -595,7 +618,7 @@
           <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
           <folding>
             <element signature="e#426#974#0" expanded="true" />
-            <marker date="1545562021925" expanded="true" signature="323:328" ph="..." />
+            <marker date="1545650413102" expanded="true" signature="323:328" ph="..." />
           </folding>
         </state>
       </provider>
@@ -619,7 +642,7 @@
             <element signature="e#182#200#0" expanded="true" />
             <element signature="e#362#682#0" expanded="true" />
             <element signature="e#713#1031#0" expanded="true" />
-            <marker date="1545646000693" expanded="true" signature="1426:3205" ph="..." />
+            <marker date="1545650272829" expanded="true" signature="1426:3205" ph="..." />
           </folding>
         </state>
       </provider>
@@ -653,7 +676,7 @@
           <folding>
             <element signature="e#165#183#0" expanded="true" />
             <element signature="e#676#1680#0" expanded="true" />
-            <marker date="1545644288261" expanded="true" signature="666:1686" ph="..." />
+            <marker date="1545650360676" expanded="true" signature="666:1686" ph="..." />
           </folding>
         </state>
       </provider>
@@ -665,8 +688,8 @@
           <folding>
             <element signature="e#187#196#0" expanded="true" />
             <element signature="e#830#8056#0" expanded="true" />
-            <marker date="1545637575147" expanded="true" signature="748:753" ph="..." />
-            <marker date="1545637575147" expanded="true" signature="748:7984" ph="..." />
+            <marker date="1545650256085" expanded="true" signature="748:753" ph="..." />
+            <marker date="1545650256085" expanded="true" signature="748:7984" ph="..." />
           </folding>
         </state>
       </provider>
