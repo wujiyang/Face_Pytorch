@@ -63,10 +63,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-845">
-              <caret line="177" column="40" lean-forward="true" selection-start-line="177" selection-start-column="40" selection-end-line="177" selection-end-column="40" />
+            <state relative-caret-position="409">
+              <caret line="228" column="59" lean-forward="true" selection-start-line="228" selection-start-column="59" selection-end-line="228" selection-end-column="59" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
+                <element signature="e#830#8056#0" expanded="true" />
                 <marker date="1545637575147" expanded="true" signature="748:753" ph="..." />
                 <marker date="1545637575147" expanded="true" signature="748:7984" ph="..." />
               </folding>
@@ -279,7 +280,7 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -466,7 +467,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15191898" />
@@ -659,10 +660,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-845">
-          <caret line="177" column="40" lean-forward="true" selection-start-line="177" selection-start-column="40" selection-end-line="177" selection-end-column="40" />
+        <state relative-caret-position="409">
+          <caret line="228" column="59" lean-forward="true" selection-start-line="228" selection-start-column="59" selection-end-line="228" selection-end-column="59" />
           <folding>
             <element signature="e#187#196#0" expanded="true" />
+            <element signature="e#830#8056#0" expanded="true" />
             <marker date="1545637575147" expanded="true" signature="748:753" ph="..." />
             <marker date="1545637575147" expanded="true" signature="748:7984" ph="..." />
           </folding>
