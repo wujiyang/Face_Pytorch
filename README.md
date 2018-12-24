@@ -8,21 +8,30 @@ All codes are evaluated on Pytorch 0.4.0, Ubuntu 16.04.10, CUDA 9.1 and CUDNN 7.
 
 Model Type   |    Loss Type   |  LFW Acc.  |  AgeDB-30  |  CFP-FP  
 -------------|:--------------:|-----------:|-----------:|---------:
-MobileFaceNet| ArcFace Margin |    99.21%  |            |
-LResNet-50   | ArcFace Margin |            |            |   
-LResNet-101  | ArcFace Margin |            |            |     
+MobileFaceNet|     ArcFace    |    99.21%  |            |
+LResNet-50   |     ArcFace    |            |            |   
+LResNet-101  |     ArcFace    |            |            |     
 
 
 
 ### Train with VGGFace2
 Model Type   |    Loss Type   |  LFW Acc.  |  AgeDB-30  |  CFP-FP  
 -------------|:--------------:|-----------:|-----------:|---------:
-MobileFaceNet| ArcFace Margin |      |            |
-LResNet-50   | ArcFace Margin |            |            |  
+MobileFaceNet|     ArcFace    |            |            |
+LResNet-50   |     ArcFace    |            |            |   
+LResNet-101  |     ArcFace    |            |            |     
 
 
 ### Train with MS-Celeb-1M
 Model Type   |    Loss Type   |  LFW Acc.  |  AgeDB-30  |  CFP-FP  
 -------------|:--------------:|-----------:|-----------:|---------:
-MobileFaceNet| ArcFace Margin |      |            |
-LResNet-50   | ArcFace Margin |            |            |  
+MobileFaceNet|     ArcFace    |            |            |
+LResNet-50   |     ArcFace    |            |            |   
+LResNet-101  |     ArcFace    |            |            |     
+
+
+
+
+### References
+[CosFace_pytorch](https://github.com/MuggleWang/CosFace_pytorch)  
+[MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)
