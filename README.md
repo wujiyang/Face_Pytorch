@@ -6,30 +6,29 @@ All codes are evaluated on Pytorch 0.4.0 with Python 3.6, Ubuntu 16.04.10, CUDA 
 
 ### Train with CASIA-WebFace
 
-  Model Type | Loss Type | LFW Acc. |MegaFace Acc.@R|MegaFace Ver.@R | SIZE 
-:-----------:|:---------:|:--------:|:-------------:|:--------------:|:-----:
-MobileFaceNet|  ArcFace  |  0.9922  |    0.7645     |    0.8195      |  4MB
-LResNet-50   |  ArcFace  |          |               |                | 292MB 
-LResNet-101  |  ArcFace  |          |               |                |
+  Model Type |   Loss    | LFW Acc. | AgeDB30 |MF Acc.@R|MF Ver.@R | SIZE 
+:-----------:|:---------:|:--------:|:-------:|:-------:|:--------:|:-----:
+MobileFaceNet|  ArcFace  |  0.9922  |  0.9257 | 0.7645  |  0.8195  |  4MB
+LResNet-50   |  ArcFace  |          |         |         |          | 292MB 
+LResNet-101  |  ArcFace  |          |         |         |          |
 
 
 ### Train with MS-Celeb-1M
 
-  Model Type | Loss Type | LFW Acc. |MegaFace Acc.@R|MegaFace Ver.@R | SIZE 
-:-----------:|:---------:|:--------:|:-------------:|:--------------:|:-----:
-MobileFaceNet|  ArcFace  |  0.9922  |               |                |  4MB
-LResNet-50   |  ArcFace  |          |               |                |
-LResNet-101  |  ArcFace  |          |               |                |
+ Model Type |   Loss    | LFW Acc. |AgeDB30|MF Acc.@R|MF Ver.@R | SIZE 
+:-----------:|:---------:|:--------:|:------:|:-------:|:--------:|:-----:
+MobileFaceNet|  ArcFace  |  0.9922  | 0.9257 | 0.7645  |  0.8195  |  4MB
+LResNet-50   |  ArcFace  |          |        |         |          | 292MB 
+LResNet-101  |  ArcFace  |          |        |         |          |
 
 
 ### Train with VGGFace2
 
-  Model Type | Loss Type | LFW Acc. |MegaFace Acc.@R|MegaFace Ver.@R | SIZE 
-:-----------:|:---------:|:--------:|:-------------:|:--------------:|:-----:
-MobileFaceNet|  ArcFace  |  0.9922  |               |                |  4MB
-LResNet-50   |  ArcFace  |          |               |                |
-LResNet-101  |  ArcFace  |          |               |                |
-
+ Model Type |   Loss    | LFW Acc. |AgeDB30|MF Acc.@R|MF Ver.@R | SIZE 
+:-----------:|:---------:|:--------:|:------:|:-------:|:--------:|:-----:
+MobileFaceNet|  ArcFace  |  0.9922  | 0.9257 | 0.7645  |  0.8195  |  4MB
+LResNet-50   |  ArcFace  |          |        |         |          | 292MB 
+LResNet-101  |  ArcFace  |          |        |         |          |
 
 
 
