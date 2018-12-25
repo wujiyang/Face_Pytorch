@@ -22,9 +22,8 @@ from dataset.lfw import LFW
 from torch.optim import lr_scheduler
 import torch.optim as optim
 import time
-from lfw_eval import evaluation_10_fold
+from lfw_eval import evaluation_10_fold, getFeatureFromTorch
 import numpy as np
-import scipy.io
 import torchvision.transforms as transforms
 import argparse
 
@@ -164,29 +163,8 @@ def train(args):
 
         # test model on lfw
         if epoch % args.test_freq == 0:
-            net.eval()
-            featureLs = None
-            featureRs = None
-            _print('Test Epoch: {} ...'.format(epoch))
-            for data in testloader:
-                for i in range(len(data)):
-                    data[i] = data[i].to(device)
-                res = [net(d).data.cpu().numpy() for d in data]
-                featureL = np.concatenate((res[0], res[1]), 1)
-                featureR = np.concatenate((res[2], res[3]), 1)
-                if featureLs is None:
-                    featureLs = featureL
-                else:
-                    featureLs = np.concatenate((featureLs, featureL), 0)
-                if featureRs is None:
-                    featureRs = featureR
-                else:
-                    featureRs = np.concatenate((featureRs, featureR), 0)
-
-            result = {'fl': featureLs, 'fr': featureRs, 'fold': testdataset.folds, 'flag': testdataset.flags}
-            # save tmp_result
-            scipy.io.savemat('./result/tmp_result.mat', result)
-            accs = evaluation_10_fold('./result/tmp_result.mat')
+            getFeatureFromTorch('./result/cur_epoch_result.mat', net, device, testdataset, testloader)
+            accs = evaluation_10_fold('./result/cur_epoch_result.mat')
             _print('Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
             if best_acc < np.mean(accs):
                 best_acc = np.mean(accs)
