@@ -161,16 +161,6 @@ def train(args):
         loss_msg = 'Total_loss: {:.4f} time: {:.0f}m {:.0f}s'.format(train_total_loss, time_elapsed // 60, time_elapsed % 60)
         _print(loss_msg)
 
-        # test model on lfw
-        if epoch % args.test_freq == 0:
-            getFeatureFromTorch('./result/cur_epoch_result.mat', net, device, testdataset, testloader)
-            accs = evaluation_10_fold('./result/cur_epoch_result.mat')
-            _print('Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-            if best_acc < np.mean(accs):
-                best_acc = np.mean(accs)
-                best_epoch = epoch
-            _print('Current Best Accuracy: {:.4f} in Epoch: {}'.format(best_acc * 100, best_epoch))
-
         # save model
         if epoch % args.save_freq == 0:
             msg = 'Saving checkpoint: {}'.format(epoch)
@@ -185,6 +175,17 @@ def train(args):
                 'epoch': epoch,
                 'net_state_dict': net_state_dict},
                 os.path.join(save_dir, '%03d.ckpt' % epoch))
+
+        # test model on lfw
+        if epoch % args.test_freq == 0:
+            getFeatureFromTorch('./result/cur_epoch_result.mat', net, device, testdataset, testloader)
+            accs = evaluation_10_fold('./result/cur_epoch_result.mat')
+            _print('Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
+            if best_acc < np.mean(accs):
+                best_acc = np.mean(accs)
+                best_epoch = epoch
+            _print('Current Best Accuracy: {:.4f} in Epoch: {}'.format(best_acc * 100, best_epoch))
+
     _print('Best Accuracy: {:.4f} in Epoch: {}'.format(best_acc * 100, best_epoch))
     print('finishing training')
 
