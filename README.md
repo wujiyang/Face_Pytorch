@@ -4,7 +4,13 @@ The implementation of  popular face recognition algorithms in pytorch framework,
 All codes are evaluated on Pytorch 0.4.0 with Python 3.6, Ubuntu 16.04.10, CUDA 9.1 and CUDNN 7.1.
 
 
-### Train with CASIA-WebFace
+## Data Preparation
+For CNN training, I use CASIA-WebFace and Cleaned MS-Celeb-1M, aligned by MTCNN with the size of 112x112.  For performance testing, I test the results on LFW, AgeDB30, MegaFace Identification and  MegaFace Verification
+
+The Aligned AgeDB-30 is restored from the binary file provided by [insightface](https://github.com/deepinsight/insightface), others are preprocessed by myself.
+
+## Result
+#### Train on CASIA-WebFace (small protocol)
 
   Model Type |   Loss    | LFW Acc. | AgeDB30 |MF Acc.@R|MF Ver.@R | SIZE 
 :-----------:|:---------:|:--------:|:-------:|:-------:|:--------:|:-----:
@@ -13,22 +19,14 @@ LResNet-50   |  ArcFace  |          |         |         |          | 292MB
 LResNet-101  |  ArcFace  |          |         |         |          |
 
 
-### Train with MS-Celeb-1M
+#### Train on MS-Celeb-1M (large protocol)
 
- Model Type |   Loss    | LFW Acc. |AgeDB30|MF Acc.@R|MF Ver.@R | SIZE 
-:-----------:|:---------:|:--------:|:------:|:-------:|:--------:|:-----:
-MobileFaceNet|  ArcFace  |  0.9922  | 0.9257 | 0.7645  |  0.8195  |  4MB
-LResNet-50   |  ArcFace  |          |        |         |          | 292MB 
-LResNet-101  |  ArcFace  |          |        |         |          |
+  Model Type |   Loss    | LFW Acc. | AgeDB30 |MF Acc.@R|MF Ver.@R | SIZE 
+:-----------:|:---------:|:--------:|:-------:|:-------:|:--------:|:-----:
+MobileFaceNet|  ArcFace  |  0.9922  |  0.9257 | 0.7645  |  0.8195  |  4MB
+LResNet-50   |  ArcFace  |          |         |         |          | 292MB 
+LResNet-101  |  ArcFace  |          |         |         |          |
 
-
-### Train with VGGFace2
-
- Model Type |   Loss    | LFW Acc. |AgeDB30|MF Acc.@R|MF Ver.@R | SIZE 
-:-----------:|:---------:|:--------:|:------:|:-------:|:--------:|:-----:
-MobileFaceNet|  ArcFace  |  0.9922  | 0.9257 | 0.7645  |  0.8195  |  4MB
-LResNet-50   |  ArcFace  |          |        |         |          | 292MB 
-LResNet-101  |  ArcFace  |          |        |         |          |
 
 
 
