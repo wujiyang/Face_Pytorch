@@ -14,6 +14,7 @@ from torch import nn
 from torch.nn import DataParallel
 from datetime import datetime
 from backbone.mobilefacenet import MobileFaceNet
+from backbone.resnet import LResNet50, LResNet101
 from margin.ArcMarginProduct import ArcMarginProduct
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
@@ -37,7 +38,7 @@ def train(args):
 
     # log init
     start_epoch = 1
-    save_dir = os.path.join(args.save_dir, args.model_pre + 'v1_' + datetime.now().strftime('%Y%m%d_%H%M%S'))
+    save_dir = os.path.join(args.save_dir, args.model_pre + datetime.now().strftime('%Y%m%d_%H%M%S') + '_' + args.backbone.upper())
     if os.path.exists(save_dir):
         raise NameError('model dir exists!')
     os.makedirs(save_dir)
@@ -61,14 +62,14 @@ def train(args):
     if args.backbone is 'mobileface':
         net = MobileFaceNet()
     elif args.backbone is 'res50':
-        pass
+        net = LResNet50()
     elif args.backbone is 'res101':
-        pass
+        net = LResNet101()
     else:
-        print(args.backbone, 'is not available!')
+        print(args.backbone, ' is not available!')
 
     if args.margin_type is 'arcface':
-        ArcMargin = ArcMarginProduct(128, trainset.class_nums)
+        margin = ArcMarginProduct(args.feature_dim, trainset.class_nums)
     elif args.margin_type is 'cosface':
         pass
     elif args.margin_type is 'sphereface':
@@ -76,7 +77,7 @@ def train(args):
     else:
         print(args.margin_type, 'is not available!')
 
-    # resume or pretrain
+    # TODO: Adaptive the finetune process for different backbone strcuture
     if args.pretrain:
         print('load pretrained model from:', args.pretrain)
         # load pretrained model
@@ -96,8 +97,8 @@ def train(args):
         start_epoch = ckpt['epoch'] + 1
 
     # define optimizers for different layer
-    ignored_params_id = list(map(id, net.linear1.parameters()))
-    ignored_params_id += list(map(id, ArcMargin.weight))
+    ignored_params_id = []
+    ignored_params_id += list(map(id, margin.weight))
     prelu_params = []
     for m in net.modules():
         if isinstance(m, nn.PReLU):
@@ -107,19 +108,18 @@ def train(args):
 
     optimizer_ft = optim.SGD([
         {'params': base_params, 'weight_decay': 4e-5},
-        {'params': net.linear1.parameters(), 'weight_decay': 4e-4},
-        {'params': ArcMargin.weight, 'weight_decay': 4e-4},
+        {'params': margin.weight, 'weight_decay': 4e-4},
         {'params': prelu_params, 'weight_decay': 0.0}
     ], lr=0.1, momentum=0.9, nesterov=True)
 
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 35, 70], gamma=0.1)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 35, 45], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
-        ArcMargin = DataParallel(ArcMargin).to(device)
+        margin = DataParallel(margin).to(device)
     else:
         net = net.to(device)
-        ArcMargin = ArcMargin.to(device)
+        margin = margin.to(device)
     criterion = torch.nn.CrossEntropyLoss().to(device)
 
     best_acc = 0.0
@@ -142,7 +142,7 @@ def train(args):
             optimizer_ft.zero_grad()
 
             raw_logits = net(img)
-            output = ArcMargin(raw_logits, label)
+            output = margin(raw_logits, label)
             total_loss = criterion(output, label)
             total_loss.backward()
             optimizer_ft.step()
@@ -217,19 +217,18 @@ if __name__ == '__main__':
     parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/webface_align_train_rm_200.list', help='train list')
     parser.add_argument('--test_root', type=str, default='/media/ramdisk/lfw_align_112', help='test image root')
     parser.add_argument('--test_file_list', type=str, default='/media/ramdisk/pairs.txt', help='test file list')
-
-    parser.add_argument('--backbone', type=str, default='mobileface', help='mobileface, res50, res101')
+    parser.add_argument('--backbone', type=str, default='res50', help='mobileface, res50, res101')
     parser.add_argument('--margin_type', type=str, default='arcface', help='arcface, cosface, sphereface')
-
+    parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')
     parser.add_argument('--save_freq', type=int, default=1, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=1, help='test frequency')
-    parser.add_argument('--total_epoch', type=int, default=80, help='total epochs')
+    parser.add_argument('--total_epoch', type=int, default=55, help='total epochs')
     parser.add_argument('--resume', type=str, default='', help='resume model')
     parser.add_argument('--pretrain', type=str, default='', help='pretrain model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='CASIA_', help='model prefix')
-    parser.add_argument('--gpus', type=str, default='0,1', help='model prefix')
+    parser.add_argument('--gpus', type=str, default='0,1,2,3', help='model prefix')
 
     args = parser.parse_args()
 
