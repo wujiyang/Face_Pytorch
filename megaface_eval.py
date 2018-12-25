@@ -74,7 +74,7 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
     ])
     megaface_dataset = MegaFace(face_scrub_path, megaface_path, transform=transform)
     megaface_loader = torch.utils.data.DataLoader(megaface_dataset, batch_size=batch_size,
-                                             shuffle=False, num_workers=2, drop_last=False)
+                                             shuffle=False, num_workers=12, drop_last=False)
 
     for data in megaface_loader:
         img, img_path= data[0].to(device), data[1]
@@ -97,12 +97,12 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='./model/CASIA_v1_20181224_154708/013.ckpt', help='The path of trained model')
+    parser.add_argument('--model_path', type=str, default='./model/CASIA_v1_20181224_154708/050.ckpt', help='The path of trained model')
     parser.add_argument('--backbone_net', type=str, default='mobileface', help='mobileface, res50, res101')
-    parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/test/facescrub/', help='facescrub data')
-    parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/test/megaface/', help='megaface data')
-    parser.add_argument('--batch_size', type=int, default=32, help='batch size')
-    parser.add_argument('--gpus', type=str, default='0,1', help='gpu list')
+    parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
+    parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
+    parser.add_argument('--batch_size', type=int, default=512, help='batch size')
+    parser.add_argument('--gpus', type=str, default='0,1,2,3', help='gpu list')
     parser.add_argument("--do_norm", type=int, default=1, help="1 if normalize feature, 0 do nothing(Default case)")
     args = parser.parse_args()
 

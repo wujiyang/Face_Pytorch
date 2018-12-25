@@ -4,8 +4,8 @@
 @author: wujiyang
 @contact: wujiyang@hust.edu.cn
 @file: ArcMarginProduct.py
-@time: 2018/12/21 16:44
-@desc: arcface margin product
+@time: 2018/12/25 9:13
+@desc: additive angular margin for arcface/insightface
 '''
 
 import math

@@ -4,8 +4,8 @@
 @author: wujiyang
 @contact: wujiyang@hust.edu.cn
 @file: CosineMarginProduct.py
-@time: 2018/12/23 18:37
-@desc: largr margin cosine distance
+@time: 2018/12/25 9:13
+@desc: additive cosine margin for cosface
 '''
 
 import torch

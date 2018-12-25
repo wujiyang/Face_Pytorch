@@ -6,29 +6,31 @@ All codes are evaluated on Pytorch 0.4.0 with Python 3.6, Ubuntu 16.04.10, CUDA 
 
 ### Train with CASIA-WebFace
 
-  Model Type | Loss Type | LFW Acc. |MegaFace Acc.|AgeDB-30| CFP-FP | SIZE 
-:-----------:|:---------:|:--------:|:-----------:|:------:|:------:|:-----:
-MobileFaceNet|  ArcFace  |  0.9922  |             |        |        |  4MB
-LResNet-50   |  ArcFace  |          |             |        |        |
-LResNet-101  |  ArcFace  |          |             |        |        |
+  Model Type | Loss Type | LFW Acc. |MegaFace Acc.@R|MegaFace Ver.@R | SIZE 
+:-----------:|:---------:|:--------:|:-------------:|:--------------:|:-----:
+MobileFaceNet|  ArcFace  |  0.9922  |               |                |  4MB
+LResNet-50   |  ArcFace  |          |               |                |
+LResNet-101  |  ArcFace  |          |               |                |
 
+
+### Train with MS-Celeb-1M
+
+  Model Type | Loss Type | LFW Acc. |MegaFace Acc.@R|MegaFace Ver.@R | SIZE 
+:-----------:|:---------:|:--------:|:-------------:|:--------------:|:-----:
+MobileFaceNet|  ArcFace  |  0.9922  |               |                |  4MB
+LResNet-50   |  ArcFace  |          |               |                |
+LResNet-101  |  ArcFace  |          |               |                |
 
 
 ### Train with VGGFace2
 
-  Model Type | Loss Type | LFW Acc. |MegaFace Acc.|AgeDB-30| CFP-FP | SIZE 
-:-----------:|:---------:|:--------:|:-----------:|:------:|:------:|:-----:
-MobileFaceNet|  ArcFace  |          |             |        |        |  
-LResNet-50   |  ArcFace  |          |             |        |        |
-LResNet-101  |  ArcFace  |          |             |        |        |
+  Model Type | Loss Type | LFW Acc. |MegaFace Acc.@R|MegaFace Ver.@R | SIZE 
+:-----------:|:---------:|:--------:|:-------------:|:--------------:|:-----:
+MobileFaceNet|  ArcFace  |  0.9922  |               |                |  4MB
+LResNet-50   |  ArcFace  |          |               |                |
+LResNet-101  |  ArcFace  |          |               |                |
 
-### Train with MS-Celeb-1M
 
-  Model Type | Loss Type |          |MegaFace Acc.|AgeDB-30| CFP-FP | SIZE 
-:-----------:|:---------:|:--------:|:-----------:|:------:|:------:|:-----:
-MobileFaceNet|  ArcFace  |  0.9918  |             |        |        |  
-LResNet-50   |  ArcFace  |          |             |        |        |
-LResNet-101  |  ArcFace  |          |             |        |        |
 
 
 

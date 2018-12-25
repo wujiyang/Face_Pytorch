@@ -14,7 +14,7 @@ from torch import nn
 from torch.nn import DataParallel
 from datetime import datetime
 from backbone.mobilefacenet import MobileFaceNet
-from arcface.ArcMarginProduct import ArcMarginProduct
+from margin.ArcMarginProduct import ArcMarginProduct
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
 from dataset.lfw import LFW
@@ -112,7 +112,7 @@ def train(args):
         {'params': prelu_params, 'weight_decay': 0.0}
     ], lr=0.1, momentum=0.9, nesterov=True)
 
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 35, 45], gamma=0.1)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 35, 70], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -224,7 +224,7 @@ if __name__ == '__main__':
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')
     parser.add_argument('--save_freq', type=int, default=1, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=1, help='test frequency')
-    parser.add_argument('--total_epoch', type=int, default=50, help='total epochs')
+    parser.add_argument('--total_epoch', type=int, default=80, help='total epochs')
     parser.add_argument('--resume', type=str, default='', help='resume model')
     parser.add_argument('--pretrain', type=str, default='', help='pretrain model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
