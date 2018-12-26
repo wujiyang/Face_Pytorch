@@ -87,7 +87,7 @@ def loadModel(data_root, file_list, backbone, gpus='0', resume=None):
         transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))  # range [0.0, 1.0] -> [-1.0,1.0]
     ])
     agedb_dataset = AgeDB30(data_root, file_list, transform=transform)
-    agedb_loader = torch.utils.data.DataLoader(agedb_dataset, batch_size=256,
+    agedb_loader = torch.utils.data.DataLoader(agedb_dataset, batch_size=128,
                                              shuffle=False, num_workers=2, drop_last=False)
 
     return net, device, agedb_dataset, agedb_loader

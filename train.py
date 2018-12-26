@@ -19,6 +19,7 @@ from margin.ArcMarginProduct import ArcMarginProduct
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
 from dataset.lfw import LFW
+from dataset.agedb import AgeDB30
 from torch.optim import lr_scheduler
 import torch.optim as optim
 import time
@@ -53,16 +54,19 @@ def train(args):
     trainset = CASIAWebFace(args.train_root, args.train_file_list, transform=transform)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=args.batch_size,
                                               shuffle=True, num_workers=8, drop_last=False)
-    testdataset = LFW(args.test_root, args.test_file_list, transform=transform)
-    testloader = torch.utils.data.DataLoader(testdataset, batch_size=128,
+    lfwdataset = LFW(args.lfw_test_root, args.lfw_file_list, transform=transform)
+    lfwloader = torch.utils.data.DataLoader(lfwdataset, batch_size=128,
                                              shuffle=False, num_workers=4, drop_last=False)
+    agedbdataset = AgeDB30(args.agedb_test_root, args.agedb_file_list, transform=transform)
+    agedbloader = torch.utils.data.DataLoader(agedbdataset, batch_size=128,
+                                            shuffle=False, num_workers=4, drop_last=False)
 
     # define backbone and margin layer
-    if args.backbone is 'mobileface':
+    if args.backbone is 'MobileFace':
         net = MobileFaceNet()
-    elif args.backbone is 'res50':
+    elif args.backbone is 'Res50':
         net = ResNet50()
-    elif args.backbone is 'res101':
+    elif args.backbone is 'Res101':
         net = ResNet101()
     else:
         print(args.backbone, ' is not available!')
@@ -106,8 +110,8 @@ def train(args):
     base_params = filter(lambda p: id(p) not in ignored_params_id, net.parameters())
 
     optimizer_ft = optim.SGD([
-        {'params': base_params, 'weight_decay': 4e-5},
-        {'params': margin.weight, 'weight_decay': 4e-4},
+        {'params': base_params, 'weight_decay': 5e-4},
+        {'params': margin.weight, 'weight_decay': 5e-4},
         {'params': prelu_params, 'weight_decay': 0.0}
     ], lr=0.1, momentum=0.9, nesterov=True)
 
@@ -121,8 +125,10 @@ def train(args):
         margin = margin.to(device)
     criterion = torch.nn.CrossEntropyLoss().to(device)
 
-    best_acc = 0.0
-    best_epoch = 0
+    best_lfw_acc = 0.0
+    best_lfw_epoch = 0
+    best_agedb30_acc = 0.0
+    best_agedb30_epoch = 0
 
     for epoch in range(start_epoch, args.total_epoch + 1):
         exp_lr_scheduler.step()
@@ -176,17 +182,28 @@ def train(args):
                 'net_state_dict': net_state_dict},
                 os.path.join(save_dir, '%03d.ckpt' % epoch))
 
-        # test model on lfw
         if epoch % args.test_freq == 0:
-            getFeatureFromTorch('./result/cur_epoch_result.mat', net, device, testdataset, testloader)
-            accs = evaluation_10_fold('./result/cur_epoch_result.mat')
-            _print('Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-            if best_acc < np.mean(accs):
-                best_acc = np.mean(accs)
-                best_epoch = epoch
-            _print('Current Best Accuracy: {:.4f} in Epoch: {}'.format(best_acc * 100, best_epoch))
+            # test model on lfw
+            getFeatureFromTorch('./result/cur_epoch_lfw_result.mat', net, device, lfwdataset, lfwloader)
+            accs = evaluation_10_fold('./result/cur_epoch_lfw_result.mat')
+            _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
+            if best_lfw_acc < np.mean(accs):
+                best_lfw_acc = np.mean(accs)
+                best_lfw_epoch = epoch
 
-    _print('Best Accuracy: {:.4f} in Epoch: {}'.format(best_acc * 100, best_epoch))
+            # test model on AgeDB30
+            getFeatureFromTorch('./result/cur_epoch_agedb30_result.mat', net, device, agedbdataset, agedbloader)
+            accs = evaluation_10_fold('./result/cur_epoch_agedb30_result.mat')
+            _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
+            if best_agedb30_acc < np.mean(accs):
+                best_agedb30_acc = np.mean(accs)
+                best_agedb30_epoch = epoch
+
+            _print('Current Best Accuracy: LFW with accuracy of {:.4f} in Epoch: {} and AgeDB-30 with accuracy of {:.4f} in Epoch: {}'.format(
+                best_lfw_acc * 100, best_lfw_epoch, best_agedb30_acc * 100, best_agedb30_epoch))
+
+    _print('Best Accuracy: LFW with accuracy of {:.4f} in Epoch: {} and AgeDB-30 with accuracy of {:.4f} in Epoch: {}'.format(
+        best_lfw_acc * 100, best_lfw_epoch, best_agedb30_acc * 100, best_agedb30_epoch))
     print('finishing training')
 
 
@@ -194,15 +211,19 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PyTorch for deep face recognition')
     parser.add_argument('--train_root', type=str, default='/media/ramdisk/webface_align_112/', help='train image root')
     parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/webface_align_train_rm_200.list', help='train list')
-    parser.add_argument('--test_root', type=str, default='/media/ramdisk/lfw_align_112', help='test image root')
-    parser.add_argument('--test_file_list', type=str, default='/media/ramdisk/pairs.txt', help='test file list')
-    parser.add_argument('--backbone', type=str, default='res50', help='mobileface, res50, res101')
+    parser.add_argument('--lfw_test_root', type=str, default='/media/ramdisk/lfw_align_112', help='lfw image root')
+    parser.add_argument('--lfw_file_list', type=str, default='/media/ramdisk/pairs.txt', help='lfw pair file list')
+    parser.add_argument('--agedb_test_root', type=str, default='/media/sda/AgeDB-30/agedb30_align_112', help='agedb image root')
+    parser.add_argument('--agedb_file_list', type=str, default='/media/sda/AgeDB-30/agedb_30_pair.txt', help='agedb pair file list')
+
+    parser.add_argument('--backbone', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50-IR, SeRes50-IR, SphereNet')
     parser.add_argument('--margin_type', type=str, default='arcface', help='arcface, cosface, sphereface')
-    parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
+    parser.add_argument('--feature_dim', type=int, default=128, help='feature dimension, 128 or 512')
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')
+    parser.add_argument('--total_epoch', type=int, default=55, help='total epochs')
+
     parser.add_argument('--save_freq', type=int, default=1, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=1, help='test frequency')
-    parser.add_argument('--total_epoch', type=int, default=55, help='total epochs')
     parser.add_argument('--resume', type=str, default='', help='resume model')
     parser.add_argument('--pretrain', type=str, default='', help='pretrain model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
