@@ -21,7 +21,8 @@ ResNet50        |  ArcFace  |  0.9912  |    0.9158    |             | 292MB
 ResNet50-IR     |  ArcFace  |          |              |             |         
 SEResNet50-IR   |  ArcFace  |          |              |             |         
 
-**Train on MS-Celeb-1M (large protocol)**
+**Train on MS-Celeb-1M (large protocol)**  
+
   Model Type    |   Loss    | LFW Acc. | AgeDB30 Acc. | CFP-FP Acc. |  SIZE 
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
 MobileFaceNet   |  ArcFace  |          |              |             |  4MB
@@ -30,7 +31,8 @@ ResNet50-IR     |  ArcFace  |          |              |             |
 SEResNet50-IR   |  ArcFace  |          |              |             |        
 
 ### MegaFace Rank 1 Identifiaction and Verfication with TPR@FPR=1e-6
-**Train on CASIA-WebFace (small protocol)**
+**Train on CASIA-WebFace (small protocol)**   
+
   Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE 
 :--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:
 MobileFaceNet   |  ArcFace  |         |         |           |           |  4MB
@@ -38,13 +40,15 @@ ResNet50        |  ArcFace  |         |         |           |           | 292MB
 ResNet50-IR     |  ArcFace  |         |         |           |           |
 SEResNet50-IR   |  ArcFace  |         |         |           |           |
 
-**Train on CASIA-WebFace (large protocol)**
+**Train on CASIA-WebFace (small protocol)**  
+
   Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE 
 :--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:
-MobileFaceNet   |  ArcFace  |         |   |     |           |           |  4MB
-ResNet50        |  ArcFace  |  |      |         |           |           | 292MB 
+MobileFaceNet   |  ArcFace  |         |         |           |           |  4MB
+ResNet50        |  ArcFace  |         |         |           |           | 292MB 
 ResNet50-IR     |  ArcFace  |         |         |           |           |
 SEResNet50-IR   |  ArcFace  |         |         |           |           |
+
 
 ### References
 [CosFace_pytorch](https://github.com/MuggleWang/CosFace_pytorch)  
