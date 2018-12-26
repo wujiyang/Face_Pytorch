@@ -15,7 +15,7 @@ For AgeDB-30 and CFP-FP, the aligned images and evaluation pairs are restored fr
 > ResNet50-IR: CNN described in ArcFace paper  
 > SEResNet50-IR: CNN described in ArcFace paper 
 ### Verification result on LFW, AgeDB-30 and CFP_FP
-**Train on CASIA-WebFace (small protocol)**
+Train on CASIA-WebFace (small protocol)
 
   Model Type    |   Loss    | LFW Acc. | AgeDB-30 Acc.| CFP-FP Acc. |  SIZE 
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
@@ -24,7 +24,7 @@ ResNet50        |  ArcFace  |          |              |             | 292MB
 ResNet50-IR     |  ArcFace  |          |              |             |         
 SEResNet50-IR   |  ArcFace  |          |              |             |         
 
-**Train on MS-Celeb-1M (large protocol)**  
+Train on MS-Celeb-1M (large protocol) 
 
   Model Type    |   Loss    | LFW Acc. | AgeDB-30 Acc.| CFP-FP Acc. |  SIZE 
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
@@ -34,7 +34,7 @@ ResNet50-IR     |  ArcFace  |          |              |             |
 SEResNet50-IR   |  ArcFace  |          |              |             |        
 
 ### MegaFace Rank 1 Identifiaction and Verfication with TPR@FPR=1e-6
-**Train on CASIA-WebFace (small protocol)**   
+Train on CASIA-WebFace (small protocol) 
 
   Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE 
 :--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:
@@ -43,7 +43,7 @@ ResNet50        |  ArcFace  |         |         |           |           | 292MB
 ResNet50-IR     |  ArcFace  |         |         |           |           |
 SEResNet50-IR   |  ArcFace  |         |         |           |           |
 
-**Train on MS-Celeb-1M (large protocol)**  
+Train on MS-Celeb-1M (large protocol)
 
   Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE 
 :--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:
