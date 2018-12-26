@@ -3,7 +3,7 @@
 '''
 @author: wujiyang
 @contact: wujiyang@hust.edu.cn
-@file: megaface_eval.py.py
+@file: eval_megaface.py
 @time: 2018/12/24 16:28
 @desc: megaface feature extractor
 '''

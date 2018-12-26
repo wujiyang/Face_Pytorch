@@ -15,7 +15,7 @@ For AgeDB-30, the aligned images and evaluation pairs are restored from the mxne
   Model Type |   Loss    | LFW Acc. | AgeDB30 |MF Acc.@R|MF Ver.@R | SIZE 
 :-----------:|:---------:|:--------:|:-------:|:-------:|:--------:|:-----:
 MobileFaceNet|  ArcFace  |  0.9922  |  0.9257 | 0.7645  |  0.8195  |  4MB
-LResNet-50   |  ArcFace  |          |         |         |          | 292MB 
+LResNet-50   |  ArcFace  |  0.9912  |         |         |          | 292MB 
 LResNet-101  |  ArcFace  |          |         |         |          |
 
 

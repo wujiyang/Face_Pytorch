@@ -22,7 +22,7 @@ from dataset.lfw import LFW
 from torch.optim import lr_scheduler
 import torch.optim as optim
 import time
-from lfw_eval import evaluation_10_fold, getFeatureFromTorch
+from eval_lfw import evaluation_10_fold, getFeatureFromTorch
 import numpy as np
 import torchvision.transforms as transforms
 import argparse

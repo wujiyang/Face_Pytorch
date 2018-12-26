@@ -3,7 +3,7 @@
 '''
 @author: wujiyang
 @contact: wujiyang@hust.edu.cn
-@file: lfw_eval.py
+@file: eval_lfw.py
 @time: 2018/12/22 9:47
 @desc:
 '''
