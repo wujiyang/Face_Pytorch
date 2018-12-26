@@ -7,7 +7,7 @@ All codes are evaluated on Pytorch 0.4.0 with Python 3.6, Ubuntu 16.04.10, CUDA 
 ## Data Preparation
 For CNN training, I use CASIA-WebFace and Cleaned MS-Celeb-1M, aligned by MTCNN with the size of 112x112.  For performance testing, I report the results on LFW, AgeDB30, MegaFace Identification and Verification.
 
-For AgeDB-30, the aligned images and evaluation pairs are restored from the mxnet binary file provided by [insightface](https://github.com/deepinsight/insightface), tool is available in this repository.
+For AgeDB-30, the aligned images and evaluation pairs are restored from the mxnet binary file provided by [insightface](https://github.com/deepinsight/insightface), tool is available in this repository. You should install a mxnet-cpu for the image parsing, just do ' **pip install mxnet** ' is ok.
 
 ## Result
 #### Train on CASIA-WebFace (small protocol)
