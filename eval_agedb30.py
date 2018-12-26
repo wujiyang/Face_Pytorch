@@ -92,7 +92,6 @@ def loadModel(data_root, file_list, backbone, gpus='0', resume=None):
 
     return net, device, agedb_dataset, agedb_loader
 
-
 def getFeatureFromTorch(feature_save_dir, net, device, data_set, data_loader):
     net.eval()
     featureLs = None

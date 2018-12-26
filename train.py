@@ -15,11 +15,13 @@ from torch.nn import DataParallel
 from datetime import datetime
 from backbone.mobilefacenet import MobileFaceNet
 from backbone.resnet import ResNet50, ResNet101
+from backbone.arcfacenet import SEResNet_IR
 from margin.ArcMarginProduct import ArcMarginProduct
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
 from dataset.lfw import LFW
 from dataset.agedb import AgeDB30
+from dataset.cfp import CFP_FP
 from torch.optim import lr_scheduler
 import torch.optim as optim
 import time
@@ -53,13 +55,17 @@ def train(args):
     # train dataset
     trainset = CASIAWebFace(args.train_root, args.train_file_list, transform=transform)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=args.batch_size,
-                                              shuffle=True, num_workers=8, drop_last=False)
+                                              shuffle=True, num_workers=12, drop_last=False)
+    # test dataset
     lfwdataset = LFW(args.lfw_test_root, args.lfw_file_list, transform=transform)
     lfwloader = torch.utils.data.DataLoader(lfwdataset, batch_size=128,
                                              shuffle=False, num_workers=4, drop_last=False)
     agedbdataset = AgeDB30(args.agedb_test_root, args.agedb_file_list, transform=transform)
     agedbloader = torch.utils.data.DataLoader(agedbdataset, batch_size=128,
                                             shuffle=False, num_workers=4, drop_last=False)
+    cfpfpdataset = CFP_FP(args.cfpfp_test_root, args.cfpfp_file_list, transform=transform)
+    cfpfploader = torch.utils.data.DataLoader(cfpfpdataset, batch_size=128,
+                                              shuffle=False, num_workers=4, drop_last=False)
 
     # define backbone and margin layer
     if args.backbone is 'MobileFace':
@@ -68,6 +74,10 @@ def train(args):
         net = ResNet50()
     elif args.backbone is 'Res101':
         net = ResNet101()
+    elif args.backbone is 'Res50-IR':
+        net = SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
+    elif args.backbone is 'SERes50-IR':
+        net = SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
     else:
         print(args.backbone, ' is not available!')
 
@@ -129,6 +139,8 @@ def train(args):
     best_lfw_epoch = 0
     best_agedb30_acc = 0.0
     best_agedb30_epoch = 0
+    best_cfp_fp_acc = 0.0
+    best_cfp_fp_epoch = 0
 
     for epoch in range(start_epoch, args.total_epoch + 1):
         exp_lr_scheduler.step()
@@ -187,23 +199,30 @@ def train(args):
             getFeatureFromTorch('./result/cur_epoch_lfw_result.mat', net, device, lfwdataset, lfwloader)
             accs = evaluation_10_fold('./result/cur_epoch_lfw_result.mat')
             _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-            if best_lfw_acc < np.mean(accs):
-                best_lfw_acc = np.mean(accs)
+            if best_lfw_acc < np.mean(accs) * 100:
+                best_lfw_acc = np.mean(accs) * 100
                 best_lfw_epoch = epoch
 
             # test model on AgeDB30
             getFeatureFromTorch('./result/cur_epoch_agedb30_result.mat', net, device, agedbdataset, agedbloader)
             accs = evaluation_10_fold('./result/cur_epoch_agedb30_result.mat')
             _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-            if best_agedb30_acc < np.mean(accs):
-                best_agedb30_acc = np.mean(accs)
+            if best_agedb30_acc < np.mean(accs) * 100:
+                best_agedb30_acc = np.mean(accs) * 100
                 best_agedb30_epoch = epoch
 
-            _print('Current Best Accuracy: LFW with accuracy of {:.4f} in Epoch: {} and AgeDB-30 with accuracy of {:.4f} in Epoch: {}'.format(
-                best_lfw_acc * 100, best_lfw_epoch, best_agedb30_acc * 100, best_agedb30_epoch))
+            # test model on CFP-FP
+            getFeatureFromTorch('./result/cur_epoch_cfpfp_result.mat', net, device, cfpfpdataset, cfpfploader)
+            accs = evaluation_10_fold('./result/cur_epoch_cfpfp_result.mat')
+            _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
+            if best_cfp_fp_acc < np.mean(accs) * 100:
+                best_cfp_fp_acc = np.mean(accs) * 100
+                best_cfp_fp_epoch = epoch
+            _print('Current Best Accuracy: LFW: {:.4f} in Epoch: {}, AgeDB-30: {:.4f} in Epoch: {} and CFP-FP: {:.4f} in Epoch {}'.format(
+                best_lfw_acc, best_lfw_epoch, best_agedb30_acc, best_agedb30_epoch, best_cfp_fp_acc, best_cfp_fp_epoch))
 
-    _print('Best Accuracy: LFW with accuracy of {:.4f} in Epoch: {} and AgeDB-30 with accuracy of {:.4f} in Epoch: {}'.format(
-        best_lfw_acc * 100, best_lfw_epoch, best_agedb30_acc * 100, best_agedb30_epoch))
+    _print('Current Best Accuracy: LFW: {:.4f} in Epoch: {}, AgeDB-30: {:.4f} in Epoch: {} and CFP-FP: {:.4f} in Epoch {}'.format(
+        best_lfw_acc, best_lfw_epoch, best_agedb30_acc, best_agedb30_epoch, best_cfp_fp_acc, best_cfp_fp_epoch))
     print('finishing training')
 
 
@@ -215,8 +234,10 @@ if __name__ == '__main__':
     parser.add_argument('--lfw_file_list', type=str, default='/media/ramdisk/pairs.txt', help='lfw pair file list')
     parser.add_argument('--agedb_test_root', type=str, default='/media/sda/AgeDB-30/agedb30_align_112', help='agedb image root')
     parser.add_argument('--agedb_file_list', type=str, default='/media/sda/AgeDB-30/agedb_30_pair.txt', help='agedb pair file list')
+    parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/CFP_FP_aligned_112', help='agedb image root')
+    parser.add_argument('--cfpfp_file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='agedb pair file list')
 
-    parser.add_argument('--backbone', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50-IR, SeRes50-IR, SphereNet')
+    parser.add_argument('--backbone', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50-IR, SERes50-IR, SphereNet')
     parser.add_argument('--margin_type', type=str, default='arcface', help='arcface, cosface, sphereface')
     parser.add_argument('--feature_dim', type=int, default=128, help='feature dimension, 128 or 512')
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')

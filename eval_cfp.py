@@ -87,11 +87,10 @@ def loadModel(data_root, file_list, backbone, gpus='0', resume=None):
         transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))  # range [0.0, 1.0] -> [-1.0,1.0]
     ])
     cfp_dataset = CFP_FP(data_root, file_list, transform=transform)
-    cfp_loader = torch.utils.data.DataLoader(cfp_dataset, batch_size=256,
+    cfp_loader = torch.utils.data.DataLoader(cfp_dataset, batch_size=128,
                                              shuffle=False, num_workers=4, drop_last=False)
 
     return net, device, cfp_dataset, cfp_loader
-
 
 def getFeatureFromTorch(feature_save_dir, net, device, data_set, data_loader):
     net.eval()
