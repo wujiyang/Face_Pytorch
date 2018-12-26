@@ -5,32 +5,33 @@
 @contact: wujiyang@hust.edu.cn
 @file: resnet.py
 @time: 2018/12/24 14:40
-@desc: LResNet50 and LResNet101
+@desc: Original ResNet backbone, including ResNet18, ResNet34, ResNet50, ResNet101 and ResNet152, we removed the last global average pooling layer
+       and replaced it with a fully connected layer with dimension of 512. BN is used for fast convergence.
 '''
 import torch
 import torch.nn as nn
 
-def LResNet18():
-    model = LResNet(BasicBlock, [2, 2, 2, 2])
+def ResNet18():
+    model = ResNet(BasicBlock, [2, 2, 2, 2])
     return model
 
-def LResNet34():
-    model = LResNet(BasicBlock, [3, 4, 6, 3])
+def ResNet34():
+    model = ResNet(BasicBlock, [3, 4, 6, 3])
     return model
 
-def LResNet50():
-    model = LResNet(Bottleneck, [3, 4, 6, 3], feature_dim=512, zero_init_residual=False)
+def ResNet50():
+    model = ResNet(Bottleneck, [3, 4, 6, 3])
     return model
 
-def LResNet101():
-    model = LResNet(Bottleneck, [3, 4, 23, 3])
+def ResNet101():
+    model = ResNet(Bottleneck, [3, 4, 23, 3])
     return model
 
-def LResNet152():
-    model = LResNet(Bottleneck, [3, 8, 36, 3])
+def ResNet152():
+    model = ResNet(Bottleneck, [3, 8, 36, 3])
     return model
 
-__all__ = ['LResNet', 'LResNet18', 'LResNet34', 'LResNet50', 'LResNet101', 'LResNet152']
+__all__ = ['ResNet', 'ResNet18', 'ResNet34', 'ResNet50', 'ResNet101', 'ResNet152']
 
 
 def conv3x3(in_planes, out_planes, stride=1):
@@ -116,10 +117,10 @@ class Flatten(nn.Module):
         return input.view(input.size(0), -1)
 
 
-class LResNet(nn.Module):
+class ResNet(nn.Module):
 
     def __init__(self, block, layers, feature_dim=512, drop_ratio=0.4, zero_init_residual=False):
-        super(LResNet, self).__init__()
+        super(ResNet, self).__init__()
         self.inplanes = 64
         self.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(64)
@@ -187,7 +188,7 @@ class LResNet(nn.Module):
 
 if __name__ == "__main__":
     input = torch.Tensor(2, 3, 112, 112)
-    net = LResNet50()
+    net = ResNet50()
     print(net)
 
     x = net(input)

@@ -14,7 +14,7 @@ from torch import nn
 from torch.nn import DataParallel
 from datetime import datetime
 from backbone.mobilefacenet import MobileFaceNet
-from backbone.resnet import LResNet50, LResNet101
+from backbone.resnet import ResNet50, ResNet101
 from margin.ArcMarginProduct import ArcMarginProduct
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
@@ -61,9 +61,9 @@ def train(args):
     if args.backbone is 'mobileface':
         net = MobileFaceNet()
     elif args.backbone is 'res50':
-        net = LResNet50()
+        net = ResNet50()
     elif args.backbone is 'res101':
-        net = LResNet101()
+        net = ResNet101()
     else:
         print(args.backbone, ' is not available!')
 

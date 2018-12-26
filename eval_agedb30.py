@@ -69,7 +69,7 @@ def loadModel(data_root, file_list, backbone, gpus='0', resume=None):
     if backbone == 'mobileface':
         net = mobilefacenet.MobileFaceNet()
     elif backbone == 'res50':
-        net = resnet.LResNet50()
+        net = resnet.ResNet50()
     else:
         print(backbone, 'is not available')
         return
@@ -125,26 +125,18 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
     parser.add_argument('--root', type=str, default='/media/sda/AgeDB-30/agedb30_align_112', help='The path of lfw data')
     parser.add_argument('--file_list', type=str, default='/media/sda/AgeDB-30/agedb_30_pair.txt', help='The path of lfw data')
-    parser.add_argument('--resume', type=str, default='./model/CASIA_v1_20181224_154708/045.ckpt', help='The path pf save model')
+    parser.add_argument('--resume', type=str, default='./model/CASIA_20181225_123333_RES50/011.ckpt', help='The path pf save model')
     parser.add_argument('--backbone', type=str, default='res50', help='mobileface, res50, res101')
     parser.add_argument('--feature_save_path', type=str, default='./result/cur_epoch_agedb_result.mat',
                         help='The path of the extract features save, must be .mat file')
     parser.add_argument('--gpus', type=str, default='0,1,2,3', help='gpu list')
     args = parser.parse_args()
 
-    best_acc = 0.0
-    best_epoch = 0
-    for i in range(55):
-        args.resume = os.path.join('./model/CASIA_20181225_123333_RES50/', str(i+1).zfill(3) + '.ckpt')
-        net, device, agedb_dataset, agedb_loader = loadModel(args.root, args.file_list, args.backbone, args.gpus, args.resume)
-        getFeatureFromTorch(args.feature_save_path, net, device, agedb_dataset, agedb_loader)
-        ACCs = evaluation_10_fold(args.feature_save_path)
-        for i in range(len(ACCs)):
-            print('{}    {:.2f}'.format(i + 1, ACCs[i] * 100))
-        print('--------')
-        print('AVE    {:.4f}'.format(np.mean(ACCs) * 100))
-        if best_acc < np.mean(ACCs) * 100:
-            best_acc = np.mean(ACCs) * 100
-            best_epoch = i+1
-    print('best accuracy: {:.4f} in epoch {}'.format(best_acc, best_epoch))
+    net, device, agedb_dataset, agedb_loader = loadModel(args.root, args.file_list, args.backbone, args.gpus, args.resume)
+    getFeatureFromTorch(args.feature_save_path, net, device, agedb_dataset, agedb_loader)
+    ACCs = evaluation_10_fold(args.feature_save_path)
+    for i in range(len(ACCs)):
+        print('{}    {:.2f}'.format(i + 1, ACCs[i] * 100))
+    print('--------')
+    print('AVE    {:.4f}'.format(np.mean(ACCs) * 100))
 

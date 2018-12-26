@@ -7,7 +7,7 @@ All codes are evaluated on Pytorch 0.4.0 with Python 3.6, Ubuntu 16.04.10, CUDA 
 ## Data Preparation
 For CNN training, I use CASIA-WebFace and Cleaned MS-Celeb-1M, aligned by MTCNN with the size of 112x112.  For performance testing, I report the results on LFW, AgeDB30, MegaFace Identification and Verification.
 
-For AgeDB-30, the aligned images and evaluation pairs are restored from the mxnet binary file provided by [insightface](https://github.com/deepinsight/insightface), tool is available in this repository. You should install a mxnet-cpu for the image parsing, just do ' **pip install mxnet** ' is ok.
+For AgeDB-30, the aligned images and evaluation pairs are restored from the mxnet binary file provided by [insightface](https://github.com/deepinsight/insightface), tools are available in this repository. You should install a mxnet-cpu first for the image parsing, just do ' **pip install mxnet** ' is ok.
 
 ## Result
 #### Train on CASIA-WebFace (small protocol)
@@ -15,18 +15,19 @@ For AgeDB-30, the aligned images and evaluation pairs are restored from the mxne
   Model Type |   Loss    | LFW Acc. | AgeDB30 |MF Acc.@R|MF Ver.@R | SIZE 
 :-----------:|:---------:|:--------:|:-------:|:-------:|:--------:|:-----:
 MobileFaceNet|  ArcFace  |  0.9922  |  0.9257 | 0.7645  |  0.8195  |  4MB
-LResNet-50   |  ArcFace  |  0.9912  |         |         |          | 292MB 
-LResNet-101  |  ArcFace  |          |         |         |          |
+ResNet50     |  ArcFace  |  0.9912  |  0.9158 |         |          | 292MB 
+Res50-IR     |  ArcFace  |          |         |         |          |
+SERes50-IR   |  ArcFace  |          |         |         |          |
 
 
 #### Train on MS-Celeb-1M (large protocol)
 
   Model Type |   Loss    | LFW Acc. | AgeDB30 |MF Acc.@R|MF Ver.@R | SIZE 
 :-----------:|:---------:|:--------:|:-------:|:-------:|:--------:|:-----:
-MobileFaceNet|  ArcFace  |  0.9922  |  0.9257 | 0.7645  |  0.8195  |  4MB
-LResNet-50   |  ArcFace  |          |         |         |          | 292MB 
-LResNet-101  |  ArcFace  |          |         |         |          |
-
+MobileFaceNet|  ArcFace  |    0.    |   0.    |   0.    |    0.    |  4MB
+ResNet50     |  ArcFace  |    0.    |   0.    |         |          | 292MB 
+Res50-IR     |  ArcFace  |          |         |         |          |
+SERes50-IR   |  ArcFace  |          |         |         |          |
 
 
 

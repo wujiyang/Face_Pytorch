@@ -87,7 +87,6 @@ def loadModel(data_root, file_list, gpus='0', resume=None):
 
     return net, device, lfw_dataset, lfw_loader
 
-
 def getFeatureFromTorch(feature_save_dir, net, device, data_set, data_loader):
     net.eval()
     featureLs = None
@@ -115,14 +114,13 @@ def getFeatureFromTorch(feature_save_dir, net, device, data_set, data_loader):
     result = {'fl': featureLs, 'fr': featureRs, 'fold': data_set.folds, 'flag': data_set.flags}
     scipy.io.savemat(feature_save_dir, result)
 
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
     parser.add_argument('--root', type=str, default='/media/ramdisk/lfw_align_112', help='The path of lfw data')
     parser.add_argument('--file_list', type=str, default='/media/ramdisk/pairs.txt', help='The path of lfw data')
     parser.add_argument('--resume', type=str, default='./model/CASIA_v1_20181224_154708/044.ckpt',
                         help='The path pf save model')
-    parser.add_argument('--feature_save_path', type=str, default='./result/cur_epoch_result.mat',
+    parser.add_argument('--feature_save_path', type=str, default='./result/cur_epoch_lfw_result.mat',
                         help='The path of the extract features save, must be .mat file')
     parser.add_argument('--gpus', type=str, default='0,1', help='gpu list')
     args = parser.parse_args()
