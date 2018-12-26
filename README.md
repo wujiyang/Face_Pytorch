@@ -14,7 +14,7 @@ For AgeDB-30 and CFP-FP, the aligned images and evaluation pairs are restored fr
 ### Verification result on LFW, AgeDB-30 and CFP_FP
 **Train on CASIA-WebFace (small protocol)**
 
-  Model Type    |   Loss    | LFW Acc. | AgeDB30 Acc. | CFP-FP Acc. |  SIZE 
+  Model Type    |   Loss    | LFW Acc. | AgeDB-30 Acc.| CFP-FP Acc. |  SIZE 
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
 MobileFaceNet   |  ArcFace  |  0.9922  |    0.9257    |             |  4MB
 ResNet50        |  ArcFace  |  0.9912  |    0.9158    |             | 292MB 
@@ -23,7 +23,7 @@ SEResNet50-IR   |  ArcFace  |          |              |             |
 
 **Train on MS-Celeb-1M (large protocol)**  
 
-  Model Type    |   Loss    | LFW Acc. | AgeDB30 Acc. | CFP-FP Acc. |  SIZE 
+  Model Type    |   Loss    | LFW Acc. | AgeDB-30 Acc.| CFP-FP Acc. |  SIZE 
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
 MobileFaceNet   |  ArcFace  |          |              |             |  4MB
 ResNet50        |  ArcFace  |          |              |             | 292MB 
