@@ -10,14 +10,17 @@ For CNN training, I use CASIA-WebFace and Cleaned MS-Celeb-1M, aligned by MTCNN 
 For AgeDB-30 and CFP-FP, the aligned images and evaluation pairs are restored from the mxnet binary file provided by [insightface](https://github.com/deepinsight/insightface), tools are available in this repository. You should install a mxnet-cpu first for the image parsing, just do ' **pip install mxnet** ' is ok.
 
 ## Results
-
+> MobileFaceNet: Struture described in MobileFaceNet  
+> ResNet50: Original resnet structure  
+> ResNet50-IR: CNN described in ArcFace paper  
+> SEResNet50-IR: CNN described in ArcFace paper 
 ### Verification result on LFW, AgeDB-30 and CFP_FP
 **Train on CASIA-WebFace (small protocol)**
 
   Model Type    |   Loss    | LFW Acc. | AgeDB-30 Acc.| CFP-FP Acc. |  SIZE 
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
-MobileFaceNet   |  ArcFace  |  0.9922  |    0.9257    |             |  4MB
-ResNet50        |  ArcFace  |  0.9912  |    0.9158    |             | 292MB 
+MobileFaceNet   |  ArcFace  |  0.9922  |    0.9257    |   0.9310    |  4MB
+ResNet50        |  ArcFace  |          |              |             | 292MB 
 ResNet50-IR     |  ArcFace  |          |              |             |         
 SEResNet50-IR   |  ArcFace  |          |              |             |         
 
