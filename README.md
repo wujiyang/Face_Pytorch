@@ -40,7 +40,7 @@ ResNet50        |  ArcFace  |         |         |           |           | 292MB
 ResNet50-IR     |  ArcFace  |         |         |           |           |
 SEResNet50-IR   |  ArcFace  |         |         |           |           |
 
-**Train on CASIA-WebFace (small protocol)**  
+**Train on MS-Celeb-1M (large protocol)**  
 
   Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE 
 :--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:
