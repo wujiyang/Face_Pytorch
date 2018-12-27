@@ -13,7 +13,7 @@ import numpy as np
 import scipy.io
 import os
 import torch.utils.data
-from backbone import mobilefacenet, resnet
+from backbone import mobilefacenet, resnet, arcfacenet
 from dataset.cfp import CFP_FP
 import torchvision.transforms as transforms
 from torch.nn import DataParallel
@@ -59,23 +59,29 @@ def evaluation_10_fold(feature_path='./result/cur_epoch_cfp_result.mat'):
 
     return ACCs
 
-def loadModel(data_root, file_list, backbone, gpus='0', resume=None):
+def loadModel(data_root, file_list, backbone_net, gpus='0', resume=None):
+
+    if backbone_net == 'MobileFace':
+        net = mobilefacenet.MobileFaceNet()
+    elif backbone_net == 'Res50':
+        net = resnet.ResNet50()
+    elif backbone_net == 'Res101':
+        net = resnet.ResNet101()
+    elif args.backbone == 'Res50-IR':
+        net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
+    elif args.backbone == 'SERes50-IR':
+        net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
+    else:
+        print(backbone_net, 'is not available!')
+
     # gpu init
     multi_gpus = False
     if len(gpus.split(',')) > 1:
         multi_gpus = True
     os.environ['CUDA_VISIBLE_DEVICES'] = gpus
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    if backbone == 'MobileFace':
-        net = mobilefacenet.MobileFaceNet()
-    elif backbone == 'Res50':
-        net = resnet.ResNet50()
-    else:
-        print(backbone, 'is not available')
-        return
-    if resume:
-        ckpt = torch.load(resume)
-        net.load_state_dict(ckpt['net_state_dict'])
+
+    net.load_state_dict(torch.load(resume)['net_state_dict'])
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -123,26 +129,18 @@ def getFeatureFromTorch(feature_save_dir, net, device, data_set, data_loader):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
     parser.add_argument('--root', type=str, default='/media/sda/CFP-FP/CFP_FP_aligned_112', help='The path of lfw data')
-    parser.add_argument('--file_list', type=str, default='/media/sda/CFP-FP/cfp-fp-pair.txt', help='The path of lfw data')
-    parser.add_argument('--resume', type=str, default='./model/CASIA_v1_20181224_154708/044.ckpt', help='The path pf save model')
-    parser.add_argument('--backbone', type=str, default='MobileFace', help='MobileFace, Res50, Res101')
+    parser.add_argument('--file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='The path of lfw data')
+    parser.add_argument('--resume', type=str, default='./model/CASIA_20181226_192640_MOBILEFACE/042.ckpt', help='The path pf save model')
+    parser.add_argument('--backbone_net', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
     parser.add_argument('--feature_save_path', type=str, default='./result/cur_epoch_cfp_result.mat',
                         help='The path of the extract features save, must be .mat file')
     parser.add_argument('--gpus', type=str, default='0,1', help='gpu list')
     args = parser.parse_args()
 
-    best_acc = 0.0
-    best_epoch = 0
-    for i in range(50):
-        args.resume = os.path.join('./model/CASIA_v1_20181224_154708', str(i+1).zfill(3)+'.ckpt')
-        net, device, agedb_dataset, agedb_loader = loadModel(args.root, args.file_list, args.backbone, args.gpus, args.resume)
-        getFeatureFromTorch(args.feature_save_path, net, device, agedb_dataset, agedb_loader)
-        ACCs = evaluation_10_fold(args.feature_save_path)
-        #for i in range(len(ACCs)):
-        #    print('{}    {:.2f}'.format(i + 1, ACCs[i] * 100))
-        #print('--------')
-        print('AVE    {:.4f}'.format(np.mean(ACCs) * 100))
-        if best_acc < np.mean(ACCs) * 100:
-            best_acc = np.mean(ACCs) * 100
-            best_epoch = i+1
-    print('Best CFP-FP result: {:.4f} in epoch {}.'.format(best_acc, best_epoch))
+    net, device, agedb_dataset, agedb_loader = loadModel(args.root, args.file_list, args.backbone_net, args.gpus, args.resume)
+    getFeatureFromTorch(args.feature_save_path, net, device, agedb_dataset, agedb_loader)
+    ACCs = evaluation_10_fold(args.feature_save_path)
+    for i in range(len(ACCs)):
+        print('{}    {:.2f}'.format(i + 1, ACCs[i] * 100))
+    print('--------')
+    print('AVE    {:.4f}'.format(np.mean(ACCs) * 100))

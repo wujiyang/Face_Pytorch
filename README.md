@@ -20,9 +20,9 @@ Train on CASIA-WebFace (small protocol)
 
   Model Type    |   Loss    | LFW Acc. | AgeDB-30 Acc.| CFP-FP Acc. |  SIZE 
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
-MobileFaceNet   |  ArcFace  |  0.9922  |    0.9257    |   0.9310    |  4MB
+MobileFaceNet   |  ArcFace  |  0.9923  |    0.9301    |   0.9430    |  4MB
 ResNet50        |  ArcFace  |          |              |             | 292MB 
-ResNet50-IR     |  ArcFace  |          |              |             |         
+ResNet50-IR     |  ArcFace  |          |              |             | 170MB        
 SEResNet50-IR   |  ArcFace  |          |              |             |         
 
 Train on MS-Celeb-1M (large protocol) 
@@ -31,7 +31,7 @@ Train on MS-Celeb-1M (large protocol)
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
 MobileFaceNet   |  ArcFace  |          |              |             |  4MB
 ResNet50        |  ArcFace  |          |              |             | 292MB 
-ResNet50-IR     |  ArcFace  |          |              |             |         
+ResNet50-IR     |  ArcFace  |          |              |             | 170MB       
 SEResNet50-IR   |  ArcFace  |          |              |             |        
 
 ### MegaFace Rank 1 Identifiaction and Verfication with TPR@FPR=1e-6
@@ -41,7 +41,7 @@ Train on CASIA-WebFace (small protocol)
 :--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:
 MobileFaceNet   |  ArcFace  |         |         |           |           |  4MB
 ResNet50        |  ArcFace  |         |         |           |           | 292MB 
-ResNet50-IR     |  ArcFace  |         |         |           |           |
+ResNet50-IR     |  ArcFace  |         |         |           |           | 170MB
 SEResNet50-IR   |  ArcFace  |         |         |           |           |
 
 Train on MS-Celeb-1M (large protocol)

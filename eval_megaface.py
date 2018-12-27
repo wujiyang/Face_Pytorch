@@ -11,7 +11,7 @@ import numpy as np
 import struct
 import os
 import torch.utils.data
-from backbone import mobilefacenet, resnet
+from backbone import mobilefacenet, resnet, arcfacenet
 from dataset.megaface import MegaFace
 import torchvision.transforms as transforms
 import argparse
@@ -46,12 +46,16 @@ def read_mat(filename):
 
 
 def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, batch_size=32, gpus='0', do_norm=False):
-    if backbone_net == 'mobileface':
+    if backbone_net == 'MobileFace':
         net = mobilefacenet.MobileFaceNet()
-    elif backbone_net == 'res50':
-        pass
-    elif backbone_net == 'res101':
-        pass
+    elif backbone_net == 'Res50':
+        net = resnet.ResNet50()
+    elif backbone_net == 'Res101':
+        net = resnet.ResNet101()
+    elif args.backbone == 'Res50-IR':
+        net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
+    elif args.backbone == 'SERes50-IR':
+        net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
     else:
         print(backbone_net, 'is not available!')
 
@@ -97,12 +101,12 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='./model/CASIA_v1_20181224_154708/050.ckpt', help='The path of trained model')
-    parser.add_argument('--backbone_net', type=str, default='mobileface', help='mobileface, res50, res101')
+    parser.add_argument('--model_path', type=str, default='./model/CASIA_20181226_192640_MOBILEFACE/038.ckpt', help='The path of trained model')
+    parser.add_argument('--backbone_net', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
     parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
     parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
-    parser.add_argument('--batch_size', type=int, default=512, help='batch size')
-    parser.add_argument('--gpus', type=str, default='0,1,2,3', help='gpu list')
+    parser.add_argument('--batch_size', type=int, default=256, help='batch size')
+    parser.add_argument('--gpus', type=str, default='0,1', help='gpu list')
     parser.add_argument("--do_norm", type=int, default=1, help="1 if normalize feature, 0 do nothing(Default case)")
     args = parser.parse_args()
 

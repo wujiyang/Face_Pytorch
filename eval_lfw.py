@@ -13,7 +13,7 @@ import scipy.io
 import os
 import json
 import torch.utils.data
-from backbone import mobilefacenet
+from backbone import mobilefacenet, resnet, arcfacenet
 from dataset.lfw import LFW
 import torchvision.transforms as transforms
 from torch.nn import DataParallel
@@ -59,7 +59,21 @@ def evaluation_10_fold(feature_path='./result/cur_epoch_result.mat'):
 
     return ACCs
 
-def loadModel(data_root, file_list, gpus='0', resume=None):
+def loadModel(data_root, file_list, backbone_net, gpus='0', resume=None):
+
+    if backbone_net == 'MobileFace':
+        net = mobilefacenet.MobileFaceNet()
+    elif backbone_net == 'Res50':
+        net = resnet.ResNet50()
+    elif backbone_net == 'Res101':
+        net = resnet.ResNet101()
+    elif args.backbone == 'Res50-IR':
+        net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
+    elif args.backbone == 'SERes50-IR':
+        net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
+    else:
+        print(backbone_net, 'is not available!')
+
     # gpu init
     multi_gpus = False
     if len(gpus.split(',')) > 1:
@@ -67,10 +81,7 @@ def loadModel(data_root, file_list, gpus='0', resume=None):
     os.environ['CUDA_VISIBLE_DEVICES'] = gpus
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    net = mobilefacenet.MobileFaceNet()
-    if resume:
-        ckpt = torch.load(resume)
-        net.load_state_dict(ckpt['net_state_dict'])
+    net.load_state_dict(torch.load(resume)['net_state_dict'])
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -118,14 +129,15 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
     parser.add_argument('--root', type=str, default='/media/ramdisk/lfw_align_112', help='The path of lfw data')
     parser.add_argument('--file_list', type=str, default='/media/ramdisk/pairs.txt', help='The path of lfw data')
-    parser.add_argument('--resume', type=str, default='./model/CASIA_v1_20181224_154708/044.ckpt',
+    parser.add_argument('--backbone_net', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
+    parser.add_argument('--resume', type=str, default='./model/CASIA_20181226_192640_MOBILEFACE/038.ckpt',
                         help='The path pf save model')
     parser.add_argument('--feature_save_path', type=str, default='./result/cur_epoch_lfw_result.mat',
                         help='The path of the extract features save, must be .mat file')
     parser.add_argument('--gpus', type=str, default='0,1', help='gpu list')
     args = parser.parse_args()
 
-    net, device, lfw_dataset, lfw_loader = loadModel(args.root, args.file_list, args.gpus, args.resume)
+    net, device, lfw_dataset, lfw_loader = loadModel(args.root, args.file_list, args.backbone_net, args.gpus, args.resume)
     getFeatureFromTorch(args.feature_save_path, net, device, lfw_dataset, lfw_loader)
     ACCs = evaluation_10_fold(args.feature_save_path)
     for i in range(len(ACCs)):
