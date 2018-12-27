@@ -36,7 +36,7 @@ def train(args):
     if len(args.gpus.split(',')) > 1:
         multi_gpus = True
     os.environ['CUDA_VISIBLE_DEVICES'] = args.gpus
-    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # log init
     start_epoch = 1
@@ -55,7 +55,7 @@ def train(args):
     # train dataset
     trainset = CASIAWebFace(args.train_root, args.train_file_list, transform=transform)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=args.batch_size,
-                                              shuffle=True, num_workers=12, drop_last=False)
+                                              shuffle=True, num_workers=8, drop_last=False)
     # test dataset
     lfwdataset = LFW(args.lfw_test_root, args.lfw_file_list, transform=transform)
     lfwloader = torch.utils.data.DataLoader(lfwdataset, batch_size=128,
@@ -68,24 +68,24 @@ def train(args):
                                               shuffle=False, num_workers=4, drop_last=False)
 
     # define backbone and margin layer
-    if args.backbone is 'MobileFace':
+    if args.backbone == 'MobileFace':
         net = MobileFaceNet()
     elif args.backbone is 'Res50':
         net = ResNet50()
-    elif args.backbone is 'Res101':
+    elif args.backbone == 'Res101':
         net = ResNet101()
-    elif args.backbone is 'Res50-IR':
+    elif args.backbone == 'Res50-IR':
         net = SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
-    elif args.backbone is 'SERes50-IR':
+    elif args.backbone == 'SERes50-IR':
         net = SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
     else:
         print(args.backbone, ' is not available!')
 
-    if args.margin_type is 'arcface':
+    if args.margin_type == 'arcface':
         margin = ArcMarginProduct(args.feature_dim, trainset.class_nums)
-    elif args.margin_type is 'cosface':
+    elif args.margin_type == 'cosface':
         pass
-    elif args.margin_type is 'sphereface':
+    elif args.margin_type == 'sphereface':
         pass
     else:
         print(args.margin_type, 'is not available!')
@@ -125,7 +125,7 @@ def train(args):
         {'params': prelu_params, 'weight_decay': 0.0}
     ], lr=0.1, momentum=0.9, nesterov=True)
 
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 35, 45], gamma=0.1)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[30, 45, 55], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -148,10 +148,7 @@ def train(args):
         _print('Train Epoch: {}/{} ...'.format(epoch, args.total_epoch))
         net.train()
 
-        train_total_loss = 0.0
-        total = 0
         since = time.time()
-        current = time.time()
         iters = 0
         for data in trainloader:
             img, label = data[0].to(device), data[1].to(device)
@@ -164,20 +161,12 @@ def train(args):
             total_loss.backward()
             optimizer_ft.step()
 
-            train_total_loss += total_loss.item() * batch_size
-            total += batch_size
-
             # print train information
             iters = iters + 1
             if iters % 100 == 0:
-                time_batch = (time.time() - current) / 100
-                current = time.time()
-                print("Iters: {:4d}, loss: {:.4f}, time: {:.4f} s/iter, learning rate: {}".format(iters, total_loss.item(), time_batch, exp_lr_scheduler.get_lr()[0]))
-
-        train_total_loss = train_total_loss / total
-        time_elapsed = time.time() - since
-        loss_msg = 'Total_loss: {:.4f} time: {:.0f}m {:.0f}s'.format(train_total_loss, time_elapsed // 60, time_elapsed % 60)
-        _print(loss_msg)
+                time_cur = (time.time() - since) / 100
+                since = time.time()
+                print("Iters: {:4d}, loss: {:.4f}, time: {:.4f} s/iter, learning rate: {}".format(iters, total_loss.item(), time_cur, exp_lr_scheduler.get_lr()[0]))
 
         # save model
         if epoch % args.save_freq == 0:
@@ -214,14 +203,14 @@ def train(args):
             # test model on CFP-FP
             getFeatureFromTorch('./result/cur_epoch_cfpfp_result.mat', net, device, cfpfpdataset, cfpfploader)
             accs = evaluation_10_fold('./result/cur_epoch_cfpfp_result.mat')
-            _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
+            _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
             if best_cfp_fp_acc < np.mean(accs) * 100:
                 best_cfp_fp_acc = np.mean(accs) * 100
                 best_cfp_fp_epoch = epoch
             _print('Current Best Accuracy: LFW: {:.4f} in Epoch: {}, AgeDB-30: {:.4f} in Epoch: {} and CFP-FP: {:.4f} in Epoch {}'.format(
                 best_lfw_acc, best_lfw_epoch, best_agedb30_acc, best_agedb30_epoch, best_cfp_fp_acc, best_cfp_fp_epoch))
 
-    _print('Current Best Accuracy: LFW: {:.4f} in Epoch: {}, AgeDB-30: {:.4f} in Epoch: {} and CFP-FP: {:.4f} in Epoch {}'.format(
+    _print('Finally Best Accuracy: LFW: {:.4f} in Epoch: {}, AgeDB-30: {:.4f} in Epoch: {} and CFP-FP: {:.4f} in Epoch {}'.format(
         best_lfw_acc, best_lfw_epoch, best_agedb30_acc, best_agedb30_epoch, best_cfp_fp_acc, best_cfp_fp_epoch))
     print('finishing training')
 
@@ -229,7 +218,7 @@ def train(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PyTorch for deep face recognition')
     parser.add_argument('--train_root', type=str, default='/media/ramdisk/webface_align_112/', help='train image root')
-    parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/webface_align_train_rm_200.list', help='train list')
+    parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/webface_align_train.list', help='train list')
     parser.add_argument('--lfw_test_root', type=str, default='/media/ramdisk/lfw_align_112', help='lfw image root')
     parser.add_argument('--lfw_file_list', type=str, default='/media/ramdisk/pairs.txt', help='lfw pair file list')
     parser.add_argument('--agedb_test_root', type=str, default='/media/sda/AgeDB-30/agedb30_align_112', help='agedb image root')
@@ -241,7 +230,7 @@ if __name__ == '__main__':
     parser.add_argument('--margin_type', type=str, default='arcface', help='arcface, cosface, sphereface')
     parser.add_argument('--feature_dim', type=int, default=128, help='feature dimension, 128 or 512')
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=55, help='total epochs')
+    parser.add_argument('--total_epoch', type=int, default=60, help='total epochs')
 
     parser.add_argument('--save_freq', type=int, default=1, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=1, help='test frequency')
@@ -249,7 +238,7 @@ if __name__ == '__main__':
     parser.add_argument('--pretrain', type=str, default='', help='pretrain model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='CASIA_', help='model prefix')
-    parser.add_argument('--gpus', type=str, default='0,1,2,3', help='model prefix')
+    parser.add_argument('--gpus', type=str, default='0,1', help='model prefix')
 
     args = parser.parse_args()
 
