@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backbone/arcfacenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/arcfacenet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
@@ -48,25 +47,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="73" />
+          <entry key="py" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="73" />
+          <entry key="Python" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
-          <entry key="py" value="18625" />
+          <entry key="py" value="18675" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="18624" />
+          <entry key="Python" value="18674" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -98,62 +97,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="124" column="53" lean-forward="true" selection-start-line="124" selection-start-column="53" selection-end-line="124" selection-end-column="53" />
+            <state relative-caret-position="394">
+              <caret line="79" column="71" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="71" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
                 <element signature="e#3099#3568#0" />
                 <element signature="e#3598#3785#0" />
                 <element signature="e#6357#6825#0" />
                 <element signature="e#7222#8776#0" />
-                <marker date="1545902998539" expanded="true" signature="909:914" ph="..." />
-                <marker date="1545902998539" expanded="true" signature="909:8945" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/margin/SphereMarginProduct.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-              <folding>
-                <element signature="e#203#215#0" expanded="true" />
-                <element signature="e#462#998#0" expanded="true" />
-                <marker date="1545902164950" expanded="true" signature="351:356" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backbone/spherenet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-              <folding>
-                <element signature="e#217#229#0" expanded="true" />
-                <element signature="e#319#574#0" expanded="true" />
-                <element signature="e#618#775#0" expanded="true" />
-                <element signature="e#1328#1564#0" expanded="true" />
-                <element signature="e#2421#2612#0" expanded="true" />
-                <marker date="1545883055399" expanded="true" signature="276:281" ph="..." />
-                <marker date="1545883055399" expanded="true" signature="789:2747" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/margin/ArcMarginProduct.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-              <folding>
-                <element signature="e#203#214#0" expanded="true" />
-                <element signature="e#450#998#0" expanded="true" />
-                <element signature="e#1041#1743#0" expanded="true" />
+                <marker date="1545905023177" expanded="true" signature="909:914" ph="..." />
+                <marker date="1545905023177" expanded="true" signature="909:8945" ph="..." />
               </folding>
             </state>
           </provider>
@@ -162,38 +115,36 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+            <state relative-caret-position="314">
+              <caret line="129" column="24" lean-forward="true" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
               <folding>
                 <element signature="e#263#275#0" expanded="true" />
                 <element signature="e#409#445#0" expanded="true" />
                 <element signature="e#526#884#0" expanded="true" />
                 <element signature="e#920#1085#0" expanded="true" />
+                <element signature="e#1185#2012#0" expanded="true" />
                 <element signature="e#2048#2144#0" expanded="true" />
                 <element signature="e#2246#3142#0" expanded="true" />
                 <element signature="e#3178#3274#0" expanded="true" />
                 <element signature="e#3475#3601#0" expanded="true" />
                 <element signature="e#3636#4637#0" expanded="true" />
-                <element signature="e#4761#5917#0" expanded="true" />
-                <element signature="e#5953#6052#0" expanded="true" />
-                <marker date="1545903768219" expanded="true" signature="370:375" ph="..." />
-                <marker date="1545903768219" expanded="true" signature="474:479" ph="..." />
-                <marker date="1545903768219" expanded="true" signature="2180:4639" ph="..." />
-                <marker date="1545903768219" expanded="true" signature="4669:4674" ph="..." />
+                <marker date="1545905231660" expanded="true" signature="370:375" ph="..." />
+                <marker date="1545905231660" expanded="true" signature="474:479" ph="..." />
+                <marker date="1545905231660" expanded="true" signature="2180:4639" ph="..." />
+                <marker date="1545905231660" expanded="true" signature="4669:4674" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
+        <entry file="file://$PROJECT_DIR$/eval_megaface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="38" column="8" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+            <state relative-caret-position="508">
+              <caret line="109" column="51" lean-forward="true" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
               <folding>
-                <element signature="e#193#205#0" expanded="true" />
-                <element signature="e#414#687#0" expanded="true" />
-                <element signature="e#735#1072#0" expanded="true" />
+                <element signature="e#179#197#0" expanded="true" />
+                <element signature="e#1394#3496#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -511,13 +462,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.30368763" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.35249457" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -661,16 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eval_megaface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="59" column="48" lean-forward="true" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
-          <folding>
-            <element signature="e#179#197#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eval_lfw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -707,46 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/margin/ArcMarginProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#203#214#0" expanded="true" />
-            <element signature="e#450#998#0" expanded="true" />
-            <element signature="e#1041#1743#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="38" column="8" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding>
-            <element signature="e#193#205#0" expanded="true" />
-            <element signature="e#414#687#0" expanded="true" />
-            <element signature="e#735#1072#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="124" column="53" lean-forward="true" selection-start-line="124" selection-start-column="53" selection-end-line="124" selection-end-column="53" />
-          <folding>
-            <element signature="e#187#196#0" expanded="true" />
-            <element signature="e#3099#3568#0" />
-            <element signature="e#3598#3785#0" />
-            <element signature="e#6357#6825#0" />
-            <element signature="e#7222#8776#0" />
-            <marker date="1545902998539" expanded="true" signature="909:914" ph="..." />
-            <marker date="1545902998539" expanded="true" signature="909:8945" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backbone/mobilefacenet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -768,8 +669,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/margin/SphereMarginProduct.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="276">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="e#203#215#0" expanded="true" />
             <element signature="e#462#998#0" expanded="true" />
@@ -780,8 +681,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backbone/spherenet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="152">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="e#217#229#0" expanded="true" />
             <element signature="e#319#574#0" expanded="true" />
@@ -794,9 +695,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/margin/ArcMarginProduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#203#214#0" expanded="true" />
+            <element signature="e#450#998#0" expanded="true" />
+            <element signature="e#1041#1743#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="38" column="8" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <folding>
+            <element signature="e#193#205#0" expanded="true" />
+            <element signature="e#414#687#0" expanded="true" />
+            <element signature="e#735#1072#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval_megaface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="109" column="51" lean-forward="true" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
+          <folding>
+            <element signature="e#179#197#0" expanded="true" />
+            <element signature="e#1394#3496#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="79" column="71" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="71" />
+          <folding>
+            <element signature="e#187#196#0" expanded="true" />
+            <element signature="e#3099#3568#0" />
+            <element signature="e#3598#3785#0" />
+            <element signature="e#6357#6825#0" />
+            <element signature="e#7222#8776#0" />
+            <marker date="1545905023177" expanded="true" signature="909:914" ph="..." />
+            <marker date="1545905023177" expanded="true" signature="909:8945" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backbone/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="-817">
           <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="e#687#745#0" expanded="true" />
@@ -808,24 +760,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+        <state relative-caret-position="314">
+          <caret line="129" column="24" lean-forward="true" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
           <folding>
             <element signature="e#263#275#0" expanded="true" />
             <element signature="e#409#445#0" expanded="true" />
             <element signature="e#526#884#0" expanded="true" />
             <element signature="e#920#1085#0" expanded="true" />
+            <element signature="e#1185#2012#0" expanded="true" />
             <element signature="e#2048#2144#0" expanded="true" />
             <element signature="e#2246#3142#0" expanded="true" />
             <element signature="e#3178#3274#0" expanded="true" />
             <element signature="e#3475#3601#0" expanded="true" />
             <element signature="e#3636#4637#0" expanded="true" />
-            <element signature="e#4761#5917#0" expanded="true" />
-            <element signature="e#5953#6052#0" expanded="true" />
-            <marker date="1545903768219" expanded="true" signature="370:375" ph="..." />
-            <marker date="1545903768219" expanded="true" signature="474:479" ph="..." />
-            <marker date="1545903768219" expanded="true" signature="2180:4639" ph="..." />
-            <marker date="1545903768219" expanded="true" signature="4669:4674" ph="..." />
+            <marker date="1545905231660" expanded="true" signature="370:375" ph="..." />
+            <marker date="1545905231660" expanded="true" signature="474:479" ph="..." />
+            <marker date="1545905231660" expanded="true" signature="2180:4639" ph="..." />
+            <marker date="1545905231660" expanded="true" signature="4669:4674" ph="..." />
           </folding>
         </state>
       </provider>

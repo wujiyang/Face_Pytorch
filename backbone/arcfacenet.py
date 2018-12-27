@@ -125,6 +125,7 @@ class SEResNet_IR(nn.Module):
     def __init__(self, num_layers, feature_dim=512, drop_ratio=0.4, mode = 'ir'):
         super(SEResNet_IR, self).__init__()
         assert num_layers in [50, 100, 152], 'num_layers should be 50, 100 or 152'
+        assert mode in ['ir', 'se_ir'], 'mode should be ir or se_ir'
         blocks = get_blocks(num_layers)
         if mode == 'ir':
             unit_module = BottleNeck_IR
