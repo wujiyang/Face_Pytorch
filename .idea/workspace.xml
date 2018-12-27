@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/margin/SphereMarginProduct.py" beforeDir="false" afterPath="$PROJECT_DIR$/margin/SphereMarginProduct.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,25 +46,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="67" />
+          <entry key="py" value="71" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="67" />
+          <entry key="Python" value="71" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
-          <entry key="py" value="16021" />
+          <entry key="py" value="17215" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="16020" />
+          <entry key="Python" value="17214" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -92,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="246" lean-forward="true" selection-start-line="246" selection-end-line="246" />
+            <state relative-caret-position="417">
+              <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
                 <element signature="e#870#9025#0" expanded="true" />
@@ -106,6 +107,72 @@
                 <element signature="e#7222#8776#0" />
                 <marker date="1545873336970" expanded="true" signature="909:914" ph="..." />
                 <marker date="1545873336970" expanded="true" signature="909:8945" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/margin/SphereMarginProduct.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="62" column="8" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
+              <folding>
+                <element signature="e#203#215#0" expanded="true" />
+                <element signature="e#462#998#0" expanded="true" />
+                <element signature="e#1249#1967#0" expanded="true" />
+                <marker date="1545880429108" expanded="true" signature="351:356" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/margin/ArcMarginProduct.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+              <folding>
+                <element signature="e#203#214#0" expanded="true" />
+                <element signature="e#450#998#0" expanded="true" />
+                <element signature="e#1041#1743#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="127" column="82" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="82" />
+              <folding>
+                <element signature="e#263#275#0" expanded="true" />
+                <element signature="e#409#445#0" expanded="true" />
+                <element signature="e#526#884#0" expanded="true" />
+                <element signature="e#920#1085#0" expanded="true" />
+                <element signature="e#1185#2012#0" expanded="true" />
+                <element signature="e#2048#2144#0" expanded="true" />
+                <element signature="e#2246#3142#0" expanded="true" />
+                <element signature="e#5953#6052#0" expanded="true" />
+                <marker date="1545808820310" expanded="true" signature="370:375" ph="..." />
+                <marker date="1545808820310" expanded="true" signature="474:479" ph="..." />
+                <marker date="1545808820310" expanded="true" signature="2180:4640" ph="..." />
+                <marker date="1545808820310" expanded="true" signature="4670:4675" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="e#193#205#0" expanded="true" />
+                <element signature="e#414#687#0" expanded="true" />
+                <element signature="e#735#1072#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,7 +213,6 @@
         <option value="$PROJECT_DIR$/arcface/ArcMarginProduct.py" />
         <option value="$PROJECT_DIR$/cosface/CosineMarginProduct.py" />
         <option value="$PROJECT_DIR$/margin/CosineMarginProduct.py" />
-        <option value="$PROJECT_DIR$/margin/SphereMarginProduct.py" />
         <option value="$PROJECT_DIR$/dataset/agedb.py" />
         <option value="$PROJECT_DIR$/utils/load_images_from_bin.py" />
         <option value="$PROJECT_DIR$/megaface_eval.py" />
@@ -162,6 +228,7 @@
         <option value="$PROJECT_DIR$/eval_lfw.py" />
         <option value="$PROJECT_DIR$/eval_agedb30.py" />
         <option value="$PROJECT_DIR$/eval_cfp.py" />
+        <option value="$PROJECT_DIR$/margin/SphereMarginProduct.py" />
       </list>
     </option>
   </component>
@@ -172,10 +239,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="24" />
-    <option name="y" value="98" />
+    <option name="x" value="16" />
+    <option name="y" value="134" />
     <option name="width" value="1936" />
-    <option name="height" value="1046" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -423,13 +490,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.39262474" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37635574" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -580,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/margin/SphereMarginProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backbone/mobilefacenet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
@@ -614,27 +674,6 @@
             <element signature="e#687#745#0" expanded="true" />
             <element signature="e#3529#5307#0" expanded="true" />
             <element signature="e#5377#5921#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="141" column="70" lean-forward="true" selection-start-line="141" selection-start-column="70" selection-end-line="141" selection-end-column="70" />
-          <folding>
-            <element signature="e#263#275#0" expanded="true" />
-            <element signature="e#409#445#0" expanded="true" />
-            <element signature="e#526#884#0" expanded="true" />
-            <element signature="e#920#1085#0" expanded="true" />
-            <element signature="e#1185#2012#0" expanded="true" />
-            <element signature="e#2048#2144#0" expanded="true" />
-            <element signature="e#2246#3142#0" expanded="true" />
-            <element signature="e#5953#6052#0" expanded="true" />
-            <marker date="1545808820310" expanded="true" signature="370:375" ph="..." />
-            <marker date="1545808820310" expanded="true" signature="474:479" ph="..." />
-            <marker date="1545808820310" expanded="true" signature="2180:4640" ph="..." />
-            <marker date="1545808820310" expanded="true" signature="4670:4675" ph="..." />
           </folding>
         </state>
       </provider>
@@ -685,33 +724,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/margin/ArcMarginProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <element signature="e#203#214#0" expanded="true" />
-            <element signature="e#1041#1743#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-          <folding>
-            <element signature="e#193#205#0" expanded="true" />
-            <element signature="e#414#687#0" expanded="true" />
-            <element signature="e#735#1072#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="246" lean-forward="true" selection-start-line="246" selection-end-line="246" />
+        <state relative-caret-position="417">
+          <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
           <folding>
             <element signature="e#187#196#0" expanded="true" />
             <element signature="e#870#9025#0" expanded="true" />
@@ -721,6 +737,64 @@
             <element signature="e#7222#8776#0" />
             <marker date="1545873336970" expanded="true" signature="909:914" ph="..." />
             <marker date="1545873336970" expanded="true" signature="909:8945" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="127" column="82" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="82" />
+          <folding>
+            <element signature="e#263#275#0" expanded="true" />
+            <element signature="e#409#445#0" expanded="true" />
+            <element signature="e#526#884#0" expanded="true" />
+            <element signature="e#920#1085#0" expanded="true" />
+            <element signature="e#1185#2012#0" expanded="true" />
+            <element signature="e#2048#2144#0" expanded="true" />
+            <element signature="e#2246#3142#0" expanded="true" />
+            <element signature="e#5953#6052#0" expanded="true" />
+            <marker date="1545808820310" expanded="true" signature="370:375" ph="..." />
+            <marker date="1545808820310" expanded="true" signature="474:479" ph="..." />
+            <marker date="1545808820310" expanded="true" signature="2180:4640" ph="..." />
+            <marker date="1545808820310" expanded="true" signature="4670:4675" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#193#205#0" expanded="true" />
+            <element signature="e#414#687#0" expanded="true" />
+            <element signature="e#735#1072#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/margin/ArcMarginProduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#203#214#0" expanded="true" />
+            <element signature="e#450#998#0" expanded="true" />
+            <element signature="e#1041#1743#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/margin/SphereMarginProduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="62" column="8" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
+          <folding>
+            <element signature="e#203#215#0" expanded="true" />
+            <element signature="e#462#998#0" expanded="true" />
+            <element signature="e#1249#1967#0" expanded="true" />
+            <marker date="1545880429108" expanded="true" signature="351:356" ph="..." />
           </folding>
         </state>
       </provider>
