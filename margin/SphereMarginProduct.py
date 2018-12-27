@@ -22,7 +22,7 @@ class SphereMarginProduct(nn.Module):
         self.m = m
         self.base = base
         self.gamma = gamma
-        self.power = 1
+        self.power = power
         self.lambda_min = lambda_min
         self.iter = 0
         self.weight = Parameter(torch.Tensor(out_feature, in_feature))
@@ -50,11 +50,13 @@ class SphereMarginProduct(nn.Module):
         k = ((self.m * theta) / math.pi).floor()
         phi_theta = ((-1.0) ** k) * cos_m_theta - 2 * k
         phi_theta_ = (self.cur_lambda * cos_theta + phi_theta) / (1 + self.cur_lambda)
+        norm_of_feature = torch.norm(input, 2, 1)
 
         one_hot = torch.zeros_like(cos_theta)
         one_hot.scatter_(1, label.view(-1, 1), 1)
 
         output = one_hot * phi_theta_ + (1 - one_hot) * cos_theta
+        output *= norm_of_feature.view(-1, 1)
 
         return output
 
