@@ -31,7 +31,7 @@ Train on MS-Celeb-1M (large protocol)
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
 MobileFaceNet   |  ArcFace  |          |              |             |  4MB
 ResNet50        |  ArcFace  |          |              |             | 292MB 
-ResNet50-IR     |  ArcFace  |          |              |             | 170MB       
+ResNet50-IR     |  ArcFace  |          |              |             | 170MB 
 SEResNet50-IR   |  ArcFace  |          |              |             |        
 
 ### MegaFace Rank 1 Identifiaction and Verfication with TPR@FPR=1e-6
@@ -55,7 +55,7 @@ SEResNet50-IR   |  ArcFace  |         |         |           |           |
 
 
 ### References
-[CosFace_pytorch](https://github.com/MuggleWang/CosFace_pytorch)  
-[MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)  
-[InsightFace_Pytorch](https://github.com/TreB1eN/InsightFace_Pytorch)  
-[insightface](https://github.com/deepinsight/insightface)
+[MuggleWang/CosFace_pytorch](https://github.com/MuggleWang/CosFace_pytorch)  
+[Xiaoccer/MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)  
+[TreB1eN/InsightFace_Pytorch](https://github.com/TreB1eN/InsightFace_Pytorch)  
+[deepinsight/insightface](https://github.com/deepinsight/insightface)
