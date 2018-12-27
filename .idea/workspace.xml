@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eval_agedb30.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval_agedb30.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eval_cfp.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval_cfp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eval_lfw.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval_lfw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eval_megaface.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval_megaface.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +12,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Face_Pytorch$megaface.coverage" NAME="megaface Coverage Results" MODIFIED="1545640842217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
-    <SUITE FILE_PATH="coverage/Face_Pytorch$train.coverage" NAME="train Coverage Results" MODIFIED="1545824082063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_Pytorch$train.coverage" NAME="train Coverage Results" MODIFIED="1545875032094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$test.coverage" NAME="test Coverage Results" MODIFIED="1545620607003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$resnet.coverage" NAME="resnet Coverage Results" MODIFIED="1545702594417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backbone" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$agedb.coverage" NAME="agedb Coverage Results" MODIFIED="1545735891728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
@@ -97,100 +92,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="79" column="73" lean-forward="true" selection-start-line="76" selection-start-column="4" selection-end-line="79" selection-end-column="73" />
+            <state relative-caret-position="360">
+              <caret line="246" lean-forward="true" selection-start-line="246" selection-end-line="246" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
+                <element signature="e#870#9025#0" expanded="true" />
                 <element signature="e#3099#3568#0" />
                 <element signature="e#3598#3785#0" />
                 <element signature="e#6357#6825#0" />
                 <element signature="e#7222#8776#0" />
                 <marker date="1545873336970" expanded="true" signature="909:914" ph="..." />
                 <marker date="1545873336970" expanded="true" signature="909:8945" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eval_lfw.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="132" column="104" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="104" />
-              <folding>
-                <element signature="e#147#165#0" expanded="true" />
-                <element signature="e#433#562#0" expanded="true" />
-                <element signature="e#609#949#0" expanded="true" />
-                <element signature="e#2044#3517#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eval_megaface.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="67" column="65" lean-forward="true" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="65" />
-              <folding>
-                <element signature="e#179#197#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/eval_cfp.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="137" column="30" lean-forward="true" selection-start-line="137" selection-start-column="30" selection-end-line="137" selection-end-column="30" />
-              <folding>
-                <element signature="e#212#230#0" expanded="true" />
-                <element signature="e#2128#3521#0" expanded="true" />
-                <element signature="e#3311#4288#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eval_agedb30.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="142" column="30" lean-forward="true" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
-              <folding>
-                <element signature="e#239#257#0" expanded="true" />
-                <element signature="e#2139#3269#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/margin/ArcMarginProduct.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-80">
-              <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-              <folding>
-                <element signature="e#203#214#0" expanded="true" />
-                <element signature="e#1041#1743#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-              <folding>
-                <element signature="e#193#205#0" expanded="true" />
-                <element signature="e#414#687#0" expanded="true" />
-                <element signature="e#735#1072#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -332,29 +247,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.eval_cfp">
-    <configuration name="arcfacenet" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Face_Pytorch" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backbone" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backbone/arcfacenet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.train">
     <configuration name="eval_agedb30" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Face_Pytorch" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -465,21 +358,43 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Face_Pytorch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.test" />
       <item itemvalue="Python.eval_lfw" />
-      <item itemvalue="Python.arcfacenet" />
       <item itemvalue="Python.eval_cfp" />
       <item itemvalue="Python.eval_megaface" />
       <item itemvalue="Python.eval_agedb30" />
+      <item itemvalue="Python.train" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.train" />
         <item itemvalue="Python.eval_cfp" />
         <item itemvalue="Python.eval_agedb30" />
         <item itemvalue="Python.eval_lfw" />
         <item itemvalue="Python.eval_megaface" />
-        <item itemvalue="Python.arcfacenet" />
       </list>
     </recent_temporary>
   </component>
@@ -508,13 +423,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39262474" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.39262474" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -672,29 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-          <folding>
-            <element signature="e#193#205#0" expanded="true" />
-            <element signature="e#414#687#0" expanded="true" />
-            <element signature="e#735#1072#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/margin/ArcMarginProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <element signature="e#203#214#0" expanded="true" />
-            <element signature="e#1041#1743#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backbone/mobilefacenet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
@@ -710,22 +602,6 @@
             <marker date="1545650396681" expanded="true" signature="407:412" ph="..." />
             <marker date="1545650396681" expanded="true" signature="1285:1290" ph="..." />
             <marker date="1545650396681" expanded="true" signature="1896:1901" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="79" column="73" lean-forward="true" selection-start-line="76" selection-start-column="4" selection-end-line="79" selection-end-column="73" />
-          <folding>
-            <element signature="e#187#196#0" expanded="true" />
-            <element signature="e#3099#3568#0" />
-            <element signature="e#3598#3785#0" />
-            <element signature="e#6357#6825#0" />
-            <element signature="e#7222#8776#0" />
-            <marker date="1545873336970" expanded="true" signature="909:914" ph="..." />
-            <marker date="1545873336970" expanded="true" signature="909:8945" ph="..." />
           </folding>
         </state>
       </provider>
@@ -765,8 +641,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eval_megaface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="67" column="65" lean-forward="true" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="65" />
+        <state relative-caret-position="70">
+          <caret line="59" column="48" lean-forward="true" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
           <folding>
             <element signature="e#179#197#0" expanded="true" />
           </folding>
@@ -776,12 +652,24 @@
     <entry file="file://$PROJECT_DIR$/eval_lfw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
-          <caret line="132" column="104" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="104" />
+          <caret line="132" column="40" selection-start-line="132" selection-start-column="40" selection-end-line="132" selection-end-column="40" />
           <folding>
             <element signature="e#147#165#0" expanded="true" />
             <element signature="e#433#562#0" expanded="true" />
             <element signature="e#609#949#0" expanded="true" />
             <element signature="e#2044#3517#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval_cfp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="144" column="21" lean-forward="true" selection-start-line="144" selection-start-column="21" selection-end-line="144" selection-end-column="21" />
+          <folding>
+            <element signature="e#212#230#0" expanded="true" />
+            <element signature="e#2128#3521#0" expanded="true" />
+            <element signature="e#3311#4288#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -797,14 +685,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eval_cfp.py">
+    <entry file="file://$PROJECT_DIR$/margin/ArcMarginProduct.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="137" column="30" lean-forward="true" selection-start-line="137" selection-start-column="30" selection-end-line="137" selection-end-column="30" />
+        <state relative-caret-position="-80">
+          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding>
-            <element signature="e#212#230#0" expanded="true" />
-            <element signature="e#2128#3521#0" expanded="true" />
-            <element signature="e#3311#4288#0" expanded="true" />
+            <element signature="e#203#214#0" expanded="true" />
+            <element signature="e#1041#1743#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding>
+            <element signature="e#193#205#0" expanded="true" />
+            <element signature="e#414#687#0" expanded="true" />
+            <element signature="e#735#1072#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="246" lean-forward="true" selection-start-line="246" selection-end-line="246" />
+          <folding>
+            <element signature="e#187#196#0" expanded="true" />
+            <element signature="e#870#9025#0" expanded="true" />
+            <element signature="e#3099#3568#0" />
+            <element signature="e#3598#3785#0" />
+            <element signature="e#6357#6825#0" />
+            <element signature="e#7222#8776#0" />
+            <marker date="1545873336970" expanded="true" signature="909:914" ph="..." />
+            <marker date="1545873336970" expanded="true" signature="909:8945" ph="..." />
           </folding>
         </state>
       </provider>
