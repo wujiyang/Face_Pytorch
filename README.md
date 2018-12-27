@@ -20,7 +20,7 @@ Train on CASIA-WebFace (small protocol)
 
   Model Type    |   Loss    | LFW Acc. | AgeDB-30 Acc.| CFP-FP Acc. |  SIZE 
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
-MobileFaceNet   |  ArcFace  |  0.9923  |    0.9301    |   0.9430    |  4MB
+MobileFaceNet   |  ArcFace  |  0.9923  |    0.9326    |   0.9432    |  4MB
 ResNet50        |  ArcFace  |          |              |             | 292MB 
 ResNet50-IR     |  ArcFace  |          |              |             | 170MB        
 SEResNet50-IR   |  ArcFace  |          |              |             |         
@@ -39,7 +39,7 @@ Train on CASIA-WebFace (small protocol)
 
   Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE 
 :--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:
-MobileFaceNet   |  ArcFace  |         |         |           |           |  4MB
+MobileFaceNet   |  ArcFace  | 0.6910  | 0.8423  |  0.8115   |  0.8586   |  4MB
 ResNet50        |  ArcFace  |         |         |           |           | 292MB 
 ResNet50-IR     |  ArcFace  |         |         |           |           | 170MB
 SEResNet50-IR   |  ArcFace  |         |         |           |           |
