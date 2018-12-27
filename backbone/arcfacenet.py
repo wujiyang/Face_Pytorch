@@ -121,7 +121,6 @@ def get_blocks(num_layers):
     return blocks
 
 
-
 class SEResNet_IR(nn.Module):
     def __init__(self, num_layers, feature_dim=512, drop_ratio=0.4, mode = 'ir'):
         super(SEResNet_IR, self).__init__()
