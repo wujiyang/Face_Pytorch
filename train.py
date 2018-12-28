@@ -39,7 +39,6 @@ def train(args):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # log init
-    start_epoch = 1
     save_dir = os.path.join(args.save_dir, args.model_pre + args.backbone.upper() + '_' + datetime.now().strftime('%Y%m%d_%H%M%S'))
     if os.path.exists(save_dir):
         raise NameError('model dir exists!')
@@ -74,9 +73,9 @@ def train(args):
         net = ResNet50()
     elif args.backbone == 'Res101':
         net = ResNet101()
-    elif args.backbone == 'Res50-IR':
+    elif args.backbone == 'Res50_IR':
         net = SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
-    elif args.backbone == 'SERes50-IR':
+    elif args.backbone == 'SERes50_IR':
         net = SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
     else:
         print(args.backbone, ' is not available!')
@@ -107,7 +106,6 @@ def train(args):
         print('resume the model parameters from: ', args.resume)
         ckpt = torch.load(args.resume)
         net.load_state_dict(ckpt['net_state_dict'])
-        start_epoch = ckpt['epoch'] + 1
 
     # define optimizers for different layer
     ignored_params_id = []
@@ -120,12 +118,12 @@ def train(args):
     base_params = filter(lambda p: id(p) not in ignored_params_id, net.parameters())
 
     optimizer_ft = optim.SGD([
-        {'params': base_params, 'weight_decay': 5e-5},
+        {'params': base_params, 'weight_decay': 5e-4},
         {'params': margin.weight, 'weight_decay': 5e-4},
         {'params': prelu_params, 'weight_decay': 0.0}
     ], lr=0.1, momentum=0.9, nesterov=True)
 
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 35, 45], gamma=0.1)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[10, 18, 25], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -136,20 +134,20 @@ def train(args):
     criterion = torch.nn.CrossEntropyLoss().to(device)
 
     best_lfw_acc = 0.0
-    best_lfw_epoch = 0
+    best_lfw_iters = 0
     best_agedb30_acc = 0.0
-    best_agedb30_epoch = 0
+    best_agedb30_iters = 0
     best_cfp_fp_acc = 0.0
-    best_cfp_fp_epoch = 0
+    best_cfp_fp_iters = 0
 
-    for epoch in range(start_epoch, args.total_epoch + 1):
+    total_iters = 0
+    for epoch in range(1, args.total_epoch + 1):
         exp_lr_scheduler.step()
         # train model
         _print('Train Epoch: {}/{} ...'.format(epoch, args.total_epoch))
         net.train()
 
         since = time.time()
-        iters = 0
         for data in trainloader:
             img, label = data[0].to(device), data[1].to(device)
             batch_size = img.size(0)
@@ -161,64 +159,64 @@ def train(args):
             total_loss.backward()
             optimizer_ft.step()
 
+            total_iters += 1
             # print train information
-            iters = iters + 1
-            if iters % 100 == 0:
+            if total_iters % 100 == 0:
                 time_cur = (time.time() - since) / 100
                 since = time.time()
-                print("Iters: {:4d}, loss: {:.4f}, time: {:.4f} s/iter, learning rate: {}".format(iters, total_loss.item(), time_cur, exp_lr_scheduler.get_lr()[0]))
+                print("Iters: {:0>6d}/[{:0>2d}], loss: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters, epoch, total_loss.item(), time_cur, exp_lr_scheduler.get_lr()[0]))
 
-        # save model
-        if epoch % args.save_freq == 0:
-            msg = 'Saving checkpoint: {}'.format(epoch)
-            _print(msg)
-            if multi_gpus:
-                net_state_dict = net.module.state_dict()
-            else:
-                net_state_dict = net.state_dict()
-            if not os.path.exists(save_dir):
-                os.mkdir(save_dir)
-            torch.save({
-                'epoch': epoch,
-                'net_state_dict': net_state_dict},
-                os.path.join(save_dir, '%03d.ckpt' % epoch))
+                # save model
+            if total_iters % args.save_freq == 0:
+                msg = 'Saving checkpoint: {}'.format(total_iters)
+                _print(msg)
+                if multi_gpus:
+                    net_state_dict = net.module.state_dict()
+                else:
+                    net_state_dict = net.state_dict()
+                if not os.path.exists(save_dir):
+                    os.mkdir(save_dir)
+                torch.save({
+                    'iters': total_iters,
+                    'net_state_dict': net_state_dict},
+                    os.path.join(save_dir, 'iter_%06d.ckpt' % total_iters))
 
-        if epoch % args.test_freq == 0:
-            # test model on lfw
-            getFeatureFromTorch('./result/cur_epoch_lfw_result.mat', net, device, lfwdataset, lfwloader)
-            accs = evaluation_10_fold('./result/cur_epoch_lfw_result.mat')
-            _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-            if best_lfw_acc < np.mean(accs) * 100:
-                best_lfw_acc = np.mean(accs) * 100
-                best_lfw_epoch = epoch
+            if total_iters % args.test_freq == 0:
+                # test model on lfw
+                getFeatureFromTorch('./result/cur_lfw_result.mat', net, device, lfwdataset, lfwloader)
+                accs = evaluation_10_fold('./result/cur_lfw_result.mat')
+                _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
+                if best_lfw_acc < np.mean(accs) * 100:
+                    best_lfw_acc = np.mean(accs) * 100
+                    best_lfw_iters = total_iters
 
-            # test model on AgeDB30
-            getFeatureFromTorch('./result/cur_epoch_agedb30_result.mat', net, device, agedbdataset, agedbloader)
-            accs = evaluation_10_fold('./result/cur_epoch_agedb30_result.mat')
-            _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-            if best_agedb30_acc < np.mean(accs) * 100:
-                best_agedb30_acc = np.mean(accs) * 100
-                best_agedb30_epoch = epoch
+                # test model on AgeDB30
+                getFeatureFromTorch('./result/cur_agedb30_result.mat', net, device, agedbdataset, agedbloader)
+                accs = evaluation_10_fold('./result/cur_agedb30_result.mat')
+                _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
+                if best_agedb30_acc < np.mean(accs) * 100:
+                    best_agedb30_acc = np.mean(accs) * 100
+                    best_agedb30_iters = total_iters
 
-            # test model on CFP-FP
-            getFeatureFromTorch('./result/cur_epoch_cfpfp_result.mat', net, device, cfpfpdataset, cfpfploader)
-            accs = evaluation_10_fold('./result/cur_epoch_cfpfp_result.mat')
-            _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-            if best_cfp_fp_acc < np.mean(accs) * 100:
-                best_cfp_fp_acc = np.mean(accs) * 100
-                best_cfp_fp_epoch = epoch
-            _print('Current Best Accuracy: LFW: {:.4f} in Epoch: {}, AgeDB-30: {:.4f} in Epoch: {} and CFP-FP: {:.4f} in Epoch {}'.format(
-                best_lfw_acc, best_lfw_epoch, best_agedb30_acc, best_agedb30_epoch, best_cfp_fp_acc, best_cfp_fp_epoch))
+                # test model on CFP-FP
+                getFeatureFromTorch('./result/cur_cfpfp_result.mat', net, device, cfpfpdataset, cfpfploader)
+                accs = evaluation_10_fold('./result/cur_cfpfp_result.mat')
+                _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
+                if best_cfp_fp_acc < np.mean(accs) * 100:
+                    best_cfp_fp_acc = np.mean(accs) * 100
+                    best_cfp_fp_iters = total_iters
+                _print('Current Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
+                    best_lfw_acc, best_lfw_iters, best_agedb30_acc, best_agedb30_iters, best_cfp_fp_acc, best_cfp_fp_iters))
 
-    _print('Finally Best Accuracy: LFW: {:.4f} in Epoch: {}, AgeDB-30: {:.4f} in Epoch: {} and CFP-FP: {:.4f} in Epoch {}'.format(
-        best_lfw_acc, best_lfw_epoch, best_agedb30_acc, best_agedb30_epoch, best_cfp_fp_acc, best_cfp_fp_epoch))
+    _print('Finally Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
+        best_lfw_acc, best_lfw_iters, best_agedb30_acc, best_agedb30_iters, best_cfp_fp_acc, best_cfp_fp_iters))
     print('finishing training')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PyTorch for deep face recognition')
-    parser.add_argument('--train_root', type=str, default='/media/ramdisk/webface_align_112/', help='train image root')
-    parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/webface_align_train.list', help='train list')
+    parser.add_argument('--train_root', type=str, default='/media/ramdisk/msra_align_112', help='train image root')
+    parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/msra_align_train.list', help='train list')
     parser.add_argument('--lfw_test_root', type=str, default='/media/ramdisk/lfw_align_112', help='lfw image root')
     parser.add_argument('--lfw_file_list', type=str, default='/media/ramdisk/pairs.txt', help='lfw pair file list')
     parser.add_argument('--agedb_test_root', type=str, default='/media/sda/AgeDB-30/agedb30_align_112', help='agedb image root')
@@ -226,18 +224,18 @@ if __name__ == '__main__':
     parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/CFP_FP_aligned_112', help='agedb image root')
     parser.add_argument('--cfpfp_file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='agedb pair file list')
 
-    parser.add_argument('--backbone', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50-IR, SERes50-IR, SphereNet')
+    parser.add_argument('--backbone', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SphereNet')
     parser.add_argument('--margin_type', type=str, default='arcface', help='arcface, cosface, sphereface')
     parser.add_argument('--feature_dim', type=int, default=128, help='feature dimension, 128 or 512')
-    parser.add_argument('--batch_size', type=int, default=256, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=50, help='total epochs')
+    parser.add_argument('--batch_size', type=int, default=400, help='batch size')
+    parser.add_argument('--total_epoch', type=int, default=30, help='total epochs')
 
-    parser.add_argument('--save_freq', type=int, default=1, help='save frequency')
-    parser.add_argument('--test_freq', type=int, default=1, help='test frequency')
+    parser.add_argument('--save_freq', type=int, default=5000, help='save frequency')
+    parser.add_argument('--test_freq', type=int, default=5000, help='test frequency')
     parser.add_argument('--resume', type=str, default='', help='resume model')
     parser.add_argument('--pretrain', type=str, default='', help='pretrain model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
-    parser.add_argument('--model_pre', type=str, default='CASIA_', help='model prefix')
+    parser.add_argument('--model_pre', type=str, default='MSCeleb_', help='model prefix')
     parser.add_argument('--gpus', type=str, default='0,1', help='model prefix')
 
     args = parser.parse_args()

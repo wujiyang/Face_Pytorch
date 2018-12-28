@@ -1,7 +1,7 @@
 ## Face_Pytorch
 The implementation of  popular face recognition algorithms in pytorch framework, including arcface, cosface and sphereface and so on.
 
-All codes are evaluated on Pytorch 0.4.0 with Python 3.6, Ubuntu 16.04.10, CUDA 9.1 and CUDNN 7.1.
+All codes are evaluated on Pytorch 0.4.0 with Python 3.6, Ubuntu 16.04.10, CUDA 9.1 and CUDNN 7.1. Partially evaluated on Pytroch 1.0.	
 
 
 ## Data Preparation
@@ -23,21 +23,21 @@ Large Protocol: trained with Cleaned MS-Celeb-1M of size: 3923399/86876
 :--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|:--------:
 MobileFaceNet   |  ArcFace  |  0.9923  |    0.9326    |   0.9434    |  4MB   |  small
 ResNet50-IR     |  ArcFace  |  0.9942  |    0.9445    |   0.9534    | 170MB  |  small  
-SEResNet50-IR   |  ArcFace  |          |              |             |        |  small
+SEResNet50-IR   |  ArcFace  |          |              |             | 171MB  |  small
 MobileFaceNet   |  ArcFace  |          |              |             |  4MB   |  large
 ResNet50-IR     |  ArcFace  |          |              |             | 170MB  |  large
-SEResNet50-IR   |  ArcFace  |          |              |             |        |  large
+SEResNet50-IR   |  ArcFace  |          |              |             | 171MB  |  large
 
-### MegaFace Rank 1 Identifiaction and Verfication with TPR@FPR=1e-6
+### MegaFace Rank 1 identifiaction and verfication with TPR@FPR=1e-6
 
   Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE | protocol
 :--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:|:-------:
 MobileFaceNet   |  ArcFace  | 0.6910  | 0.8423  |  0.8115   |  0.8586   |  4MB  |  small
 ResNet50-IR     |  ArcFace  | 0.7431  | 0.8823  |  0.8744   |  0.8956   | 170MB |  small
-SEResNet50-IR   |  ArcFace  |         |         |           |           |       |  small
+SEResNet50-IR   |  ArcFace  |         |         |           |           | 171MB |  small
 MobileFaceNet   |  ArcFace  |         |         |           |           |  4MB  |  large
-ResNet50-IR     |  ArcFace  |         |         |           |           |       |  large
-SEResNet50-IR   |  ArcFace  |         |         |           |           |       |  large
+ResNet50-IR     |  ArcFace  |         |         |           |           | 170MB |  large
+SEResNet50-IR   |  ArcFace  |         |         |           |           | 171MB |  large
 
 
 ### References
