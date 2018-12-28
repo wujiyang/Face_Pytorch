@@ -81,7 +81,7 @@ def train(args):
         print(args.backbone, ' is not available!')
 
     if args.margin_type == 'arcface':
-        margin = ArcMarginProduct(args.feature_dim, trainset.class_nums)
+        margin = ArcMarginProduct(args.feature_dim, trainset.class_nums, s=args.scale_size)
     elif args.margin_type == 'cosface':
         pass
     elif args.margin_type == 'sphereface':
@@ -123,7 +123,7 @@ def train(args):
         {'params': prelu_params, 'weight_decay': 0.0}
     ], lr=0.1, momentum=0.9, nesterov=True)
 
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[10, 18, 25], gamma=0.1)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 35, 45], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -183,6 +183,7 @@ def train(args):
 
             if total_iters % args.test_freq == 0:
                 # test model on lfw
+                net.eval()
                 getFeatureFromTorch('./result/cur_lfw_result.mat', net, device, lfwdataset, lfwloader)
                 accs = evaluation_10_fold('./result/cur_lfw_result.mat')
                 _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
@@ -208,6 +209,8 @@ def train(args):
                 _print('Current Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
                     best_lfw_acc, best_lfw_iters, best_agedb30_acc, best_agedb30_iters, best_cfp_fp_acc, best_cfp_fp_iters))
 
+                net.train()
+
     _print('Finally Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
         best_lfw_acc, best_lfw_iters, best_agedb30_acc, best_agedb30_iters, best_cfp_fp_acc, best_cfp_fp_iters))
     print('finishing training')
@@ -215,8 +218,8 @@ def train(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PyTorch for deep face recognition')
-    parser.add_argument('--train_root', type=str, default='/media/ramdisk/msra_align_112', help='train image root')
-    parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/msra_align_train.list', help='train list')
+    parser.add_argument('--train_root', type=str, default='/media/ramdisk/webface_align_112', help='train image root')
+    parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/webface_align_train.list', help='train list')
     parser.add_argument('--lfw_test_root', type=str, default='/media/ramdisk/lfw_align_112', help='lfw image root')
     parser.add_argument('--lfw_file_list', type=str, default='/media/ramdisk/pairs.txt', help='lfw pair file list')
     parser.add_argument('--agedb_test_root', type=str, default='/media/sda/AgeDB-30/agedb30_align_112', help='agedb image root')
@@ -224,19 +227,20 @@ if __name__ == '__main__':
     parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/CFP_FP_aligned_112', help='agedb image root')
     parser.add_argument('--cfpfp_file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='agedb pair file list')
 
-    parser.add_argument('--backbone', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SphereNet')
+    parser.add_argument('--backbone', type=str, default='SERes50_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SphereNet')
     parser.add_argument('--margin_type', type=str, default='arcface', help='arcface, cosface, sphereface')
-    parser.add_argument('--feature_dim', type=int, default=128, help='feature dimension, 128 or 512')
-    parser.add_argument('--batch_size', type=int, default=400, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=30, help='total epochs')
+    parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
+    parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
+    parser.add_argument('--batch_size', type=int, default=128, help='batch size')
+    parser.add_argument('--total_epoch', type=int, default=50, help='total epochs')
 
-    parser.add_argument('--save_freq', type=int, default=5000, help='save frequency')
-    parser.add_argument('--test_freq', type=int, default=5000, help='test frequency')
+    parser.add_argument('--save_freq', type=int, default=3000, help='save frequency')
+    parser.add_argument('--test_freq', type=int, default=3000, help='test frequency')
     parser.add_argument('--resume', type=str, default='', help='resume model')
     parser.add_argument('--pretrain', type=str, default='', help='pretrain model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
-    parser.add_argument('--model_pre', type=str, default='MSCeleb_', help='model prefix')
-    parser.add_argument('--gpus', type=str, default='0,1', help='model prefix')
+    parser.add_argument('--model_pre', type=str, default='CASIA_', help='model prefix')
+    parser.add_argument('--gpus', type=str, default='2,3', help='model prefix')
 
     args = parser.parse_args()
 

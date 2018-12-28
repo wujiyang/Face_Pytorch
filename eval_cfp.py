@@ -96,10 +96,9 @@ def loadModel(data_root, file_list, backbone_net, gpus='0', resume=None):
     cfp_loader = torch.utils.data.DataLoader(cfp_dataset, batch_size=128,
                                              shuffle=False, num_workers=4, drop_last=False)
 
-    return net, device, cfp_dataset, cfp_loader
+    return net.eval(), device, cfp_dataset, cfp_loader
 
 def getFeatureFromTorch(feature_save_dir, net, device, data_set, data_loader):
-    net.eval()
     featureLs = None
     featureRs = None
     count = 0
