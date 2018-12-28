@@ -60,16 +60,15 @@ def evaluation_10_fold(feature_path='./result/cur_epoch_agedb_result.mat'):
     return ACCs
 
 def loadModel(data_root, file_list, backbone_net, gpus='0', resume=None):
-
     if backbone_net == 'MobileFace':
         net = mobilefacenet.MobileFaceNet()
     elif backbone_net == 'Res50':
         net = resnet.ResNet50()
     elif backbone_net == 'Res101':
         net = resnet.ResNet101()
-    elif args.backbone == 'Res50-IR':
+    elif backbone_net == 'Res50_IR':
         net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
-    elif args.backbone == 'SERes50-IR':
+    elif backbone_net == 'SERes50_IR':
         net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
     else:
         print(backbone_net, 'is not available!')
@@ -130,11 +129,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
     parser.add_argument('--root', type=str, default='/media/sda/AgeDB-30/agedb30_align_112', help='The path of lfw data')
     parser.add_argument('--file_list', type=str, default='/media/sda/AgeDB-30/agedb_30_pair.txt', help='The path of lfw data')
-    parser.add_argument('--resume', type=str, default='./model/CASIA_20181226_192640_MOBILEFACE/038.ckpt', help='The path pf save model')
-    parser.add_argument('--backbone_net', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
+    parser.add_argument('--resume', type=str, default='./model/CASIA_RES50-IR_20181226_193436/039.ckpt', help='The path pf save model')
+    parser.add_argument('--backbone_net', type=str, default='Res50_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
+    parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension')
     parser.add_argument('--feature_save_path', type=str, default='./result/cur_epoch_agedb_result.mat',
                         help='The path of the extract features save, must be .mat file')
-    parser.add_argument('--gpus', type=str, default='0,1', help='gpu list')
+    parser.add_argument('--gpus', type=str, default='2,3', help='gpu list')
     args = parser.parse_args()
 
     net, device, agedb_dataset, agedb_loader = loadModel(args.root, args.file_list, args.backbone_net, args.gpus, args.resume)

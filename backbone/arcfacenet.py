@@ -19,7 +19,7 @@ class Flatten(nn.Module):
 
 
 class SEModule(nn.Module):
-    def __init(self, channels, reduction):
+    def __init__(self, channels, reduction):
         super(SEModule, self).__init__()
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
         self.fc1 = nn.Conv2d(channels, channels // reduction, kernel_size=1, padding=0, bias=False)
@@ -159,7 +159,7 @@ class SEResNet_IR(nn.Module):
 
 if __name__ == '__main__':
     input = torch.Tensor(2, 3, 112, 112)
-    net = SEResNet_IR(50)
+    net = SEResNet_IR(50, mode='se_ir')
     print(net)
 
     x = net(input)

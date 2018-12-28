@@ -15,43 +15,29 @@ For AgeDB-30 and CFP-FP, the aligned images and evaluation pairs are restored fr
 > ResNet50: Original resnet structure  
 > ResNet50-IR: CNN described in ArcFace paper  
 > SEResNet50-IR: CNN described in ArcFace paper 
-### Verification result on LFW, AgeDB-30 and CFP_FP
-Train on CASIA-WebFace (small protocol) data size: 453580/10575 
+### Verification result on LFW, AgeDB-30 and CFP_FP  
+Small Protocol: trained with CASIA-WebFace of size: 453580/10575  
+Large Protocol: trained with Cleaned MS-Celeb-1M of size: 3923399/86876
 
-  Model Type    |   Loss    | LFW Acc. | AgeDB-30 Acc.| CFP-FP Acc. |  SIZE 
-:--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
-MobileFaceNet   |  ArcFace  |  0.9923  |    0.9326    |   0.9434    |  4MB
-ResNet50        |  ArcFace  |          |              |             | 292MB 
-ResNet50-IR     |  ArcFace  |          |              |             | 170MB        
-SEResNet50-IR   |  ArcFace  |          |              |             |         
-
-Train on MS-Celeb-1M (large protocol) data size: 3923399/86876
-
-  Model Type    |   Loss    | LFW Acc. | AgeDB-30 Acc.| CFP-FP Acc. |  SIZE 
-:--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|
-MobileFaceNet   |  ArcFace  |          |              |             |  4MB
-ResNet50        |  ArcFace  |          |              |             | 292MB 
-ResNet50-IR     |  ArcFace  |          |              |             | 170MB 
-SEResNet50-IR   |  ArcFace  |          |              |             |        
+  Model Type    |   Loss    | LFW Acc. | AgeDB-30 Acc.| CFP-FP Acc. |  SIZE  | protocol
+:--------------:|:---------:|:--------:|:------------:|:-----------:|:------:|:--------:
+MobileFaceNet   |  ArcFace  |  0.9923  |    0.9326    |   0.9434    |  4MB   |  small
+ResNet50-IR     |  ArcFace  |  0.9942  |    0.9445    |   0.9534    | 170MB  |  small  
+SEResNet50-IR   |  ArcFace  |          |              |             |        |  small
+MobileFaceNet   |  ArcFace  |          |              |             |  4MB   |  large
+ResNet50-IR     |  ArcFace  |          |              |             | 170MB  |  large
+SEResNet50-IR   |  ArcFace  |          |              |             |        |  large
 
 ### MegaFace Rank 1 Identifiaction and Verfication with TPR@FPR=1e-6
-Train on CASIA-WebFace (small protocol) data size: 453580/10575 
 
-  Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE 
-:--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:
-MobileFaceNet   |  ArcFace  | 0.6910  | 0.8423  |  0.8115   |  0.8586   |  4MB
-ResNet50        |  ArcFace  |         |         |           |           | 292MB 
-ResNet50-IR     |  ArcFace  |         |         |           |           | 170MB
-SEResNet50-IR   |  ArcFace  |         |         |           |           |
-
-Train on MS-Celeb-1M (large protocol) data size: 3923399/86876
-
-  Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE 
-:--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:
-MobileFaceNet   |  ArcFace  |         |         |           |           |  4MB
-ResNet50        |  ArcFace  |         |         |           |           | 292MB 
-ResNet50-IR     |  ArcFace  |         |         |           |           |
-SEResNet50-IR   |  ArcFace  |         |         |           |           |
+  Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE | protocol
+:--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:|:-------:
+MobileFaceNet   |  ArcFace  | 0.6910  | 0.8423  |  0.8115   |  0.8586   |  4MB  |  small
+ResNet50-IR     |  ArcFace  | 0.7431  | 0.8823  |  0.8744   |  0.8956   | 170MB |  small
+SEResNet50-IR   |  ArcFace  |         |         |           |           |       |  small
+MobileFaceNet   |  ArcFace  |         |         |           |           |  4MB  |  large
+ResNet50-IR     |  ArcFace  |         |         |           |           |       |  large
+SEResNet50-IR   |  ArcFace  |         |         |           |           |       |  large
 
 
 ### References
