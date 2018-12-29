@@ -55,7 +55,7 @@ def train(args):
     # train dataset
     trainset = CASIAWebFace(args.train_root, args.train_file_list, transform=transform)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=args.batch_size,
-                                              shuffle=True, num_workers=8, drop_last=False)
+                                              shuffle=True, num_workers=12, drop_last=False)
     # test dataset
     lfwdataset = LFW(args.lfw_test_root, args.lfw_file_list, transform=transform)
     lfwloader = torch.utils.data.DataLoader(lfwdataset, batch_size=128,
@@ -124,7 +124,7 @@ def train(args):
         {'params': prelu_params, 'weight_decay': 0.0}
     ], lr=0.1, momentum=0.9, nesterov=True)
 
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 35, 45], gamma=0.1)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[10, 18, 25], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -172,7 +172,7 @@ def train(args):
                 since = time.time()
                 print("Iters: {:0>6d}/[{:0>2d}], loss: {:.4f}, time: {:.2f} s/iter, train_accuracy: {:.4f}, learning rate: {}".format(total_iters, epoch, total_loss.item(), time_cur, train_accuracy, exp_lr_scheduler.get_lr()[0]))
 
-                # save model
+            # save model
             if total_iters % args.save_freq == 0:
                 msg = 'Saving checkpoint: {}'.format(total_iters)
                 _print(msg)
@@ -185,8 +185,9 @@ def train(args):
                 torch.save({
                     'iters': total_iters,
                     'net_state_dict': net_state_dict},
-                    os.path.join(save_dir, 'iter_%06d.ckpt' % total_iters))
+                    os.path.join(save_dir, 'Iter_%06d.ckpt' % total_iters))
 
+            # test accuracy
             if total_iters % args.test_freq == 0:
 
                 # test model on lfw
@@ -225,29 +226,29 @@ def train(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PyTorch for deep face recognition')
-    parser.add_argument('--train_root', type=str, default='/media/ramdisk/webface_align_112', help='train image root')
-    parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/webface_align_train.list', help='train list')
+    parser.add_argument('--train_root', type=str, default='/media/ramdisk/msra_align_112', help='train image root')
+    parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/msra_align_train.list', help='train list')
     parser.add_argument('--lfw_test_root', type=str, default='/media/ramdisk/lfw_align_112', help='lfw image root')
     parser.add_argument('--lfw_file_list', type=str, default='/media/ramdisk/pairs.txt', help='lfw pair file list')
     parser.add_argument('--agedb_test_root', type=str, default='/media/sda/AgeDB-30/agedb30_align_112', help='agedb image root')
     parser.add_argument('--agedb_file_list', type=str, default='/media/sda/AgeDB-30/agedb_30_pair.txt', help='agedb pair file list')
-    parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/CFP_FP_aligned_112', help='agedb image root')
+    parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/cfp_fp_aligned_112', help='agedb image root')
     parser.add_argument('--cfpfp_file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='agedb pair file list')
 
     parser.add_argument('--backbone', type=str, default='SERes50_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SphereNet')
     parser.add_argument('--margin_type', type=str, default='arcface', help='arcface, cosface, sphereface')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
-    parser.add_argument('--batch_size', type=int, default=128, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=50, help='total epochs')
+    parser.add_argument('--batch_size', type=int, default=256, help='batch size')
+    parser.add_argument('--total_epoch', type=int, default=30, help='total epochs')
 
-    parser.add_argument('--save_freq', type=int, default=3000, help='save frequency')
-    parser.add_argument('--test_freq', type=int, default=3000, help='test frequency')
+    parser.add_argument('--save_freq', type=int, default=5000, help='save frequency')
+    parser.add_argument('--test_freq', type=int, default=5000, help='test frequency')
     parser.add_argument('--resume', type=str, default='', help='resume model')
     parser.add_argument('--pretrain', type=str, default='', help='pretrain model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
-    parser.add_argument('--model_pre', type=str, default='CASIA_', help='model prefix')
-    parser.add_argument('--gpus', type=str, default='2,3', help='model prefix')
+    parser.add_argument('--model_pre', type=str, default='MSCeleb_', help='model prefix')
+    parser.add_argument('--gpus', type=str, default='0,1,2,3', help='model prefix')
 
     args = parser.parse_args()
 
