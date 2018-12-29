@@ -52,9 +52,9 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
         net = resnet.ResNet50()
     elif backbone_net == 'Res101':
         net = resnet.ResNet101()
-    elif args.backbone_net == 'Res50_IR':
+    elif backbone_net == 'Res50_IR':
         net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
-    elif args.backbone == 'SERes50_IR':
+    elif backbone_net == 'SERes50_IR':
         net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
     else:
         print(backbone_net, 'is not available!')
@@ -101,13 +101,13 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='./model/CASIA_RES50-IR_20181226_193436/039.ckpt', help='The path of trained model')
-    parser.add_argument('--backbone_net', type=str, default='Res50_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
+    parser.add_argument('--model_path', type=str, default='./model/MSCeleb_MOBILEFACE_20181228_170458/iter_225000.ckpt', help='The path of trained model')
+    parser.add_argument('--backbone_net', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
     parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
     parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
-    parser.add_argument('--batch_size', type=int, default=200, help='batch size')
+    parser.add_argument('--batch_size', type=int, default=512, help='batch size')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension')
-    parser.add_argument('--gpus', type=str, default='2,3', help='gpu list')
+    parser.add_argument('--gpus', type=str, default='0,1,2,3', help='gpu list')
     parser.add_argument("--do_norm", type=int, default=1, help="1 if normalize feature, 0 do nothing(Default case)")
     args = parser.parse_args()
 

@@ -19,23 +19,23 @@ For AgeDB-30 and CFP-FP, the aligned images and evaluation images pairs are rest
 Small Protocol: trained with CASIA-WebFace of size: 453580/10575  
 Large Protocol: trained with Cleaned MS-Celeb-1M of size: 3923399/86876
 
-  Model Type    |   Loss    |    LFW   | AgeDB-30 |  CFP-FP  | Model Size | protocol
-:--------------:|:---------:|:--------:|:--------:|:---------|:----------:|:--------:
-MobileFaceNet   |  ArcFace  |  0.9923  |  0.9326  |   0.9434 |     4MB    |  small
-ResNet50-IR     |  ArcFace  |  0.9942  |  0.9445  |   0.9534 |    170MB   |  small  
-SEResNet50-IR   |  ArcFace  |          |          |          |    171MB   |  small
-MobileFaceNet   |  ArcFace  |          |          |          |     4MB    |  large
-ResNet50-IR     |  ArcFace  |          |          |          |    170MB   |  large
-SEResNet50-IR   |  ArcFace  |          |          |          |    171MB   |  large
+  Model Type    |   Loss    |   LFW   | AgeDB-30 | CFP-FP | Model Size | protocol
+:--------------:|:---------:|:-------:|:--------:|:-------|:----------:|:--------:
+MobileFaceNet   |  ArcFace  |  99.23  |   93.26  |  94.34 |    4MB     |  small
+ResNet50-IR     |  ArcFace  |  99.42  |   94.45  |  95.34 |   170MB    |  small  
+SEResNet50-IR   |  ArcFace  |  99.43  |   94.50  |  95.43 |   171MB    |  small
+MobileFaceNet   |  ArcFace  |  99.58  |   96.57  |  92.90 |    4MB     |  large
+ResNet50-IR     |  ArcFace  |         |          |        |   170MB    |  large
+SEResNet50-IR   |  ArcFace  |         |          |        |   171MB    |  large
 
 ### MegaFace rank 1 identifiaction accuracy and verfication@FPR=1e-6 results
 
-  Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R |  SIZE | protocol
+  Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R | SIZE  | protocol
 :--------------:|:---------:|:-------:|:-------:|:---------:|:---------:|:-----:|:-------:
-MobileFaceNet   |  ArcFace  | 0.6910  | 0.8423  |  0.8115   |  0.8586   |  4MB  |  small
-ResNet50-IR     |  ArcFace  | 0.7431  | 0.8823  |  0.8744   |  0.8956   | 170MB |  small
-SEResNet50-IR   |  ArcFace  |         |         |           |           | 171MB |  small
-MobileFaceNet   |  ArcFace  |         |         |           |           |  4MB  |  large
+MobileFaceNet   |  ArcFace  |  69.10  |  84.23  |   81.15   |   85.86   |  4MB  |  small
+ResNet50-IR     |  ArcFace  |  74.31  |  88.23  |   87.44   |   89.56   | 170MB |  small
+SEResNet50-IR   |  ArcFace  |  74.37  |  88.32  |   88.30   |   89.65   | 171MB |  small
+MobileFaceNet   |  ArcFace  |  74.95  |  88.77  |   89.47   |   91.03   |  4MB  |  large
 ResNet50-IR     |  ArcFace  |         |         |           |           | 170MB |  large
 SEResNet50-IR   |  ArcFace  |         |         |           |           | 171MB |  large
 

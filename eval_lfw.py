@@ -128,9 +128,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
     parser.add_argument('--root', type=str, default='/media/ramdisk/lfw_align_112', help='The path of lfw data')
     parser.add_argument('--file_list', type=str, default='/media/ramdisk/pairs.txt', help='The path of lfw data')
-    parser.add_argument('--backbone_net', type=str, default='Res50_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
+    parser.add_argument('--backbone_net', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension')
-    parser.add_argument('--resume', type=str, default='./model/CASIA_RES50-IR_20181226_193436/039.ckpt',
+    parser.add_argument('--resume', type=str, default='./model/MSCeleb_MOBILEFACE_20181228_170458/iter_225000.ckpt',
                         help='The path pf save model')
     parser.add_argument('--feature_save_path', type=str, default='./result/cur_epoch_lfw_result.mat',
                         help='The path of the extract features save, must be .mat file')
