@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eval_agedb30.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval_agedb30.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eval_cfp.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval_cfp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eval_lfw.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval_lfw.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,14 +57,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
-          <entry key="py" value="19349" />
+          <entry key="py" value="19568" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="19348" />
+          <entry key="Python" value="19567" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -115,13 +111,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="150" column="32" lean-forward="true" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
+            <state relative-caret-position="458">
+              <caret line="166" column="56" lean-forward="true" selection-start-line="166" selection-start-column="56" selection-end-line="166" selection-end-column="56" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
-                <element signature="e#6177#6466#0" />
-                <marker date="1545988665797" expanded="true" signature="909:914" ph="..." />
-                <marker date="1545988665797" expanded="true" signature="909:9157" ph="..." />
+                <marker date="1546048549511" expanded="true" signature="891:894" ph="..." />
+                <marker date="1546048549511" expanded="true" signature="910:915" ph="..." />
+                <marker date="1546048549511" expanded="true" signature="910:9418" ph="..." />
               </folding>
             </state>
           </provider>
@@ -144,13 +140,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+            <state relative-caret-position="205">
+              <caret line="49" column="13" lean-forward="true" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
               <folding>
                 <element signature="e#263#275#0" expanded="true" />
                 <element signature="e#409#445#0" expanded="true" />
                 <element signature="e#526#884#0" expanded="true" />
-                <element signature="e#1185#2012#0" expanded="true" />
+                <element signature="e#920#1085#0" expanded="true" />
                 <element signature="e#2048#2144#0" expanded="true" />
                 <element signature="e#2246#3142#0" expanded="true" />
                 <element signature="e#3178#3274#0" expanded="true" />
@@ -161,19 +157,6 @@
                 <marker date="1545920765885" expanded="true" signature="474:479" ph="..." />
                 <marker date="1545920765885" expanded="true" signature="2182:4641" ph="..." />
                 <marker date="1545920765885" expanded="true" signature="4671:4676" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eval_megaface.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="107" column="81" lean-forward="true" selection-start-line="107" selection-start-column="81" selection-end-line="107" selection-end-column="81" />
-              <folding>
-                <element signature="e#179#197#0" expanded="true" />
-                <element signature="e#1394#3496#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -242,8 +225,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="31" />
-    <option name="y" value="12" />
+    <option name="x" value="36" />
+    <option name="y" value="279" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -493,13 +476,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.2635575" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.2635575" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -683,40 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eval_megaface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="107" column="81" lean-forward="true" selection-start-line="107" selection-start-column="81" selection-end-line="107" selection-end-column="81" />
-          <folding>
-            <element signature="e#179#197#0" expanded="true" />
-            <element signature="e#1394#3496#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-          <folding>
-            <element signature="e#263#275#0" expanded="true" />
-            <element signature="e#409#445#0" expanded="true" />
-            <element signature="e#526#884#0" expanded="true" />
-            <element signature="e#1185#2012#0" expanded="true" />
-            <element signature="e#2048#2144#0" expanded="true" />
-            <element signature="e#2246#3142#0" expanded="true" />
-            <element signature="e#3178#3274#0" expanded="true" />
-            <element signature="e#3475#3601#0" expanded="true" />
-            <element signature="e#3636#4637#0" expanded="true" />
-            <element signature="e#4760#5985#0" expanded="true" />
-            <marker date="1545920765885" expanded="true" signature="370:375" ph="..." />
-            <marker date="1545920765885" expanded="true" signature="474:479" ph="..." />
-            <marker date="1545920765885" expanded="true" signature="2182:4641" ph="..." />
-            <marker date="1545920765885" expanded="true" signature="4671:4676" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backbone/mobilefacenet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -794,15 +743,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/eval_megaface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1253">
+          <caret line="107" column="81" lean-forward="true" selection-start-line="107" selection-start-column="81" selection-end-line="107" selection-end-column="81" />
+          <folding>
+            <element signature="e#179#197#0" expanded="true" />
+            <element signature="e#1394#3496#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="49" column="13" lean-forward="true" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+          <folding>
+            <element signature="e#263#275#0" expanded="true" />
+            <element signature="e#409#445#0" expanded="true" />
+            <element signature="e#526#884#0" expanded="true" />
+            <element signature="e#920#1085#0" expanded="true" />
+            <element signature="e#2048#2144#0" expanded="true" />
+            <element signature="e#2246#3142#0" expanded="true" />
+            <element signature="e#3178#3274#0" expanded="true" />
+            <element signature="e#3475#3601#0" expanded="true" />
+            <element signature="e#3636#4637#0" expanded="true" />
+            <element signature="e#4760#5985#0" expanded="true" />
+            <marker date="1545920765885" expanded="true" signature="370:375" ph="..." />
+            <marker date="1545920765885" expanded="true" signature="474:479" ph="..." />
+            <marker date="1545920765885" expanded="true" signature="2182:4641" ph="..." />
+            <marker date="1545920765885" expanded="true" signature="4671:4676" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="150" column="32" lean-forward="true" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
+        <state relative-caret-position="458">
+          <caret line="166" column="56" lean-forward="true" selection-start-line="166" selection-start-column="56" selection-end-line="166" selection-end-column="56" />
           <folding>
             <element signature="e#187#196#0" expanded="true" />
-            <element signature="e#6177#6466#0" />
-            <marker date="1545988665797" expanded="true" signature="909:914" ph="..." />
-            <marker date="1545988665797" expanded="true" signature="909:9157" ph="..." />
+            <marker date="1546048549511" expanded="true" signature="891:894" ph="..." />
+            <marker date="1546048549511" expanded="true" signature="910:915" ph="..." />
+            <marker date="1546048549511" expanded="true" signature="910:9418" ph="..." />
           </folding>
         </state>
       </provider>
