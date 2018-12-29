@@ -40,7 +40,15 @@ ResNet50-IR     |  ArcFace  |         |         |           |           | 170MB 
 SEResNet50-IR   |  ArcFace  |         |         |           |           | 171MB |  large
 
 
-### References
+## Usage 
+1. download the source code into your machine.
+2. parpare the train data and train list, test data and test verification pairs.
+3. set your own dataset path in train.py.
+4. python train.py, test accuracy will print into log file during training process. 
+---
+5. every eval file can work independently for the model test process. just set your own args in the file. 
+
+## References
 [MuggleWang/CosFace_pytorch](https://github.com/MuggleWang/CosFace_pytorch)  
 [Xiaoccer/MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)  
 [TreB1eN/InsightFace_Pytorch](https://github.com/TreB1eN/InsightFace_Pytorch)  
