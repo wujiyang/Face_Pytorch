@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="" />
+    <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,14 +57,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
-          <entry key="py" value="19634" />
+          <entry key="py" value="19665" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="19633" />
+          <entry key="Python" value="19664" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -95,17 +97,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="251" lean-forward="true" selection-start-line="251" selection-end-line="251" />
+            <state relative-caret-position="270">
+              <caret line="166" column="45" selection-start-line="166" selection-start-column="45" selection-end-line="166" selection-end-column="45" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
-                <element signature="e#914#9006#0" expanded="true" />
-                <element signature="e#6197#6720#0" />
                 <element signature="e#6545#7168#0" />
                 <element signature="e#7178#8894#0" />
-                <marker date="1546089146853" expanded="true" signature="891:894" ph="..." />
-                <marker date="1546089146853" expanded="true" signature="910:915" ph="..." />
-                <marker date="1546089146853" expanded="true" signature="910:9443" ph="..." />
+                <marker date="1546166850960" expanded="true" signature="891:894" ph="..." />
+                <marker date="1546166850960" expanded="true" signature="910:915" ph="..." />
+                <marker date="1546166850960" expanded="true" signature="910:9489" ph="..." />
               </folding>
             </state>
           </provider>
@@ -435,6 +435,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -741,17 +742,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="251" lean-forward="true" selection-start-line="251" selection-end-line="251" />
+        <state relative-caret-position="270">
+          <caret line="166" column="45" selection-start-line="166" selection-start-column="45" selection-end-line="166" selection-end-column="45" />
           <folding>
             <element signature="e#187#196#0" expanded="true" />
-            <element signature="e#914#9006#0" expanded="true" />
-            <element signature="e#6197#6720#0" />
             <element signature="e#6545#7168#0" />
             <element signature="e#7178#8894#0" />
-            <marker date="1546089146853" expanded="true" signature="891:894" ph="..." />
-            <marker date="1546089146853" expanded="true" signature="910:915" ph="..." />
-            <marker date="1546089146853" expanded="true" signature="910:9443" ph="..." />
+            <marker date="1546166850960" expanded="true" signature="891:894" ph="..." />
+            <marker date="1546166850960" expanded="true" signature="910:915" ph="..." />
+            <marker date="1546166850960" expanded="true" signature="910:9489" ph="..." />
           </folding>
         </state>
       </provider>

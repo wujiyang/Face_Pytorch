@@ -164,6 +164,7 @@ def train(args):
             # print train information
             if total_iters % 100 == 0:
                 # current batch train accuracy
+                # something went wrong, why ?
                 _, predicted = torch.max(output.data, 1)
                 correct = (predicted == label).sum()
                 train_accuracy = (correct / label.size()[0])
