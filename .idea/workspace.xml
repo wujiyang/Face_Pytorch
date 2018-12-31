@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-    </list>
+    <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,12 +95,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="166" column="45" selection-start-line="166" selection-start-column="45" selection-end-line="166" selection-end-column="45" />
+            <state relative-caret-position="138">
+              <caret line="147" column="52" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="52" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
                 <element signature="e#6545#7168#0" />
-                <element signature="e#7178#8894#0" />
                 <marker date="1546166850960" expanded="true" signature="891:894" ph="..." />
                 <marker date="1546166850960" expanded="true" signature="910:915" ph="..." />
                 <marker date="1546166850960" expanded="true" signature="910:9489" ph="..." />
@@ -200,9 +197,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="36" />
-    <option name="y" value="279" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -434,7 +430,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="0" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
@@ -742,12 +738,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="166" column="45" selection-start-line="166" selection-start-column="45" selection-end-line="166" selection-end-column="45" />
+        <state relative-caret-position="138">
+          <caret line="147" column="52" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="52" />
           <folding>
             <element signature="e#187#196#0" expanded="true" />
             <element signature="e#6545#7168#0" />
-            <element signature="e#7178#8894#0" />
             <marker date="1546166850960" expanded="true" signature="891:894" ph="..." />
             <marker date="1546166850960" expanded="true" signature="910:915" ph="..." />
             <marker date="1546166850960" expanded="true" signature="910:9489" ph="..." />

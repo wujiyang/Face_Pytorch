@@ -28,6 +28,8 @@ MobileFaceNet   |  ArcFace  |  99.58  |   96.57  |  92.90 |    4MB     |  large
 ResNet50-IR     |  ArcFace  |         |          |        |   170MB    |  large
 SEResNet50-IR   |  ArcFace  |         |          |        |   171MB    |  large
 
+There exists an interesting fact that when testing under small protocol, CFP-FP performances better than AgeDB-30, but when testing under large protocol, AgeDB-30 has a much better result.
+
 ### MegaFace rank 1 identifiaction accuracy and verfication@FPR=1e-6 results
 
   Model Type    |   Loss    | MF Acc. | MF Ver. | MF Acc.@R | MF Ver.@R | SIZE  | protocol
