@@ -25,7 +25,7 @@ MobileFaceNet   |  ArcFace  |  99.23  |   93.26  |  94.34 |    4MB     |  small
 ResNet50-IR     |  ArcFace  |  99.42  |   94.45  |  95.34 |   170MB    |  small  
 SEResNet50-IR   |  ArcFace  |  99.43  |   94.50  |  95.43 |   171MB    |  small
 MobileFaceNet   |  ArcFace  |  99.58  |   96.57  |  92.90 |    4MB     |  large
-ResNet50-IR     |  ArcFace  |         |          |        |   170MB    |  large
+ResNet50-IR     |  ArcFace  |    -    |     -    |    -   |   170MB    |  large
 SEResNet50-IR   |  ArcFace  |         |          |        |   171MB    |  large
 
 There exists an odd result that when testing under small protocol, CFP-FP performances better than AgeDB-30, but when testing under large protocol, CFP-FP has a much worse result, even less than the small protocol one.
@@ -38,7 +38,7 @@ MobileFaceNet   |  ArcFace  |  69.10  |  84.23  |   81.15   |   85.86   |  4MB  
 ResNet50-IR     |  ArcFace  |  74.31  |  88.23  |   87.44   |   89.56   | 170MB |  small
 SEResNet50-IR   |  ArcFace  |  74.37  |  88.32  |   88.30   |   89.65   | 171MB |  small
 MobileFaceNet   |  ArcFace  |  74.95  |  88.77  |   89.47   |   91.03   |  4MB  |  large
-ResNet50-IR     |  ArcFace  |         |         |           |           | 170MB |  large
+ResNet50-IR     |  ArcFace  |    -    |    -    |     -     |     -     | 170MB |  large
 SEResNet50-IR   |  ArcFace  |         |         |           |           | 171MB |  large
 
 
