@@ -90,7 +90,7 @@ def train(args):
     else:
         print(args.margin_type, 'is not available!')
 
-    # TODO: Adaptive the finetune process for different backbone strcuture
+    # TODO: Adapt the finetune process for different backbone strcutures
     if args.pretrain:
         print('load pretrained model from:', args.pretrain)
         # load pretrained model
