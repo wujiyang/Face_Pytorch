@@ -28,7 +28,7 @@ MobileFaceNet   |  ArcFace  |  99.58  |   96.57  |  92.90 |    4MB     |  large
 ResNet50-IR     |  ArcFace  |    -    |     -    |    -   |   170MB    |  large
 SEResNet50-IR   |  ArcFace  |         |          |        |   171MB    |  large
 
-There exists an odd result that when testing under small protocol, CFP-FP performances better than AgeDB-30, but when testing under large protocol, CFP-FP has a much worse result, even less than the small protocol one.
+There exists an odd result fact that when training under small protocol, CFP-FP performances better than AgeDB-30, but when training with large scale dataset, CFP-FP has a much worse result, even less than the small protocol one.
 
 ### MegaFace rank 1 identifiaction accuracy and verfication@FPR=1e-6 results
 
@@ -43,12 +43,12 @@ SEResNet50-IR   |  ArcFace  |         |         |           |           | 171MB 
 
 
 ## Usage 
-1. download the source code to your machine.
-2. parpare the train data and train list, test data and test verification pairs.
-3. set your own dataset path and any other parameters in train.py.
-4. run train.py file, test accuracy will print into log file during training process. 
+1. Download the source code to your machine.
+2. Parpare the train data and train list, test data and test verification pairs.
+3. Set your own dataset path and any other parameters in train.py.
+4. Run train.py file, test accuracy will print into log file during training process. 
 ---
-5. every eval file can work independently for the model test process. just set your own args in the file. 
+5. Every eval file can work independently for the model test process. just set your own args in the file. 
 
 ## References
 [MuggleWang/CosFace_pytorch](https://github.com/MuggleWang/CosFace_pytorch)  
