@@ -1,7 +1,7 @@
 ## Face_Pytorch
 The implementation of  popular face recognition algorithms in pytorch framework, including arcface, cosface and sphereface and so on.
 
-All codes are evaluated on Pytorch 0.4.0 with Python 3.6, Ubuntu 16.04.10, CUDA 9.1 and CUDNN 7.1. Partially evaluated on Pytroch 1.0.	
+All codes are evaluated on Pytorch 0.4.0 with Python 3.6, Ubuntu 16.04.10, CUDA 9.1 and CUDNN 7.1. Partially evaluated on Pytorch 1.0.	
 
 
 ## Data Preparation
@@ -17,7 +17,7 @@ For AgeDB-30 and CFP-FP, the aligned images and evaluation images pairs are rest
 > SEResNet50-IR: CNN described in ArcFace paper 
 ### Verification results on LFW, AgeDB-30 and CFP_FP  
 Small Protocol: trained with CASIA-WebFace of data size: 453580/10575  
-Large Protocol: trained with DeepGlint MS-Celeb-1M of  data size: 3923399/86876
+Large Protocol: trained with DeepGlint MS-Celeb-1M of data size: 3923399/86876
 
   Model Type    |   Loss    |   LFW   | AgeDB-30 | CFP-FP | Model Size | protocol
 :--------------:|:---------:|:-------:|:--------:|:-------|:----------:|:--------:
