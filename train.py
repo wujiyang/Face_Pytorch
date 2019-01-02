@@ -16,6 +16,7 @@ from datetime import datetime
 from backbone.mobilefacenet import MobileFaceNet
 from backbone.resnet import ResNet50, ResNet101
 from backbone.arcfacenet import SEResNet_IR
+from backbone.spherenet import SphereNet
 from margin.ArcMarginProduct import ArcMarginProduct
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
@@ -70,7 +71,7 @@ def train(args):
     # define backbone and margin layer
     if args.backbone == 'MobileFace':
         net = MobileFaceNet()
-    elif args.backbone is 'Res50':
+    elif args.backbone == 'Res50':
         net = ResNet50()
     elif args.backbone == 'Res101':
         net = ResNet101()
@@ -78,6 +79,8 @@ def train(args):
         net = SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
     elif args.backbone == 'SERes50_IR':
         net = SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
+    elif args.backbone == 'SphereNet':
+        net = SphereNet(num_layers=64, feature_dim=args.feature_dim)
     else:
         print(args.backbone, ' is not available!')
 
@@ -223,19 +226,19 @@ if __name__ == '__main__':
     parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/cfp_fp_aligned_112', help='agedb image root')
     parser.add_argument('--cfpfp_file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='agedb pair file list')
 
-    parser.add_argument('--backbone', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SphereNet')
+    parser.add_argument('--backbone', type=str, default='SphereNet', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SphereNet')
     parser.add_argument('--margin_type', type=str, default='arcface', help='arcface, cosface, sphereface')
-    parser.add_argument('--feature_dim', type=int, default=128, help='feature dimension, 128 or 512')
+    parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=30, help='total epochs')
+    parser.add_argument('--total_epoch', type=int, default=50, help='total epochs')
 
     parser.add_argument('--save_freq', type=int, default=1500, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=1500, help='test frequency')
     parser.add_argument('--resume', type=str, default='', help='resume model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='CASIA_', help='model prefix')
-    parser.add_argument('--gpus', type=str, default='0,1', help='model prefix')
+    parser.add_argument('--gpus', type=str, default='0,1,2,3', help='model prefix')
 
     args = parser.parse_args()
 
