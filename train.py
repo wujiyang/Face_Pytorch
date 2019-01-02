@@ -52,7 +52,7 @@ def train(args):
         transforms.ToTensor(),  # range [0, 255] -> [0.0,1.0]
         transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))  # range [0.0, 1.0] -> [-1.0,1.0]
     ])
-    # train dataset
+    # validation dataset
     trainset = CASIAWebFace(args.train_root, args.train_file_list, transform=transform)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=args.batch_size,
                                               shuffle=True, num_workers=12, drop_last=False)
