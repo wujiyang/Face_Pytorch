@@ -97,14 +97,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="97" column="76" lean-forward="true" selection-start-line="97" selection-start-column="76" selection-end-line="97" selection-end-column="76" />
+            <state relative-caret-position="309">
+              <caret line="228" column="78" selection-start-line="228" selection-start-column="78" selection-end-line="228" selection-end-column="78" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
+                <element signature="e#914#9006#0" expanded="true" />
                 <element signature="e#6545#7168#0" />
-                <marker date="1546335521710" expanded="true" signature="891:894" ph="..." />
-                <marker date="1546335521710" expanded="true" signature="910:915" ph="..." />
-                <marker date="1546335521710" expanded="true" signature="910:9182" ph="..." />
+                <marker date="1546389279098" expanded="true" signature="891:894" ph="..." />
+                <marker date="1546389279098" expanded="true" signature="910:915" ph="..." />
+                <marker date="1546389279098" expanded="true" signature="910:8608" ph="..." />
               </folding>
             </state>
           </provider>
@@ -441,7 +442,7 @@
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.35900217" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.42407808" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -740,14 +741,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="97" column="76" lean-forward="true" selection-start-line="97" selection-start-column="76" selection-end-line="97" selection-end-column="76" />
+        <state relative-caret-position="309">
+          <caret line="228" column="78" selection-start-line="228" selection-start-column="78" selection-end-line="228" selection-end-column="78" />
           <folding>
             <element signature="e#187#196#0" expanded="true" />
+            <element signature="e#914#9006#0" expanded="true" />
             <element signature="e#6545#7168#0" />
-            <marker date="1546335521710" expanded="true" signature="891:894" ph="..." />
-            <marker date="1546335521710" expanded="true" signature="910:915" ph="..." />
-            <marker date="1546335521710" expanded="true" signature="910:9182" ph="..." />
+            <marker date="1546389279098" expanded="true" signature="891:894" ph="..." />
+            <marker date="1546389279098" expanded="true" signature="910:915" ph="..." />
+            <marker date="1546389279098" expanded="true" signature="910:8608" ph="..." />
           </folding>
         </state>
       </provider>

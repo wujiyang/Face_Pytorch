@@ -90,19 +90,6 @@ def train(args):
     else:
         print(args.margin_type, 'is not available!')
 
-    # TODO: Adapt the finetune process for different backbone strcutures
-    if args.pretrain:
-        print('load pretrained model from:', args.pretrain)
-        # load pretrained model
-        net_old = MobileFaceNet()
-        net_old.load_state_dict(torch.load(args.pretrain)['net_state_dict'])
-        # filter the parameters not in new model
-        net_dict = net.state_dict()
-        net_old = {k: v for k, v in net_old.state_dict().items() if k in net_dict}
-        # update the new state_dict
-        net_dict.update(net_old)
-        net.load_state_dict(net_dict)
-
     if args.resume:
         print('resume the model parameters from: ', args.resume)
         ckpt = torch.load(args.resume)
@@ -240,7 +227,6 @@ if __name__ == '__main__':
     parser.add_argument('--save_freq', type=int, default=5000, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=5000, help='test frequency')
     parser.add_argument('--resume', type=str, default='', help='resume model')
-    parser.add_argument('--pretrain', type=str, default='', help='pretrain model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='MSCeleb_', help='model prefix')
     parser.add_argument('--gpus', type=str, default='0,1,2,3', help='model prefix')
