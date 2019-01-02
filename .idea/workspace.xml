@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,8 +95,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="54" column="24" lean-forward="true" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+            <state relative-caret-position="347">
+              <caret line="65" column="90" lean-forward="true" selection-start-line="65" selection-start-column="90" selection-end-line="65" selection-end-column="90" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
                 <element signature="e#6545#7168#0" />
@@ -274,11 +272,6 @@
             <path>
               <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
               <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -478,7 +471,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="0" width="1936" height="1056" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -785,8 +779,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="54" column="24" lean-forward="true" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+        <state relative-caret-position="347">
+          <caret line="65" column="90" lean-forward="true" selection-start-line="65" selection-start-column="90" selection-end-line="65" selection-end-column="90" />
           <folding>
             <element signature="e#187#196#0" expanded="true" />
             <element signature="e#6545#7168#0" />

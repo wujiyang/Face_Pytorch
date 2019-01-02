@@ -39,7 +39,7 @@ ResNet50-IR     |  ArcFace  |  74.31  |  88.23  |   87.44   |   89.56   | 170MB 
 SEResNet50-IR   |  ArcFace  |  74.37  |  88.32  |   88.30   |   89.65   | 171MB |  small
 MobileFaceNet   |  ArcFace  |  74.95  |  88.77  |   89.47   |   91.03   |  4MB  |  large
 ResNet50-IR     |  ArcFace  |    -    |    -    |     -     |     -     | 170MB |  large
-SEResNet50-IR   |  ArcFace  |         |         |           |           | 171MB |  large
+SEResNet50-IR   |  ArcFace  |  79.83  |  95.47  |           |           | 171MB |  large
 
 
 ## Usage 
@@ -54,4 +54,9 @@ SEResNet50-IR   |  ArcFace  |         |         |           |           | 171MB 
 [MuggleWang/CosFace_pytorch](https://github.com/MuggleWang/CosFace_pytorch)  
 [Xiaoccer/MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)  
 [TreB1eN/InsightFace_Pytorch](https://github.com/TreB1eN/InsightFace_Pytorch)  
-[deepinsight/insightface](https://github.com/deepinsight/insightface)
+[deepinsight/insightface](https://github.com/deepinsight/insightface) 
+
+## TODO 
+1. Report the test results on DeepGlint Trillion Pairs Challenge.
+2. Add C++ api for fast deployment with pytorch 1.0.
+3. Train the ResNet100-based model.
