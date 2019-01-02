@@ -1,0 +1,421 @@
+20181229-21:14:18 Train Epoch: 1/30 ...
+20181229-22:17:41 Saving checkpoint: 5000
+20181229-22:18:19 LFW Ave Accuracy: 95.5667
+20181229-22:18:55 AgeDB-30 Ave Accuracy: 80.7667
+20181229-22:19:35 CFP-FP Ave Accuracy: 77.9571
+20181229-22:19:35 Current Best Accuracy: LFW: 95.5667 in iters: 5000, AgeDB-30: 80.7667 in iters: 5000 and CFP-FP: 77.9571 in iters: 5000
+20181229-23:22:02 Saving checkpoint: 10000
+20181229-23:22:38 LFW Ave Accuracy: 98.6333
+20181229-23:23:13 AgeDB-30 Ave Accuracy: 89.3000
+20181229-23:23:54 CFP-FP Ave Accuracy: 85.7714
+20181229-23:23:54 Current Best Accuracy: LFW: 98.6333 in iters: 10000, AgeDB-30: 89.3000 in iters: 10000 and CFP-FP: 85.7714 in iters: 10000
+20181230-00:26:29 Saving checkpoint: 15000
+20181230-00:27:05 LFW Ave Accuracy: 98.9167
+20181230-00:27:41 AgeDB-30 Ave Accuracy: 92.0667
+20181230-00:28:23 CFP-FP Ave Accuracy: 87.4429
+20181230-00:28:23 Current Best Accuracy: LFW: 98.9167 in iters: 15000, AgeDB-30: 92.0667 in iters: 15000 and CFP-FP: 87.4429 in iters: 15000
+20181230-00:32:28 Train Epoch: 2/30 ...
+20181230-01:31:11 Saving checkpoint: 20000
+20181230-01:31:47 LFW Ave Accuracy: 99.2000
+20181230-01:32:23 AgeDB-30 Ave Accuracy: 92.0333
+20181230-01:33:03 CFP-FP Ave Accuracy: 88.6000
+20181230-01:33:03 Current Best Accuracy: LFW: 99.2000 in iters: 20000, AgeDB-30: 92.0667 in iters: 15000 and CFP-FP: 88.6000 in iters: 20000
+20181230-02:35:46 Saving checkpoint: 25000
+20181230-02:36:23 LFW Ave Accuracy: 98.9500
+20181230-02:36:59 AgeDB-30 Ave Accuracy: 93.2000
+20181230-02:37:40 CFP-FP Ave Accuracy: 87.8714
+20181230-02:37:40 Current Best Accuracy: LFW: 99.2000 in iters: 20000, AgeDB-30: 93.2000 in iters: 25000 and CFP-FP: 88.6000 in iters: 20000
+20181230-03:40:26 Saving checkpoint: 30000
+20181230-03:41:01 LFW Ave Accuracy: 99.1000
+20181230-03:41:36 AgeDB-30 Ave Accuracy: 92.6333
+20181230-03:42:16 CFP-FP Ave Accuracy: 88.3000
+20181230-03:42:16 Current Best Accuracy: LFW: 99.2000 in iters: 20000, AgeDB-30: 93.2000 in iters: 25000 and CFP-FP: 88.6000 in iters: 20000
+20181230-03:50:27 Train Epoch: 3/30 ...
+20181230-04:45:13 Saving checkpoint: 35000
+20181230-04:45:48 LFW Ave Accuracy: 99.2500
+20181230-04:46:23 AgeDB-30 Ave Accuracy: 93.6000
+20181230-04:47:04 CFP-FP Ave Accuracy: 88.5571
+20181230-04:47:04 Current Best Accuracy: LFW: 99.2500 in iters: 35000, AgeDB-30: 93.6000 in iters: 35000 and CFP-FP: 88.6000 in iters: 20000
+20181230-05:49:57 Saving checkpoint: 40000
+20181230-05:50:33 LFW Ave Accuracy: 99.3000
+20181230-05:51:09 AgeDB-30 Ave Accuracy: 93.8000
+20181230-05:51:49 CFP-FP Ave Accuracy: 88.8571
+20181230-05:51:49 Current Best Accuracy: LFW: 99.3000 in iters: 40000, AgeDB-30: 93.8000 in iters: 40000 and CFP-FP: 88.8571 in iters: 40000
+20181230-06:54:39 Saving checkpoint: 45000
+20181230-06:55:15 LFW Ave Accuracy: 98.9833
+20181230-06:55:49 AgeDB-30 Ave Accuracy: 93.7167
+20181230-06:56:29 CFP-FP Ave Accuracy: 89.2857
+20181230-06:56:29 Current Best Accuracy: LFW: 99.3000 in iters: 40000, AgeDB-30: 93.8000 in iters: 40000 and CFP-FP: 89.2857 in iters: 45000
+20181230-07:08:45 Train Epoch: 4/30 ...
+20181230-07:59:14 Saving checkpoint: 50000
+20181230-07:59:50 LFW Ave Accuracy: 99.3333
+20181230-08:00:25 AgeDB-30 Ave Accuracy: 93.9833
+20181230-08:01:05 CFP-FP Ave Accuracy: 87.9143
+20181230-08:01:05 Current Best Accuracy: LFW: 99.3333 in iters: 50000, AgeDB-30: 93.9833 in iters: 50000 and CFP-FP: 89.2857 in iters: 45000
+20181230-09:03:37 Saving checkpoint: 55000
+20181230-09:04:13 LFW Ave Accuracy: 99.1333
+20181230-09:04:48 AgeDB-30 Ave Accuracy: 93.5667
+20181230-09:05:29 CFP-FP Ave Accuracy: 88.1286
+20181230-09:05:29 Current Best Accuracy: LFW: 99.3333 in iters: 50000, AgeDB-30: 93.9833 in iters: 50000 and CFP-FP: 89.2857 in iters: 45000
+20181230-10:07:47 Saving checkpoint: 60000
+20181230-10:08:24 LFW Ave Accuracy: 99.2500
+20181230-10:08:58 AgeDB-30 Ave Accuracy: 93.7167
+20181230-10:09:38 CFP-FP Ave Accuracy: 89.1429
+20181230-10:09:38 Current Best Accuracy: LFW: 99.3333 in iters: 50000, AgeDB-30: 93.9833 in iters: 50000 and CFP-FP: 89.2857 in iters: 45000
+20181230-10:25:50 Train Epoch: 5/30 ...
+20181230-11:11:48 Saving checkpoint: 65000
+20181230-11:12:26 LFW Ave Accuracy: 99.1500
+20181230-11:13:00 AgeDB-30 Ave Accuracy: 94.1167
+20181230-11:13:40 CFP-FP Ave Accuracy: 88.2857
+20181230-11:13:40 Current Best Accuracy: LFW: 99.3333 in iters: 50000, AgeDB-30: 94.1167 in iters: 65000 and CFP-FP: 89.2857 in iters: 45000
+20181230-12:15:39 Saving checkpoint: 70000
+20181230-12:16:17 LFW Ave Accuracy: 99.1500
+20181230-12:16:55 AgeDB-30 Ave Accuracy: 93.8333
+20181230-12:17:34 CFP-FP Ave Accuracy: 90.6000
+20181230-12:17:34 Current Best Accuracy: LFW: 99.3333 in iters: 50000, AgeDB-30: 94.1167 in iters: 65000 and CFP-FP: 90.6000 in iters: 70000
+20181230-13:19:32 Saving checkpoint: 75000
+20181230-13:20:08 LFW Ave Accuracy: 99.4500
+20181230-13:20:42 AgeDB-30 Ave Accuracy: 94.7000
+20181230-13:21:23 CFP-FP Ave Accuracy: 89.6143
+20181230-13:21:23 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 94.7000 in iters: 75000 and CFP-FP: 90.6000 in iters: 70000
+20181230-13:41:36 Train Epoch: 6/30 ...
+20181230-14:23:33 Saving checkpoint: 80000
+20181230-14:24:09 LFW Ave Accuracy: 99.2833
+20181230-14:24:44 AgeDB-30 Ave Accuracy: 93.5667
+20181230-14:25:24 CFP-FP Ave Accuracy: 89.1429
+20181230-14:25:24 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 94.7000 in iters: 75000 and CFP-FP: 90.6000 in iters: 70000
+20181230-15:27:37 Saving checkpoint: 85000
+20181230-15:28:15 LFW Ave Accuracy: 99.2167
+20181230-15:28:49 AgeDB-30 Ave Accuracy: 93.9833
+20181230-15:29:30 CFP-FP Ave Accuracy: 89.9714
+20181230-15:29:30 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 94.7000 in iters: 75000 and CFP-FP: 90.6000 in iters: 70000
+20181230-16:32:01 Saving checkpoint: 90000
+20181230-16:32:36 LFW Ave Accuracy: 99.3000
+20181230-16:33:10 AgeDB-30 Ave Accuracy: 94.3500
+20181230-16:33:51 CFP-FP Ave Accuracy: 89.1857
+20181230-16:33:51 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 94.7000 in iters: 75000 and CFP-FP: 90.6000 in iters: 70000
+20181230-16:58:24 Train Epoch: 7/30 ...
+20181230-17:36:51 Saving checkpoint: 95000
+20181230-17:37:27 LFW Ave Accuracy: 99.2500
+20181230-17:38:02 AgeDB-30 Ave Accuracy: 94.4667
+20181230-17:38:44 CFP-FP Ave Accuracy: 89.1143
+20181230-17:38:44 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 94.7000 in iters: 75000 and CFP-FP: 90.6000 in iters: 70000
+20181230-18:41:35 Saving checkpoint: 100000
+20181230-18:42:11 LFW Ave Accuracy: 99.2500
+20181230-18:42:46 AgeDB-30 Ave Accuracy: 95.1333
+20181230-18:43:26 CFP-FP Ave Accuracy: 89.0857
+20181230-18:43:26 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.1333 in iters: 100000 and CFP-FP: 90.6000 in iters: 70000
+20181230-19:46:10 Saving checkpoint: 105000
+20181230-19:46:48 LFW Ave Accuracy: 99.2000
+20181230-19:47:22 AgeDB-30 Ave Accuracy: 94.6667
+20181230-19:48:03 CFP-FP Ave Accuracy: 90.0857
+20181230-19:48:03 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.1333 in iters: 100000 and CFP-FP: 90.6000 in iters: 70000
+20181230-20:16:38 Train Epoch: 8/30 ...
+20181230-20:50:41 Saving checkpoint: 110000
+20181230-20:51:19 LFW Ave Accuracy: 99.2333
+20181230-20:51:54 AgeDB-30 Ave Accuracy: 93.9500
+20181230-20:52:35 CFP-FP Ave Accuracy: 89.5714
+20181230-20:52:35 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.1333 in iters: 100000 and CFP-FP: 90.6000 in iters: 70000
+20181230-21:54:55 Saving checkpoint: 115000
+20181230-21:55:32 LFW Ave Accuracy: 99.2500
+20181230-21:56:06 AgeDB-30 Ave Accuracy: 94.5333
+20181230-21:56:48 CFP-FP Ave Accuracy: 89.6571
+20181230-21:56:48 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.1333 in iters: 100000 and CFP-FP: 90.6000 in iters: 70000
+20181230-22:59:01 Saving checkpoint: 120000
+20181230-22:59:37 LFW Ave Accuracy: 99.2167
+20181230-23:00:11 AgeDB-30 Ave Accuracy: 93.8000
+20181230-23:00:51 CFP-FP Ave Accuracy: 88.7143
+20181230-23:00:51 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.1333 in iters: 100000 and CFP-FP: 90.6000 in iters: 70000
+20181230-23:33:21 Train Epoch: 9/30 ...
+20181231-00:03:12 Saving checkpoint: 125000
+20181231-00:03:50 LFW Ave Accuracy: 99.2500
+20181231-00:04:24 AgeDB-30 Ave Accuracy: 94.8000
+20181231-00:05:05 CFP-FP Ave Accuracy: 89.8286
+20181231-00:05:05 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.1333 in iters: 100000 and CFP-FP: 90.6000 in iters: 70000
+20181231-01:07:16 Saving checkpoint: 130000
+20181231-01:07:53 LFW Ave Accuracy: 99.2833
+20181231-01:08:28 AgeDB-30 Ave Accuracy: 94.9333
+20181231-01:09:08 CFP-FP Ave Accuracy: 88.9286
+20181231-01:09:09 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.1333 in iters: 100000 and CFP-FP: 90.6000 in iters: 70000
+20181231-02:11:26 Saving checkpoint: 135000
+20181231-02:12:02 LFW Ave Accuracy: 99.3000
+20181231-02:12:37 AgeDB-30 Ave Accuracy: 95.2667
+20181231-02:13:17 CFP-FP Ave Accuracy: 88.7143
+20181231-02:13:17 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.2667 in iters: 135000 and CFP-FP: 90.6000 in iters: 70000
+20181231-02:49:48 Train Epoch: 10/30 ...
+20181231-03:15:38 Saving checkpoint: 140000
+20181231-03:16:16 LFW Ave Accuracy: 99.3333
+20181231-03:16:51 AgeDB-30 Ave Accuracy: 94.5000
+20181231-03:17:31 CFP-FP Ave Accuracy: 89.5286
+20181231-03:17:31 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.2667 in iters: 135000 and CFP-FP: 90.6000 in iters: 70000
+20181231-04:19:54 Saving checkpoint: 145000
+20181231-04:20:30 LFW Ave Accuracy: 99.3667
+20181231-04:21:05 AgeDB-30 Ave Accuracy: 94.9333
+20181231-04:21:44 CFP-FP Ave Accuracy: 89.6143
+20181231-04:21:44 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.2667 in iters: 135000 and CFP-FP: 90.6000 in iters: 70000
+20181231-05:24:07 Saving checkpoint: 150000
+20181231-05:24:44 LFW Ave Accuracy: 99.4500
+20181231-05:25:20 AgeDB-30 Ave Accuracy: 94.4333
+20181231-05:26:00 CFP-FP Ave Accuracy: 90.0000
+20181231-05:26:00 Current Best Accuracy: LFW: 99.4500 in iters: 75000, AgeDB-30: 95.2667 in iters: 135000 and CFP-FP: 90.6000 in iters: 70000
+20181231-06:06:37 Train Epoch: 11/30 ...
+20181231-06:28:24 Saving checkpoint: 155000
+20181231-06:29:00 LFW Ave Accuracy: 99.6167
+20181231-06:29:36 AgeDB-30 Ave Accuracy: 96.6000
+20181231-06:30:17 CFP-FP Ave Accuracy: 92.9143
+20181231-06:30:17 Current Best Accuracy: LFW: 99.6167 in iters: 155000, AgeDB-30: 96.6000 in iters: 155000 and CFP-FP: 92.9143 in iters: 155000
+20181231-07:32:38 Saving checkpoint: 160000
+20181231-07:33:14 LFW Ave Accuracy: 99.5667
+20181231-07:33:49 AgeDB-30 Ave Accuracy: 96.7833
+20181231-07:34:29 CFP-FP Ave Accuracy: 94.0714
+20181231-07:34:29 Current Best Accuracy: LFW: 99.6167 in iters: 155000, AgeDB-30: 96.7833 in iters: 160000 and CFP-FP: 94.0714 in iters: 160000
+20181231-08:36:54 Saving checkpoint: 165000
+20181231-08:37:29 LFW Ave Accuracy: 99.6333
+20181231-08:38:04 AgeDB-30 Ave Accuracy: 96.8333
+20181231-08:38:45 CFP-FP Ave Accuracy: 93.9714
+20181231-08:38:45 Current Best Accuracy: LFW: 99.6333 in iters: 165000, AgeDB-30: 96.8333 in iters: 165000 and CFP-FP: 94.0714 in iters: 160000
+20181231-09:23:35 Train Epoch: 12/30 ...
+20181231-09:41:20 Saving checkpoint: 170000
+20181231-09:41:56 LFW Ave Accuracy: 99.5500
+20181231-09:42:31 AgeDB-30 Ave Accuracy: 97.0500
+20181231-09:43:11 CFP-FP Ave Accuracy: 94.1000
+20181231-09:43:11 Current Best Accuracy: LFW: 99.6333 in iters: 165000, AgeDB-30: 97.0500 in iters: 170000 and CFP-FP: 94.1000 in iters: 170000
+20181231-10:45:42 Saving checkpoint: 175000
+20181231-10:46:18 LFW Ave Accuracy: 99.6667
+20181231-10:46:52 AgeDB-30 Ave Accuracy: 97.0500
+20181231-10:47:32 CFP-FP Ave Accuracy: 94.0714
+20181231-10:47:32 Current Best Accuracy: LFW: 99.6667 in iters: 175000, AgeDB-30: 97.0500 in iters: 170000 and CFP-FP: 94.1000 in iters: 170000
+20181231-11:50:09 Saving checkpoint: 180000
+20181231-11:50:45 LFW Ave Accuracy: 99.7000
+20181231-11:51:20 AgeDB-30 Ave Accuracy: 97.0500
+20181231-11:52:00 CFP-FP Ave Accuracy: 93.7571
+20181231-11:52:00 Current Best Accuracy: LFW: 99.7000 in iters: 180000, AgeDB-30: 97.0500 in iters: 180000 and CFP-FP: 94.1000 in iters: 170000
+20181231-12:40:49 Train Epoch: 13/30 ...
+20181231-12:54:29 Saving checkpoint: 185000
+20181231-12:55:06 LFW Ave Accuracy: 99.5667
+20181231-12:55:41 AgeDB-30 Ave Accuracy: 97.0833
+20181231-12:56:20 CFP-FP Ave Accuracy: 94.1000
+20181231-12:56:20 Current Best Accuracy: LFW: 99.7000 in iters: 180000, AgeDB-30: 97.0833 in iters: 185000 and CFP-FP: 94.1000 in iters: 185000
+20181231-13:58:37 Saving checkpoint: 190000
+20181231-13:59:12 LFW Ave Accuracy: 99.7000
+20181231-13:59:47 AgeDB-30 Ave Accuracy: 97.2667
+20181231-14:00:27 CFP-FP Ave Accuracy: 94.0857
+20181231-14:00:27 Current Best Accuracy: LFW: 99.7000 in iters: 180000, AgeDB-30: 97.2667 in iters: 190000 and CFP-FP: 94.1000 in iters: 185000
+20181231-15:02:32 Saving checkpoint: 195000
+20181231-15:03:08 LFW Ave Accuracy: 99.6167
+20181231-15:03:43 AgeDB-30 Ave Accuracy: 97.4167
+20181231-15:04:25 CFP-FP Ave Accuracy: 93.5000
+20181231-15:04:25 Current Best Accuracy: LFW: 99.7000 in iters: 180000, AgeDB-30: 97.4167 in iters: 195000 and CFP-FP: 94.1000 in iters: 185000
+20181231-15:56:55 Train Epoch: 14/30 ...
+20181231-16:06:27 Saving checkpoint: 200000
+20181231-16:07:03 LFW Ave Accuracy: 99.6833
+20181231-16:07:38 AgeDB-30 Ave Accuracy: 97.0000
+20181231-16:08:19 CFP-FP Ave Accuracy: 94.3143
+20181231-16:08:19 Current Best Accuracy: LFW: 99.7000 in iters: 180000, AgeDB-30: 97.4167 in iters: 195000 and CFP-FP: 94.3143 in iters: 200000
+20181231-17:10:11 Saving checkpoint: 205000
+20181231-17:10:48 LFW Ave Accuracy: 99.7667
+20181231-17:11:23 AgeDB-30 Ave Accuracy: 96.9167
+20181231-17:12:03 CFP-FP Ave Accuracy: 94.2571
+20181231-17:12:03 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4167 in iters: 195000 and CFP-FP: 94.3143 in iters: 200000
+20181231-18:13:58 Saving checkpoint: 210000
+20181231-18:14:33 LFW Ave Accuracy: 99.6833
+20181231-18:15:08 AgeDB-30 Ave Accuracy: 97.0167
+20181231-18:15:49 CFP-FP Ave Accuracy: 94.3143
+20181231-18:15:49 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4167 in iters: 195000 and CFP-FP: 94.3143 in iters: 210000
+20181231-19:12:29 Train Epoch: 15/30 ...
+20181231-19:18:01 Saving checkpoint: 215000
+20181231-19:18:37 LFW Ave Accuracy: 99.7000
+20181231-19:19:12 AgeDB-30 Ave Accuracy: 97.1000
+20181231-19:19:52 CFP-FP Ave Accuracy: 94.1571
+20181231-19:19:52 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4167 in iters: 195000 and CFP-FP: 94.3143 in iters: 210000
+20181231-20:22:19 Saving checkpoint: 220000
+20181231-20:22:55 LFW Ave Accuracy: 99.6333
+20181231-20:23:29 AgeDB-30 Ave Accuracy: 97.4833
+20181231-20:24:09 CFP-FP Ave Accuracy: 94.0286
+20181231-20:24:09 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4833 in iters: 220000 and CFP-FP: 94.3143 in iters: 210000
+20181231-21:26:38 Saving checkpoint: 225000
+20181231-21:27:14 LFW Ave Accuracy: 99.6167
+20181231-21:27:49 AgeDB-30 Ave Accuracy: 97.2500
+20181231-21:28:29 CFP-FP Ave Accuracy: 94.0714
+20181231-21:28:29 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4833 in iters: 220000 and CFP-FP: 94.3143 in iters: 210000
+20181231-22:29:37 Train Epoch: 16/30 ...
+20181231-22:31:05 Saving checkpoint: 230000
+20181231-22:31:42 LFW Ave Accuracy: 99.6667
+20181231-22:32:16 AgeDB-30 Ave Accuracy: 97.4000
+20181231-22:32:57 CFP-FP Ave Accuracy: 94.4429
+20181231-22:32:57 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4833 in iters: 220000 and CFP-FP: 94.4429 in iters: 230000
+20181231-23:35:20 Saving checkpoint: 235000
+20181231-23:35:59 LFW Ave Accuracy: 99.7000
+20181231-23:36:35 AgeDB-30 Ave Accuracy: 97.1167
+20181231-23:37:15 CFP-FP Ave Accuracy: 94.4429
+20181231-23:37:15 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4833 in iters: 220000 and CFP-FP: 94.4429 in iters: 235000
+20190101-00:39:32 Saving checkpoint: 240000
+20190101-00:40:08 LFW Ave Accuracy: 99.6667
+20190101-00:40:43 AgeDB-30 Ave Accuracy: 97.1833
+20190101-00:41:25 CFP-FP Ave Accuracy: 94.1143
+20190101-00:41:25 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4833 in iters: 220000 and CFP-FP: 94.4429 in iters: 235000
+20190101-01:43:48 Saving checkpoint: 245000
+20190101-01:44:23 LFW Ave Accuracy: 99.6167
+20190101-01:44:58 AgeDB-30 Ave Accuracy: 97.2000
+20190101-01:45:37 CFP-FP Ave Accuracy: 93.7857
+20190101-01:45:37 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4833 in iters: 220000 and CFP-FP: 94.4429 in iters: 235000
+20190101-01:48:18 Train Epoch: 17/30 ...
+20190101-02:47:59 Saving checkpoint: 250000
+20190101-02:48:35 LFW Ave Accuracy: 99.6333
+20190101-02:49:11 AgeDB-30 Ave Accuracy: 97.4000
+20190101-02:49:53 CFP-FP Ave Accuracy: 94.1714
+20190101-02:49:53 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4833 in iters: 220000 and CFP-FP: 94.4429 in iters: 235000
+20190101-03:52:10 Saving checkpoint: 255000
+20190101-03:52:46 LFW Ave Accuracy: 99.7167
+20190101-03:53:21 AgeDB-30 Ave Accuracy: 97.1000
+20190101-03:54:02 CFP-FP Ave Accuracy: 94.0571
+20190101-03:54:02 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.4833 in iters: 220000 and CFP-FP: 94.4429 in iters: 235000
+20190101-04:56:18 Saving checkpoint: 260000
+20190101-04:56:54 LFW Ave Accuracy: 99.6333
+20190101-04:57:30 AgeDB-30 Ave Accuracy: 97.5000
+20190101-04:58:14 CFP-FP Ave Accuracy: 94.2286
+20190101-04:58:14 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.5000 in iters: 260000 and CFP-FP: 94.4429 in iters: 235000
+20190101-05:04:58 Train Epoch: 18/30 ...
+20190101-06:00:30 Saving checkpoint: 265000
+20190101-06:01:06 LFW Ave Accuracy: 99.7000
+20190101-06:01:40 AgeDB-30 Ave Accuracy: 97.2833
+20190101-06:02:20 CFP-FP Ave Accuracy: 94.1714
+20190101-06:02:20 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.5000 in iters: 260000 and CFP-FP: 94.4429 in iters: 235000
+20190101-07:04:26 Saving checkpoint: 270000
+20190101-07:05:01 LFW Ave Accuracy: 99.7000
+20190101-07:05:36 AgeDB-30 Ave Accuracy: 97.3500
+20190101-07:06:16 CFP-FP Ave Accuracy: 93.9429
+20190101-07:06:16 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.5000 in iters: 260000 and CFP-FP: 94.4429 in iters: 235000
+20190101-08:08:20 Saving checkpoint: 275000
+20190101-08:08:58 LFW Ave Accuracy: 99.6333
+20190101-08:09:33 AgeDB-30 Ave Accuracy: 97.2333
+20190101-08:10:12 CFP-FP Ave Accuracy: 94.0000
+20190101-08:10:12 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.5000 in iters: 260000 and CFP-FP: 94.4429 in iters: 235000
+20190101-08:20:58 Train Epoch: 19/30 ...
+20190101-09:12:09 Saving checkpoint: 280000
+20190101-09:12:45 LFW Ave Accuracy: 99.7500
+20190101-09:13:20 AgeDB-30 Ave Accuracy: 97.8833
+20190101-09:14:00 CFP-FP Ave Accuracy: 95.1000
+20190101-09:14:00 Current Best Accuracy: LFW: 99.7667 in iters: 205000, AgeDB-30: 97.8833 in iters: 280000 and CFP-FP: 95.1000 in iters: 280000
+20190101-10:15:54 Saving checkpoint: 285000
+20190101-10:16:30 LFW Ave Accuracy: 99.8000
+20190101-10:17:06 AgeDB-30 Ave Accuracy: 97.8667
+20190101-10:17:47 CFP-FP Ave Accuracy: 95.2143
+20190101-10:17:47 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 97.8833 in iters: 280000 and CFP-FP: 95.2143 in iters: 285000
+20190101-11:19:47 Saving checkpoint: 290000
+20190101-11:20:23 LFW Ave Accuracy: 99.7667
+20190101-11:20:59 AgeDB-30 Ave Accuracy: 97.8333
+20190101-11:21:39 CFP-FP Ave Accuracy: 95.2571
+20190101-11:21:39 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 97.8833 in iters: 280000 and CFP-FP: 95.2571 in iters: 290000
+20190101-11:36:27 Train Epoch: 20/30 ...
+20190101-12:23:56 Saving checkpoint: 295000
+20190101-12:24:32 LFW Ave Accuracy: 99.7667
+20190101-12:25:08 AgeDB-30 Ave Accuracy: 97.9000
+20190101-12:25:49 CFP-FP Ave Accuracy: 95.4429
+20190101-12:25:49 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 97.9000 in iters: 295000 and CFP-FP: 95.4429 in iters: 295000
+20190101-13:28:22 Saving checkpoint: 300000
+20190101-13:28:58 LFW Ave Accuracy: 99.7500
+20190101-13:29:34 AgeDB-30 Ave Accuracy: 97.8500
+20190101-13:30:14 CFP-FP Ave Accuracy: 95.4286
+20190101-13:30:14 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 97.9000 in iters: 295000 and CFP-FP: 95.4429 in iters: 295000
+20190101-14:32:51 Saving checkpoint: 305000
+20190101-14:33:27 LFW Ave Accuracy: 99.7167
+20190101-14:34:04 AgeDB-30 Ave Accuracy: 97.8000
+20190101-14:34:47 CFP-FP Ave Accuracy: 95.4571
+20190101-14:34:47 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 97.9000 in iters: 295000 and CFP-FP: 95.4571 in iters: 305000
+20190101-14:53:47 Train Epoch: 21/30 ...
+20190101-15:37:21 Saving checkpoint: 310000
+20190101-15:37:58 LFW Ave Accuracy: 99.8000
+20190101-15:38:33 AgeDB-30 Ave Accuracy: 97.9667
+20190101-15:39:14 CFP-FP Ave Accuracy: 95.5143
+20190101-15:39:14 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 97.9667 in iters: 310000 and CFP-FP: 95.5143 in iters: 310000
+20190101-16:41:45 Saving checkpoint: 315000
+20190101-16:42:22 LFW Ave Accuracy: 99.7667
+20190101-16:42:58 AgeDB-30 Ave Accuracy: 97.9500
+20190101-16:43:40 CFP-FP Ave Accuracy: 95.5286
+20190101-16:43:40 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 97.9667 in iters: 310000 and CFP-FP: 95.5286 in iters: 315000
+20190101-17:46:42 Saving checkpoint: 320000
+20190101-17:47:19 LFW Ave Accuracy: 99.7667
+20190101-17:47:55 AgeDB-30 Ave Accuracy: 97.9000
+20190101-17:48:35 CFP-FP Ave Accuracy: 95.5714
+20190101-17:48:35 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 97.9667 in iters: 310000 and CFP-FP: 95.5714 in iters: 320000
+20190101-18:11:51 Train Epoch: 22/30 ...
+20190101-18:51:28 Saving checkpoint: 325000
+20190101-18:52:06 LFW Ave Accuracy: 99.7667
+20190101-18:52:42 AgeDB-30 Ave Accuracy: 98.0000
+20190101-18:53:23 CFP-FP Ave Accuracy: 95.4429
+20190101-18:53:23 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.0000 in iters: 325000 and CFP-FP: 95.5714 in iters: 320000
+20190101-19:55:57 Saving checkpoint: 330000
+20190101-19:56:34 LFW Ave Accuracy: 99.7833
+20190101-19:57:11 AgeDB-30 Ave Accuracy: 98.1167
+20190101-19:57:52 CFP-FP Ave Accuracy: 95.4857
+20190101-19:57:52 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1167 in iters: 330000 and CFP-FP: 95.5714 in iters: 320000
+20190101-21:00:28 Saving checkpoint: 335000
+20190101-21:01:05 LFW Ave Accuracy: 99.8000
+20190101-21:01:41 AgeDB-30 Ave Accuracy: 97.9500
+20190101-21:02:22 CFP-FP Ave Accuracy: 95.2429
+20190101-21:02:22 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1167 in iters: 330000 and CFP-FP: 95.5714 in iters: 320000
+20190101-21:29:36 Train Epoch: 23/30 ...
+20190101-22:05:13 Saving checkpoint: 340000
+20190101-22:05:51 LFW Ave Accuracy: 99.7667
+20190101-22:06:27 AgeDB-30 Ave Accuracy: 97.9167
+20190101-22:07:08 CFP-FP Ave Accuracy: 95.4286
+20190101-22:07:08 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1167 in iters: 330000 and CFP-FP: 95.5714 in iters: 320000
+20190101-23:09:46 Saving checkpoint: 345000
+20190101-23:10:23 LFW Ave Accuracy: 99.7833
+20190101-23:10:59 AgeDB-30 Ave Accuracy: 98.1333
+20190101-23:11:40 CFP-FP Ave Accuracy: 95.5714
+20190101-23:11:40 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.5714 in iters: 320000
+20190102-00:14:20 Saving checkpoint: 350000
+20190102-00:14:57 LFW Ave Accuracy: 99.7833
+20190102-00:15:33 AgeDB-30 Ave Accuracy: 97.8500
+20190102-00:16:17 CFP-FP Ave Accuracy: 95.4000
+20190102-00:16:17 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.5714 in iters: 320000
+20190102-00:47:38 Train Epoch: 24/30 ...
+20190102-01:19:21 Saving checkpoint: 355000
+20190102-01:19:58 LFW Ave Accuracy: 99.7500
+20190102-01:20:35 AgeDB-30 Ave Accuracy: 97.9500
+20190102-01:21:16 CFP-FP Ave Accuracy: 95.4429
+20190102-01:21:16 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.5714 in iters: 320000
+20190102-02:24:22 Saving checkpoint: 360000
+20190102-02:24:59 LFW Ave Accuracy: 99.7667
+20190102-02:25:35 AgeDB-30 Ave Accuracy: 97.8333
+20190102-02:26:17 CFP-FP Ave Accuracy: 95.3429
+20190102-02:26:17 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.5714 in iters: 320000
+20190102-03:29:17 Saving checkpoint: 365000
+20190102-03:29:54 LFW Ave Accuracy: 99.7667
+20190102-03:30:30 AgeDB-30 Ave Accuracy: 97.8167
+20190102-03:31:11 CFP-FP Ave Accuracy: 95.6000
+20190102-03:31:11 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.6000 in iters: 365000
+20190102-04:06:46 Train Epoch: 25/30 ...
+20190102-04:34:21 Saving checkpoint: 370000
+20190102-04:34:58 LFW Ave Accuracy: 99.7500
+20190102-04:35:34 AgeDB-30 Ave Accuracy: 98.0833
+20190102-04:36:15 CFP-FP Ave Accuracy: 95.3143
+20190102-04:36:15 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.6000 in iters: 365000
+20190102-05:39:17 Saving checkpoint: 375000
+20190102-05:39:54 LFW Ave Accuracy: 99.7833
+20190102-05:40:29 AgeDB-30 Ave Accuracy: 97.8667
+20190102-05:41:11 CFP-FP Ave Accuracy: 95.4429
+20190102-05:41:11 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.6000 in iters: 365000
+20190102-06:44:11 Saving checkpoint: 380000
+20190102-06:44:48 LFW Ave Accuracy: 99.7667
+20190102-06:45:24 AgeDB-30 Ave Accuracy: 98.1167
+20190102-06:46:05 CFP-FP Ave Accuracy: 95.3286
+20190102-06:46:05 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.6000 in iters: 365000
+20190102-07:25:43 Train Epoch: 26/30 ...
+20190102-07:49:07 Saving checkpoint: 385000
+20190102-07:49:44 LFW Ave Accuracy: 99.7833
+20190102-07:50:21 AgeDB-30 Ave Accuracy: 97.9000
+20190102-07:51:02 CFP-FP Ave Accuracy: 95.5286
+20190102-07:51:02 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.6000 in iters: 365000
+20190102-08:53:48 Saving checkpoint: 390000
+20190102-08:54:25 LFW Ave Accuracy: 99.7833
+20190102-08:55:00 AgeDB-30 Ave Accuracy: 98.0333
+20190102-08:55:42 CFP-FP Ave Accuracy: 95.5286
+20190102-08:55:42 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.6000 in iters: 365000
+20190102-09:58:28 Saving checkpoint: 395000
+20190102-09:59:05 LFW Ave Accuracy: 99.7833
+20190102-09:59:41 AgeDB-30 Ave Accuracy: 97.9667
+20190102-10:00:23 CFP-FP Ave Accuracy: 95.5000
+20190102-10:00:23 Current Best Accuracy: LFW: 99.8000 in iters: 285000, AgeDB-30: 98.1333 in iters: 345000 and CFP-FP: 95.6000 in iters: 365000
