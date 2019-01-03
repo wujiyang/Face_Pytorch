@@ -16,7 +16,6 @@ from backbone.mobilefacenet import MobileFaceNet
 from margin.ArcMarginProduct import ArcMarginProduct
 from torch.utils.data import DataLoader
 import torch
-from torch.nn import DataParallel
 
 from torchvision import transforms
 import torch.nn.functional as F
@@ -63,31 +62,31 @@ if __name__ == '__main__':
     os.environ['CUDA_VISIBLE_DEVICES'] = args.gpus
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    # load model
-    net, margin = load_model(args.backbone_file, args.margin_file, device)
-
-    image_loader = get_train_loader(args.img_root, args.file_list)
-    theta = []
-    for data in image_loader:
-        img, label = data[0].to(device), data[1].to(device)
-        embedding = net(img)
-        cos_theta = F.linear(F.normalize(embedding), F.normalize(margin.weight))
-        cos_theta = cos_theta.clamp(-1, 1).detach().cpu().numpy()
-        for i in range(img.shape[0]):
-            cos_trget = cos_theta[i][label[i]]
-            theta.append(np.arccos(cos_trget) / np.pi * 180)
+    # load pretrain model
+    trained_net, trained_margin = load_model(args.backbone_file, args.margin_file, device)
 
     # initial model
-    net = MobileFaceNet()
-    margin = ArcMarginProduct()
-    net = net.to(device).eval()
-    margin = margin.to(device).eval()
+    initial_net = MobileFaceNet()
+    initial_margin = ArcMarginProduct()
+    initial_net = initial_net.to(device).eval()
+    initial_margin = initial_margin.to(device).eval()
+
+    # image dataloader
+    image_loader = get_train_loader(args.img_root, args.file_list)
+    theta_trained = []
     theta_initial = []
     for data in image_loader:
         img, label = data[0].to(device), data[1].to(device)
-        # print(img.shape, label.shape)
-        embedding = net(img)
-        cos_theta = F.linear(F.normalize(embedding), F.normalize(margin.weight))
+        # pretrained
+        embedding = trained_net(img)
+        cos_theta = F.linear(F.normalize(embedding), F.normalize(trained_margin.weight))
+        cos_theta = cos_theta.clamp(-1, 1).detach().cpu().numpy()
+        for i in range(img.shape[0]):
+            cos_trget = cos_theta[i][label[i]]
+            theta_trained.append(np.arccos(cos_trget) / np.pi * 180)
+        # initial
+        embedding = initial_net(img)
+        cos_theta = F.linear(F.normalize(embedding), F.normalize(initial_margin.weight))
         cos_theta = cos_theta.clamp(-1, 1).detach().cpu().numpy()
         for i in range(img.shape[0]):
             cos_trget = cos_theta[i][label[i]]
@@ -95,10 +94,10 @@ if __name__ == '__main__':
 
     # plot the theta
     plt.figure()
-    plt.xlabel('theta distribution of images')
-    plt.ylabel('count')
-    plt.title('theta_hist')
-    plt.hist(theta, bins=60, normed=0)
-    plt.hist(theta_initial, bins=60, normed=0)
+    plt.xlabel('Theta')
+    plt.ylabel('Numbers')
+    plt.title('Theta Distribution')
+    plt.hist(theta_trained, bins=180, normed=0)
+    plt.hist(theta_initial, bins=180, normed=0)
+    plt.legend(['trained theta distribution', 'initial theta distribution'])
     plt.savefig('theta_distribution_hist.jpg')
-    # plot the initial theta

@@ -56,7 +56,7 @@ def train(args):
     # validation dataset
     trainset = CASIAWebFace(args.train_root, args.train_file_list, transform=transform)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=args.batch_size,
-                                              shuffle=True, num_workers=12, drop_last=False)
+                                              shuffle=True, num_workers=8, drop_last=False)
     # test dataset
     lfwdataset = LFW(args.lfw_test_root, args.lfw_file_list, transform=transform)
     lfwloader = torch.utils.data.DataLoader(lfwdataset, batch_size=128,
@@ -94,9 +94,9 @@ def train(args):
         print(args.margin_type, 'is not available!')
 
     if args.resume:
-        print('resume the model parameters from: ', args.resume)
-        ckpt = torch.load(args.resume)
-        net.load_state_dict(ckpt['net_state_dict'])
+        print('resume the model parameters from: ', args.net_path, args.margin_path)
+        net.load_state_dict(torch.load(args.net_path)['net_state_dict'])
+        margin.load_state_dict(torch.load(args.margin_path)['net_state_dict'])
 
     # define optimizers for different layer
     ignored_params_id = []
@@ -112,9 +112,9 @@ def train(args):
         {'params': base_params, 'weight_decay': 5e-4},
         {'params': margin.weight, 'weight_decay': 5e-4},
         {'params': prelu_params, 'weight_decay': 0.0}
-    ], lr=0.1, momentum=0.9, nesterov=True)
+    ], lr=0.001, momentum=0.9, nesterov=True)
 
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[12, 20, 26], gamma=0.1)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 35, 45], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -233,12 +233,14 @@ if __name__ == '__main__':
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')
     parser.add_argument('--total_epoch', type=int, default=50, help='total epochs')
 
-    parser.add_argument('--save_freq', type=int, default=1500, help='save frequency')
-    parser.add_argument('--test_freq', type=int, default=1500, help='test frequency')
-    parser.add_argument('--resume', type=str, default='', help='resume model')
+    parser.add_argument('--save_freq', type=int, default=2000, help='save frequency')
+    parser.add_argument('--test_freq', type=int, default=2000, help='test frequency')
+    parser.add_argument('--resume', type=int, default=False, help='resume model')
+    parser.add_argument('--net_path', type=str, default='', help='resume model')
+    parser.add_argument('--margin_path', type=str, default='', help='resume model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='CASIA_', help='model prefix')
-    parser.add_argument('--gpus', type=str, default='0,1,2,3', help='model prefix')
+    parser.add_argument('--gpus', type=str, default='2,3', help='model prefix')
 
     args = parser.parse_args()
 
