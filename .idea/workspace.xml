@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet">
-      <change afterPath="$PROJECT_DIR$/lossfunctions/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lossfunctions/centerloss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/margin/InnerProduct.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/train_for_personal_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/margin/InnerProduct.py" beforeDir="false" afterPath="$PROJECT_DIR$/margin/InnerProduct.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,14 +60,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
-          <entry key="py" value="24103" />
+          <entry key="py" value="24257" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="24102" />
+          <entry key="Python" value="24256" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -94,13 +91,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_for_personal_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="154" column="38" lean-forward="true" selection-start-line="153" selection-start-column="37" selection-end-line="154" selection-end-column="38" />
+            <state relative-caret-position="361">
+              <caret line="94" column="66" selection-start-line="94" selection-start-column="66" selection-end-line="94" selection-end-column="66" />
               <folding>
-                <element signature="e#348#357#0" expanded="true" />
+                <element signature="e#211#220#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,15 +130,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/margin/InnerProduct.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+            <state relative-caret-position="369">
+              <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
               <folding>
                 <element signature="e#175#187#0" expanded="true" />
                 <element signature="e#297#570#0" expanded="true" />
-                <element signature="e#669#783#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -244,11 +240,11 @@
         <option value="$PROJECT_DIR$/eval_lfw.py" />
         <option value="$PROJECT_DIR$/eval_cfp.py" />
         <option value="$PROJECT_DIR$/eval_megaface.py" />
-        <option value="$PROJECT_DIR$/train_for_personal_test.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/utils/plot_theta.py" />
         <option value="$PROJECT_DIR$/lossfunctions/centerloss.py" />
         <option value="$PROJECT_DIR$/margin/InnerProduct.py" />
+        <option value="$PROJECT_DIR$/train_for_personal_test.py" />
       </list>
     </option>
   </component>
@@ -510,13 +506,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.36984816" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.31561822" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -796,16 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_for_personal_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="154" column="38" lean-forward="true" selection-start-line="153" selection-start-column="37" selection-end-line="154" selection-end-column="38" />
-          <folding>
-            <element signature="e#348#357#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backbone/spherenet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -834,17 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lossfunctions/centerloss.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
-          <folding>
-            <element signature="e#182#194#0" expanded="true" />
-            <element signature="e#519#754#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -857,14 +832,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lossfunctions/centerloss.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+          <folding>
+            <element signature="e#182#194#0" expanded="true" />
+            <element signature="e#519#754#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/margin/InnerProduct.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        <state relative-caret-position="369">
+          <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
           <folding>
             <element signature="e#175#187#0" expanded="true" />
             <element signature="e#297#570#0" expanded="true" />
-            <element signature="e#669#783#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_for_personal_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="94" column="66" selection-start-line="94" selection-start-column="66" selection-end-line="94" selection-end-column="66" />
+          <folding>
+            <element signature="e#211#220#0" expanded="true" />
           </folding>
         </state>
       </provider>
