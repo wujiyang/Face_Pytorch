@@ -25,7 +25,7 @@
     <SUITE FILE_PATH="coverage/Face_Pytorch$ArcMarginProduct.coverage" NAME="ArcMarginProduct Coverage Results" MODIFIED="1545383933969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/arcface" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$agedb30_eval.coverage" NAME="agedb30_eval Coverage Results" MODIFIED="1545738409429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$plot_theta.coverage" NAME="plot_theta Coverage Results" MODIFIED="1546564486487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/Face_Pytorch$train_for_personal_test.coverage" NAME="train_for_personal_test Coverage Results" MODIFIED="1546596166448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_Pytorch$train_for_personal_test.coverage" NAME="train_for_personal_test Coverage Results" MODIFIED="1546605492935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$eval_lfw.coverage" NAME="eval_lfw Coverage Results" MODIFIED="1546394716112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$spherenet.coverage" NAME="spherenet Coverage Results" MODIFIED="1545883065836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backbone" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$lfw_test.coverage" NAME="lfw_test Coverage Results" MODIFIED="1545447947133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -60,14 +60,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
-          <entry key="py" value="24813" />
+          <entry key="py" value="25124" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="24812" />
+          <entry key="Python" value="25123" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -93,11 +93,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_for_personal_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="248" column="77" lean-forward="true" selection-start-line="248" selection-start-column="77" selection-end-line="248" selection-end-column="77" />
+            <state relative-caret-position="495">
+              <caret line="156" column="83" lean-forward="true" selection-start-line="156" selection-start-column="83" selection-end-line="156" selection-end-column="83" />
               <folding>
                 <element signature="e#211#220#0" expanded="true" />
-                <element signature="e#1073#9813#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,8 +105,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1032735531/208177666/torch/nn/modules/module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="490" selection-start-line="490" selection-end-line="490" />
+            <state relative-caret-position="376">
+              <caret line="504" column="33" lean-forward="true" selection-start-line="504" selection-start-column="33" selection-end-line="504" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -115,11 +114,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lossfunctions/centerloss.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="49" column="30" lean-forward="true" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+            <state relative-caret-position="297">
+              <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
               <folding>
                 <element signature="e#182#194#0" expanded="true" />
-                <element signature="e#519#754#0" expanded="true" />
+                <element signature="e#830#1764#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="13" selection-end-column="30" />
+            <state relative-caret-position="456">
+              <caret line="24" column="44" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="44" />
               <folding>
                 <element signature="e#193#205#0" expanded="true" />
                 <element signature="e#414#687#0" expanded="true" />
@@ -514,16 +513,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.2462039" />
-      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.3991323" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.2462039" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -816,18 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="13" selection-end-column="30" />
-          <folding>
-            <element signature="e#193#205#0" expanded="true" />
-            <element signature="e#414#687#0" expanded="true" />
-            <element signature="e#735#1072#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/margin/InnerProduct.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
@@ -853,31 +839,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1032735531/208177666/torch/nn/modules/module.py">
+    <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="490" selection-start-line="490" selection-end-line="490" />
+        <state relative-caret-position="456">
+          <caret line="24" column="44" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="44" />
+          <folding>
+            <element signature="e#193#205#0" expanded="true" />
+            <element signature="e#414#687#0" expanded="true" />
+            <element signature="e#735#1072#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lossfunctions/centerloss.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="49" column="30" lean-forward="true" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+        <state relative-caret-position="297">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
           <folding>
             <element signature="e#182#194#0" expanded="true" />
-            <element signature="e#519#754#0" expanded="true" />
+            <element signature="e#830#1764#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1032735531/208177666/torch/nn/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="504" column="33" lean-forward="true" selection-start-line="504" selection-start-column="33" selection-end-line="504" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train_for_personal_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="248" column="77" lean-forward="true" selection-start-line="248" selection-start-column="77" selection-end-line="248" selection-end-column="77" />
+        <state relative-caret-position="495">
+          <caret line="156" column="83" lean-forward="true" selection-start-line="156" selection-start-column="83" selection-end-line="156" selection-end-column="83" />
           <folding>
             <element signature="e#211#220#0" expanded="true" />
-            <element signature="e#1073#9813#0" expanded="true" />
           </folding>
         </state>
       </provider>
