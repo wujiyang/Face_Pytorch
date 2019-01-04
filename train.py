@@ -141,7 +141,6 @@ def train(args):
         since = time.time()
         for data in trainloader:
             img, label = data[0].to(device), data[1].to(device)
-            batch_size = img.size(0)
             optimizer_ft.zero_grad()
 
             raw_logits = net(img)

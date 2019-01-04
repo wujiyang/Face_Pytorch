@@ -37,12 +37,15 @@ class CenterLoss(nn.Module):
 
         dis = torch.addmm(1, dis, -2, x, self.centers.t())
 
-        one_hot = torch.zeros_like(F.linear(x, self.centers))
-        one_hot.scatter_(1, label.view(-1, 1), 1)
+        # get one_hot matrix
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        classes = torch.arange(self.num_classes).long().to(device)
+        label = label.unsqueeze(1).expand(batch_size, self.num_classes)
+        mask = label.eq(classes.expand(batch_size, self.num_classes))
 
         dist = []
         for i in range(batch_size):
-            value = dis[i][one_hot[i]]
+            value = dis[i][mask[i]]
             value = value.clamp(min=1e-12, max =1e-12)
             dist.append(value)
 
