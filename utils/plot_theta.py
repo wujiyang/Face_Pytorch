@@ -53,8 +53,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='plot theta distribution of trained model')
     parser.add_argument('--img_root', type=str, default='/media/ramdisk/webface_align_112', help='train image root')
     parser.add_argument('--file_list', type=str, default='/media/ramdisk/webface_align_train.list', help='train list')
-    parser.add_argument('--backbone_file', type=str, default='../model/CASIA_MOBILEFACE_20190102_155410/Iter_052500_net.ckpt', help='backbone state dict file')
-    parser.add_argument('--margin_file', type=str, default='../model/CASIA_MOBILEFACE_20190102_155410/Iter_052500_margin.ckpt', help='backbone state dict file')
+    parser.add_argument('--backbone_file', type=str, default='../model/Paper_MOBILEFACE_20190103_111830/Iter_088000_net.ckpt', help='backbone state dict file')
+    parser.add_argument('--margin_file', type=str, default='../model/Paper_MOBILEFACE_20190103_111830/Iter_088000_margin.ckpt', help='backbone state dict file')
     parser.add_argument('--gpus', type=str, default='0', help='model prefix, single gpu only')
     args = parser.parse_args()
 
@@ -91,8 +91,30 @@ if __name__ == '__main__':
         for i in range(img.shape[0]):
             cos_trget = cos_theta[i][label[i]]
             theta_initial.append(np.arccos(cos_trget) / np.pi * 180)
+    '''
+    # write theta list to txt file
+    trained_theta_file = open('arcface_theta.txt', 'w')
+    initial_theta_file = open('initial_theta.txt', 'w')
+    for item in theta_trained:
+        trained_theta_file.write(str(item))
+        trained_theta_file.write('\n')
+    for item in theta_initial:
+        initial_theta_file.write(str(item))
+        initial_theta_file.write('\n')
 
-    # plot the theta
+    # plot the theta, read theta from txt first
+    theta_trained = []
+    theta_initial = []
+    trained_theta_file = open('arcface_theta.txt', 'r')
+    initial_theta_file = open('initial_theta.txt', 'r')
+    lines = trained_theta_file.readlines()
+    for line in lines:
+        theta_trained.append(float(line.strip('\n')[0]))
+    lines = initial_theta_file.readlines()
+    for line in lines:
+        theta_initial.append(float(line.split('\n')[0]))
+    '''
+    print(len(theta_trained), len(theta_initial))
     plt.figure()
     plt.xlabel('Theta')
     plt.ylabel('Numbers')
