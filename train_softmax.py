@@ -151,8 +151,8 @@ def train(args):
                 correct = (np.array(predict) == np.array(label.data)).sum()
                 time_cur = (time.time() - since) / 100
                 since = time.time()
-                vis.plot_curves({'train loss': loss_classi.item()}, iters=total_iters, title='train loss')
-                vis.plot_curves({'train accuracy': correct/total}, iters=total_iters, title='train accuracy')
+                vis.plot_curves({'train loss': loss_classi.item()}, iters=total_iters, title='train loss', xlabel='iters', ylabel='train loss')
+                vis.plot_curves({'train accuracy': correct/total}, iters=total_iters, title='train accuracy', xlabel='iters', ylabel='train accuracy')
                 print("Iters: {:0>6d}/[{:0>2d}], loss_classi: {:.4f}, train_accuracy: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters,
                                                                                                                                           epoch,
                                                                                                                                           loss_classi.item(),
@@ -208,7 +208,7 @@ def train(args):
                     best_cfp_fp_iters = total_iters
                 _print('Current Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
                     best_lfw_acc, best_lfw_iters, best_agedb30_acc, best_agedb30_iters, best_cfp_fp_acc, best_cfp_fp_iters))
-                vis.plot_curves({'lfw': lfw_accs, 'agedb-30': age_accs, 'cfp-fp':cfp_accs}, iters=total_iters, title='test accuracy')
+                vis.plot_curves({'lfw': np.mean(lfw_accs), 'agedb-30': np.mean(age_accs), 'cfp-fp': np.mean(cfp_accs)}, iters=total_iters, title='test accuracy', xlabel='iters', ylabel='test accuracy')
                 net.train()
 
     _print('Finally Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
