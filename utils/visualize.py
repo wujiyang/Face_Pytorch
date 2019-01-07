@@ -35,7 +35,7 @@ class Visualizer():
 
 if __name__ == '__main__':
     vis = Visualizer(env='test')
-    for i in range(20):
+    for i in range(10):
         x = i
         y = 2 * i
         vis.plot_curves({'train': x, 'test': y}, iters=i)
