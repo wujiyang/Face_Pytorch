@@ -152,9 +152,13 @@ def train(args):
             total_iters += 1
             # print train information
             if total_iters % 100 == 0:
+                # current training accuracy
+                _, predict = torch.max(output.data, 1)
+                total = label.size(0)
+                correct = (np.array(predict) == np.array(label.data)).sum()
                 time_cur = (time.time() - since) / 100
                 since = time.time()
-                print("Iters: {:0>6d}/[{:0>2d}], loss: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters, epoch, total_loss.item(), time_cur, exp_lr_scheduler.get_lr()[0]))
+                print("Iters: {:0>6d}/[{:0>2d}], loss: {:.4f}, train_accuracy: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters, epoch, total_loss.item(), correct/total, time_cur, exp_lr_scheduler.get_lr()[0]))
 
             # save model
             if total_iters % args.save_freq == 0:

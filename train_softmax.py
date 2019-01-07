@@ -145,11 +145,16 @@ def train(args):
             total_iters += 1
             # print train information
             if total_iters % 100 == 0:
+                #current training accuracy
+                _, predict = torch.max(output.data, 1)
+                total = label.size(0)
+                correct = (np.array(predict) == np.array(label.data)).sum()
                 time_cur = (time.time() - since) / 100
                 since = time.time()
-                print("Iters: {:0>6d}/[{:0>2d}], loss_classi: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters,
+                print("Iters: {:0>6d}/[{:0>2d}], loss_classi: {:.4f}, train_accuracy: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters,
                                                                                                                                           epoch,
                                                                                                                                           loss_classi.item(),
+                                                                                                                                          correct/total,
                                                                                                                                           time_cur,
                                                                                                                                           scheduler_classi.get_lr()[
                                                                                                                                               0]))
@@ -235,7 +240,7 @@ if __name__ == '__main__':
     parser.add_argument('--margin_path', type=str, default='', help='resume model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='Softmax_', help='model prefix')
-    parser.add_argument('--gpus', type=str, default='0,1', help='model prefix')
+    parser.add_argument('--gpus', type=str, default='2,3', help='model prefix')
 
     args = parser.parse_args()
 
