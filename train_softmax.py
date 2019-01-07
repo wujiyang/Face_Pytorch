@@ -3,14 +3,13 @@
 '''
 @author: wujiyang
 @contact: wujiyang@hust.edu.cn
-@file: train.py.py
-@time: 2018/12/21 17:37
-@desc: train script for deep face recognition
+@file: train_softmax.py
+@time: 2019/1/7 8:33
+@desc: original softmax training with Casia-Webface
 '''
 
 import os
 import torch.utils.data
-from torch import nn
 from torch.nn import DataParallel
 from datetime import datetime
 from backbone.mobilefacenet import MobileFaceNet
@@ -18,6 +17,8 @@ from backbone.resnet import ResNet50, ResNet101
 from backbone.arcfacenet import SEResNet_IR
 from backbone.spherenet import SphereNet
 from margin.ArcMarginProduct import ArcMarginProduct
+from margin.InnerProduct import InnerProduct
+from lossfunctions.centerloss import CenterLoss
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
 from dataset.lfw import LFW
@@ -90,6 +91,8 @@ def train(args):
         pass
     elif args.margin_type == 'SphereFace':
         pass
+    elif args.margin_type == 'InnerProduct':
+        margin = InnerProduct(args.feature_dim, trainset.class_nums)
     else:
         print(args.margin_type, 'is not available!')
 
@@ -99,22 +102,13 @@ def train(args):
         margin.load_state_dict(torch.load(args.margin_path)['net_state_dict'])
 
     # define optimizers for different layer
-    ignored_params_id = []
-    ignored_params_id += list(map(id, margin.weight))
-    prelu_params = []
-    for m in net.modules():
-        if isinstance(m, nn.PReLU):
-            ignored_params_id += list(map(id, m.parameters()))
-            prelu_params += m.parameters()
-    base_params = filter(lambda p: id(p) not in ignored_params_id, net.parameters())
 
-    optimizer_ft = optim.SGD([
-        {'params': base_params, 'weight_decay': 5e-4},
-        {'params': margin.weight, 'weight_decay': 5e-4},
-        {'params': prelu_params, 'weight_decay': 0.0}
-    ], lr=0.01, momentum=0.9, nesterov=True)
-
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 50], gamma=0.1)
+    criterion_classi = torch.nn.CrossEntropyLoss().to(device)
+    optimizer_classi = optim.SGD([
+        {'params': net.parameters(), 'weight_decay': 5e-4},
+        {'params': margin.parameters(), 'weight_decay': 5e-4}
+    ], lr=0.1, momentum=0.9, nesterov=True)
+    scheduler_classi = lr_scheduler.MultiStepLR(optimizer_classi, milestones=[20, 35, 45], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -122,7 +116,6 @@ def train(args):
     else:
         net = net.to(device)
         margin = margin.to(device)
-    criterion = torch.nn.CrossEntropyLoss().to(device)
 
     best_lfw_acc = 0.0
     best_lfw_iters = 0
@@ -130,10 +123,9 @@ def train(args):
     best_agedb30_iters = 0
     best_cfp_fp_acc = 0.0
     best_cfp_fp_iters = 0
-
     total_iters = 0
     for epoch in range(1, args.total_epoch + 1):
-        exp_lr_scheduler.step()
+        scheduler_classi.step()
         # train model
         _print('Train Epoch: {}/{} ...'.format(epoch, args.total_epoch))
         net.train()
@@ -141,21 +133,26 @@ def train(args):
         since = time.time()
         for data in trainloader:
             img, label = data[0].to(device), data[1].to(device)
-            optimizer_ft.zero_grad()
+            feature = net(img)
+            output = margin(feature)
+            loss_classi = criterion_classi(output, label)
+            total_loss = loss_classi
 
-            raw_logits = net(img)
-            output = margin(raw_logits, label)
-            total_loss = criterion(output, label)
+            optimizer_classi.zero_grad()
             total_loss.backward()
-            optimizer_ft.step()
+            optimizer_classi.step()
 
             total_iters += 1
             # print train information
             if total_iters % 100 == 0:
                 time_cur = (time.time() - since) / 100
                 since = time.time()
-                print("Iters: {:0>6d}/[{:0>2d}], loss: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters, epoch, total_loss.item(), time_cur, exp_lr_scheduler.get_lr()[0]))
-
+                print("Iters: {:0>6d}/[{:0>2d}], loss_classi: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters,
+                                                                                                                                          epoch,
+                                                                                                                                          loss_classi.item(),
+                                                                                                                                          time_cur,
+                                                                                                                                          scheduler_classi.get_lr()[
+                                                                                                                                              0]))
             # save model
             if total_iters % args.save_freq == 0:
                 msg = 'Saving checkpoint: {}'.format(total_iters)
@@ -166,6 +163,7 @@ def train(args):
                 else:
                     net_state_dict = net.state_dict()
                     margin_state_dict = margin.state_dict()
+
                 if not os.path.exists(save_dir):
                     os.mkdir(save_dir)
                 torch.save({
@@ -179,7 +177,6 @@ def train(args):
 
             # test accuracy
             if total_iters % args.test_freq == 0:
-
                 # test model on lfw
                 net.eval()
                 getFeatureFromTorch('./result/cur_lfw_result.mat', net, device, lfwdataset, lfwloader)
@@ -188,7 +185,6 @@ def train(args):
                 if best_lfw_acc < np.mean(accs) * 100:
                     best_lfw_acc = np.mean(accs) * 100
                     best_lfw_iters = total_iters
-
                 # test model on AgeDB30
                 getFeatureFromTorch('./result/cur_agedb30_result.mat', net, device, agedbdataset, agedbloader)
                 accs = evaluation_10_fold('./result/cur_agedb30_result.mat')
@@ -196,7 +192,6 @@ def train(args):
                 if best_agedb30_acc < np.mean(accs) * 100:
                     best_agedb30_acc = np.mean(accs) * 100
                     best_agedb30_iters = total_iters
-
                 # test model on CFP-FP
                 getFeatureFromTorch('./result/cur_cfpfp_result.mat', net, device, cfpfpdataset, cfpfploader)
                 accs = evaluation_10_fold('./result/cur_cfpfp_result.mat')
@@ -225,21 +220,22 @@ if __name__ == '__main__':
     parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/cfp_fp_aligned_112', help='agedb image root')
     parser.add_argument('--cfpfp_file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='agedb pair file list')
 
-    parser.add_argument('--backbone', type=str, default='SphereNet', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SphereNet')
-    parser.add_argument('--margin_type', type=str, default='ArcFace', help='ArcFace, CosFace, SphereFace')
-    parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
+    parser.add_argument('--backbone', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SphereNet')
+    parser.add_argument('--margin_type', type=str, default='InnerProduct', help='InnerProduct, ArcFace, CosFace, SphereFace')
+    parser.add_argument('--feature_dim', type=int, default=128, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=70, help='total epochs')
+    parser.add_argument('--total_epoch', type=int, default=50, help='total epochs')
+    parser.add_argument('--weight_center', type=float, default=1.0, help='center loss weight')
 
     parser.add_argument('--save_freq', type=int, default=2000, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=2000, help='test frequency')
-    parser.add_argument('--resume', type=int, default=True, help='resume model')
-    parser.add_argument('--net_path', type=str, default='./model/CASIA_SPHERENET_20190104_084052/Iter_126000_net.ckpt', help='resume model')
-    parser.add_argument('--margin_path', type=str, default='./model/CASIA_SPHERENET_20190104_084052/Iter_126000_margin.ckpt', help='resume model')
+    parser.add_argument('--resume', type=int, default=False, help='resume model')
+    parser.add_argument('--net_path', type=str, default='', help='resume model')
+    parser.add_argument('--margin_path', type=str, default='', help='resume model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
-    parser.add_argument('--model_pre', type=str, default='CASIA_', help='model prefix')
-    parser.add_argument('--gpus', type=str, default='2,3', help='model prefix')
+    parser.add_argument('--model_pre', type=str, default='Softmax_', help='model prefix')
+    parser.add_argument('--gpus', type=str, default='0,1', help='model prefix')
 
     args = parser.parse_args()
 
