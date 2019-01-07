@@ -24,7 +24,6 @@ class Visualizer():
             y = np.array(val)
         else:
             y = np.array(val).reshape(-1, len(val))
-        print(y, y.shape)
         self.vis.line(Y=y,
                       X=np.array([self.index]),
                       win=title,

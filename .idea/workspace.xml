@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet">
-      <change beforePath="$PROJECT_DIR$/train_softmax.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_softmax.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/visualize.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/visualize.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +38,7 @@
     <SUITE FILE_PATH="coverage/Face_Pytorch$lfw_test.coverage" NAME="lfw_test Coverage Results" MODIFIED="1545447947133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$megaface_eval.coverage" NAME="megaface_eval Coverage Results" MODIFIED="1545701233313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$eval_cfp.coverage" NAME="eval_cfp Coverage Results" MODIFIED="1546394871900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Face_Pytorch$train_softmax.coverage" NAME="train_softmax Coverage Results" MODIFIED="1546851155254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_Pytorch$train_softmax.coverage" NAME="train_softmax Coverage Results" MODIFIED="1546851321617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1626198667">
@@ -110,25 +109,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/visualize.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="399">
+              <caret line="27" column="47" lean-forward="true" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
               <folding>
                 <element signature="e#163#176#0" expanded="true" />
                 <element signature="e#274#340#0" expanded="true" />
-                <element signature="e#448#917#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_softmax.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="152" column="35" lean-forward="true" selection-start-line="152" selection-start-column="35" selection-end-line="152" selection-end-column="35" />
+            <state relative-caret-position="423">
+              <caret line="159" column="77" lean-forward="true" selection-start-line="159" selection-start-column="77" selection-end-line="159" selection-end-column="77" />
               <folding>
                 <element signature="e#406#415#0" expanded="true" />
               </folding>
@@ -252,8 +250,8 @@
         <option value="$PROJECT_DIR$/margin/visualize.py" />
         <option value="$PROJECT_DIR$/utils/visdom_test.py" />
         <option value="$PROJECT_DIR$/visdom_test.py" />
-        <option value="$PROJECT_DIR$/utils/visualize.py" />
         <option value="$PROJECT_DIR$/train_softmax.py" />
+        <option value="$PROJECT_DIR$/utils/visualize.py" />
       </list>
     </option>
   </component>
@@ -817,17 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lossfunctions/centerloss.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
-          <folding>
-            <element signature="e#182#194#0" expanded="true" />
-            <element signature="e#830#1764#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/margin/InnerProduct.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
@@ -909,24 +896,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/visualize.py">
+    <entry file="file://$PROJECT_DIR$/train_softmax.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="423">
+          <caret line="159" column="77" lean-forward="true" selection-start-line="159" selection-start-column="77" selection-end-line="159" selection-end-column="77" />
           <folding>
-            <element signature="e#163#176#0" expanded="true" />
-            <element signature="e#274#340#0" expanded="true" />
-            <element signature="e#448#917#0" expanded="true" />
+            <element signature="e#406#415#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_softmax.py">
+    <entry file="file://$PROJECT_DIR$/lossfunctions/centerloss.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="152" column="35" lean-forward="true" selection-start-line="152" selection-start-column="35" selection-end-line="152" selection-end-column="35" />
+        <state relative-caret-position="297">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
           <folding>
-            <element signature="e#406#415#0" expanded="true" />
+            <element signature="e#182#194#0" expanded="true" />
+            <element signature="e#830#1764#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/visualize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="27" column="47" lean-forward="true" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+          <folding>
+            <element signature="e#163#176#0" expanded="true" />
+            <element signature="e#274#340#0" expanded="true" />
           </folding>
         </state>
       </provider>
