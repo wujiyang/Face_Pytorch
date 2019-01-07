@@ -38,5 +38,7 @@ if __name__ == '__main__':
     for i in range(10):
         x = i
         y = 2 * i
-        vis.plot_curves({'train': x, 'test': y}, iters=i)
+        z = 4 * i
+        vis.plot_curves({'train': x, 'test': y}, iters=i, title='train')
+        vis.plot_curves({'train': z, 'test': y}, iters=i, title='test')
         time.sleep(1)

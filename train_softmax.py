@@ -18,7 +18,7 @@ from backbone.arcfacenet import SEResNet_IR
 from backbone.spherenet import SphereNet
 from margin.ArcMarginProduct import ArcMarginProduct
 from margin.InnerProduct import InnerProduct
-from lossfunctions.centerloss import CenterLoss
+from utils.visualize import Visualizer
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
 from dataset.lfw import LFW
@@ -31,7 +31,6 @@ from eval_lfw import evaluation_10_fold, getFeatureFromTorch
 import numpy as np
 import torchvision.transforms as transforms
 import argparse
-
 
 def train(args):
     # gpu init
@@ -124,6 +123,7 @@ def train(args):
     best_cfp_fp_acc = 0.0
     best_cfp_fp_iters = 0
     total_iters = 0
+    vis = Visualizer(env='softmax_train')
     for epoch in range(1, args.total_epoch + 1):
         scheduler_classi.step()
         # train model
@@ -151,6 +151,8 @@ def train(args):
                 correct = (np.array(predict) == np.array(label.data)).sum()
                 time_cur = (time.time() - since) / 100
                 since = time.time()
+                vis.plot_curves({'train loss': loss_classi.item()}, iters=total_iters, title='train loss')
+                vis.plot_curves({'train accuracy': correct/total}, iters=total_iters, title='train accuracy')
                 print("Iters: {:0>6d}/[{:0>2d}], loss_classi: {:.4f}, train_accuracy: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters,
                                                                                                                                           epoch,
                                                                                                                                           loss_classi.item(),
@@ -185,28 +187,28 @@ def train(args):
                 # test model on lfw
                 net.eval()
                 getFeatureFromTorch('./result/cur_lfw_result.mat', net, device, lfwdataset, lfwloader)
-                accs = evaluation_10_fold('./result/cur_lfw_result.mat')
-                _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-                if best_lfw_acc < np.mean(accs) * 100:
-                    best_lfw_acc = np.mean(accs) * 100
+                lfw_accs = evaluation_10_fold('./result/cur_lfw_result.mat')
+                _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(lfw_accs) * 100))
+                if best_lfw_acc < np.mean(lfw_accs) * 100:
+                    best_lfw_acc = np.mean(lfw_accs) * 100
                     best_lfw_iters = total_iters
                 # test model on AgeDB30
                 getFeatureFromTorch('./result/cur_agedb30_result.mat', net, device, agedbdataset, agedbloader)
-                accs = evaluation_10_fold('./result/cur_agedb30_result.mat')
-                _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-                if best_agedb30_acc < np.mean(accs) * 100:
-                    best_agedb30_acc = np.mean(accs) * 100
+                age_accs = evaluation_10_fold('./result/cur_agedb30_result.mat')
+                _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(age_accs) * 100))
+                if best_agedb30_acc < np.mean(age_accs) * 100:
+                    best_agedb30_acc = np.mean(age_accs) * 100
                     best_agedb30_iters = total_iters
                 # test model on CFP-FP
                 getFeatureFromTorch('./result/cur_cfpfp_result.mat', net, device, cfpfpdataset, cfpfploader)
-                accs = evaluation_10_fold('./result/cur_cfpfp_result.mat')
-                _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-                if best_cfp_fp_acc < np.mean(accs) * 100:
-                    best_cfp_fp_acc = np.mean(accs) * 100
+                cfp_accs = evaluation_10_fold('./result/cur_cfpfp_result.mat')
+                _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(cfp_accs) * 100))
+                if best_cfp_fp_acc < np.mean(cfp_accs) * 100:
+                    best_cfp_fp_acc = np.mean(cfp_accs) * 100
                     best_cfp_fp_iters = total_iters
                 _print('Current Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
                     best_lfw_acc, best_lfw_iters, best_agedb30_acc, best_agedb30_iters, best_cfp_fp_acc, best_cfp_fp_iters))
-
+                vis.plot_curves({'lfw': lfw_accs, 'agedb-30': age_accs, 'cfp-fp':cfp_accs}, iters=total_iters, title='test accuracy')
                 net.train()
 
     _print('Finally Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
