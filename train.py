@@ -18,6 +18,7 @@ from backbone.resnet import ResNet50, ResNet101
 from backbone.arcfacenet import SEResNet_IR
 from backbone.spherenet import SphereNet
 from margin.ArcMarginProduct import ArcMarginProduct
+from utils.visualize import Visualizer
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
 from dataset.lfw import LFW
@@ -99,22 +100,12 @@ def train(args):
         margin.load_state_dict(torch.load(args.margin_path)['net_state_dict'])
 
     # define optimizers for different layer
-    ignored_params_id = []
-    ignored_params_id += list(map(id, margin.weight))
-    prelu_params = []
-    for m in net.modules():
-        if isinstance(m, nn.PReLU):
-            ignored_params_id += list(map(id, m.parameters()))
-            prelu_params += m.parameters()
-    base_params = filter(lambda p: id(p) not in ignored_params_id, net.parameters())
-
+    criterion = torch.nn.CrossEntropyLoss().to(device)
     optimizer_ft = optim.SGD([
-        {'params': base_params, 'weight_decay': 5e-4},
-        {'params': margin.weight, 'weight_decay': 5e-4},
-        {'params': prelu_params, 'weight_decay': 0.0}
-    ], lr=0.01, momentum=0.9, nesterov=True)
-
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 50], gamma=0.1)
+        {'params': net.parameters(), 'weight_decay': 5e-4},
+        {'params': margin.parameters(), 'weight_decay': 5e-4}
+    ], lr=0.1, momentum=0.9, nesterov=True)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[20, 35, 45], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -122,7 +113,7 @@ def train(args):
     else:
         net = net.to(device)
         margin = margin.to(device)
-    criterion = torch.nn.CrossEntropyLoss().to(device)
+
 
     best_lfw_acc = 0.0
     best_lfw_iters = 0
@@ -130,8 +121,8 @@ def train(args):
     best_agedb30_iters = 0
     best_cfp_fp_acc = 0.0
     best_cfp_fp_iters = 0
-
     total_iters = 0
+    vis = Visualizer(env='arcface_sphere64')
     for epoch in range(1, args.total_epoch + 1):
         exp_lr_scheduler.step()
         # train model
@@ -158,6 +149,11 @@ def train(args):
                 correct = (np.array(predict) == np.array(label.data)).sum()
                 time_cur = (time.time() - since) / 100
                 since = time.time()
+                vis.plot_curves({'softmax loss': total_loss.item()}, iters=total_iters, title='train loss',
+                                xlabel='iters', ylabel='train loss')
+                vis.plot_curves({'train accuracy': correct / total}, iters=total_iters, title='train accuracy', xlabel='iters',
+                                ylabel='train accuracy')
+
                 print("Iters: {:0>6d}/[{:0>2d}], loss: {:.4f}, train_accuracy: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters, epoch, total_loss.item(), correct/total, time_cur, exp_lr_scheduler.get_lr()[0]))
 
             # save model
@@ -187,30 +183,32 @@ def train(args):
                 # test model on lfw
                 net.eval()
                 getFeatureFromTorch('./result/cur_lfw_result.mat', net, device, lfwdataset, lfwloader)
-                accs = evaluation_10_fold('./result/cur_lfw_result.mat')
-                _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-                if best_lfw_acc < np.mean(accs) * 100:
-                    best_lfw_acc = np.mean(accs) * 100
+                lfw_accs = evaluation_10_fold('./result/cur_lfw_result.mat')
+                _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(lfw_accs) * 100))
+                if best_lfw_acc < np.mean(lfw_accs) * 100:
+                    best_lfw_acc = np.mean(lfw_accs) * 100
                     best_lfw_iters = total_iters
 
                 # test model on AgeDB30
                 getFeatureFromTorch('./result/cur_agedb30_result.mat', net, device, agedbdataset, agedbloader)
-                accs = evaluation_10_fold('./result/cur_agedb30_result.mat')
-                _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-                if best_agedb30_acc < np.mean(accs) * 100:
-                    best_agedb30_acc = np.mean(accs) * 100
+                age_accs = evaluation_10_fold('./result/cur_agedb30_result.mat')
+                _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(age_accs) * 100))
+                if best_agedb30_acc < np.mean(age_accs) * 100:
+                    best_agedb30_acc = np.mean(age_accs) * 100
                     best_agedb30_iters = total_iters
 
                 # test model on CFP-FP
                 getFeatureFromTorch('./result/cur_cfpfp_result.mat', net, device, cfpfpdataset, cfpfploader)
-                accs = evaluation_10_fold('./result/cur_cfpfp_result.mat')
-                _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-                if best_cfp_fp_acc < np.mean(accs) * 100:
-                    best_cfp_fp_acc = np.mean(accs) * 100
+                cfp_accs = evaluation_10_fold('./result/cur_cfpfp_result.mat')
+                _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(cfp_accs) * 100))
+                if best_cfp_fp_acc < np.mean(cfp_accs) * 100:
+                    best_cfp_fp_acc = np.mean(cfp_accs) * 100
                     best_cfp_fp_iters = total_iters
                 _print('Current Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
                     best_lfw_acc, best_lfw_iters, best_agedb30_acc, best_agedb30_iters, best_cfp_fp_acc, best_cfp_fp_iters))
 
+                vis.plot_curves({'lfw': np.mean(lfw_accs), 'agedb-30': np.mean(age_accs), 'cfp-fp': np.mean(cfp_accs)}, iters=total_iters,
+                                title='test accuracy', xlabel='iters', ylabel='test accuracy')
                 net.train()
 
     _print('Finally Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
@@ -232,15 +230,15 @@ if __name__ == '__main__':
     parser.add_argument('--backbone', type=str, default='SphereNet', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SphereNet')
     parser.add_argument('--margin_type', type=str, default='ArcFace', help='ArcFace, CosFace, SphereFace')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
-    parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
-    parser.add_argument('--batch_size', type=int, default=256, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=70, help='total epochs')
+    parser.add_argument('--scale_size', type=float, default=64.0, help='scale size')
+    parser.add_argument('--batch_size', type=int, default=200, help='batch size')
+    parser.add_argument('--total_epoch', type=int, default=50, help='total epochs')
 
     parser.add_argument('--save_freq', type=int, default=2000, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=2000, help='test frequency')
-    parser.add_argument('--resume', type=int, default=True, help='resume model')
-    parser.add_argument('--net_path', type=str, default='./model/CASIA_SPHERENET_20190104_084052/Iter_126000_net.ckpt', help='resume model')
-    parser.add_argument('--margin_path', type=str, default='./model/CASIA_SPHERENET_20190104_084052/Iter_126000_margin.ckpt', help='resume model')
+    parser.add_argument('--resume', type=int, default=False, help='resume model')
+    parser.add_argument('--net_path', type=str, default='', help='resume model')
+    parser.add_argument('--margin_path', type=str, default='', help='resume model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='CASIA_', help='model prefix')
     parser.add_argument('--gpus', type=str, default='2,3', help='model prefix')

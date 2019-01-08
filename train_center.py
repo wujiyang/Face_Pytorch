@@ -24,6 +24,7 @@ from dataset.casia_webface import CASIAWebFace
 from dataset.lfw import LFW
 from dataset.agedb import AgeDB30
 from dataset.cfp import CFP_FP
+from utils.visualize import Visualizer
 from torch.optim import lr_scheduler
 import torch.optim as optim
 import time
@@ -110,7 +111,8 @@ def train(args):
     ], lr=0.1, momentum=0.9, nesterov=True)
     optimizer_center = optim.SGD(criterion_center.parameters(), lr=0.5)
 
-    scheduler_classi = lr_scheduler.MultiStepLR(optimizer_classi, milestones=[20, 35, 45], gamma=0.1)
+    scheduler_classi = lr_scheduler.MultiStepLR(optimizer_classi, milestones=[25, 50, 65], gamma=0.1)
+    scheduler_center = lr_scheduler.MultiStepLR(optimizer_center, milestones=[25, 50, 65], gamma=0.5)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -126,8 +128,10 @@ def train(args):
     best_cfp_fp_acc = 0.0
     best_cfp_fp_iters = 0
     total_iters = 0
+    vis = Visualizer(env='softmax_center_xavier')
     for epoch in range(1, args.total_epoch + 1):
         scheduler_classi.step()
+        scheduler_center.step()
         # train model
         _print('Train Epoch: {}/{} ...'.format(epoch, args.total_epoch))
         net.train()
@@ -156,6 +160,8 @@ def train(args):
                 correct = (np.array(predict) == np.array(label.data)).sum()
                 time_cur = (time.time() - since) / 100
                 since = time.time()
+                vis.plot_curves({'softmax loss': loss_classi.item(), 'center loss': loss_center.item()}, iters=total_iters, title='train loss', xlabel='iters', ylabel='train loss')
+                vis.plot_curves({'train accuracy': correct / total}, iters=total_iters, title='train accuracy', xlabel='iters', ylabel='train accuracy')
                 print("Iters: {:0>6d}/[{:0>2d}], loss_classi: {:.4f}, loss_center: {:.4f}, train_accuracy: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters,
                                                                                                                                           epoch,
                                                                                                                                           loss_classi.item(),
@@ -196,30 +202,32 @@ def train(args):
                 # test model on lfw
                 net.eval()
                 getFeatureFromTorch('./result/cur_lfw_result.mat', net, device, lfwdataset, lfwloader)
-                accs = evaluation_10_fold('./result/cur_lfw_result.mat')
-                _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-                if best_lfw_acc < np.mean(accs) * 100:
-                    best_lfw_acc = np.mean(accs) * 100
+                lfw_accs = evaluation_10_fold('./result/cur_lfw_result.mat')
+                _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(lfw_accs) * 100))
+                if best_lfw_acc < np.mean(lfw_accs) * 100:
+                    best_lfw_acc = np.mean(lfw_accs) * 100
                     best_lfw_iters = total_iters
 
                 # test model on AgeDB30
                 getFeatureFromTorch('./result/cur_agedb30_result.mat', net, device, agedbdataset, agedbloader)
-                accs = evaluation_10_fold('./result/cur_agedb30_result.mat')
-                _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-                if best_agedb30_acc < np.mean(accs) * 100:
-                    best_agedb30_acc = np.mean(accs) * 100
+                age_accs = evaluation_10_fold('./result/cur_agedb30_result.mat')
+                _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(age_accs) * 100))
+                if best_agedb30_acc < np.mean(age_accs) * 100:
+                    best_agedb30_acc = np.mean(age_accs) * 100
                     best_agedb30_iters = total_iters
 
                 # test model on CFP-FP
                 getFeatureFromTorch('./result/cur_cfpfp_result.mat', net, device, cfpfpdataset, cfpfploader)
-                accs = evaluation_10_fold('./result/cur_cfpfp_result.mat')
-                _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(accs) * 100))
-                if best_cfp_fp_acc < np.mean(accs) * 100:
-                    best_cfp_fp_acc = np.mean(accs) * 100
+                cfp_accs = evaluation_10_fold('./result/cur_cfpfp_result.mat')
+                _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(cfp_accs) * 100))
+                if best_cfp_fp_acc < np.mean(cfp_accs) * 100:
+                    best_cfp_fp_acc = np.mean(cfp_accs) * 100
                     best_cfp_fp_iters = total_iters
                 _print('Current Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
                     best_lfw_acc, best_lfw_iters, best_agedb30_acc, best_agedb30_iters, best_cfp_fp_acc, best_cfp_fp_iters))
 
+                vis.plot_curves({'lfw': np.mean(lfw_accs), 'agedb-30': np.mean(age_accs), 'cfp-fp': np.mean(cfp_accs)}, iters=total_iters,
+                                title='test accuracy', xlabel='iters', ylabel='test accuracy')
                 net.train()
 
     _print('Finally Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
@@ -243,8 +251,8 @@ if __name__ == '__main__':
     parser.add_argument('--feature_dim', type=int, default=128, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=50, help='total epochs')
-    parser.add_argument('--weight_center', type=float, default=0.008, help='center loss weight')
+    parser.add_argument('--total_epoch', type=int, default=80, help='total epochs')
+    parser.add_argument('--weight_center', type=float, default=0.01, help='center loss weight')
 
     parser.add_argument('--save_freq', type=int, default=2000, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=2000, help='test frequency')
