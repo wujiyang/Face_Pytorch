@@ -50,6 +50,11 @@ SEResNet50-IR   |  ArcFace  |  80.01  |  96.10  |   97.01   |   97.60   | 171MB 
 ---
 5. Every evaluate file can work independently for the model test process. just set your own args in the file. 
 
+## Visualization
+Add visdom support for visualization during training process.  
+![avatar](visualization.jpg)
+
+
 ## References
 [MuggleWang/CosFace_pytorch](https://github.com/MuggleWang/CosFace_pytorch)  
 [Xiaoccer/MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)  
