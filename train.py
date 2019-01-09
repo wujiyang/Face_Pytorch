@@ -236,9 +236,9 @@ if __name__ == '__main__':
 
     parser.add_argument('--save_freq', type=int, default=2000, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=2000, help='test frequency')
-    parser.add_argument('--resume', type=int, default=False, help='resume model')
-    parser.add_argument('--net_path', type=str, default='', help='resume model')
-    parser.add_argument('--margin_path', type=str, default='', help='resume model')
+    parser.add_argument('--resume', type=int, default=True, help='resume model')
+    parser.add_argument('--net_path', type=str, default='./model/CASIA_RES50_IR_20190109_085615/Iter_002000_net.ckpt', help='resume model')
+    parser.add_argument('--margin_path', type=str, default='./model/CASIA_RES50_IR_20190109_085615/Iter_002000_margin.ckpt', help='resume model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='CASIA_', help='model prefix')
     parser.add_argument('--gpus', type=str, default='2,3', help='model prefix')

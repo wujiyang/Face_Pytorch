@@ -106,7 +106,7 @@ def getFeatureFromTorch(feature_save_dir, net, device, data_set, data_loader):
             data[i] = data[i].to(device)
         count += data[0].size(0)
         #print('extracing deep features from the face pair {}...'.format(count))
-        with torch.no_grad:
+        with torch.no_grad():
             res = [net(d).data.cpu().numpy() for d in data]
         featureL = np.concatenate((res[0], res[1]), 1)
         featureR = np.concatenate((res[2], res[3]), 1)

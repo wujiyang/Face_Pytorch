@@ -82,7 +82,7 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
     for data in megaface_loader:
         img, img_path= data[0].to(device), data[1]
-        with torch.no_grad:
+        with torch.no_grad():
             output = net(img).data.cpu().numpy()
 
         if do_norm is False:
