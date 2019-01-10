@@ -102,11 +102,11 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='./model/MSCeleb_SERES50_IR_20181229_211407/Iter_395000.ckpt', help='The path of trained model')
-    parser.add_argument('--backbone_net', type=str, default='SERes50_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
+    parser.add_argument('--model_path', type=str, default='./model/CASIA_RES50_IR_20190109_093753/Iter_062000_net.ckpt', help='The path of trained model')
+    parser.add_argument('--backbone_net', type=str, default='Res50_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
     parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
     parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
-    parser.add_argument('--batch_size', type=int, default=400, help='batch size')
+    parser.add_argument('--batch_size', type=int, default=1024, help='batch size')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension')
     parser.add_argument('--gpus', type=str, default='0,1,2,3', help='gpu list')
     parser.add_argument("--do_norm", type=int, default=1, help="1 if normalize feature, 0 do nothing(Default case)")
