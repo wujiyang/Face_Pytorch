@@ -106,7 +106,7 @@ def train(args):
         {'params': net.parameters(), 'weight_decay': 5e-4},
         {'params': margin.parameters(), 'weight_decay': 5e-4}
     ], lr=0.1, momentum=0.9, nesterov=True)
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[8, 15, 22], gamma=0.1)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[2, 6, 10], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -123,7 +123,7 @@ def train(args):
     best_cfp_fp_acc = 0.0
     best_cfp_fp_iters = 0
     total_iters = 0
-    vis = Visualizer(env=args.model_pre + args.backbone)
+    vis = Visualizer(env=args.model_pre + args.backbone + '_2')
     for epoch in range(1, args.total_epoch + 1):
         exp_lr_scheduler.step()
         # train model
@@ -186,7 +186,7 @@ def train(args):
                 getFeatureFromTorch('./result/cur_lfw_result.mat', net, device, lfwdataset, lfwloader)
                 lfw_accs = evaluation_10_fold('./result/cur_lfw_result.mat')
                 _print('LFW Ave Accuracy: {:.4f}'.format(np.mean(lfw_accs) * 100))
-                if best_lfw_acc < np.mean(lfw_accs) * 100:
+                if best_lfw_acc <= np.mean(lfw_accs) * 100:
                     best_lfw_acc = np.mean(lfw_accs) * 100
                     best_lfw_iters = total_iters
 
@@ -194,7 +194,7 @@ def train(args):
                 getFeatureFromTorch('./result/cur_agedb30_result.mat', net, device, agedbdataset, agedbloader)
                 age_accs = evaluation_10_fold('./result/cur_agedb30_result.mat')
                 _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(age_accs) * 100))
-                if best_agedb30_acc < np.mean(age_accs) * 100:
+                if best_agedb30_acc <= np.mean(age_accs) * 100:
                     best_agedb30_acc = np.mean(age_accs) * 100
                     best_agedb30_iters = total_iters
 
@@ -202,7 +202,7 @@ def train(args):
                 getFeatureFromTorch('./result/cur_cfpfp_result.mat', net, device, cfpfpdataset, cfpfploader)
                 cfp_accs = evaluation_10_fold('./result/cur_cfpfp_result.mat')
                 _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(cfp_accs) * 100))
-                if best_cfp_fp_acc < np.mean(cfp_accs) * 100:
+                if best_cfp_fp_acc <= np.mean(cfp_accs) * 100:
                     best_cfp_fp_acc = np.mean(cfp_accs) * 100
                     best_cfp_fp_iters = total_iters
                 _print('Current Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
@@ -233,13 +233,13 @@ if __name__ == '__main__':
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
     parser.add_argument('--batch_size', type=int, default=128, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=26, help='total epochs')
+    parser.add_argument('--total_epoch', type=int, default=13, help='total epochs')
 
-    parser.add_argument('--save_freq', type=int, default=3000, help='save frequency')
-    parser.add_argument('--test_freq', type=int, default=3000, help='test frequency')
-    parser.add_argument('--resume', type=int, default=False, help='resume model')
-    parser.add_argument('--net_path', type=str, default='', help='resume model')
-    parser.add_argument('--margin_path', type=str, default='', help='resume model')
+    parser.add_argument('--save_freq', type=int, default=5000, help='save frequency')
+    parser.add_argument('--test_freq', type=int, default=5000, help='test frequency')
+    parser.add_argument('--resume', type=int, default=True, help='resume model')
+    parser.add_argument('--net_path', type=str, default='./model/MSCeleb_SERES100_IR_20190110_152417/Iter_075000_net.ckpt', help='resume model')
+    parser.add_argument('--margin_path', type=str, default='./model/MSCeleb_SERES100_IR_20190110_152417/Iter_075000_margin.ckpt', help='resume model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='MSCeleb_', help='model prefix')
     parser.add_argument('--gpus', type=str, default='0,1,2,3', help='model prefix')
