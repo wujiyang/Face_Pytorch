@@ -10,7 +10,6 @@
 
 import torch
 from torch import nn
-import math
 from collections import namedtuple
 
 class Flatten(nn.Module):

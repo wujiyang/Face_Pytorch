@@ -27,6 +27,7 @@ SEResNet50-IR   |  ArcFace  |  99.43  |   94.50  |  95.43 |   171MB    |  small
 MobileFaceNet   |  ArcFace  |  99.58  |   96.57  |  92.90 |    4MB     |  large
 ResNet50-IR     |  ArcFace  |    -    |     -    |    -   |   170MB    |  large
 SEResNet50-IR   |  ArcFace  |  99.80  |   98.13  |  95.60 |   171MB    |  large
+SEResNet100-IR  |  ArcFace  |  99.78  |   97.92  |  96.00 |   256MB    |  large
 
 There exists an odd result fact that when training under small protocol, CFP-FP performances better than AgeDB-30, while when training with large scale dataset, CFP-FP performances worse than AgeDB-30.
 
@@ -40,6 +41,7 @@ SEResNet50-IR   |  ArcFace  |  74.37  |  88.32  |   88.30   |   89.65   | 171MB 
 MobileFaceNet   |  ArcFace  |  74.95  |  88.77  |   89.47   |   91.03   |  4MB  |  large
 ResNet50-IR     |  ArcFace  |    -    |    -    |     -     |     -     | 170MB |  large
 SEResNet50-IR   |  ArcFace  |  80.01  |  96.10  |   97.01   |   97.60   | 171MB |  large
+
 
 
 ## Usage 
