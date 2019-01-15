@@ -41,6 +41,7 @@ SEResNet50-IR   |  ArcFace  |  74.37  |  88.32  |   88.30   |   89.65   | 171MB 
 MobileFaceNet   |  ArcFace  |  74.95  |  88.77  |   89.47   |   91.03   |  4MB  |  large
 ResNet50-IR     |  ArcFace  |    -    |    -    |     -     |     -     | 170MB |  large
 SEResNet50-IR   |  ArcFace  |  80.01  |  96.10  |   97.01   |   97.60   | 171MB |  large
+SEResNet50-IR   |  ArcFace  |  80.01  |  96.10  |   97.01   |   97.60   | 171MB |  large
 
 
 
@@ -54,14 +55,21 @@ SEResNet50-IR   |  ArcFace  |  80.01  |  96.10  |   97.01   |   97.60   | 171MB 
 
 ## Visualization
 Add visdom support for visualization during training process.  
-![avatar](visualization.jpg)
+![avatar](result/visualization.jpg)
 
+The visualization of Center Loss  
+Softmax vs Softmax + Center Loss. Left: softmax training set. Right: softmax + center loss training set. 
+<div align="center">
+  <img src="result/softmax.gif" alt="train" width="45%">
+  <img src="result/softmax_center.gif" alt="train" width="45%">
+</div>
 
 ## References
 [MuggleWang/CosFace_pytorch](https://github.com/MuggleWang/CosFace_pytorch)  
 [Xiaoccer/MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)  
 [TreB1eN/InsightFace_Pytorch](https://github.com/TreB1eN/InsightFace_Pytorch)  
-[deepinsight/insightface](https://github.com/deepinsight/insightface) 
+[deepinsight/insightface](https://github.com/deepinsight/insightface)  
+[KaiyangZhou/pytorch-center-loss](https://github.com/KaiyangZhou/pytorch-center-loss)
 
 ## Todo
 1. Report the test results on DeepGlint Trillion Pairs Challenge.
