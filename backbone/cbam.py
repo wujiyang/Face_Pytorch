@@ -39,9 +39,18 @@ class CAModule(nn.Module):
 class SAModule(nn.Module):
     def __init__(self):
         super(SAModule, self).__init__()
+        self.conv = nn.Conv2d(2, 1, kernel_size=3, padding=1, bias=False)
+        self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
-        pass
+        intput = x
+        avg_c = torch.mean(x, 1, True)
+        max_c, _ = torch.max(x, 1, True)
+        x = torch.cat((avg_c, max_c), 1)
+        x = self.conv(x)
+        x = self.sigmoid(x)
+
+        return input * x
 
 
 class BottleNeck_IR(nn.Module):
@@ -71,9 +80,6 @@ class BottleNeck_IR(nn.Module):
         return shortcut + res
 
 
-
-
-
 class CBAM_BottleNeck_IR(nn.Module):
     def __init__(self, in_channel, out_channel, stride, dim_match):
         super(CBAM_BottleNeck_IR, self).__init__()
@@ -83,7 +89,8 @@ class CBAM_BottleNeck_IR(nn.Module):
                                        nn.PReLU(out_channel),
                                        nn.Conv2d(out_channel, out_channel, (3, 3), stride, 1, bias=False),
                                        nn.BatchNorm2d(out_channel),
-                                       CAModule(out_channel, 16))
+                                       CAModule(out_channel, 16),
+                                       SAModule())
         if dim_match:
             self.shortcut_layer = None
         else:
@@ -164,8 +171,9 @@ class CBAMResNet_IR(nn.Module):
         return x
 
 if __name__ == '__main__':
-    input = torch.Tensor(2, 3, 112, 112)
-    net = CBAMResNet_IR(100, mode='se_ir')
+    input = torch.Tensor(5, 3, 112, 112)
+    #net = CBAMResNet_IR(100, mode='se_ir')
+    net = SAModule()
     print(net)
 
     x = net(input)

@@ -56,6 +56,8 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
         net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
     elif backbone_net == 'SERes50_IR':
         net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
+    elif backbone_net == 'SERes100_IR':
+        net = arcfacenet.SEResNet_IR(100, feature_dim=args.feature_dim, mode='se_ir')
     else:
         print(backbone_net, 'is not available!')
 
@@ -102,8 +104,8 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='./model/CASIA_RES50_IR_20190109_093753/Iter_062000_net.ckpt', help='The path of trained model')
-    parser.add_argument('--backbone_net', type=str, default='Res50_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
+    parser.add_argument('--model_path', type=str, default='./model/MSCeleb_SERES100_IR_20190111_124140/Iter_370000_net.ckpt', help='The path of trained model')
+    parser.add_argument('--backbone_net', type=str, default='SERes100_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SERes100_IR')
     parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
     parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
     parser.add_argument('--batch_size', type=int, default=1024, help='batch size')
