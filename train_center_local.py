@@ -3,12 +3,13 @@
 '''
 @author: wujiyang
 @contact: wujiyang@hust.edu.cn
-@file: train_center.py
-@time: 2019/1/3 11:12
-@desc: train script for my attention net and center loss
+@file: train_center_local.py.py
+@time: 2019/1/15 17:37
+@desc:
 '''
 
 import os
+from matplotlib import pyplot as plt
 import torch.utils.data
 from torch.nn import DataParallel
 from datetime import datetime
@@ -22,9 +23,6 @@ from lossfunctions.centerloss import CenterLoss
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
 from dataset.lfw import LFW
-from dataset.agedb import AgeDB30
-from dataset.cfp import CFP_FP
-from utils.visualize import Visualizer
 from torch.optim import lr_scheduler
 import torch.optim as optim
 import time
@@ -32,6 +30,32 @@ from eval_lfw import evaluation_10_fold, getFeatureFromTorch
 import numpy as np
 import torchvision.transforms as transforms
 import argparse
+
+'''plot feature distirbution'''
+def plot_features(features, labels, num_classes, epoch, save_dir):
+    """Plot features on 2D plane.
+    Args:
+        features: (num_instances, num_features).
+        labels: (num_instances).
+    """
+    colors = ['#9ACD32', '#FFFF00', '#000000', '#0000FF', '#F5DEB3',
+              '#EE82EE', '#40E0D0', '#FF6347', '#D8BFD8', '#008080',
+              '#D2B48C', '#4682B4', '#708090', '#FF0000', '#00FF7F',
+              '#8B0000', '#A0522D', '#C0C0C0', '#87CEEB', '#6A5ACD']
+    for label_idx in range(num_classes):
+        plt.plot(
+            features[labels==label_idx, 0],
+            features[labels==label_idx, 1],
+            '.',
+            c=colors[label_idx],
+        )
+    plt.legend(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19'], loc='upper right')
+    dirname = save_dir
+    if not os.path.exists(dirname):
+        os.mkdir(dirname)
+    save_name = os.path.join(dirname, 'epoch_' + str(epoch) + '.png')
+    plt.savefig(save_name, bbox_inches='tight')
+    plt.close()
 
 
 def train(args):
@@ -63,16 +87,10 @@ def train(args):
     lfwdataset = LFW(args.lfw_test_root, args.lfw_file_list, transform=transform)
     lfwloader = torch.utils.data.DataLoader(lfwdataset, batch_size=128,
                                              shuffle=False, num_workers=4, drop_last=False)
-    agedbdataset = AgeDB30(args.agedb_test_root, args.agedb_file_list, transform=transform)
-    agedbloader = torch.utils.data.DataLoader(agedbdataset, batch_size=128,
-                                            shuffle=False, num_workers=4, drop_last=False)
-    cfpfpdataset = CFP_FP(args.cfpfp_test_root, args.cfpfp_file_list, transform=transform)
-    cfpfploader = torch.utils.data.DataLoader(cfpfpdataset, batch_size=128,
-                                              shuffle=False, num_workers=4, drop_last=False)
 
     # define backbone and margin layer
     if args.backbone == 'MobileFace':
-        net = MobileFaceNet()
+        net = MobileFaceNet(feature_dim=args.feature_dim)
     elif args.backbone == 'Res50':
         net = ResNet50()
     elif args.backbone == 'Res101':
@@ -109,10 +127,10 @@ def train(args):
         {'params': margin.parameters(), 'weight_decay': 5e-4}
     ], lr=0.1, momentum=0.9, nesterov=True)
 
-    #criterion_center = CenterLoss(trainset.class_nums, args.feature_dim).to(device)
-    #optimizer_center = optim.SGD(criterion_center.parameters(), lr=0.5)
+    criterion_center = CenterLoss(trainset.class_nums, args.feature_dim).to(device)
+    optimizer_center = optim.SGD(criterion_center.parameters(), lr=0.5)
 
-    scheduler_classi = lr_scheduler.MultiStepLR(optimizer_classi, milestones=[25, 50, 65], gamma=0.1)
+    scheduler_classi = lr_scheduler.MultiStepLR(optimizer_classi, milestones=[35, 60, 85], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -123,17 +141,15 @@ def train(args):
 
     best_lfw_acc = 0.0
     best_lfw_iters = 0
-    best_agedb30_acc = 0.0
-    best_agedb30_iters = 0
-    best_cfp_fp_acc = 0.0
-    best_cfp_fp_iters = 0
     total_iters = 0
-    #vis = Visualizer(env='softmax_center_xavier')
     for epoch in range(1, args.total_epoch + 1):
         scheduler_classi.step()
         # train model
         _print('Train Epoch: {}/{} ...'.format(epoch, args.total_epoch))
         net.train()
+
+        if args.plot:
+            all_features, all_labels = [], []
 
         since = time.time()
         for data in trainloader:
@@ -141,26 +157,35 @@ def train(args):
             feature = net(img)
             output = margin(feature)
             loss_classi = criterion_classi(output, label)
-            #loss_center = criterion_center(feature, label)
-            total_loss = loss_classi #+ loss_center * args.weight_center
+            loss_center = criterion_center(feature, label)
+            total_loss = loss_classi + loss_center * args.weight_center
 
             optimizer_classi.zero_grad()
-            #optimizer_center.zero_grad()
+            optimizer_center.zero_grad()
             total_loss.backward()
             optimizer_classi.step()
-            #optimizer_center.step()
+
+            # by doing so, weight_cent would not impact on the learning of centers
+            for param in criterion_center.parameters():
+                param.grad.data *= (1. / args.weight_center)
+            optimizer_center.step()
 
             total_iters += 1
+            if args.plot:
+                feat = feature.data.cpu().numpy()
+                #for i in range(feat.shape[0]):
+                #    feat[i] = feat[i] / np.sqrt((np.dot(feat[i], feat[i])))
+                all_features.append(feat)
+                all_labels.append(label.data.cpu().numpy())
+
             # print train information
-            if total_iters % 100 == 0:
+            if total_iters % 10 == 0:
                 # current training accuracy
                 _, predict = torch.max(output.data, 1)
                 total = label.size(0)
-                correct = (np.array(predict) == np.array(label.data)).sum()
-                time_cur = (time.time() - since) / 100
+                correct = (np.array(predict.cpu()) == np.array(label.data.cpu())).sum()
+                time_cur = (time.time() - since) / 10
                 since = time.time()
-                #vis.plot_curves({'softmax loss': loss_classi.item(), 'center loss': loss_center.item()}, iters=total_iters, title='train loss', xlabel='iters', ylabel='train loss')
-                #vis.plot_curves({'train accuracy': correct / total}, iters=total_iters, title='train accuracy', xlabel='iters', ylabel='train accuracy')
                 print("Iters: {:0>6d}/[{:0>2d}], loss_classi: {:.4f}, loss_center: {:.4f}, train_accuracy: {:.4f}, time: {:.2f} s/iter, learning rate: {}".format(total_iters,
                                                                                                                                           epoch,
                                                                                                                                           loss_classi.item(),
@@ -207,51 +232,30 @@ def train(args):
                     best_lfw_acc = np.mean(lfw_accs) * 100
                     best_lfw_iters = total_iters
 
-                # test model on AgeDB30
-                getFeatureFromTorch('./result/cur_agedb30_result.mat', net, device, agedbdataset, agedbloader)
-                age_accs = evaluation_10_fold('./result/cur_agedb30_result.mat')
-                _print('AgeDB-30 Ave Accuracy: {:.4f}'.format(np.mean(age_accs) * 100))
-                if best_agedb30_acc < np.mean(age_accs) * 100:
-                    best_agedb30_acc = np.mean(age_accs) * 100
-                    best_agedb30_iters = total_iters
-
-                # test model on CFP-FP
-                getFeatureFromTorch('./result/cur_cfpfp_result.mat', net, device, cfpfpdataset, cfpfploader)
-                cfp_accs = evaluation_10_fold('./result/cur_cfpfp_result.mat')
-                _print('CFP-FP Ave Accuracy: {:.4f}'.format(np.mean(cfp_accs) * 100))
-                if best_cfp_fp_acc < np.mean(cfp_accs) * 100:
-                    best_cfp_fp_acc = np.mean(cfp_accs) * 100
-                    best_cfp_fp_iters = total_iters
-                _print('Current Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
-                    best_lfw_acc, best_lfw_iters, best_agedb30_acc, best_agedb30_iters, best_cfp_fp_acc, best_cfp_fp_iters))
-
-                #vis.plot_curves({'lfw': np.mean(lfw_accs), 'agedb-30': np.mean(age_accs), 'cfp-fp': np.mean(cfp_accs)}, iters=total_iters,
-                #                title='test accuracy', xlabel='iters', ylabel='test accuracy')
                 net.train()
 
-    _print('Finally Best Accuracy: LFW: {:.4f} in iters: {}, AgeDB-30: {:.4f} in iters: {} and CFP-FP: {:.4f} in iters: {}'.format(
-        best_lfw_acc, best_lfw_iters, best_agedb30_acc, best_agedb30_iters, best_cfp_fp_acc, best_cfp_fp_iters))
+        if args.plot:
+            all_features = np.concatenate(all_features, 0)
+            all_labels = np.concatenate(all_labels, 0)
+            plot_features(all_features, all_labels, trainset.class_nums, epoch, save_dir)
+    _print('Finally Best Accuracy: LFW: {:.4f} in iters: {}'.format(best_lfw_acc, best_lfw_iters))
     print('finishing training')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PyTorch for deep face recognition')
-    parser.add_argument('--train_root', type=str, default='/media/ramdisk/webface_align_112', help='train image root')
-    parser.add_argument('--train_file_list', type=str, default='/media/ramdisk/webface_align_train.list', help='train list')
-    parser.add_argument('--lfw_test_root', type=str, default='/media/ramdisk/lfw_align_112', help='lfw image root')
-    parser.add_argument('--lfw_file_list', type=str, default='/media/ramdisk/pairs.txt', help='lfw pair file list')
-    parser.add_argument('--agedb_test_root', type=str, default='/media/sda/AgeDB-30/agedb30_align_112', help='agedb image root')
-    parser.add_argument('--agedb_file_list', type=str, default='/media/sda/AgeDB-30/agedb_30_pair.txt', help='agedb pair file list')
-    parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/cfp_fp_aligned_112', help='agedb image root')
-    parser.add_argument('--cfpfp_file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='agedb pair file list')
+    parser.add_argument('--train_root', type=str, default='D:/data/webface_align_112', help='train image root')
+    parser.add_argument('--train_file_list', type=str, default='D:/data/webface_test.list', help='train list')
+    parser.add_argument('--lfw_test_root', type=str, default='D:/data/lfw_align_112', help='lfw image root')
+    parser.add_argument('--lfw_file_list', type=str, default='D:/data/pairs.txt', help='lfw pair file list')
 
     parser.add_argument('--backbone', type=str, default='MobileFace', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SphereNet')
     parser.add_argument('--margin_type', type=str, default='InnerProduct', help='InnerProduct, ArcFace, CosFace, SphereFace')
-    parser.add_argument('--feature_dim', type=int, default=128, help='feature dimension, 128 or 512')
+    parser.add_argument('--feature_dim', type=int, default=2, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
-    parser.add_argument('--batch_size', type=int, default=256, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=80, help='total epochs')
-    parser.add_argument('--weight_center', type=float, default=0.01, help='center loss weight')
+    parser.add_argument('--batch_size', type=int, default=128, help='batch size')
+    parser.add_argument('--total_epoch', type=int, default=100, help='total epochs')
+    parser.add_argument('--weight_center', type=float, default=0.1, help='center loss weight')
 
     parser.add_argument('--save_freq', type=int, default=2000, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=2000, help='test frequency')
@@ -260,7 +264,8 @@ if __name__ == '__main__':
     parser.add_argument('--margin_path', type=str, default='', help='resume model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='Softmax_Center_', help='model prefix')
-    parser.add_argument('--gpus', type=str, default='0,1', help='model prefix')
+    parser.add_argument('--gpus', type=str, default='0', help='model prefix')
+    parser.add_argument('--plot', type=int, default=True, help="whether to plot features for every epoch")
 
     args = parser.parse_args()
 

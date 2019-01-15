@@ -72,7 +72,7 @@ class ConvBlock(nn.Module):
 
 
 class MobileFaceNet(nn.Module):
-    def __init__(self, bottleneck_setting=MobileFaceNet_BottleNeck_Setting):
+    def __init__(self, feature_dim=128, bottleneck_setting=MobileFaceNet_BottleNeck_Setting):
         super(MobileFaceNet, self).__init__()
         self.conv1 = ConvBlock(3, 64, 3, 2, 1)
         self.dw_conv1 = ConvBlock(64, 64, 3, 1, 1, dw=True)
@@ -83,7 +83,7 @@ class MobileFaceNet(nn.Module):
 
         self.conv2 = ConvBlock(128, 512, 1, 1, 0)
         self.linear7 = ConvBlock(512, 512, 7, 1, 0, dw=True, linear=True)
-        self.linear1 = ConvBlock(512, 128, 1, 1, 0, linear=True)
+        self.linear1 = ConvBlock(512, feature_dim, 1, 1, 0, linear=True)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
