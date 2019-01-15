@@ -54,10 +54,10 @@ SEResNet50-IR   |  ArcFace  |  80.01  |  96.10  |   97.01   |   97.60   | 171MB 
 5. Every evaluate file can work independently for the model test process. just set your own args in the file. 
 
 ## Visualization
-Add visdom support for visualization during training process.  
+Visdom support for loss and accuracy during training process.  
 ![avatar](result/visualization.jpg)
 
-The visualization of Center Loss  
+Visualization effect of Center Loss.  
 Softmax vs Softmax + Center Loss. Left: softmax training set. Right: softmax + center loss training set. 
 <div align="center">
   <img src="result/softmax.gif" alt="train" width="45%">
