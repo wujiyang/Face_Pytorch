@@ -57,11 +57,11 @@ SEResNet50-IR   |  ArcFace  |  80.01  |  96.10  |   97.01   |   97.60   | 171MB 
 Visdom support for loss and accuracy during training process.  
 ![avatar](result/visualization.jpg)
 
-Visualization effect of Center Loss.  
-Softmax vs Softmax + Center Loss. Left: softmax training set. Right: softmax + center loss training set. 
+ 
+Softmax Loss vs Softmax_Center Loss. Left: softmax training set. Right: softmax + center loss training set. 
 <div align="center">
-  <img src="result/softmax.gif" alt="train" width="45%">
-  <img src="result/softmax_center.gif" alt="train" width="45%">
+  <img src="result/softmax.gif" alt="train" width="49.5%">
+  <img src="result/softmax_center.gif" alt="train" width="49.5%">
 </div>
 
 ## References

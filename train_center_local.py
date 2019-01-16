@@ -20,6 +20,7 @@ from backbone.spherenet import SphereNet
 from margin.ArcMarginProduct import ArcMarginProduct
 from margin.InnerProduct import InnerProduct
 from lossfunctions.centerloss import CenterLoss
+from lossfunctions.agentcenterloss import AgentCenterLoss
 from utils.logging import init_log
 from dataset.casia_webface import CASIAWebFace
 from dataset.lfw import LFW
@@ -127,7 +128,7 @@ def train(args):
         {'params': margin.parameters(), 'weight_decay': 5e-4}
     ], lr=0.1, momentum=0.9, nesterov=True)
 
-    criterion_center = CenterLoss(trainset.class_nums, args.feature_dim).to(device)
+    criterion_center = AgentCenterLoss(trainset.class_nums, args.feature_dim, args.scale_size).to(device)
     optimizer_center = optim.SGD(criterion_center.parameters(), lr=0.5)
 
     scheduler_classi = lr_scheduler.MultiStepLR(optimizer_classi, milestones=[35, 60, 85], gamma=0.1)
@@ -166,8 +167,8 @@ def train(args):
             optimizer_classi.step()
 
             # by doing so, weight_cent would not impact on the learning of centers
-            for param in criterion_center.parameters():
-                param.grad.data *= (1. / args.weight_center)
+            #for param in criterion_center.parameters():
+            #    param.grad.data *= (1. / args.weight_center)
             optimizer_center.step()
 
             total_iters += 1
