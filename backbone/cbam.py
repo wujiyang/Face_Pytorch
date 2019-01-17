@@ -98,7 +98,7 @@ class BottleNeck_IR(nn.Module):
         return shortcut + res
 
 class SE_BottleNeck_IR(nn.Module):
-    '''Improved Residual Bottlenecks'''
+    '''Improved Residual Bottlenecks with Squeeze and Excitation Module'''
     def __init__(self, in_channel, out_channel, stride, dim_match):
         super(BottleNeck_IR, self).__init__()
         self.res_layer = nn.Sequential(nn.BatchNorm2d(in_channel),

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet">
-      <change beforePath="$PROJECT_DIR$/backbone/arcfacenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/arcfacenet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backbone/cbam.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/cbam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lossfunctions/agentcenterloss.py" beforeDir="false" afterPath="$PROJECT_DIR$/lossfunctions/agentcenterloss.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_center_local.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_center_local.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,14 +71,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="18" />
-          <entry key="py" value="32049" />
+          <entry key="py" value="32084" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="31" />
-          <entry key="Python" value="32048" />
+          <entry key="Python" value="32083" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -124,11 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="175" column="29" lean-forward="true" selection-start-line="175" selection-start-column="29" selection-end-line="175" selection-end-column="29" />
+            <state relative-caret-position="353">
+              <caret line="189" column="65" lean-forward="true" selection-start-line="189" selection-start-column="65" selection-end-line="189" selection-end-column="65" />
               <folding>
                 <element signature="e#259#271#0" expanded="true" />
                 <element signature="e#324#394#0" />
@@ -140,18 +138,17 @@
                 <element signature="e#1493#1701#0" expanded="true" />
                 <element signature="e#1740#2845#0" />
                 <element signature="e#1852#2643#0" expanded="true" />
-                <element signature="e#3567#4672#0" />
                 <element signature="e#3679#4470#0" expanded="true" />
                 <element signature="e#4506#4672#0" expanded="true" />
                 <element signature="e#2888#4199#0" />
-                <marker date="1547694672029" expanded="true" signature="1962:1967" ph="..." />
-                <marker date="1547694672029" expanded="true" signature="8379:8616" ph="..." />
+                <marker date="1547695232514" expanded="true" signature="1962:1967" ph="..." />
+                <marker date="1547695232514" expanded="true" signature="8414:8651" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
@@ -311,8 +308,8 @@
         <option value="$PROJECT_DIR$/backbone/mobilefacenet.py" />
         <option value="$PROJECT_DIR$/train_center_local.py" />
         <option value="$PROJECT_DIR$/lossfunctions/agentcenterloss.py" />
-        <option value="$PROJECT_DIR$/backbone/cbam.py" />
         <option value="$PROJECT_DIR$/backbone/arcfacenet.py" />
+        <option value="$PROJECT_DIR$/backbone/cbam.py" />
       </list>
     </option>
   </component>
@@ -1024,31 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="175" column="29" lean-forward="true" selection-start-line="175" selection-start-column="29" selection-end-line="175" selection-end-column="29" />
-          <folding>
-            <element signature="e#259#271#0" expanded="true" />
-            <element signature="e#324#394#0" />
-            <element signature="e#428#1076#0" />
-            <element signature="e#517#875#0" expanded="true" />
-            <element signature="e#427#1218#0" />
-            <element signature="e#1252#1701#0" />
-            <element signature="e#1315#1457#0" expanded="true" />
-            <element signature="e#1493#1701#0" expanded="true" />
-            <element signature="e#1740#2845#0" />
-            <element signature="e#1852#2643#0" expanded="true" />
-            <element signature="e#3567#4672#0" />
-            <element signature="e#3679#4470#0" expanded="true" />
-            <element signature="e#4506#4672#0" expanded="true" />
-            <element signature="e#2888#4199#0" />
-            <marker date="1547694672029" expanded="true" signature="1962:1967" ph="..." />
-            <marker date="1547694672029" expanded="true" signature="8379:8616" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1062,6 +1034,30 @@
             <marker date="1547694926513" expanded="true" signature="621:626" ph="..." />
             <marker date="1547694926513" expanded="true" signature="2329:4788" ph="..." />
             <marker date="1547694926513" expanded="true" signature="4818:4823" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="189" column="65" lean-forward="true" selection-start-line="189" selection-start-column="65" selection-end-line="189" selection-end-column="65" />
+          <folding>
+            <element signature="e#259#271#0" expanded="true" />
+            <element signature="e#324#394#0" />
+            <element signature="e#428#1076#0" />
+            <element signature="e#517#875#0" expanded="true" />
+            <element signature="e#427#1218#0" />
+            <element signature="e#1252#1701#0" />
+            <element signature="e#1315#1457#0" expanded="true" />
+            <element signature="e#1493#1701#0" expanded="true" />
+            <element signature="e#1740#2845#0" />
+            <element signature="e#1852#2643#0" expanded="true" />
+            <element signature="e#3679#4470#0" expanded="true" />
+            <element signature="e#4506#4672#0" expanded="true" />
+            <element signature="e#2888#4199#0" />
+            <marker date="1547695232514" expanded="true" signature="1962:1967" ph="..." />
+            <marker date="1547695232514" expanded="true" signature="8414:8651" ph="..." />
           </folding>
         </state>
       </provider>
