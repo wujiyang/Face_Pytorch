@@ -100,7 +100,7 @@ class BottleNeck_IR(nn.Module):
 class SE_BottleNeck_IR(nn.Module):
     '''Improved Residual Bottlenecks with Squeeze and Excitation Module'''
     def __init__(self, in_channel, out_channel, stride, dim_match):
-        super(BottleNeck_IR, self).__init__()
+        super(SE_BottleNeck_IR, self).__init__()
         self.res_layer = nn.Sequential(nn.BatchNorm2d(in_channel),
                                        nn.Conv2d(in_channel, out_channel, (3, 3), 1, 1, bias=False),
                                        nn.BatchNorm2d(out_channel),
@@ -222,7 +222,7 @@ class CBAMResNet_IR(nn.Module):
 
 if __name__ == '__main__':
     input = torch.Tensor(2, 3, 112, 112)
-    net = CBAMResNet_IR(50, mode='cbam_ir')
+    net = CBAMResNet_IR(50, mode='se_ir')
     #print(net)
 
     x = net(input)

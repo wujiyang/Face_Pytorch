@@ -40,7 +40,6 @@ SEResNet50-IR   |  ArcFace  |  74.37  |  88.32  |   88.30   |   89.65   | 171MB 
 MobileFaceNet   |  ArcFace  |  74.95  |  88.77  |   89.47   |   91.03   |  4MB  |  large
 ResNet50-IR     |  ArcFace  |    -    |    -    |     -     |     -     | 170MB |  large
 SEResNet50-IR   |  ArcFace  |  80.01  |  96.10  |   97.01   |   97.60   | 171MB |  large
-SEResNet50-IR   |  ArcFace  |  80.01  |  96.10  |   97.01   |   97.60   | 171MB |  large
 
 
 
