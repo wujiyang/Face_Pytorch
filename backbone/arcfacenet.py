@@ -6,7 +6,12 @@
 @file: arcfacenet.py
 @time: 2018/12/26 10:15
 @desc: Network structures used in the arcface paper, including ResNet50-IR, ResNet101-IR, SEResNet50-IR, SEResNet101-IR
+
+''''''
+Update: This file has been deprecated, all the models build in this class have been rebuild in cbam.py
+        Yet the code in this file still works.
 '''
+
 
 import torch
 from torch import nn

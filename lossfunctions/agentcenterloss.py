@@ -32,12 +32,12 @@ class AgentCenterLoss(nn.Module):
         Return:
             loss of centers
         '''
-        cos_dis = F.linear(F.normalize(x), F.normalize(self.centers))
+        cos_dis = F.linear(F.normalize(x), F.normalize(self.centers)) * self.scale
 
         one_hot = torch.zeros_like(cos_dis)
         one_hot.scatter_(1, labels.view(-1, 1), 1.0)
 
         # loss = 1 - cosine(i)
-        loss = one_hot - (one_hot * cos_dis)
+        loss = one_hot * self.scale - (one_hot * cos_dis)
 
-        return loss.mean() * self.scale
+        return loss.mean()

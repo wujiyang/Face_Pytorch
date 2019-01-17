@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backbone/arcfacenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/arcfacenet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backbone/cbam.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/cbam.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lossfunctions/agentcenterloss.py" beforeDir="false" afterPath="$PROJECT_DIR$/lossfunctions/agentcenterloss.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_center_local.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_center_local.py" afterDir="false" />
     </list>
@@ -23,7 +23,7 @@
     <SUITE FILE_PATH="coverage/Face_Pytorch$casia_webface.coverage" NAME="casia_webface Coverage Results" MODIFIED="1545403033305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$cbam.coverage" NAME="cbam Coverage Results" MODIFIED="1547533872745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backbone" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$lfw_eval.coverage" NAME="lfw_eval Coverage Results" MODIFIED="1545709923867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Face_Pytorch$train_center_local.coverage" NAME="train_center_local Coverage Results" MODIFIED="1547604674067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_Pytorch$train_center_local.coverage" NAME="train_center_local Coverage Results" MODIFIED="1547612999793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$plot_theta.coverage" NAME="plot_theta Coverage Results" MODIFIED="1546564486487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$eval_lfw.coverage" NAME="eval_lfw Coverage Results" MODIFIED="1546394716112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$spherenet.coverage" NAME="spherenet Coverage Results" MODIFIED="1546907943767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backbone" />
@@ -60,27 +60,27 @@
         <counts>
           <entry key="_bootstrap&gt;" value="1" />
           <entry key="md" value="1" />
-          <entry key="py" value="137" />
+          <entry key="py" value="140" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
           <entry key="PyRemoteDebug" value="1" />
-          <entry key="Python" value="137" />
+          <entry key="Python" value="140" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="18" />
-          <entry key="py" value="31609" />
+          <entry key="py" value="32049" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="31" />
-          <entry key="Python" value="31608" />
+          <entry key="Python" value="32048" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -112,13 +112,59 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="180" column="42" selection-start-line="180" selection-start-column="42" selection-end-line="180" selection-end-column="42" />
+            <state relative-caret-position="459">
+              <caret line="128" column="56" lean-forward="true" selection-start-line="128" selection-start-column="56" selection-end-line="128" selection-end-column="56" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
                 <marker date="1547534426918" expanded="true" signature="990:993" ph="..." />
                 <marker date="1547534426918" expanded="true" signature="1009:1014" ph="..." />
                 <marker date="1547534426918" expanded="true" signature="1009:10111" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="175" column="29" lean-forward="true" selection-start-line="175" selection-start-column="29" selection-end-line="175" selection-end-column="29" />
+              <folding>
+                <element signature="e#259#271#0" expanded="true" />
+                <element signature="e#324#394#0" />
+                <element signature="e#428#1076#0" />
+                <element signature="e#517#875#0" expanded="true" />
+                <element signature="e#427#1218#0" />
+                <element signature="e#1252#1701#0" />
+                <element signature="e#1315#1457#0" expanded="true" />
+                <element signature="e#1493#1701#0" expanded="true" />
+                <element signature="e#1740#2845#0" />
+                <element signature="e#1852#2643#0" expanded="true" />
+                <element signature="e#3567#4672#0" />
+                <element signature="e#3679#4470#0" expanded="true" />
+                <element signature="e#4506#4672#0" expanded="true" />
+                <element signature="e#2888#4199#0" />
+                <marker date="1547694672029" expanded="true" signature="1962:1967" ph="..." />
+                <marker date="1547694672029" expanded="true" signature="8379:8616" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="102" lean-forward="true" selection-start-line="10" selection-start-column="102" selection-end-line="10" selection-end-column="102" />
+              <folding>
+                <element signature="e#272#284#0" expanded="true" />
+                <element signature="e#525#883#0" expanded="true" />
+                <element signature="e#919#1084#0" expanded="true" />
+                <element signature="e#2245#3141#0" expanded="true" />
+                <marker date="1547694926513" expanded="true" signature="517:522" ph="..." />
+                <marker date="1547694926513" expanded="true" signature="621:626" ph="..." />
+                <marker date="1547694926513" expanded="true" signature="2329:4788" ph="..." />
+                <marker date="1547694926513" expanded="true" signature="4818:4823" ph="..." />
               </folding>
             </state>
           </provider>
@@ -140,17 +186,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_center_local.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1751">
-              <caret line="141" selection-start-line="141" selection-end-line="141" />
+            <state relative-caret-position="713">
+              <caret line="275" selection-start-line="275" selection-end-line="275" />
               <folding>
                 <element signature="e#160#169#0" expanded="true" />
+                <element signature="e#2113#10764#0" expanded="true" />
                 <element signature="e#8847#9352#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_softmax.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="366">
@@ -165,25 +212,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lossfunctions/agentcenterloss.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+            <state relative-caret-position="124">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#368#380#0" expanded="true" />
-                <element signature="e#391#580#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="34" column="21" selection-start-line="30" selection-start-column="8" selection-end-line="34" selection-end-column="21" />
-              <folding>
-                <element signature="e#193#205#0" expanded="true" />
-                <element signature="e#414#687#0" expanded="true" />
-                <element signature="e#735#1072#0" expanded="true" />
+                <element signature="e#894#1384#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -192,39 +225,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lossfunctions/centerloss.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
+            <state relative-caret-position="283">
+              <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
               <folding>
                 <element signature="e#182#194#0" expanded="true" />
                 <element signature="e#303#492#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="175" column="23" selection-start-line="175" selection-start-column="10" selection-end-line="175" selection-end-column="23" />
-              <folding>
-                <element signature="e#259#271#0" expanded="true" />
-                <element signature="e#393#463#0" />
-                <element signature="e#427#463#0" expanded="true" />
-                <element signature="e#511#982#0" expanded="true" />
-                <element signature="e#1018#1219#0" expanded="true" />
-                <element signature="e#1257#1399#0" expanded="true" />
-                <element signature="e#1531#1819#0" expanded="true" />
-                <element signature="e#1747#2812#0" />
-                <element signature="e#1430#2221#0" expanded="true" />
-                <element signature="e#2286#2382#0" expanded="true" />
-                <element signature="e#3045#3958#0" expanded="true" />
-                <element signature="e#3369#3535#0" expanded="true" />
-                <element signature="e#3980#5714#0" expanded="true" />
-                <element signature="e#5001#5228#0" expanded="true" />
-                <element signature="e#5003#5102#0" expanded="true" />
-                <marker date="1547533865733" expanded="true" signature="1282:1287" ph="..." />
-                <marker date="1547533865733" expanded="true" signature="6404:6641" ph="..." />
               </folding>
             </state>
           </provider>
@@ -299,15 +304,15 @@
         <option value="$PROJECT_DIR$/eval_lfw.py" />
         <option value="$PROJECT_DIR$/eval_agedb30.py" />
         <option value="$PROJECT_DIR$/eval_cfp.py" />
-        <option value="$PROJECT_DIR$/backbone/arcfacenet.py" />
         <option value="$PROJECT_DIR$/eval_megaface.py" />
-        <option value="$PROJECT_DIR$/backbone/cbam.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/train_center.py" />
         <option value="$PROJECT_DIR$/lossfunctions/centerloss.py" />
         <option value="$PROJECT_DIR$/backbone/mobilefacenet.py" />
         <option value="$PROJECT_DIR$/train_center_local.py" />
         <option value="$PROJECT_DIR$/lossfunctions/agentcenterloss.py" />
+        <option value="$PROJECT_DIR$/backbone/cbam.py" />
+        <option value="$PROJECT_DIR$/backbone/arcfacenet.py" />
       </list>
     </option>
   </component>
@@ -580,15 +585,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17324094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17324094" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.30585682" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.37527114" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5466378" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -753,18 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/margin/InnerProduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-          <folding>
-            <element signature="e#175#187#0" expanded="true" />
-            <element signature="e#297#570#0" expanded="true" />
-            <element signature="e#669#783#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -883,31 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="164" column="18" selection-start-line="159" selection-start-column="4" selection-end-line="164" selection-end-column="18" />
-          <folding>
-            <element signature="e#263#275#0" expanded="true" />
-            <element signature="e#409#445#0" expanded="true" />
-            <element signature="e#528#886#0" expanded="true" />
-            <element signature="e#922#1087#0" expanded="true" />
-            <element signature="e#1187#2014#0" expanded="true" />
-            <element signature="e#2050#2146#0" expanded="true" />
-            <element signature="e#2248#3144#0" expanded="true" />
-            <element signature="e#3180#3276#0" expanded="true" />
-            <element signature="e#3477#3603#0" expanded="true" />
-            <element signature="e#3638#4639#0" expanded="true" />
-            <element signature="e#4762#5987#0" expanded="true" />
-            <element signature="e#6023#6122#0" expanded="true" />
-            <marker date="1547451625434" expanded="true" signature="358:363" ph="..." />
-            <marker date="1547451625434" expanded="true" signature="462:467" ph="..." />
-            <marker date="1547451625434" expanded="true" signature="2170:4629" ph="..." />
-            <marker date="1547451625434" expanded="true" signature="4659:4664" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1032735531/208177666/torch/nn/modules/container.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -935,45 +904,6 @@
           <folding>
             <element signature="e#10326#10458#0" expanded="true" />
             <element signature="e#11110#11177#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="175" column="23" selection-start-line="175" selection-start-column="10" selection-end-line="175" selection-end-column="23" />
-          <folding>
-            <element signature="e#259#271#0" expanded="true" />
-            <element signature="e#393#463#0" />
-            <element signature="e#427#463#0" expanded="true" />
-            <element signature="e#511#982#0" expanded="true" />
-            <element signature="e#1018#1219#0" expanded="true" />
-            <element signature="e#1257#1399#0" expanded="true" />
-            <element signature="e#1531#1819#0" expanded="true" />
-            <element signature="e#1747#2812#0" />
-            <element signature="e#1430#2221#0" expanded="true" />
-            <element signature="e#2286#2382#0" expanded="true" />
-            <element signature="e#3045#3958#0" expanded="true" />
-            <element signature="e#3369#3535#0" expanded="true" />
-            <element signature="e#3980#5714#0" expanded="true" />
-            <element signature="e#5001#5228#0" expanded="true" />
-            <element signature="e#5003#5102#0" expanded="true" />
-            <marker date="1547533865733" expanded="true" signature="1282:1287" ph="..." />
-            <marker date="1547533865733" expanded="true" signature="6404:6641" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="180" column="42" selection-start-line="180" selection-start-column="42" selection-end-line="180" selection-end-column="42" />
-          <folding>
-            <element signature="e#187#196#0" expanded="true" />
-            <marker date="1547534426918" expanded="true" signature="990:993" ph="..." />
-            <marker date="1547534426918" expanded="true" signature="1009:1014" ph="..." />
-            <marker date="1547534426918" expanded="true" signature="1009:10111" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1007,6 +937,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/train_center.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="247" column="65" selection-start-line="247" selection-start-column="65" selection-end-line="247" selection-end-column="65" />
+          <folding>
+            <element signature="e#200#209#0" expanded="true" />
+            <element signature="e#1080#11540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_softmax.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="228" selection-start-line="228" selection-end-line="228" />
+          <folding>
+            <element signature="e#1026#10655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/margin/InnerProduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/margin/CosineMarginProduct.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -1021,8 +979,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lossfunctions/centerloss.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
+        <state relative-caret-position="283">
+          <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
           <folding>
             <element signature="e#182#194#0" expanded="true" />
             <element signature="e#303#492#0" expanded="true" />
@@ -1030,45 +988,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_center.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="247" column="65" selection-start-line="247" selection-start-column="65" selection-end-line="247" selection-end-column="65" />
-          <folding>
-            <element signature="e#200#209#0" expanded="true" />
-            <element signature="e#1080#11540#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lossfunctions/agentcenterloss.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+        <state relative-caret-position="124">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#368#380#0" expanded="true" />
-            <element signature="e#391#580#0" expanded="true" />
+            <element signature="e#894#1384#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train_center_local.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1751">
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="713">
+          <caret line="275" selection-start-line="275" selection-end-line="275" />
           <folding>
             <element signature="e#160#169#0" expanded="true" />
+            <element signature="e#2113#10764#0" expanded="true" />
             <element signature="e#8847#9352#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_softmax.py">
+    <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="228" selection-start-line="228" selection-end-line="228" />
+        <state relative-caret-position="459">
+          <caret line="128" column="56" lean-forward="true" selection-start-line="128" selection-start-column="56" selection-end-line="128" selection-end-column="56" />
           <folding>
-            <element signature="e#1026#10655#0" expanded="true" />
+            <element signature="e#187#196#0" expanded="true" />
+            <marker date="1547534426918" expanded="true" signature="990:993" ph="..." />
+            <marker date="1547534426918" expanded="true" signature="1009:1014" ph="..." />
+            <marker date="1547534426918" expanded="true" signature="1009:10111" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="175" column="29" lean-forward="true" selection-start-line="175" selection-start-column="29" selection-end-line="175" selection-end-column="29" />
+          <folding>
+            <element signature="e#259#271#0" expanded="true" />
+            <element signature="e#324#394#0" />
+            <element signature="e#428#1076#0" />
+            <element signature="e#517#875#0" expanded="true" />
+            <element signature="e#427#1218#0" />
+            <element signature="e#1252#1701#0" />
+            <element signature="e#1315#1457#0" expanded="true" />
+            <element signature="e#1493#1701#0" expanded="true" />
+            <element signature="e#1740#2845#0" />
+            <element signature="e#1852#2643#0" expanded="true" />
+            <element signature="e#3567#4672#0" />
+            <element signature="e#3679#4470#0" expanded="true" />
+            <element signature="e#4506#4672#0" expanded="true" />
+            <element signature="e#2888#4199#0" />
+            <marker date="1547694672029" expanded="true" signature="1962:1967" ph="..." />
+            <marker date="1547694672029" expanded="true" signature="8379:8616" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backbone/arcfacenet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="102" lean-forward="true" selection-start-line="10" selection-start-column="102" selection-end-line="10" selection-end-column="102" />
+          <folding>
+            <element signature="e#272#284#0" expanded="true" />
+            <element signature="e#525#883#0" expanded="true" />
+            <element signature="e#919#1084#0" expanded="true" />
+            <element signature="e#2245#3141#0" expanded="true" />
+            <marker date="1547694926513" expanded="true" signature="517:522" ph="..." />
+            <marker date="1547694926513" expanded="true" signature="621:626" ph="..." />
+            <marker date="1547694926513" expanded="true" signature="2329:4788" ph="..." />
+            <marker date="1547694926513" expanded="true" signature="4818:4823" ph="..." />
           </folding>
         </state>
       </provider>

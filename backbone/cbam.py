@@ -15,6 +15,26 @@ class Flatten(nn.Module):
     def forward(self, input):
         return input.view(input.size(0), -1)
 
+class SEModule(nn.Module):
+    '''Squeeze and Excitation Module'''
+    def __init__(self, channels, reduction):
+        super(SEModule, self).__init__()
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        self.fc1 = nn.Conv2d(channels, channels // reduction, kernel_size=1, padding=0, bias=False)
+        self.relu = nn.ReLU(inplace=True)
+        self.fc2 = nn.Conv2d(channels // reduction, channels, kernel_size=1, padding=0, bias=False)
+        self.sigmoid = nn.Sigmoid()
+
+    def forward(self, x):
+        input = x
+        x = self.avg_pool(x)
+        x = self.fc1(x)
+        x = self.relu(x)
+        x = self.fc2(x)
+        x = self.sigmoid(x)
+
+        return input * x
+
 class CAModule(nn.Module):
     '''Channel Attention Module'''
     def __init__(self, channels, reduction):
@@ -34,7 +54,6 @@ class CAModule(nn.Module):
         x = self.sigmoid(x)
         return input * x
 
-
 class SAModule(nn.Module):
     '''Spatial Attention Module'''
     def __init__(self):
@@ -51,7 +70,6 @@ class SAModule(nn.Module):
         x = self.sigmoid(x)
         return input * x
 
-
 class BottleNeck_IR(nn.Module):
     '''Improved Residual Bottlenecks'''
     def __init__(self, in_channel, out_channel, stride, dim_match):
@@ -62,6 +80,34 @@ class BottleNeck_IR(nn.Module):
                                        nn.PReLU(out_channel),
                                        nn.Conv2d(out_channel, out_channel, (3, 3), stride, 1, bias=False),
                                        nn.BatchNorm2d(out_channel))
+        if dim_match:
+            self.shortcut_layer = None
+        else:
+            self.shortcut_layer = nn.Sequential(
+                nn.Conv2d(in_channel, out_channel, kernel_size=(1, 1), stride=stride, bias=False),
+                nn.BatchNorm2d(out_channel)
+            )
+
+    def forward(self, x):
+        shortcut = x
+        res = self.res_layer(x)
+
+        if self.shortcut_layer is not None:
+            shortcut = self.shortcut_layer(x)
+
+        return shortcut + res
+
+class SE_BottleNeck_IR(nn.Module):
+    '''Improved Residual Bottlenecks'''
+    def __init__(self, in_channel, out_channel, stride, dim_match):
+        super(BottleNeck_IR, self).__init__()
+        self.res_layer = nn.Sequential(nn.BatchNorm2d(in_channel),
+                                       nn.Conv2d(in_channel, out_channel, (3, 3), 1, 1, bias=False),
+                                       nn.BatchNorm2d(out_channel),
+                                       nn.PReLU(out_channel),
+                                       nn.Conv2d(out_channel, out_channel, (3, 3), stride, 1, bias=False),
+                                       nn.BatchNorm2d(out_channel),
+                                       SEModule(out_channel, 16))
         if dim_match:
             self.shortcut_layer = None
         else:
@@ -120,15 +166,18 @@ def get_layers(num_layers):
         return [3, 8, 36, 3]
 
 class CBAMResNet_IR(nn.Module):
-    def __init__(self, num_layers, feature_dim=512, drop_ratio=0.4, mode = 'cbam_ir',filter_list=filter_list):
+    def __init__(self, num_layers, feature_dim=512, drop_ratio=0.4, mode='cbam_ir',filter_list=filter_list):
         super(CBAMResNet_IR, self).__init__()
         assert num_layers in [50, 100, 152], 'num_layers should be 50, 100 or 152'
-        assert mode in ['ir', 'cbam_ir'], 'mode should be ir or se_ir'
+        assert mode in ['ir', 'se_ir', 'cbam_ir'], 'mode should be ir, se_ir or cbam_ir'
         layers = get_layers(num_layers)
         if mode == 'ir':
             block = BottleNeck_IR
+        elif mode == 'se_ir':
+            block = SE_BottleNeck_IR
         elif mode == 'cbam_ir':
             block = CBAM_BottleNeck_IR
+
         self.input_layer = nn.Sequential(nn.Conv2d(3, 64, (3, 3), 1, 1, bias=False),
                                          nn.BatchNorm2d(64),
                                          nn.PReLU(64))
