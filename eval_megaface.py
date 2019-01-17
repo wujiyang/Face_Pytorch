@@ -11,7 +11,7 @@ import numpy as np
 import struct
 import os
 import torch.utils.data
-from backbone import mobilefacenet, resnet, arcfacenet
+from backbone import mobilefacenet, resnet, arcfacenet, cbam
 from dataset.megaface import MegaFace
 import torchvision.transforms as transforms
 import argparse
@@ -46,20 +46,23 @@ def read_mat(filename):
 
 
 def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, batch_size=32, gpus='0', do_norm=False):
+
     if backbone_net == 'MobileFace':
         net = mobilefacenet.MobileFaceNet()
-    elif backbone_net == 'Res50':
-        net = resnet.ResNet50()
-    elif backbone_net == 'Res101':
-        net = resnet.ResNet101()
     elif backbone_net == 'Res50_IR':
-        net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
+        net = cbam.CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
     elif backbone_net == 'SERes50_IR':
-        net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
+        net = cbam.CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
+    elif backbone_net == 'CBAMRes50_IR':
+        net = cbam.CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='cbam_ir')
+    elif backbone_net == 'Res100_IR':
+        net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='ir')
     elif backbone_net == 'SERes100_IR':
-        net = arcfacenet.SEResNet_IR(100, feature_dim=args.feature_dim, mode='se_ir')
+        net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='se_ir')
+    elif backbone_net == 'CBAMRes100_IR':
+        net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='cbam_ir')
     else:
-        print(backbone_net, 'is not available!')
+        print(args.backbone, ' is not available!')
 
     multi_gpus = False
     if len(gpus.split(',')) > 1:
@@ -104,8 +107,8 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='./model/MSCeleb_SERES100_IR_20190111_124140/Iter_370000_net.ckpt', help='The path of trained model')
-    parser.add_argument('--backbone_net', type=str, default='SERes100_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR, SERes100_IR')
+    parser.add_argument('--model_path', type=str, default='./model/MSCeleb_RES50_IR_20190115_144216/Iter_240000_net.ckpt', help='The path of trained model')
+    parser.add_argument('--backbone_net', type=str, default='Res50_IR', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR')
     parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
     parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
     parser.add_argument('--batch_size', type=int, default=1024, help='batch size')

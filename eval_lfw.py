@@ -13,7 +13,7 @@ import scipy.io
 import os
 import json
 import torch.utils.data
-from backbone import mobilefacenet, resnet, arcfacenet
+from backbone import mobilefacenet, resnet, arcfacenet, cbam
 from dataset.lfw import LFW
 import torchvision.transforms as transforms
 from torch.nn import DataParallel
@@ -63,16 +63,20 @@ def loadModel(data_root, file_list, backbone_net, gpus='0', resume=None):
 
     if backbone_net == 'MobileFace':
         net = mobilefacenet.MobileFaceNet()
-    elif backbone_net == 'Res50':
-        net = resnet.ResNet50()
-    elif backbone_net == 'Res101':
-        net = resnet.ResNet101()
     elif backbone_net == 'Res50_IR':
-        net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
+        net = cbam.CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
     elif backbone_net == 'SERes50_IR':
-        net = arcfacenet.SEResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
+        net = cbam.CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
+    elif backbone_net == 'CBAMRes50_IR':
+        net = cbam.CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='cbam_ir')
+    elif backbone_net == 'Res100_IR':
+        net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='ir')
+    elif backbone_net == 'SERes100_IR':
+        net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='se_ir')
+    elif backbone_net == 'CBAMRes100_IR':
+        net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='cbam_ir')
     else:
-        print(backbone_net, 'is not available!')
+        print(args.backbone, ' is not available!')
 
     # gpu init
     multi_gpus = False
@@ -129,9 +133,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
     parser.add_argument('--root', type=str, default='/media/ramdisk/lfw_align_112', help='The path of lfw data')
     parser.add_argument('--file_list', type=str, default='/media/ramdisk/pairs.txt', help='The path of lfw data')
-    parser.add_argument('--backbone_net', type=str, default='SERes50_IR', help='MobileFace, Res50, Res101, Res50_IR, SERes50_IR')
+    parser.add_argument('--backbone_net', type=str, default='Res50_IR', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension')
-    parser.add_argument('--resume', type=str, default='./model/MSCeleb_SERES50_IR_20181229_211407/Iter_345000.ckpt',
+    parser.add_argument('--resume', type=str, default='./model/MSCeleb_RES50_IR_20190115_144216/Iter_240000_net.ckpt',
                         help='The path pf save model')
     parser.add_argument('--feature_save_path', type=str, default='./result/cur_epoch_lfw_result.mat',
                         help='The path of the extract features save, must be .mat file')
@@ -144,4 +148,4 @@ if __name__ == '__main__':
     for i in range(len(ACCs)):
         print('{}    {:.2f}'.format(i+1, ACCs[i] * 100))
     print('--------')
-    print('AVE    {:.2f}'.format(np.mean(ACCs) * 100))
+    print('AVE    {:.4f}'.format(np.mean(ACCs) * 100))
