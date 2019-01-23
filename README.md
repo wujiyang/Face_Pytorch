@@ -26,7 +26,9 @@ ResNet50-IR     |  ArcFace  |  99.42  |   94.45  |  95.34 |   170MB    |  small
 SEResNet50-IR   |  ArcFace  |  99.43  |   94.50  |  95.43 |   171MB    |  small
 MobileFaceNet   |  ArcFace  |  99.58  |   96.57  |  92.90 |    4MB     |  large
 ResNet50-IR     |  ArcFace  |  99.82  |   98.07  |  95.34 |   170MB    |  large
+SEResNet50-IR_2 |  ArcFace  |  99.77  |   98.00  |  95.70 |   171MB    |  large
 SEResNet50-IR   |  ArcFace  |  99.80  |   98.13  |  95.60 |   171MB    |  large
+CBAMResNet50-IR |  ArcFace  |  99.80  |   98.06  |  95.82 |   171MB    |  large
 
 There exists an odd result fact that when training under small protocol, CFP-FP performances better than AgeDB-30, while when training with large scale dataset, CFP-FP performances worse than AgeDB-30.
 
@@ -38,14 +40,16 @@ MobileFaceNet   |  ArcFace  |  69.10  |  84.23  |   81.15   |   85.86   |  4MB  
 ResNet50-IR     |  ArcFace  |  74.31  |  88.23  |   87.44   |   89.56   | 170MB |  small
 SEResNet50-IR   |  ArcFace  |  74.37  |  88.32  |   88.30   |   89.65   | 171MB |  small
 MobileFaceNet   |  ArcFace  |  74.95  |  88.77  |   89.47   |   91.03   |  4MB  |  large
-ResNet50-IR     |  ArcFace  |    -    |    -    |     -     |     -     | 170MB |  large
+ResNet50-IR     |  ArcFace  |  79.61  |  96.02  |   96.58   |   96.78   | 170MB |  large
+SEResNet50-IR_2 |  ArcFace  |  79.83  |  95.32  |   96.39   |   96.61   | 171MB |  large
 SEResNet50-IR   |  ArcFace  |  80.01  |  96.10  |   97.01   |   97.60   | 171MB |  large
+CBAMRes50-IR    |  ArcFace  |    -    |     -   |     -     |     -     |   -   |  large
 
 
 
 ## Usage 
 1. Download the source code to your machine.
-2. Parpare the train dataset and train list, test dataset and test verification pairs.
+2. Prepare the train dataset and train list, test dataset and test verification pairs.
 3. Set your own dataset path and any other parameters in train.py.
 4. Run train.py file, test accuracy will print into log file during training process. 
 ---

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backbone/cbam.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/cbam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eval_megaface.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval_megaface.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_center_local.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_center_local.py" afterDir="false" />
     </list>
@@ -15,11 +14,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Face_Pytorch$train.coverage" NAME="train Coverage Results" MODIFIED="1547534566561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_Pytorch$train.coverage" NAME="train Coverage Results" MODIFIED="1548118467382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$test.coverage" NAME="test Coverage Results" MODIFIED="1545620607003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$train_center.coverage" NAME="train_center Coverage Results" MODIFIED="1546907599894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$resnet.coverage" NAME="resnet Coverage Results" MODIFIED="1545702594417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backbone" />
-    <SUITE FILE_PATH="coverage/Face_Pytorch$eval_megaface.coverage" NAME="eval_megaface Coverage Results" MODIFIED="1547716412449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_Pytorch$eval_megaface.coverage" NAME="eval_megaface Coverage Results" MODIFIED="1548226221260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$CosineMarginProduct.coverage" NAME="CosineMarginProduct Coverage Results" MODIFIED="1545639128617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cosface" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$casia_webface.coverage" NAME="casia_webface Coverage Results" MODIFIED="1545403033305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$cbam.coverage" NAME="cbam Coverage Results" MODIFIED="1547716765135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backbone" />
@@ -75,14 +74,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="18" />
-          <entry key="py" value="33672" />
+          <entry key="py" value="33702" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="31" />
-          <entry key="Python" value="33671" />
+          <entry key="Python" value="33701" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -93,14 +92,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="236" column="83" lean-forward="true" selection-start-line="236" selection-start-column="83" selection-end-line="236" selection-end-column="83" />
+            <state relative-caret-position="138">
+              <caret line="231" column="67" selection-start-line="231" selection-start-column="57" selection-end-line="231" selection-end-column="67" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
                 <element signature="e#1014#10111#0" expanded="true" />
-                <marker date="1547716374348" expanded="true" signature="898:901" ph="..." />
-                <marker date="1547716374348" expanded="true" signature="917:922" ph="..." />
-                <marker date="1547716374348" expanded="true" signature="917:10021" ph="..." />
+                <marker date="1548118458375" expanded="true" signature="898:901" ph="..." />
+                <marker date="1548118458375" expanded="true" signature="917:922" ph="..." />
+                <marker date="1548118458375" expanded="true" signature="917:10018" ph="..." />
               </folding>
             </state>
           </provider>
@@ -151,11 +150,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eval_megaface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1299">
-              <caret line="113" column="62" selection-start-line="113" selection-start-column="58" selection-end-line="113" selection-end-column="62" />
+            <state relative-caret-position="242">
+              <caret line="112" column="116" selection-start-line="112" selection-start-column="116" selection-end-line="112" selection-end-column="116" />
               <folding>
                 <element signature="e#179#197#0" expanded="true" />
                 <element signature="e#1399#3882#0" expanded="true" />
@@ -164,10 +163,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="-613">
               <caret line="97" column="29" lean-forward="true" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
               <folding>
                 <element signature="e#259#271#0" expanded="true" />
@@ -272,12 +271,12 @@
         <option value="$PROJECT_DIR$/lossfunctions/agentcenterloss.py" />
         <option value="$PROJECT_DIR$/backbone/arcfacenet.py" />
         <option value="$PROJECT_DIR$/eval_lfw_blufr.py" />
-        <option value="$PROJECT_DIR$/eval_megaface.py" />
         <option value="$PROJECT_DIR$/eval_cfp.py" />
         <option value="$PROJECT_DIR$/eval_agedb30.py" />
         <option value="$PROJECT_DIR$/eval_lfw.py" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/backbone/cbam.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/eval_megaface.py" />
       </list>
     </option>
   </component>
@@ -368,7 +367,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.cbam">
+  <component name="RunManager" selected="Python.eval_megaface">
     <configuration name="cbam" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Face_Pytorch" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -435,28 +434,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="eval_lfw" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Face_Pytorch" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eval_lfw.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="eval_megaface" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Face_Pytorch" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -501,21 +478,43 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Face_Pytorch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.eval_lfw" />
       <item itemvalue="Python.eval_agedb30" />
       <item itemvalue="Python.eval_cfp" />
       <item itemvalue="Python.eval_megaface" />
       <item itemvalue="Python.cbam" />
+      <item itemvalue="Python.train" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.cbam" />
         <item itemvalue="Python.eval_megaface" />
+        <item itemvalue="Python.train" />
+        <item itemvalue="Python.cbam" />
         <item itemvalue="Python.eval_cfp" />
         <item itemvalue="Python.eval_agedb30" />
-        <item itemvalue="Python.eval_lfw" />
       </list>
     </recent_temporary>
   </component>
@@ -550,16 +549,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17324094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17324094" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.28850326" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.39696312" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5466378" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -999,34 +997,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="236" column="83" lean-forward="true" selection-start-line="236" selection-start-column="83" selection-end-line="236" selection-end-column="83" />
-          <folding>
-            <element signature="e#187#196#0" expanded="true" />
-            <element signature="e#1014#10111#0" expanded="true" />
-            <marker date="1547716374348" expanded="true" signature="898:901" ph="..." />
-            <marker date="1547716374348" expanded="true" signature="917:922" ph="..." />
-            <marker date="1547716374348" expanded="true" signature="917:10021" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eval_megaface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1299">
-          <caret line="113" column="62" selection-start-line="113" selection-start-column="58" selection-end-line="113" selection-end-column="62" />
-          <folding>
-            <element signature="e#179#197#0" expanded="true" />
-            <element signature="e#1399#3882#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
+        <state relative-caret-position="-613">
           <caret line="97" column="29" lean-forward="true" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
           <folding>
             <element signature="e#259#271#0" expanded="true" />
@@ -1046,6 +1019,31 @@
             <element signature="e#6480#8227#0" expanded="true" />
             <marker date="1547716742853" expanded="true" signature="1962:1967" ph="..." />
             <marker date="1547716742853" expanded="true" signature="8417:8654" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="231" column="67" selection-start-line="231" selection-start-column="57" selection-end-line="231" selection-end-column="67" />
+          <folding>
+            <element signature="e#187#196#0" expanded="true" />
+            <element signature="e#1014#10111#0" expanded="true" />
+            <marker date="1548118458375" expanded="true" signature="898:901" ph="..." />
+            <marker date="1548118458375" expanded="true" signature="917:922" ph="..." />
+            <marker date="1548118458375" expanded="true" signature="917:10018" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval_megaface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="112" column="116" selection-start-line="112" selection-start-column="116" selection-end-line="112" selection-end-column="116" />
+          <folding>
+            <element signature="e#179#197#0" expanded="true" />
+            <element signature="e#1399#3882#0" expanded="true" />
           </folding>
         </state>
       </provider>

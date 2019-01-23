@@ -127,11 +127,11 @@ def train(args):
         {'params': net.parameters(), 'weight_decay': 5e-4},
         {'params': margin.parameters(), 'weight_decay': 5e-4}
     ], lr=0.1, momentum=0.9, nesterov=True)
+    scheduler_classi = lr_scheduler.MultiStepLR(optimizer_classi, milestones=[35, 60, 85], gamma=0.1)
 
     criterion_center = AgentCenterLoss(trainset.class_nums, args.feature_dim, args.scale_size).to(device)
     optimizer_center = optim.SGD(criterion_center.parameters(), lr=0.5)
-
-    scheduler_classi = lr_scheduler.MultiStepLR(optimizer_classi, milestones=[35, 60, 85], gamma=0.1)
+    scheduler_center = lr_scheduler.MultiStepLR(optimizer_center, milestones=[35, 60, 85], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -145,6 +145,7 @@ def train(args):
     total_iters = 0
     for epoch in range(1, args.total_epoch + 1):
         scheduler_classi.step()
+        scheduler_center.step()
         # train model
         _print('Train Epoch: {}/{} ...'.format(epoch, args.total_epoch))
         net.train()
@@ -256,7 +257,7 @@ if __name__ == '__main__':
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
     parser.add_argument('--batch_size', type=int, default=128, help='batch size')
     parser.add_argument('--total_epoch', type=int, default=100, help='total epochs')
-    parser.add_argument('--weight_center', type=float, default=0.1, help='center loss weight')
+    parser.add_argument('--weight_center', type=float, default=1.0, help='center loss weight')
 
     parser.add_argument('--save_freq', type=int, default=2000, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=2000, help='test frequency')
