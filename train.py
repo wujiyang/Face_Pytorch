@@ -106,8 +106,8 @@ def train(args):
     optimizer_ft = optim.SGD([
         {'params': net.parameters(), 'weight_decay': 5e-4},
         {'params': margin.parameters(), 'weight_decay': 5e-4}
-    ], lr=0.001, momentum=0.9, nesterov=True)
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[2, 4], gamma=0.1)
+    ], lr=0.01, momentum=0.9, nesterov=True)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[6, 11, 16], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -229,18 +229,18 @@ if __name__ == '__main__':
     parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/cfp_fp_aligned_112', help='agedb image root')
     parser.add_argument('--cfpfp_file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='agedb pair file list')
 
-    parser.add_argument('--backbone', type=str, default='SERes50_IR', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR')
+    parser.add_argument('--backbone', type=str, default='CBAMRes50_IR', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR')
     parser.add_argument('--margin_type', type=str, default='ArcFace', help='ArcFace, CosFace, SphereFace')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=5, help='total epochs')
+    parser.add_argument('--total_epoch', type=int, default=18, help='total epochs')
 
     parser.add_argument('--save_freq', type=int, default=3000, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=3000, help='test frequency')
     parser.add_argument('--resume', type=int, default=True, help='resume model')
-    parser.add_argument('--net_path', type=str, default='./model/MSCeleb_SERES50_IR_20190121_171354/Iter_048000_net.ckpt', help='resume model')
-    parser.add_argument('--margin_path', type=str, default='./model/MSCeleb_SERES50_IR_20190121_171354/Iter_048000_margin.ckpt', help='resume model')
+    parser.add_argument('--net_path', type=str, default='./model/MSCeleb_CBAMRES50_IR_20190123_174856/Iter_093000_net.ckpt', help='resume model')
+    parser.add_argument('--margin_path', type=str, default='./model/MSCeleb_CBAMRES50_IR_20190123_174856/Iter_093000_margin.ckpt', help='resume model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='MSCeleb_', help='model prefix')
     parser.add_argument('--gpus', type=str, default='0,1,2,3', help='model prefix')
