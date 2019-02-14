@@ -69,7 +69,8 @@ Softmax Loss vs Softmax_Center Loss. Left: softmax training set. Right: softmax 
 [Xiaoccer/MobileFaceNet_Pytorch](https://github.com/Xiaoccer/MobileFaceNet_Pytorch)  
 [TreB1eN/InsightFace_Pytorch](https://github.com/TreB1eN/InsightFace_Pytorch)  
 [deepinsight/insightface](https://github.com/deepinsight/insightface)  
-[KaiyangZhou/pytorch-center-loss](https://github.com/KaiyangZhou/pytorch-center-loss)
+[KaiyangZhou/pytorch-center-loss](https://github.com/KaiyangZhou/pytorch-center-loss)  
+[tengshaofeng/ResidualAttentionNetwork-pytorch](https://github.com/tengshaofeng/ResidualAttentionNetwork-pytorch)
 
 ## Todo
 1. Report the test results on DeepGlint Trillion Pairs Challenge.
