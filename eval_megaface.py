@@ -107,8 +107,8 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='./model/MSCeleb_CBAMRES50_IR_20190124_211941/Iter_258000_net.ckpt', help='The path of trained model')
-    parser.add_argument('--backbone_net', type=str, default='CBAMRes50_IR', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR')
+    parser.add_argument('--model_path', type=str, default='./model/MSCeleb_SERES100_IR_20190213_155120/Iter_565000_net.ckpt', help='The path of trained model')
+    parser.add_argument('--backbone_net', type=str, default='SERes100_IR', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR')
     parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
     parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
     parser.add_argument('--batch_size', type=int, default=1024, help='batch size')
