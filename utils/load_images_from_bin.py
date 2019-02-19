@@ -34,6 +34,7 @@ def load_mx_rec(rec_path):
         img_info = imgrec.read_idx(idx)
         header, img = mx.recordio.unpack_img(img_info)
         label = int(header.label)
+        img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
         img = Image.fromarray(img)
         label_path = os.path.join(save_path, str(label).zfill(5))
         if not os.path.exists(label_path):
@@ -44,7 +45,7 @@ def load_mx_rec(rec_path):
 def load_image_from_bin(bin_path, save_dir):
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
-    file = open(os.path.join(save_dir, '../', 'agedb-30-pair.txt'), 'w')
+    file = open(os.path.join(save_dir, '../', 'lfw_pair.txt'), 'w')
     bins, issame_list = pickle.load(open(bin_path, 'rb'), encoding='bytes')
     for idx in tqdm(range(len(bins))):
         _bin = bins[idx]
@@ -57,6 +58,8 @@ def load_image_from_bin(bin_path, save_dir):
 
 
 if __name__ == '__main__':
-    bin_path = ''
-    save_dir = ''
-    rec_path = ''
+    bin_path = 'D:/face_data_emore/faces_webface_112x112/lfw.bin'
+    save_dir = 'D:/face_data_emore/faces_webface_112x112/lfw'
+    rec_path = 'D:/face_data_emore/faces_webface_112x112'
+    #load_mx_rec(rec_path)
+    load_image_from_bin(bin_path, save_dir)
