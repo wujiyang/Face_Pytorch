@@ -214,7 +214,7 @@ def get_layers(num_layers):
         return [3, 8, 36, 3]
 
 class SRAMResNet_IR(nn.Module):
-    def __init__(self, num_layers, feature_dim=512, mode='ir',filter_list=filter_list):
+    def __init__(self, num_layers, feature_dim=512, mode='ir', drop_ratio=0.4, filter_list=filter_list):
         super(SRAMResNet_IR, self).__init__()
         assert num_layers in [50, 100, 152], 'num_layers should be 50, 100 or 152'
         assert mode in ['ir', 'ir_sca', 'ir_ssa', 'ir_sram'], 'mode should be ir, se_ir or cbam_ir'
@@ -237,6 +237,7 @@ class SRAMResNet_IR(nn.Module):
         self.layer4 = self._make_layer(block, filter_list[3], filter_list[4], layers[3], stride=2)
 
         self.output_layer = nn.Sequential(nn.BatchNorm2d(512),
+                                          #nn.Dropout(drop_ratio),
                                           Flatten(),
                                           nn.Linear(512 * 7 * 7, feature_dim),
                                           nn.BatchNorm1d(feature_dim))

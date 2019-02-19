@@ -22,7 +22,7 @@ For train dataset, insightface provide a mxnet .rec file, just install a mxnet-c
 '''
 
 def load_mx_rec(rec_path):
-    save_path = os.path.join(rec_path, 'images')
+    save_path = os.path.join(rec_path, 'emore_images')
     if not os.path.exists(save_path):
         os.makedirs(save_path)
 
@@ -36,10 +36,10 @@ def load_mx_rec(rec_path):
         label = int(header.label)
         img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
         img = Image.fromarray(img)
-        label_path = os.path.join(save_path, str(label).zfill(5))
+        label_path = os.path.join(save_path, str(label).zfill(6))
         if not os.path.exists(label_path):
             os.makedirs(label_path)
-        img.save(os.path.join(label_path, str(idx).zfill(4) + '.jpg'), quality=95)
+        img.save(os.path.join(label_path, str(idx).zfill(8) + '.jpg'), quality=95)
 
 
 def load_image_from_bin(bin_path, save_dir):
@@ -60,6 +60,6 @@ def load_image_from_bin(bin_path, save_dir):
 if __name__ == '__main__':
     bin_path = 'D:/face_data_emore/faces_webface_112x112/lfw.bin'
     save_dir = 'D:/face_data_emore/faces_webface_112x112/lfw'
-    rec_path = 'D:/face_data_emore/faces_webface_112x112'
-    #load_mx_rec(rec_path)
-    load_image_from_bin(bin_path, save_dir)
+    rec_path = 'D:/face_data_emore/faces_emore'
+    load_mx_rec(rec_path)
+    #load_image_from_bin(bin_path, save_dir)

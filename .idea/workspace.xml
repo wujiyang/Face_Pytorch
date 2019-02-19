@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet">
+      <change afterPath="$PROJECT_DIR$/dataset/lfw_2.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/train_self_attention.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Face_Pytorch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Face_Pytorch.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backbone/self_attention.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/self_attention.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/load_images_from_bin.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/load_images_from_bin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,13 +43,14 @@
     <SUITE FILE_PATH="coverage/Face_Pytorch$megaface.coverage" NAME="megaface Coverage Results" MODIFIED="1545640842217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$agedb.coverage" NAME="agedb Coverage Results" MODIFIED="1545735891728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$cfp.coverage" NAME="cfp Coverage Results" MODIFIED="1545812588971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
-    <SUITE FILE_PATH="coverage/Face_Pytorch$load_images_from_bin.coverage" NAME="load_images_from_bin Coverage Results" MODIFIED="1550542255017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/Face_Pytorch$load_images_from_bin.coverage" NAME="load_images_from_bin Coverage Results" MODIFIED="1550547529019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$ArcMarginProduct.coverage" NAME="ArcMarginProduct Coverage Results" MODIFIED="1545383933969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/arcface" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$agedb30_eval.coverage" NAME="agedb30_eval Coverage Results" MODIFIED="1545738409429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$train_for_personal_test.coverage" NAME="train_for_personal_test Coverage Results" MODIFIED="1546605492935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$eval_lfw_blufr.coverage" NAME="eval_lfw_blufr Coverage Results" MODIFIED="1547714572706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$lfw_test.coverage" NAME="lfw_test Coverage Results" MODIFIED="1545447947133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$megaface_eval.coverage" NAME="megaface_eval Coverage Results" MODIFIED="1545701233313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_Pytorch$lfw_2.coverage" NAME="lfw_2 Coverage Results" MODIFIED="1550566964399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$eval_cfp.coverage" NAME="eval_cfp Coverage Results" MODIFIED="1547716108369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$train_softmax.coverage" NAME="train_softmax Coverage Results" MODIFIED="1547548914382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -70,27 +72,27 @@
         <counts>
           <entry key="_bootstrap&gt;" value="2" />
           <entry key="md" value="1" />
-          <entry key="py" value="157" />
+          <entry key="py" value="162" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
           <entry key="PyRemoteDebug" value="2" />
-          <entry key="Python" value="157" />
+          <entry key="Python" value="162" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="18" />
-          <entry key="py" value="39659" />
+          <entry key="py" value="39837" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="31" />
-          <entry key="Python" value="39658" />
+          <entry key="Python" value="39836" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -98,11 +100,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
               <folding>
                 <element signature="e#922#10030#0" expanded="true" />
                 <marker date="1550043675217" expanded="true" signature="898:901" ph="..." />
@@ -114,36 +116,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backbone/attention.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="311" selection-start-line="311" selection-end-line="311" />
-              <folding>
-                <element signature="e#251#263#0" expanded="true" />
-                <element signature="e#370#406#0" expanded="true" />
-                <element signature="e#405#1250#0" expanded="true" />
-                <element signature="e#1410#1608#0" expanded="true" />
-                <element signature="e#1764#3584#0" expanded="true" />
-                <element signature="e#3643#4669#0" expanded="true" />
-                <element signature="e#4833#6279#0" expanded="true" />
-                <element signature="e#6315#7151#0" expanded="true" />
-                <element signature="e#7220#8291#0" expanded="true" />
-                <element signature="e#8327#8732#0" expanded="true" />
-                <element signature="e#8969#10158#0" expanded="true" />
-                <element signature="e#9932#10518#0" expanded="true" />
-                <element signature="e#10830#12131#0" expanded="true" />
-                <marker date="1550134085466" expanded="true" signature="439:444" ph="..." />
-                <marker date="1550134085466" expanded="true" signature="1746:1751" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="219" column="58" selection-start-line="219" selection-start-column="51" selection-end-line="219" selection-end-column="58" />
+            <state relative-caret-position="260">
+              <caret line="245" column="32" selection-start-line="245" selection-start-column="32" selection-end-line="245" selection-end-column="32" />
               <folding>
                 <element signature="e#217#229#0" expanded="true" />
                 <element signature="e#283#353#0" />
@@ -163,17 +139,17 @@
                 <element signature="e#6964#7130#0" expanded="true" />
                 <element signature="e#6034#6987#0" expanded="true" />
                 <element signature="e#9745#9927#0" expanded="true" />
-                <marker date="1550477995985" expanded="true" signature="1830:11192" ph="..." />
+                <marker date="1550565141276" expanded="true" signature="1830:11276" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_self_attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="135" column="64" selection-start-line="135" selection-start-column="64" selection-end-line="135" selection-end-column="64" />
+            <state relative-caret-position="475">
+              <caret line="70" column="92" lean-forward="true" selection-start-line="70" selection-start-column="92" selection-end-line="70" selection-end-column="92" />
               <folding>
                 <element signature="e#159#168#0" expanded="true" />
               </folding>
@@ -182,13 +158,27 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataset/lfw_2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="88" column="29" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
+              <folding>
+                <element signature="e#145#163#0" expanded="true" />
+                <element signature="e#302#544#0" expanded="true" />
+                <element signature="e#660#1274#0" expanded="true" />
+                <element signature="e#1319#1815#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/load_images_from_bin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="981">
-              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="300">
+              <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
               <folding>
                 <element signature="e#410#431#0" expanded="true" />
-                <element signature="e#651#1431#0" expanded="true" />
                 <element signature="e#1483#2135#0" expanded="true" />
               </folding>
             </state>
@@ -196,12 +186,29 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eval_megaface.py">
+        <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+            <state relative-caret-position="323">
+              <caret line="192" column="70" selection-start-line="188" selection-start-column="8" selection-end-line="192" selection-end-column="70" />
               <folding>
-                <element signature="e#179#197#0" expanded="true" />
+                <element signature="e#259#271#0" expanded="true" />
+                <element signature="e#358#394#0" expanded="true" />
+                <element signature="e#427#1075#0" />
+                <element signature="e#516#874#0" expanded="true" />
+                <element signature="e#910#1075#0" expanded="true" />
+                <element signature="e#1108#1899#0" />
+                <element signature="e#1192#1663#0" expanded="true" />
+                <element signature="e#1699#1899#0" expanded="true" />
+                <element signature="e#1932#2381#0" />
+                <element signature="e#1995#2137#0" expanded="true" />
+                <element signature="e#2173#2381#0" expanded="true" />
+                <element signature="e#2531#3322#0" expanded="true" />
+                <element signature="e#3358#3524#0" expanded="true" />
+                <element signature="e#3712#4572#0" expanded="true" />
+                <element signature="e#4608#4774#0" expanded="true" />
+                <element signature="e#8684#8866#0" expanded="true" />
+                <marker date="1547716742853" expanded="true" signature="1962:1967" ph="..." />
+                <marker date="1547716742853" expanded="true" signature="8417:8654" ph="..." />
               </folding>
             </state>
           </provider>
@@ -282,11 +289,12 @@
         <option value="$PROJECT_DIR$/backbone/cbam.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/backbone/attention.py" />
-        <option value="$PROJECT_DIR$/backbone/self_attention.py" />
         <option value="$PROJECT_DIR$/cppapi/pytorch2torchscript.py" />
         <option value="$PROJECT_DIR$/eval_megaface.py" />
-        <option value="$PROJECT_DIR$/train_self_attention.py" />
         <option value="$PROJECT_DIR$/utils/load_images_from_bin.py" />
+        <option value="$PROJECT_DIR$/backbone/self_attention.py" />
+        <option value="$PROJECT_DIR$/dataset/lfw_2.py" />
+        <option value="$PROJECT_DIR$/train_self_attention.py" />
       </list>
     </option>
   </component>
@@ -334,6 +342,16 @@
             <path>
               <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
               <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
+              <item name="backbone" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
+              <item name="dataset" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -362,29 +380,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.load_images_from_bin">
-    <configuration name="attention" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Face_Pytorch" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backbone" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backbone/attention.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.lfw_2">
     <configuration name="eval_megaface" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Face_Pytorch" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -399,6 +395,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eval_megaface.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="lfw_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Face_Pytorch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dataset" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dataset/lfw_2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -498,18 +516,18 @@
     <list>
       <item itemvalue="Python.test" />
       <item itemvalue="Python.eval_megaface" />
-      <item itemvalue="Python.attention" />
       <item itemvalue="Python.self_attention" />
       <item itemvalue="Python.train_self_attention" />
       <item itemvalue="Python.load_images_from_bin" />
+      <item itemvalue="Python.lfw_2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.lfw_2" />
         <item itemvalue="Python.load_images_from_bin" />
         <item itemvalue="Python.train_self_attention" />
         <item itemvalue="Python.eval_megaface" />
         <item itemvalue="Python.self_attention" />
-        <item itemvalue="Python.attention" />
       </list>
     </recent_temporary>
   </component>
@@ -544,16 +562,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17803837" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17803837" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.36984816" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.36984816" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5466378" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -612,45 +630,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cosface/CosineMarginProduct.py" />
     <entry file="file://$PROJECT_DIR$/arcface/ArcMarginProduct.py" />
-    <entry file="file://$PROJECT_DIR$/dataset/lfw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="88" column="40" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
-          <folding>
-            <element signature="e#165#183#0" expanded="true" />
-            <element signature="e#676#1680#0" expanded="true" />
-            <element signature="e#1725#2221#0" expanded="true" />
-            <marker date="1545652556272" expanded="true" signature="666:1686" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/margin/SphereMarginProduct.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataset/cfp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="75" column="26" lean-forward="true" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
-          <folding>
-            <element signature="e#249#267#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataset/agedb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="34" column="19" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="19" />
-          <folding>
-            <element signature="e#216#234#0" expanded="true" />
-            <element signature="e#373#615#0" expanded="true" />
-            <element signature="e#1390#1886#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -874,68 +857,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="219" column="58" selection-start-line="219" selection-start-column="51" selection-end-line="219" selection-end-column="58" />
-          <folding>
-            <element signature="e#217#229#0" expanded="true" />
-            <element signature="e#283#353#0" />
-            <element signature="e#317#353#0" expanded="true" />
-            <element signature="e#1729#2255#0" expanded="true" />
-            <element signature="e#2331#3091#0" expanded="true" />
-            <element signature="e#2283#2860#0" expanded="true" />
-            <element signature="e#2993#4001#0" expanded="true" />
-            <element signature="e#3480#4585#0" />
-            <element signature="e#3592#4383#0" expanded="true" />
-            <element signature="e#4419#4585#0" expanded="true" />
-            <element signature="e#4626#5835#0" />
-            <element signature="e#4773#5633#0" expanded="true" />
-            <element signature="e#5669#5835#0" expanded="true" />
-            <element signature="e#5906#7130#0" />
-            <element signature="e#6053#6928#0" expanded="true" />
-            <element signature="e#6964#7130#0" expanded="true" />
-            <element signature="e#6034#6987#0" expanded="true" />
-            <element signature="e#9745#9927#0" expanded="true" />
-            <marker date="1550477995985" expanded="true" signature="1830:11192" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1032735531/208177666/torch/nn/modules/linear.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
           <caret line="72" selection-start-line="72" selection-end-line="72" />
           <folding>
             <element signature="e#1671#2029#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="220" column="16" selection-start-line="71" selection-end-line="220" selection-end-column="16" />
-          <folding>
-            <element signature="e#259#271#0" expanded="true" />
-            <element signature="e#358#394#0" expanded="true" />
-            <element signature="e#427#1075#0" />
-            <element signature="e#516#874#0" expanded="true" />
-            <element signature="e#910#1075#0" expanded="true" />
-            <element signature="e#1108#1899#0" />
-            <element signature="e#1192#1663#0" expanded="true" />
-            <element signature="e#1699#1899#0" expanded="true" />
-            <element signature="e#1932#2381#0" />
-            <element signature="e#1995#2137#0" expanded="true" />
-            <element signature="e#2173#2381#0" expanded="true" />
-            <element signature="e#2531#3322#0" expanded="true" />
-            <element signature="e#3358#3524#0" expanded="true" />
-            <element signature="e#3712#4572#0" expanded="true" />
-            <element signature="e#4608#4774#0" expanded="true" />
-            <element signature="e#6516#8341#0" expanded="true" />
-            <element signature="e#8684#8866#0" expanded="true" />
-            <marker date="1547716742853" expanded="true" signature="1962:1967" ph="..." />
-            <marker date="1547716742853" expanded="true" signature="8417:8654" ph="..." />
           </folding>
         </state>
       </provider>
@@ -998,37 +925,141 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_self_attention.py">
+    <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="135" column="64" selection-start-line="135" selection-start-column="64" selection-end-line="135" selection-end-column="64" />
+        <state relative-caret-position="342">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
           <folding>
-            <element signature="e#159#168#0" expanded="true" />
+            <element signature="e#922#10030#0" expanded="true" />
+            <marker date="1550043675217" expanded="true" signature="898:901" ph="..." />
+            <marker date="1550043675217" expanded="true" signature="917:922" ph="..." />
+            <marker date="1550043675217" expanded="true" signature="917:10033" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/load_images_from_bin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="981">
-          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+        <state relative-caret-position="300">
+          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
           <folding>
             <element signature="e#410#431#0" expanded="true" />
-            <element signature="e#651#1431#0" expanded="true" />
             <element signature="e#1483#2135#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        <state relative-caret-position="323">
+          <caret line="192" column="70" selection-start-line="188" selection-start-column="8" selection-end-line="192" selection-end-column="70" />
           <folding>
-            <element signature="e#922#10030#0" expanded="true" />
-            <marker date="1550043675217" expanded="true" signature="898:901" ph="..." />
-            <marker date="1550043675217" expanded="true" signature="917:922" ph="..." />
-            <marker date="1550043675217" expanded="true" signature="917:10033" ph="..." />
+            <element signature="e#259#271#0" expanded="true" />
+            <element signature="e#358#394#0" expanded="true" />
+            <element signature="e#427#1075#0" />
+            <element signature="e#516#874#0" expanded="true" />
+            <element signature="e#910#1075#0" expanded="true" />
+            <element signature="e#1108#1899#0" />
+            <element signature="e#1192#1663#0" expanded="true" />
+            <element signature="e#1699#1899#0" expanded="true" />
+            <element signature="e#1932#2381#0" />
+            <element signature="e#1995#2137#0" expanded="true" />
+            <element signature="e#2173#2381#0" expanded="true" />
+            <element signature="e#2531#3322#0" expanded="true" />
+            <element signature="e#3358#3524#0" expanded="true" />
+            <element signature="e#3712#4572#0" expanded="true" />
+            <element signature="e#4608#4774#0" expanded="true" />
+            <element signature="e#8684#8866#0" expanded="true" />
+            <marker date="1547716742853" expanded="true" signature="1962:1967" ph="..." />
+            <marker date="1547716742853" expanded="true" signature="8417:8654" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/lfw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1501">
+          <caret line="88" column="40" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
+          <folding>
+            <element signature="e#165#183#0" expanded="true" />
+            <element signature="e#676#1680#0" expanded="true" />
+            <element signature="e#1725#2221#0" expanded="true" />
+            <marker date="1545652556272" expanded="true" signature="666:1686" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/agedb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="87" column="29" lean-forward="true" selection-start-line="9" selection-end-line="87" selection-end-column="29" />
+          <folding>
+            <element signature="e#216#234#0" expanded="true" />
+            <element signature="e#373#615#0" expanded="true" />
+            <element signature="e#731#1345#0" expanded="true" />
+            <element signature="e#1390#1886#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/cfp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="76" column="49" lean-forward="true" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+          <folding>
+            <element signature="e#249#267#0" expanded="true" />
+            <element signature="e#763#1377#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="245" column="32" selection-start-line="245" selection-start-column="32" selection-end-line="245" selection-end-column="32" />
+          <folding>
+            <element signature="e#217#229#0" expanded="true" />
+            <element signature="e#283#353#0" />
+            <element signature="e#317#353#0" expanded="true" />
+            <element signature="e#1729#2255#0" expanded="true" />
+            <element signature="e#2331#3091#0" expanded="true" />
+            <element signature="e#2283#2860#0" expanded="true" />
+            <element signature="e#2993#4001#0" expanded="true" />
+            <element signature="e#3480#4585#0" />
+            <element signature="e#3592#4383#0" expanded="true" />
+            <element signature="e#4419#4585#0" expanded="true" />
+            <element signature="e#4626#5835#0" />
+            <element signature="e#4773#5633#0" expanded="true" />
+            <element signature="e#5669#5835#0" expanded="true" />
+            <element signature="e#5906#7130#0" />
+            <element signature="e#6053#6928#0" expanded="true" />
+            <element signature="e#6964#7130#0" expanded="true" />
+            <element signature="e#6034#6987#0" expanded="true" />
+            <element signature="e#9745#9927#0" expanded="true" />
+            <marker date="1550565141276" expanded="true" signature="1830:11276" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/lfw_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="88" column="29" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
+          <folding>
+            <element signature="e#145#163#0" expanded="true" />
+            <element signature="e#302#544#0" expanded="true" />
+            <element signature="e#660#1274#0" expanded="true" />
+            <element signature="e#1319#1815#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_self_attention.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="70" column="92" lean-forward="true" selection-start-line="70" selection-start-column="92" selection-end-line="70" selection-end-column="92" />
+          <folding>
+            <element signature="e#159#168#0" expanded="true" />
           </folding>
         </state>
       </provider>
