@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet">
       <change afterPath="$PROJECT_DIR$/train_self_attention.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backbone/self_attention.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/self_attention.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +33,7 @@
     <SUITE FILE_PATH="coverage/Face_Pytorch$visualize.coverage" NAME="visualize Coverage Results" MODIFIED="1546850813411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$arcfacenet.coverage" NAME="arcfacenet Coverage Results" MODIFIED="1547103319414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backbone" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$eval_agedb30.coverage" NAME="eval_agedb30 Coverage Results" MODIFIED="1547716032440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Face_Pytorch$train_self_attention.coverage" NAME="train_self_attention Coverage Results" MODIFIED="1550577878203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_Pytorch$train_self_attention.coverage" NAME="train_self_attention Coverage Results" MODIFIED="1550652569670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$megaface.coverage" NAME="megaface Coverage Results" MODIFIED="1545640842217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$agedb.coverage" NAME="agedb Coverage Results" MODIFIED="1545735891728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
     <SUITE FILE_PATH="coverage/Face_Pytorch$cfp.coverage" NAME="cfp Coverage Results" MODIFIED="1545812588971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataset" />
@@ -67,27 +66,27 @@
         <counts>
           <entry key="_bootstrap&gt;" value="2" />
           <entry key="md" value="1" />
-          <entry key="py" value="165" />
+          <entry key="py" value="166" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
           <entry key="PyRemoteDebug" value="2" />
-          <entry key="Python" value="165" />
+          <entry key="Python" value="166" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="18" />
-          <entry key="py" value="39917" />
+          <entry key="py" value="39955" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="31" />
-          <entry key="Python" value="39916" />
+          <entry key="Python" value="39954" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -113,7 +112,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2141">
+            <state relative-caret-position="-468">
               <caret line="227" column="31" lean-forward="true" selection-start-line="227" selection-start-column="31" selection-end-line="227" selection-end-column="31" />
               <folding>
                 <element signature="e#217#229#0" expanded="true" />
@@ -143,10 +142,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_self_attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
+            <state relative-caret-position="570">
+              <caret line="282" lean-forward="true" selection-start-line="282" selection-end-line="282" />
               <folding>
                 <element signature="e#159#168#0" expanded="true" />
+                <element signature="e#976#11202#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -303,8 +303,8 @@
         <option value="$PROJECT_DIR$/eval_megaface.py" />
         <option value="$PROJECT_DIR$/utils/load_images_from_bin.py" />
         <option value="$PROJECT_DIR$/dataset/lfw_2.py" />
-        <option value="$PROJECT_DIR$/train_self_attention.py" />
         <option value="$PROJECT_DIR$/backbone/self_attention.py" />
+        <option value="$PROJECT_DIR$/train_self_attention.py" />
       </list>
     </option>
   </component>
@@ -315,8 +315,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="28" />
-    <option name="y" value="224" />
+    <option name="x" value="-40" />
+    <option name="y" value="-17" />
     <option name="width" value="1932" />
     <option name="height" value="1045" />
   </component>
@@ -573,15 +573,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17803837" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17803837" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3991323" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.2559653" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5466378" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1039,7 +1038,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2141">
+        <state relative-caret-position="-468">
           <caret line="227" column="31" lean-forward="true" selection-start-line="227" selection-start-column="31" selection-end-line="227" selection-end-column="31" />
           <folding>
             <element signature="e#217#229#0" expanded="true" />
@@ -1065,12 +1064,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1032735531/-1410303586/multiprocessing/queues.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/train_self_attention.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
+        <state relative-caret-position="570">
+          <caret line="282" lean-forward="true" selection-start-line="282" selection-end-line="282" />
           <folding>
             <element signature="e#159#168#0" expanded="true" />
+            <element signature="e#976#11202#0" expanded="true" />
           </folding>
         </state>
       </provider>
