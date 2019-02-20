@@ -237,7 +237,7 @@ class SRAMResNet_IR(nn.Module):
         self.layer4 = self._make_layer(block, filter_list[3], filter_list[4], layers[3], stride=2)
 
         self.output_layer = nn.Sequential(nn.BatchNorm2d(512),
-                                          #nn.Dropout(drop_ratio),
+                                          nn.Dropout(drop_ratio),
                                           Flatten(),
                                           nn.Linear(512 * 7 * 7, feature_dim),
                                           nn.BatchNorm1d(feature_dim))
