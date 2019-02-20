@@ -7,7 +7,7 @@
 @time: 2018/12/25 19:21
 @desc: For AgeDB-30 and CFP-FP test dataset, we use the mxnet binary file provided by insightface, this is the tool to restore
        the aligned images from mxnet binary file.
-       You should install a mxnet-cpu first, just do 'pip install mxnet' is ok.
+       You should install a mxnet-cpu first, just do 'pip install mxnet==1.2.1' is ok.
 '''
 
 from PIL import Image
