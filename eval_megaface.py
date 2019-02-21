@@ -11,7 +11,7 @@ import numpy as np
 import struct
 import os
 import torch.utils.data
-from backbone import mobilefacenet, resnet, arcfacenet, cbam
+from backbone import mobilefacenet, resnet, arcfacenet, cbam, self_attention
 from dataset.megaface import MegaFace
 import torchvision.transforms as transforms
 import argparse
@@ -61,6 +61,14 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
         net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='se_ir')
     elif backbone_net == 'CBAMRes100_IR':
         net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='cbam_ir')
+    elif backbone_net == 'SRA_50':
+        net = self_attention.SRAMResNet_IR(50, mode='ir')
+    elif backbone_net == 'SRA_50_SCA':
+        net = self_attention.SRAMResNet_IR(50, mode='ir_sca')
+    elif backbone_net == 'SRA_50_SSA':
+        net = self_attention.SRAMResNet_IR(50, mode='ir_ssa')
+    elif backbone_net == 'SRA_50_SRAM':
+        net = self_attention.SRAMResNet_IR(50, mode='ir_sram')
     else:
         print(args.backbone, ' is not available!')
 
@@ -107,8 +115,8 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='./model/MSCeleb_SERES100_IR_20190213_155120/Iter_565000_net.ckpt', help='The path of trained model')
-    parser.add_argument('--backbone_net', type=str, default='SERes100_IR', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR')
+    parser.add_argument('--model_path', type=str, default='./model/PAPER_Insight_SRA_50_20190220_201439/Iter_058000_net.ckpt', help='The path of trained model')
+    parser.add_argument('--backbone_net', type=str, default='SRA_50', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR, SRA_50, SRA_50_SCA, SRA_50_SSA, SRA_50_SRAM')
     parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
     parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
     parser.add_argument('--batch_size', type=int, default=1024, help='batch size')

@@ -22,7 +22,7 @@ For train dataset, insightface provide a mxnet .rec file, just install a mxnet-c
 '''
 
 def load_mx_rec(rec_path):
-    save_path = os.path.join(rec_path, 'webface_images')
+    save_path = os.path.join(rec_path, 'emore_images_2')
     if not os.path.exists(save_path):
         os.makedirs(save_path)
 
@@ -59,8 +59,8 @@ def load_image_from_bin(bin_path, save_dir):
 
 
 if __name__ == '__main__':
-    bin_path = 'D:/face_data_emore/faces_webface_112x112/lfw.bin'
-    save_dir = 'D:/face_data_emore/faces_webface_112x112/lfw'
+    #bin_path = 'D:/face_data_emore/faces_webface_112x112/lfw.bin'
+    #save_dir = 'D:/face_data_emore/faces_webface_112x112/lfw'
     rec_path = 'D:/face_data_emore/faces_emore'
-    #load_mx_rec(rec_path)
-    load_image_from_bin(bin_path, save_dir)
+    load_mx_rec(rec_path)
+    #load_image_from_bin(bin_path, save_dir)
