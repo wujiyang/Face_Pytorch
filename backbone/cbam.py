@@ -10,6 +10,7 @@
 
 import torch
 from torch import nn
+import time
 
 class Flatten(nn.Module):
     def forward(self, input):
@@ -178,7 +179,7 @@ class CBAMResNet_IR(nn.Module):
         elif mode == 'cbam_ir':
             block = CBAM_BottleNeck_IR
 
-        self.input_layer = nn.Sequential(nn.Conv2d(3, 64, (3, 3), 1, 1, bias=False),
+        self.input_layer = nn.Sequential(nn.Conv2d(3, 64, (3, 3), stride=1, padding=1, bias=False),
                                          nn.BatchNorm2d(64),
                                          nn.PReLU(64))
         self.layer1 = self._make_layer(block, filter_list[0], filter_list[1], layers[0], stride=2)
@@ -221,9 +222,23 @@ class CBAMResNet_IR(nn.Module):
         return x
 
 if __name__ == '__main__':
-    input = torch.Tensor(2, 3, 112, 112)
-    net = CBAMResNet_IR(50, mode='se_ir')
+    input = torch.Tensor(1, 3, 112, 112)
+    net = CBAMResNet_IR(50, mode='cbam_ir')
     #print(net)
 
+    device = torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')
+    input, net = input.to(device), net.to(device)
+
+    # calculate the inference time:
+    net.eval()
+    with torch.no_grad():
+        start = time.time()
+        for i in range(100):
+            t1 = time.time()
+            x = net(input)
+            t2 = time.time()
+            print('current_time: %04d: ' % i, t2 - t1)
+        end = time.time()
+        print('total time: ', end - start, ' average time: ', (end - start) / 100)
     x = net(input)
     print(x.shape)

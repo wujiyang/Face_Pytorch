@@ -9,6 +9,7 @@
 '''
 import torch
 import torch.nn as nn
+import time
 
 class Flatten(nn.Module):
     def forward(self, input):
@@ -44,12 +45,11 @@ class SelfChannelAttentionModule(nn.Module):
 
         matrix = torch.bmm(pool_c1_reshape, pool_c2_reshape.permute(0, 2, 1))
         attention = self.softmax(matrix.view(matrix.size(0), -1)).view(-1, self.channels, self.channels)
-        print(attention.shape)
+        #print(attention.shape)
 
         refined = torch.bmm(attention, c3.view(c3.size(0), c3.size(1), -1)).view(x.size(0), x.size(1), x.size(2), x.size(3))
 
         return refined + input # residual learning
-
 
 class TinySelfChannelAttentionModule(nn.Module):
     def __init__(self, channels):
@@ -182,6 +182,35 @@ class BottleNeck_IR_SCA(nn.Module):
         return shortcut + res
 
 
+class BottleNeck_IR_SCA_Tiny(nn.Module):
+    '''Improved Residual Bottlenecks with Tiny Self Channel Attention Module'''
+    def __init__(self, in_channel, out_channel, stride, dim_match):
+        super(BottleNeck_IR_SCA_Tiny, self).__init__()
+        self.res_layer = nn.Sequential(nn.BatchNorm2d(in_channel),
+                                       nn.Conv2d(in_channel, out_channel, (3, 3), 1, 1, bias=False),
+                                       nn.BatchNorm2d(out_channel),
+                                       nn.PReLU(out_channel),
+                                       nn.Conv2d(out_channel, out_channel, (3, 3), stride, 1, bias=False),
+                                       nn.BatchNorm2d(out_channel),
+                                       TinySelfChannelAttentionModule(out_channel))
+        if dim_match:
+            self.shortcut_layer = None
+        else:
+            self.shortcut_layer = nn.Sequential(
+                nn.Conv2d(in_channel, out_channel, kernel_size=(1, 1), stride=stride, bias=False),
+                nn.BatchNorm2d(out_channel)
+            )
+
+    def forward(self, x):
+        shortcut = x
+        res = self.res_layer(x)
+
+        if self.shortcut_layer is not None:
+            shortcut = self.shortcut_layer(x)
+
+        return shortcut + res
+
+
 class BottleNeck_IR_SSA(nn.Module):
     '''Improved Residual Bottlenecks with Self Spatial Attention Module'''
     def __init__(self, in_channel, out_channel, stride, dim_match):
@@ -254,12 +283,14 @@ class SRAMResNet_IR(nn.Module):
     def __init__(self, num_layers, feature_dim=512, mode='ir', drop_ratio=0.4, filter_list=filter_list):
         super(SRAMResNet_IR, self).__init__()
         assert num_layers in [50, 100, 152], 'num_layers should be 50, 100 or 152'
-        assert mode in ['ir', 'ir_sca', 'ir_ssa', 'ir_sram'], 'mode should be ir, se_ir or cbam_ir'
+        assert mode in ['ir', 'ir_sca', 'ir_sca_tiny','ir_ssa', 'ir_sram'], 'mode should be ir, se_ir or cbam_ir'
         layers = get_layers(num_layers)
         if mode == 'ir':
             block = BottleNeck_IR
         elif mode == 'ir_sca':
             block = BottleNeck_IR_SCA
+        elif mode == 'ir_sca_tiny':
+            block = BottleNeck_IR_SCA_Tiny
         elif mode == 'ir_ssa':
             block = BottleNeck_IR_SSA
         elif mode == 'ir_sram':
@@ -308,13 +339,28 @@ class SRAMResNet_IR(nn.Module):
         return x
 
 if __name__ == "__main__":
-    input = torch.Tensor(2, 16, 112, 112)
-    #net = SRAMResNet_IR(50, mode='ir_sram')
+    input = torch.Tensor(1, 3, 112, 112)
+    net = SRAMResNet_IR(50, mode='ir_sram')
     #net = TinySelfChannelAttentionModule(16)
     #net = SelfChannelAttentionModule(16)
-    net = SelfSpatialAttentionModule(16)
+    #net = SelfSpatialAttentionModule(16)
     #print(net)
     #print(net)
+    device = torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')
+    input, net = input.to(device), net.to(device)
 
+    # calculate the inference time:
+    net.eval()
+    with torch.no_grad():
+        start = time.time()
+        for i in range(100):
+            t1 = time.time()
+            x = net(input)
+            t2 = time.time()
+            print('current_time: %04d: '%i, t2-t1)
+        end = time.time()
+        print('total time: ', end - start, ' average time: ', (end-start)/100)
     x = net(input)
     print(x.shape)
+
+    # calculate the inference time:
