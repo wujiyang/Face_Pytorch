@@ -40,15 +40,50 @@ class SelfChannelAttentionModule(nn.Module):
         pool_c2 = self.max_pool_2(c2) + self.avg_pool_2(c2)
 
         pool_c1_reshape = pool_c1.view(pool_c1.size(0), pool_c1.size(1), -1)
-        pool_c2_reshape = pool_c2.view(pool_c1.size(0), pool_c1.size(1), -1)
+        pool_c2_reshape = pool_c2.view(pool_c2.size(0), pool_c2.size(1), -1)
 
         matrix = torch.bmm(pool_c1_reshape, pool_c2_reshape.permute(0, 2, 1))
         attention = self.softmax(matrix.view(matrix.size(0), -1)).view(-1, self.channels, self.channels)
+        print(attention.shape)
 
         refined = torch.bmm(attention, c3.view(c3.size(0), c3.size(1), -1)).view(x.size(0), x.size(1), x.size(2), x.size(3))
 
         return refined + input # residual learning
 
+
+class TinySelfChannelAttentionModule(nn.Module):
+    def __init__(self, channels):
+        super(TinySelfChannelAttentionModule, self).__init__()
+        self.channels = channels
+        self.conv_1 = nn.Conv2d(channels, channels, kernel_size=1, stride=1, bias=False)
+        self.conv_2 = nn.Conv2d(channels, channels//2, kernel_size=1, stride=1, bias=False)
+        self.conv_3 = nn.Conv2d(channels, channels//2, kernel_size=1, stride=1, bias=False)
+
+        self.max_pool_1 = nn.MaxPool2d(2, 2)
+        self.avg_pool_1 = nn.AvgPool2d(2, 2)
+        self.max_pool_2 = nn.MaxPool2d(2, 2)
+        self.avg_pool_2 = nn.AvgPool2d(2, 2)
+
+        self.softmax = nn.Softmax(dim=1)
+
+    def forward(self, x):
+        input = x
+        c1 = self.conv_1(x)
+        c2 = self.conv_2(x)
+        c3 = self.conv_3(x)
+
+        pool_c1 = self.max_pool_1(c1) + self.avg_pool_1(c1)
+        pool_c2 = self.max_pool_2(c2) + self.avg_pool_2(c2)
+        pool_c1_reshape = pool_c1.view(pool_c1.size(0), pool_c1.size(1), -1)
+        pool_c2_reshape = pool_c2.view(pool_c2.size(0), pool_c2.size(1), -1)
+
+        matrix = torch.bmm(pool_c1_reshape, pool_c2_reshape.permute(0, 2, 1))
+        attention = self.softmax(matrix.view(matrix.size(0), -1)).view(-1, self.channels, self.channels//2)
+        #print(attention.shape)
+
+        refined = torch.bmm(attention, c3.view(c3.size(0), c3.size(1), -1)).view(x.size(0), x.size(1), x.size(2), x.size(3))
+
+        return refined + input # residual learning
 
 class SelfSpatialAttentionModule(nn.Module):
     def __init__(self, channels):
@@ -80,9 +115,11 @@ class SelfSpatialAttentionModule(nn.Module):
 
         matrix = torch.bmm(c2_reshape.permute(0, 2, 1), c1_pool_reshape)
         attention = self.softmax(matrix.view(matrix.size(0), -1)).view(matrix.size(0), matrix.size(1), matrix.size(2))
+        #print(attention.shape)
 
         c3_pool_reshape = c3_pool.view(c3_pool.size(0), c3_pool.size(1), -1)
         half_refined = torch.bmm(c3_pool_reshape, attention.permute(0, 2, 1)).view(input.size(0), -1, input.size(2), input.size(3))
+        #print(half_refined.shape)
         refined = self.conv_4(half_refined)
 
         return input + refined
@@ -271,9 +308,13 @@ class SRAMResNet_IR(nn.Module):
         return x
 
 if __name__ == "__main__":
-    input = torch.Tensor(2, 3, 112, 112)
-    net = SRAMResNet_IR(50, mode='ir_sram')
-    print(net)
+    input = torch.Tensor(2, 16, 112, 112)
+    #net = SRAMResNet_IR(50, mode='ir_sram')
+    #net = TinySelfChannelAttentionModule(16)
+    #net = SelfChannelAttentionModule(16)
+    net = SelfSpatialAttentionModule(16)
+    #print(net)
+    #print(net)
 
     x = net(input)
     print(x.shape)
