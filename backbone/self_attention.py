@@ -29,7 +29,8 @@ class SelfChannelAttentionModule(nn.Module):
         self.max_pool_2 = nn.MaxPool2d(2, 2)
         self.avg_pool_2 = nn.AvgPool2d(2, 2)
 
-        self.softmax = nn.Softmax(dim=1)
+        self.gamma = torch.nn.Parameter(torch.zeros(1))
+        self.softmax = nn.Softmax(dim=-1)
 
     def forward(self, x):
         input = x
@@ -44,12 +45,13 @@ class SelfChannelAttentionModule(nn.Module):
         pool_c2_reshape = pool_c2.view(pool_c2.size(0), pool_c2.size(1), -1)
 
         matrix = torch.bmm(pool_c1_reshape, pool_c2_reshape.permute(0, 2, 1))
-        attention = self.softmax(matrix.view(matrix.size(0), -1)).view(-1, self.channels, self.channels)
-        #print(attention.shape)
+        attention = self.softmax(matrix).view(-1, self.channels, self.channels)
 
-        refined = torch.bmm(attention, c3.view(c3.size(0), c3.size(1), -1)).view(x.size(0), x.size(1), x.size(2), x.size(3))
+        refined = torch.bmm(attention, c3.view(c3.size(0), c3.size(1), -1))
+        refined = refined.view(x.size(0), x.size(1), x.size(2), x.size(3))
 
-        return refined + input # residual learning
+        return self.gamma*refined + input # residual learning
+
 
 class TinySelfChannelAttentionModule(nn.Module):
     def __init__(self, channels):
@@ -64,7 +66,8 @@ class TinySelfChannelAttentionModule(nn.Module):
         self.max_pool_2 = nn.MaxPool2d(2, 2)
         self.avg_pool_2 = nn.AvgPool2d(2, 2)
 
-        self.softmax = nn.Softmax(dim=1)
+        self.gamma = nn.Parameter(torch.zeros(1))
+        self.softmax = nn.Softmax(dim=-1)
 
     def forward(self, x):
         input = x
@@ -78,16 +81,56 @@ class TinySelfChannelAttentionModule(nn.Module):
         pool_c2_reshape = pool_c2.view(pool_c2.size(0), pool_c2.size(1), -1)
 
         matrix = torch.bmm(pool_c1_reshape, pool_c2_reshape.permute(0, 2, 1))
-        attention = self.softmax(matrix.view(matrix.size(0), -1)).view(-1, self.channels, self.channels//2)
+        attention = self.softmax(matrix).view(-1, self.channels, self.channels//2)
         #print(attention.shape)
 
         refined = torch.bmm(attention, c3.view(c3.size(0), c3.size(1), -1)).view(x.size(0), x.size(1), x.size(2), x.size(3))
 
-        return refined + input # residual learning
+        return self.gamma*refined + input # residual learning
+
 
 class SelfSpatialAttentionModule(nn.Module):
     def __init__(self, channels):
         super(SelfSpatialAttentionModule, self).__init__()
+        self.channels = channels
+        self.conv_1 = nn.Conv2d(channels, channels//2, kernel_size=1, stride=1, bias=False)
+        self.conv_2 = nn.Conv2d(channels, channels//2, kernel_size=1, stride=1, bias=False)
+        self.conv_3 = nn.Conv2d(channels, channels, kernel_size=1, stride=1, bias=False)
+
+        self.max_pool_1 = nn.MaxPool2d(2, 2)
+        self.avg_pool_1 = nn.AvgPool2d(2, 2)
+        self.max_pool_3 = nn.MaxPool2d(2, 2)
+        self.avg_pool_3 = nn.AvgPool2d(2, 2)
+
+        self.gamma = nn.Parameter(torch.zeros(1))
+        self.softmax = nn.Softmax(dim=-1)
+
+    def forward(self, x):
+        input = x
+        c1 = self.conv_1(x)
+        c2 = self.conv_2(x)
+        c3 = self.conv_3(x)
+
+        c1_pool = self.max_pool_1(c1) + self.avg_pool_1(c1)
+        c3_pool = self.max_pool_3(c3) + self.avg_pool_3(c3)
+
+        c1_pool_reshape = c1_pool.view(c1_pool.size(0), c1_pool.size(1), -1)
+        c2_reshape = c2.view(c2.size(0), c2.size(1), -1)
+
+        matrix = torch.bmm(c2_reshape.permute(0, 2, 1), c1_pool_reshape )
+        attention = self.softmax(matrix).view(matrix.size(0), matrix.size(1), matrix.size(2))
+        c3_pool_reshape = c3_pool.view(c3_pool.size(0), c3_pool.size(1), -1)
+
+        refined = torch.bmm(c3_pool_reshape, attention.permute(0, 2, 1))
+        refined = refined.view(input.size(0), -1, input.size(2), input.size(3))
+
+        return self.gamma*refined + input
+        #return refined + input
+
+
+class TinySelfSpatialAttentionModule(nn.Module):
+    def __init__(self, channels):
+        super(TinySelfSpatialAttentionModule, self).__init__()
         self.channels = channels
         self.conv_1 = nn.Conv2d(channels, channels//2, kernel_size=1, stride=1, bias=False)
         self.conv_2 = nn.Conv2d(channels, channels//2, kernel_size=1, stride=1, bias=False)
@@ -99,7 +142,8 @@ class SelfSpatialAttentionModule(nn.Module):
         self.max_pool_3 = nn.MaxPool2d(2, 2)
         self.avg_pool_3 = nn.AvgPool2d(2, 2)
 
-        self.softmax = nn.Softmax(dim=1)
+        self.gamma = nn.Parameter(torch.zeros(1))
+        self.softmax = nn.Softmax(dim=-1)
 
     def forward(self, x):
         input = x
@@ -114,15 +158,14 @@ class SelfSpatialAttentionModule(nn.Module):
         c2_reshape = c2.view(c2.size(0), c2.size(1), -1)
 
         matrix = torch.bmm(c2_reshape.permute(0, 2, 1), c1_pool_reshape)
-        attention = self.softmax(matrix.view(matrix.size(0), -1)).view(matrix.size(0), matrix.size(1), matrix.size(2))
-        #print(attention.shape)
-
+        attention = self.softmax(matrix).view(matrix.size(0), matrix.size(1), matrix.size(2))
         c3_pool_reshape = c3_pool.view(c3_pool.size(0), c3_pool.size(1), -1)
-        half_refined = torch.bmm(c3_pool_reshape, attention.permute(0, 2, 1)).view(input.size(0), -1, input.size(2), input.size(3))
-        #print(half_refined.shape)
+
+        half_refined = torch.bmm(c3_pool_reshape, attention.permute(0, 2, 1))
+        half_refined = half_refined.view(input.size(0), -1, input.size(2), input.size(3))
         refined = self.conv_4(half_refined)
 
-        return input + refined
+        return self.gamma*refined + input
 
 
 class BottleNeck_IR(nn.Module):
@@ -240,6 +283,35 @@ class BottleNeck_IR_SSA(nn.Module):
         return shortcut + res
 
 
+class BottleNeck_IR_SSA_Tiny(nn.Module):
+    '''Improved Residual Bottlenecks with Self Spatial Attention Module'''
+    def __init__(self, in_channel, out_channel, stride, dim_match):
+        super(BottleNeck_IR_SSA_Tiny, self).__init__()
+        self.res_layer = nn.Sequential(nn.BatchNorm2d(in_channel),
+                                       nn.Conv2d(in_channel, out_channel, (3, 3), 1, 1, bias=False),
+                                       nn.BatchNorm2d(out_channel),
+                                       nn.PReLU(out_channel),
+                                       nn.Conv2d(out_channel, out_channel, (3, 3), stride, 1, bias=False),
+                                       nn.BatchNorm2d(out_channel),
+                                       TinySelfSpatialAttentionModule(out_channel))
+        if dim_match:
+            self.shortcut_layer = None
+        else:
+            self.shortcut_layer = nn.Sequential(
+                nn.Conv2d(in_channel, out_channel, kernel_size=(1, 1), stride=stride, bias=False),
+                nn.BatchNorm2d(out_channel)
+            )
+
+    def forward(self, x):
+        shortcut = x
+        res = self.res_layer(x)
+
+        if self.shortcut_layer is not None:
+            shortcut = self.shortcut_layer(x)
+
+        return shortcut + res
+
+
 class BottleNeck_IR_SRAM(nn.Module):
     '''Improved Residual Bottleneck with Self Channel Attention and Self Spatial Attention'''
     def __init__(self, in_channel, out_channel, stride, dim_match):
@@ -283,7 +355,7 @@ class SRAMResNet_IR(nn.Module):
     def __init__(self, num_layers, feature_dim=512, mode='ir', drop_ratio=0.4, filter_list=filter_list):
         super(SRAMResNet_IR, self).__init__()
         assert num_layers in [50, 100, 152], 'num_layers should be 50, 100 or 152'
-        assert mode in ['ir', 'ir_sca', 'ir_sca_tiny','ir_ssa', 'ir_sram'], 'mode should be ir, se_ir or cbam_ir'
+        assert mode in ['ir', 'ir_sca', 'ir_sca_tiny','ir_ssa', 'ir_ssa_tiny', 'ir_sram'], 'mode should be ir, ir_sca, ir_sca_tiny, ir_ssa, ir_ssa_tiny, ir_sram'
         layers = get_layers(num_layers)
         if mode == 'ir':
             block = BottleNeck_IR
@@ -293,6 +365,8 @@ class SRAMResNet_IR(nn.Module):
             block = BottleNeck_IR_SCA_Tiny
         elif mode == 'ir_ssa':
             block = BottleNeck_IR_SSA
+        elif mode == 'ir_ssa_tiny':
+            block = BottleNeck_IR_SSA_Tiny
         elif mode == 'ir_sram':
             block = BottleNeck_IR_SRAM
 
@@ -339,13 +413,13 @@ class SRAMResNet_IR(nn.Module):
         return x
 
 if __name__ == "__main__":
-    input = torch.Tensor(1, 3, 112, 112)
-    net = SRAMResNet_IR(50, mode='ir_sram')
-    #net = TinySelfChannelAttentionModule(16)
+    input = torch.Tensor(2, 16, 112, 112)
+    #net = SRAMResNet_IR(50, mode='ir_sram')
     #net = SelfChannelAttentionModule(16)
+    net = TinySelfChannelAttentionModule(16)
     #net = SelfSpatialAttentionModule(16)
-    #print(net)
-    #print(net)
+    #net = TinySelfSpatialAttentionModule(16)
+
     device = torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')
     input, net = input.to(device), net.to(device)
 
@@ -353,7 +427,7 @@ if __name__ == "__main__":
     net.eval()
     with torch.no_grad():
         start = time.time()
-        for i in range(100):
+        for i in range(1):
             t1 = time.time()
             x = net(input)
             t2 = time.time()
