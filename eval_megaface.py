@@ -65,8 +65,12 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
         net = self_attention.SRAMResNet_IR(50, mode='ir')
     elif backbone_net == 'SRA_50_SCA':
         net = self_attention.SRAMResNet_IR(50, mode='ir_sca')
+    elif backbone_net == 'SRA_50_SCA_Tiny':
+        net = self_attention.SRAMResNet_IR(50, mode='ir_sca_tiny')
     elif backbone_net == 'SRA_50_SSA':
         net = self_attention.SRAMResNet_IR(50, mode='ir_ssa')
+    elif backbone_net == 'SRA_50_SSA_Tiny':
+        net = self_attention.SRAMResNet_IR(50, mode='ir_ssa_tiny')
     elif backbone_net == 'SRA_50_SRAM':
         net = self_attention.SRAMResNet_IR(50, mode='ir_sram')
     else:
@@ -115,8 +119,8 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='./model/PAPER_Insight_SRA_50_20190220_201439/Iter_058000_net.ckpt', help='The path of trained model')
-    parser.add_argument('--backbone_net', type=str, default='SRA_50', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR, SRA_50, SRA_50_SCA, SRA_50_SSA, SRA_50_SRAM')
+    parser.add_argument('--model_path', type=str, default='./model/PAPER_Insight_SRA_50_SSA_TINY_20190223_133347/Iter_114000_net.ckpt', help='The path of trained model')
+    parser.add_argument('--backbone_net', type=str, default='SRA_50_SSA_Tiny', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR, SRA_50, SRA_50_SCA, SRA_50_SCA_Tiny, SRA_50_SSA, SRA_50_SSA_Tiny, SRA_50_SRAM')
     parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
     parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
     parser.add_argument('--batch_size', type=int, default=1024, help='batch size')

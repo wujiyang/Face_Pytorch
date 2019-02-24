@@ -45,12 +45,14 @@ class SelfChannelAttentionModule(nn.Module):
         pool_c2_reshape = pool_c2.view(pool_c2.size(0), pool_c2.size(1), -1)
 
         matrix = torch.bmm(pool_c1_reshape, pool_c2_reshape.permute(0, 2, 1))
+        #matrix_new = torch.max(matrix, -1, keepdim=True)[0].expand_as(matrix) - matrix
         attention = self.softmax(matrix).view(-1, self.channels, self.channels)
 
         refined = torch.bmm(attention, c3.view(c3.size(0), c3.size(1), -1))
         refined = refined.view(x.size(0), x.size(1), x.size(2), x.size(3))
 
         return self.gamma*refined + input # residual learning
+        #return refined + input
 
 
 class TinySelfChannelAttentionModule(nn.Module):
@@ -195,7 +197,6 @@ class BottleNeck_IR(nn.Module):
 
         return shortcut + res
 
-
 class BottleNeck_IR_SCA(nn.Module):
     '''Improved Residual Bottlenecks with Self Channel Attention Module'''
     def __init__(self, in_channel, out_channel, stride, dim_match):
@@ -223,7 +224,6 @@ class BottleNeck_IR_SCA(nn.Module):
             shortcut = self.shortcut_layer(x)
 
         return shortcut + res
-
 
 class BottleNeck_IR_SCA_Tiny(nn.Module):
     '''Improved Residual Bottlenecks with Tiny Self Channel Attention Module'''
@@ -253,7 +253,6 @@ class BottleNeck_IR_SCA_Tiny(nn.Module):
 
         return shortcut + res
 
-
 class BottleNeck_IR_SSA(nn.Module):
     '''Improved Residual Bottlenecks with Self Spatial Attention Module'''
     def __init__(self, in_channel, out_channel, stride, dim_match):
@@ -281,7 +280,6 @@ class BottleNeck_IR_SSA(nn.Module):
             shortcut = self.shortcut_layer(x)
 
         return shortcut + res
-
 
 class BottleNeck_IR_SSA_Tiny(nn.Module):
     '''Improved Residual Bottlenecks with Self Spatial Attention Module'''
