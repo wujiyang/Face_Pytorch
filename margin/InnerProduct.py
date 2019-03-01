@@ -22,7 +22,8 @@ class InnerProduct(nn.Module):
         nn.init.xavier_uniform_(self.weight)
 
 
-    def forward(self, input):
+    def forward(self, input, label):
+        # label not used
         output = F.linear(input, self.weight)
         return output
 
