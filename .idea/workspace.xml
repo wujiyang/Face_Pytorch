@@ -112,13 +112,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="338">
+              <caret line="398" column="54" lean-forward="true" selection-start-line="398" selection-start-column="54" selection-end-line="398" selection-end-column="54" />
               <folding>
                 <element signature="e#217#229#0" expanded="true" />
                 <element signature="e#283#353#0" />
                 <element signature="e#317#353#0" expanded="true" />
                 <element signature="e#455#1129#0" expanded="true" />
+                <element signature="e#1522#2226#0" expanded="true" />
                 <element signature="e#2293#3290#0" expanded="true" />
                 <element signature="e#3326#4040#0" expanded="true" />
                 <element signature="e#419#2127#0" />
@@ -144,8 +145,6 @@
                 <element signature="e#12697#12863#0" expanded="true" />
                 <element signature="e#13837#14713#0" expanded="true" />
                 <element signature="e#14749#14915#0" expanded="true" />
-                <element signature="e#14963#16197#0" />
-                <element signature="e#15110#15995#0" expanded="true" />
                 <element signature="e#16031#16197#0" expanded="true" />
                 <element signature="e#5878#7189#0" />
                 <element signature="e#6034#6987#0" expanded="true" />
@@ -153,7 +152,7 @@
                 <element signature="e#13352#15366#0" expanded="true" />
                 <element signature="e#9487#9709#0" expanded="true" />
                 <element signature="e#15700#15882#0" expanded="true" />
-                <marker date="1551594720251" expanded="true" signature="14288:22547" ph="..." />
+                <marker date="1551598907242" expanded="true" signature="14288:22547" ph="..." />
               </folding>
             </state>
           </provider>
@@ -176,8 +175,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_self_attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="297" column="67" selection-start-line="297" selection-start-column="57" selection-end-line="297" selection-end-column="67" />
+            <state relative-caret-position="361">
+              <caret line="307" column="80" lean-forward="true" selection-start-line="307" selection-start-column="80" selection-end-line="307" selection-end-column="80" />
               <folding>
                 <element signature="e#159#168#0" expanded="true" />
                 <element signature="e#1021#12865#0" expanded="true" />
@@ -628,7 +627,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17803837" />
@@ -637,7 +636,7 @@
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.3340564" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.38394794" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5466378" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1108,8 +1107,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train_self_attention.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="297" column="67" selection-start-line="297" selection-start-column="57" selection-end-line="297" selection-end-column="67" />
+        <state relative-caret-position="361">
+          <caret line="307" column="80" lean-forward="true" selection-start-line="307" selection-start-column="80" selection-end-line="307" selection-end-column="80" />
           <folding>
             <element signature="e#159#168#0" expanded="true" />
             <element signature="e#1021#12865#0" expanded="true" />
@@ -1119,13 +1118,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="338">
+          <caret line="398" column="54" lean-forward="true" selection-start-line="398" selection-start-column="54" selection-end-line="398" selection-end-column="54" />
           <folding>
             <element signature="e#217#229#0" expanded="true" />
             <element signature="e#283#353#0" />
             <element signature="e#317#353#0" expanded="true" />
             <element signature="e#455#1129#0" expanded="true" />
+            <element signature="e#1522#2226#0" expanded="true" />
             <element signature="e#2293#3290#0" expanded="true" />
             <element signature="e#3326#4040#0" expanded="true" />
             <element signature="e#419#2127#0" />
@@ -1151,8 +1151,6 @@
             <element signature="e#12697#12863#0" expanded="true" />
             <element signature="e#13837#14713#0" expanded="true" />
             <element signature="e#14749#14915#0" expanded="true" />
-            <element signature="e#14963#16197#0" />
-            <element signature="e#15110#15995#0" expanded="true" />
             <element signature="e#16031#16197#0" expanded="true" />
             <element signature="e#5878#7189#0" />
             <element signature="e#6034#6987#0" expanded="true" />
@@ -1160,7 +1158,7 @@
             <element signature="e#13352#15366#0" expanded="true" />
             <element signature="e#9487#9709#0" expanded="true" />
             <element signature="e#15700#15882#0" expanded="true" />
-            <marker date="1551594720251" expanded="true" signature="14288:22547" ph="..." />
+            <marker date="1551598907242" expanded="true" signature="14288:22547" ph="..." />
           </folding>
         </state>
       </provider>

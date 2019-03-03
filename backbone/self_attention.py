@@ -396,7 +396,7 @@ class BottleNeck_IR_SCA(nn.Module):
 class BottleNeck_IR_SCA_Tiny(nn.Module):
     '''Improved Residual Bottlenecks with Self Spatial Attention Module'''
     def __init__(self, in_channel, out_channel, stride, dim_match):
-        super(BottleNeck_IR_SSA_Tiny, self).__init__()
+        super(BottleNeck_IR_SCA_Tiny, self).__init__()
         self.res_layer = nn.Sequential(nn.BatchNorm2d(in_channel),
                                        nn.Conv2d(in_channel, out_channel, (3, 3), 1, 1, bias=False),
                                        nn.BatchNorm2d(out_channel),
