@@ -94,14 +94,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="18" />
-          <entry key="py" value="44001" />
+          <entry key="py" value="44167" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="31" />
-          <entry key="Python" value="44000" />
+          <entry key="Python" value="44166" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -112,14 +112,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="398" column="54" lean-forward="true" selection-start-line="398" selection-start-column="54" selection-end-line="398" selection-end-column="54" />
+            <state relative-caret-position="410">
+              <caret line="455" column="24" lean-forward="true" selection-start-line="455" selection-start-column="24" selection-end-line="455" selection-end-column="24" />
               <folding>
                 <element signature="e#217#229#0" expanded="true" />
                 <element signature="e#283#353#0" />
                 <element signature="e#317#353#0" expanded="true" />
+                <element signature="e#423#2208#0" />
                 <element signature="e#455#1129#0" expanded="true" />
                 <element signature="e#1522#2226#0" expanded="true" />
+                <element signature="e#2255#4040#0" />
                 <element signature="e#2293#3290#0" expanded="true" />
                 <element signature="e#3326#4040#0" expanded="true" />
                 <element signature="e#419#2127#0" />
@@ -143,16 +145,18 @@
                 <element signature="e#11639#12863#0" />
                 <element signature="e#11786#12661#0" expanded="true" />
                 <element signature="e#12697#12863#0" expanded="true" />
+                <element signature="e#13690#14915#0" />
                 <element signature="e#13837#14713#0" expanded="true" />
                 <element signature="e#14749#14915#0" expanded="true" />
-                <element signature="e#16031#16197#0" expanded="true" />
+                <element signature="e#19039#20264#0" />
+                <element signature="e#19186#20062#0" expanded="true" />
+                <element signature="e#20098#20264#0" expanded="true" />
                 <element signature="e#5878#7189#0" />
                 <element signature="e#6034#6987#0" expanded="true" />
-                <element signature="e#7262#7426#0" expanded="true" />
                 <element signature="e#13352#15366#0" expanded="true" />
                 <element signature="e#9487#9709#0" expanded="true" />
                 <element signature="e#15700#15882#0" expanded="true" />
-                <marker date="1551598907242" expanded="true" signature="14288:22547" ph="..." />
+                <marker date="1551608203302" expanded="true" signature="14319:22578" ph="..." />
               </folding>
             </state>
           </provider>
@@ -175,8 +179,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_self_attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="307" column="80" lean-forward="true" selection-start-line="307" selection-start-column="80" selection-end-line="307" selection-end-column="80" />
+            <state relative-caret-position="228">
+              <caret line="297" column="67" selection-start-line="297" selection-start-column="57" selection-end-line="297" selection-end-column="67" />
               <folding>
                 <element signature="e#159#168#0" expanded="true" />
                 <element signature="e#1021#12865#0" expanded="true" />
@@ -365,8 +369,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="30" />
+    <option name="y" value="13" />
     <option name="width" value="1932" />
     <option name="height" value="1045" />
   </component>
@@ -636,7 +640,7 @@
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.38394794" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.22451194" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5466378" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1107,8 +1111,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train_self_attention.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="307" column="80" lean-forward="true" selection-start-line="307" selection-start-column="80" selection-end-line="307" selection-end-column="80" />
+        <state relative-caret-position="228">
+          <caret line="297" column="67" selection-start-line="297" selection-start-column="57" selection-end-line="297" selection-end-column="67" />
           <folding>
             <element signature="e#159#168#0" expanded="true" />
             <element signature="e#1021#12865#0" expanded="true" />
@@ -1118,14 +1122,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="398" column="54" lean-forward="true" selection-start-line="398" selection-start-column="54" selection-end-line="398" selection-end-column="54" />
+        <state relative-caret-position="410">
+          <caret line="455" column="24" lean-forward="true" selection-start-line="455" selection-start-column="24" selection-end-line="455" selection-end-column="24" />
           <folding>
             <element signature="e#217#229#0" expanded="true" />
             <element signature="e#283#353#0" />
             <element signature="e#317#353#0" expanded="true" />
+            <element signature="e#423#2208#0" />
             <element signature="e#455#1129#0" expanded="true" />
             <element signature="e#1522#2226#0" expanded="true" />
+            <element signature="e#2255#4040#0" />
             <element signature="e#2293#3290#0" expanded="true" />
             <element signature="e#3326#4040#0" expanded="true" />
             <element signature="e#419#2127#0" />
@@ -1149,16 +1155,18 @@
             <element signature="e#11639#12863#0" />
             <element signature="e#11786#12661#0" expanded="true" />
             <element signature="e#12697#12863#0" expanded="true" />
+            <element signature="e#13690#14915#0" />
             <element signature="e#13837#14713#0" expanded="true" />
             <element signature="e#14749#14915#0" expanded="true" />
-            <element signature="e#16031#16197#0" expanded="true" />
+            <element signature="e#19039#20264#0" />
+            <element signature="e#19186#20062#0" expanded="true" />
+            <element signature="e#20098#20264#0" expanded="true" />
             <element signature="e#5878#7189#0" />
             <element signature="e#6034#6987#0" expanded="true" />
-            <element signature="e#7262#7426#0" expanded="true" />
             <element signature="e#13352#15366#0" expanded="true" />
             <element signature="e#9487#9709#0" expanded="true" />
             <element signature="e#15700#15882#0" expanded="true" />
-            <marker date="1551598907242" expanded="true" signature="14288:22547" ph="..." />
+            <marker date="1551608203302" expanded="true" signature="14319:22578" ph="..." />
           </folding>
         </state>
       </provider>
