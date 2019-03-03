@@ -15,7 +15,6 @@ class Flatten(nn.Module):
     def forward(self, input):
         return input.view(input.size(0), -1)
 
-
 class NaiveChannelAttentionModule(nn.Module):
     def __init__(self, channels):
         super(NaiveChannelAttentionModule, self).__init__()

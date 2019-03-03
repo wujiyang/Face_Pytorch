@@ -112,8 +112,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="455" column="24" lean-forward="true" selection-start-line="455" selection-start-column="24" selection-end-line="455" selection-end-column="24" />
+            <state relative-caret-position="266">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#217#229#0" expanded="true" />
                 <element signature="e#283#353#0" />
@@ -148,15 +148,15 @@
                 <element signature="e#13690#14915#0" />
                 <element signature="e#13837#14713#0" expanded="true" />
                 <element signature="e#14749#14915#0" expanded="true" />
-                <element signature="e#19039#20264#0" />
                 <element signature="e#19186#20062#0" expanded="true" />
                 <element signature="e#20098#20264#0" expanded="true" />
                 <element signature="e#5878#7189#0" />
                 <element signature="e#6034#6987#0" expanded="true" />
+                <element signature="e#7262#7426#0" expanded="true" />
                 <element signature="e#13352#15366#0" expanded="true" />
                 <element signature="e#9487#9709#0" expanded="true" />
                 <element signature="e#15700#15882#0" expanded="true" />
-                <marker date="1551608203302" expanded="true" signature="14319:22578" ph="..." />
+                <marker date="1551608455823" expanded="true" signature="14318:22577" ph="..." />
               </folding>
             </state>
           </provider>
@@ -640,7 +640,7 @@
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.4002169" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.22451194" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.36442515" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5466378" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1122,8 +1122,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="455" column="24" lean-forward="true" selection-start-line="455" selection-start-column="24" selection-end-line="455" selection-end-column="24" />
+        <state relative-caret-position="266">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#217#229#0" expanded="true" />
             <element signature="e#283#353#0" />
@@ -1158,15 +1158,15 @@
             <element signature="e#13690#14915#0" />
             <element signature="e#13837#14713#0" expanded="true" />
             <element signature="e#14749#14915#0" expanded="true" />
-            <element signature="e#19039#20264#0" />
             <element signature="e#19186#20062#0" expanded="true" />
             <element signature="e#20098#20264#0" expanded="true" />
             <element signature="e#5878#7189#0" />
             <element signature="e#6034#6987#0" expanded="true" />
+            <element signature="e#7262#7426#0" expanded="true" />
             <element signature="e#13352#15366#0" expanded="true" />
             <element signature="e#9487#9709#0" expanded="true" />
             <element signature="e#15700#15882#0" expanded="true" />
-            <marker date="1551608203302" expanded="true" signature="14319:22578" ph="..." />
+            <marker date="1551608455823" expanded="true" signature="14318:22577" ph="..." />
           </folding>
         </state>
       </provider>
