@@ -53,6 +53,7 @@ class CAModule(nn.Module):
         max_pool = self.max_pool(x)
         x = self.shared_mlp(avg_pool) + self.shared_mlp(max_pool)
         x = self.sigmoid(x)
+
         return input * x
 
 class SAModule(nn.Module):
@@ -98,10 +99,10 @@ class BottleNeck_IR(nn.Module):
 
         return shortcut + res
 
-class SE_BottleNeck_IR(nn.Module):
+class BottleNeck_IR_SE(nn.Module):
     '''Improved Residual Bottlenecks with Squeeze and Excitation Module'''
     def __init__(self, in_channel, out_channel, stride, dim_match):
-        super(SE_BottleNeck_IR, self).__init__()
+        super(BottleNeck_IR_SE, self).__init__()
         self.res_layer = nn.Sequential(nn.BatchNorm2d(in_channel),
                                        nn.Conv2d(in_channel, out_channel, (3, 3), 1, 1, bias=False),
                                        nn.BatchNorm2d(out_channel),
@@ -126,10 +127,66 @@ class SE_BottleNeck_IR(nn.Module):
 
         return shortcut + res
 
-class CBAM_BottleNeck_IR(nn.Module):
-    '''Improved Residual Bottleneck with Channel Attention and Spatial Attention'''
+class BottleNeck_IR_CAM(nn.Module):
+    '''Improved Residual Bottlenecks with Channel Attention Module'''
     def __init__(self, in_channel, out_channel, stride, dim_match):
-        super(CBAM_BottleNeck_IR, self).__init__()
+        super(BottleNeck_IR_CAM, self).__init__()
+        self.res_layer = nn.Sequential(nn.BatchNorm2d(in_channel),
+                                       nn.Conv2d(in_channel, out_channel, (3, 3), 1, 1, bias=False),
+                                       nn.BatchNorm2d(out_channel),
+                                       nn.PReLU(out_channel),
+                                       nn.Conv2d(out_channel, out_channel, (3, 3), stride, 1, bias=False),
+                                       nn.BatchNorm2d(out_channel),
+                                       CAModule(out_channel, 16))
+        if dim_match:
+            self.shortcut_layer = None
+        else:
+            self.shortcut_layer = nn.Sequential(
+                nn.Conv2d(in_channel, out_channel, kernel_size=(1, 1), stride=stride, bias=False),
+                nn.BatchNorm2d(out_channel)
+            )
+
+    def forward(self, x):
+        shortcut = x
+        res = self.res_layer(x)
+
+        if self.shortcut_layer is not None:
+            shortcut = self.shortcut_layer(x)
+
+        return shortcut + res
+
+class BottleNeck_IR_SAM(nn.Module):
+    '''Improved Residual Bottlenecks with Spatial Attention Module'''
+    def __init__(self, in_channel, out_channel, stride, dim_match):
+        super(BottleNeck_IR_SAM, self).__init__()
+        self.res_layer = nn.Sequential(nn.BatchNorm2d(in_channel),
+                                       nn.Conv2d(in_channel, out_channel, (3, 3), 1, 1, bias=False),
+                                       nn.BatchNorm2d(out_channel),
+                                       nn.PReLU(out_channel),
+                                       nn.Conv2d(out_channel, out_channel, (3, 3), stride, 1, bias=False),
+                                       nn.BatchNorm2d(out_channel),
+                                       SAModule())
+        if dim_match:
+            self.shortcut_layer = None
+        else:
+            self.shortcut_layer = nn.Sequential(
+                nn.Conv2d(in_channel, out_channel, kernel_size=(1, 1), stride=stride, bias=False),
+                nn.BatchNorm2d(out_channel)
+            )
+
+    def forward(self, x):
+        shortcut = x
+        res = self.res_layer(x)
+
+        if self.shortcut_layer is not None:
+            shortcut = self.shortcut_layer(x)
+
+        return shortcut + res
+
+class BottleNeck_IR_CBAM(nn.Module):
+    '''Improved Residual Bottleneck with Channel Attention Module and Spatial Attention Module'''
+    def __init__(self, in_channel, out_channel, stride, dim_match):
+        super(BottleNeck_IR_CBAM, self).__init__()
         self.res_layer = nn.Sequential(nn.BatchNorm2d(in_channel),
                                        nn.Conv2d(in_channel, out_channel, (3, 3), 1, 1, bias=False),
                                        nn.BatchNorm2d(out_channel),
@@ -166,18 +223,22 @@ def get_layers(num_layers):
     elif num_layers == 152:
         return [3, 8, 36, 3]
 
-class CBAMResNet_IR(nn.Module):
-    def __init__(self, num_layers, feature_dim=512, drop_ratio=0.4, mode='cbam_ir',filter_list=filter_list):
-        super(CBAMResNet_IR, self).__init__()
+class CBAMResNet(nn.Module):
+    def __init__(self, num_layers, feature_dim=512, drop_ratio=0.4, mode='ir',filter_list=filter_list):
+        super(CBAMResNet, self).__init__()
         assert num_layers in [50, 100, 152], 'num_layers should be 50, 100 or 152'
-        assert mode in ['ir', 'se_ir', 'cbam_ir'], 'mode should be ir, se_ir or cbam_ir'
+        assert mode in ['ir', 'ir_se', 'ir_cam', 'ir_sam', 'ir_cbam'], 'mode should be ir, ir_se, ir_cam, ir_sam or ir_cbam'
         layers = get_layers(num_layers)
         if mode == 'ir':
             block = BottleNeck_IR
-        elif mode == 'se_ir':
-            block = SE_BottleNeck_IR
-        elif mode == 'cbam_ir':
-            block = CBAM_BottleNeck_IR
+        elif mode == 'ir_se':
+            block = BottleNeck_IR_SE
+        elif mode == 'ir_cam':
+            block = BottleNeck_IR_CAM
+        elif mode == 'ir_sam':
+            block = BottleNeck_IR_SAM
+        elif mode == 'ir_cbam':
+            block = BottleNeck_IR_CBAM
 
         self.input_layer = nn.Sequential(nn.Conv2d(3, 64, (3, 3), stride=1, padding=1, bias=False),
                                          nn.BatchNorm2d(64),
@@ -222,10 +283,13 @@ class CBAMResNet_IR(nn.Module):
         return x
 
 if __name__ == '__main__':
-    input = torch.Tensor(1, 3, 112, 112)
-    net = CBAMResNet_IR(50, mode='cbam_ir')
-    #print(net)
+    input = torch.Tensor(2, 3, 112, 112)
+    net = CBAMResNet(50, mode='ir_cbam')
 
+    out = net(input)
+    print(out.shape)
+
+    '''
     device = torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')
     input, net = input.to(device), net.to(device)
 
@@ -242,3 +306,4 @@ if __name__ == '__main__':
         print('total time: ', end - start, ' average time: ', (end - start) / 100)
     x = net(input)
     print(x.shape)
+    '''
