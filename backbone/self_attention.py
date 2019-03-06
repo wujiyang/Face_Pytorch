@@ -58,6 +58,90 @@ class NaiveChannelAttentionModule(nn.Module):
         out = self.gamma * refined + x
         return out
 
+class MaxPoolChannelAttentionModule(nn.Module):
+    def __init__(self, channels):
+        super(MaxPoolChannelAttentionModule, self).__init__()
+        self.conv_1 = nn.Sequential(nn.Conv2d(channels, channels, kernel_size=1, stride=1, bias=False),
+                                    nn.BatchNorm2d(channels),
+                                    nn.PReLU(channels))
+        self.conv_2 = nn.Sequential(nn.Conv2d(channels, channels//2, kernel_size=1, stride=1, bias=False),
+                                    nn.BatchNorm2d(channels//2),
+                                    nn.PReLU(channels//2))
+        self.conv_3 = nn.Sequential(nn.Conv2d(channels, channels//2, kernel_size=1, stride=1, bias=False),
+                                    nn.BatchNorm2d(channels//2),
+                                    nn.PReLU(channels//2))
+
+        self.max_pool_1 = nn.MaxPool2d(2, 2)
+        self.max_pool_2 = nn.MaxPool2d(2, 2)
+
+        self.gamma = torch.nn.Parameter(torch.zeros(1))
+        self.softmax = nn.Softmax(dim=-1)
+
+    def forward(self, x):
+        batchsize, c, height, width = x.size()
+        c1 = self.conv_1(x)
+        c2 = self.conv_2(x)
+        c3 = self.conv_3(x)
+
+        pool_c1 = self.max_pool_1(c1)
+        pool_c2 = self.max_pool_2(c2)
+
+        pool_c1_reshape = pool_c1.view(pool_c1.size(0), pool_c1.size(1), -1)
+        pool_c2_reshape = pool_c2.view(pool_c2.size(0), pool_c2.size(1), -1)
+        c3_reshape = c3.view(c3.size(0), c3.size(1), -1)
+
+        matrix = torch.bmm(pool_c1_reshape, pool_c2_reshape.permute(0, 2, 1))
+        attention = self.softmax(matrix)
+        #print(attention.shape)
+
+        refined = torch.bmm(attention, c3_reshape)
+        refined = refined.view(batchsize, c, height, width)
+
+        out = self.gamma * refined + x
+        return out
+
+class AvgPoolChannelAttentionModule(nn.Module):
+    def __init__(self, channels):
+        super(AvgPoolChannelAttentionModule, self).__init__()
+        self.conv_1 = nn.Sequential(nn.Conv2d(channels, channels, kernel_size=1, stride=1, bias=False),
+                                    nn.BatchNorm2d(channels),
+                                    nn.PReLU(channels))
+        self.conv_2 = nn.Sequential(nn.Conv2d(channels, channels//2, kernel_size=1, stride=1, bias=False),
+                                    nn.BatchNorm2d(channels//2),
+                                    nn.PReLU(channels//2))
+        self.conv_3 = nn.Sequential(nn.Conv2d(channels, channels//2, kernel_size=1, stride=1, bias=False),
+                                    nn.BatchNorm2d(channels//2),
+                                    nn.PReLU(channels//2))
+
+        self.avg_pool_1 = nn.AvgPool2d(2, 2)
+        self.avg_pool_2 = nn.AvgPool2d(2, 2)
+
+        self.gamma = torch.nn.Parameter(torch.zeros(1))
+        self.softmax = nn.Softmax(dim=-1)
+
+    def forward(self, x):
+        batchsize, c, height, width = x.size()
+        c1 = self.conv_1(x)
+        c2 = self.conv_2(x)
+        c3 = self.conv_3(x)
+
+        pool_c1 = self.avg_pool_1(c1)
+        pool_c2 = self.avg_pool_2(c2)
+
+        pool_c1_reshape = pool_c1.view(pool_c1.size(0), pool_c1.size(1), -1)
+        pool_c2_reshape = pool_c2.view(pool_c2.size(0), pool_c2.size(1), -1)
+        c3_reshape = c3.view(c3.size(0), c3.size(1), -1)
+
+        matrix = torch.bmm(pool_c1_reshape, pool_c2_reshape.permute(0, 2, 1))
+        attention = self.softmax(matrix)
+        #print(attention.shape)
+
+        refined = torch.bmm(attention, c3_reshape)
+        refined = refined.view(batchsize, c, height, width)
+
+        out = self.gamma * refined + x
+        return out
+
 class LightChannelAttentionModule(nn.Module):
     def __init__(self, channels):
         super(LightChannelAttentionModule, self).__init__()
@@ -101,6 +185,7 @@ class LightChannelAttentionModule(nn.Module):
 
         out = self.gamma * refined + x
         return out
+
 
 class NaiveSpatialAttentionModule(nn.Module):
     def __init__(self, channels):
@@ -188,10 +273,9 @@ class MaxPoolSpatialAttentionModule(nn.Module):
         return out
         #return self.conv_4(out)
 
-class MaxPoolSpatialAttentionModule_2(nn.Module):
-    # remove the weighted parameter gamma.
+class AvgPoolSpatialAttentionModule(nn.Module):
     def __init__(self, channels):
-        super(MaxPoolSpatialAttentionModule_2, self).__init__()
+        super(AvgPoolSpatialAttentionModule, self).__init__()
         self.conv_1 = nn.Sequential(nn.Conv2d(channels, channels // 16, kernel_size=1, stride=1, bias=False),
                                     nn.BatchNorm2d(channels // 16),
                                     nn.PReLU(channels // 16))
@@ -205,9 +289,10 @@ class MaxPoolSpatialAttentionModule_2(nn.Module):
         self.conv_4 = nn.Sequential(nn.Conv2d(channels, channels, kernel_size=1, stride=1, bias=False),
                                     nn.BatchNorm2d(channels))
 
-        self.max_pool_1 = nn.MaxPool2d(2, 2)
-        self.max_pool_3 = nn.MaxPool2d(2, 2)
+        self.avg_pool_1 = nn.AvgPool2d(2, 2)
+        self.avg_pool_3 = nn.AvgPool2d(2, 2)
 
+        self.gamma = nn.Parameter(torch.zeros(1))
         self.softmax = nn.Softmax(dim=-1)
 
     def forward(self, x):
@@ -215,8 +300,8 @@ class MaxPoolSpatialAttentionModule_2(nn.Module):
         c2 = self.conv_2(x)
         c3 = self.conv_3(x)
 
-        c1_pool = self.max_pool_1(c1)
-        c3_pool = self.max_pool_3(c3)
+        c1_pool = self.avg_pool_1(c1)
+        c3_pool = self.avg_pool_3(c3)
 
         c1_pool_reshape = c1_pool.view(c1_pool.size(0), c1_pool.size(1), -1)
         c3_pool_reshape = c3_pool.view(c3_pool.size(0), c3_pool.size(1), -1)
@@ -225,11 +310,12 @@ class MaxPoolSpatialAttentionModule_2(nn.Module):
 
         matrix = torch.bmm(c2_reshape.permute(0, 2, 1), c1_pool_reshape)
         attention = self.softmax(matrix)
+        #print(attention.shape)
 
         refined = torch.bmm(c3_pool_reshape, attention.permute(0, 2, 1))
         refined = refined.view(x.size(0), x.size(1), x.size(2), x.size(3))
 
-        out = refined + x
+        out = self.gamma*refined + x
         return out
         #return self.conv_4(out)
 
@@ -525,19 +611,19 @@ class SRAMResNet_IR(nn.Module):
 
 
 if __name__ == "__main__":
-    input = torch.Tensor(2, 16, 112, 112)
-    #net = SRAMResNet_IR(50, mode='ir_ssa')
+    input = torch.Tensor(1, 3, 112, 112)
+    net = SRAMResNet_IR(50, mode='ir_sca_tiny')
     #net = NaiveSpatialAttentionModule(16)
     #net = MaxPoolSpatialAttentionModule_2(16)
     #net = LightSelfSpatialAttentionModule(16)
-    net = NaiveChannelAttentionModule(16)
+    #net = NaiveChannelAttentionModule(16)
     #net = LightChannelAttentionModule(16)
 
 
-    out = net(input)
-    print(out.shape)
+    #out = net(input)
+    #print(out.shape)
 
-    '''
+
     device = torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')
     #device = 'cpu'
     input, net = input.to(device), net.to(device)
@@ -556,6 +642,3 @@ if __name__ == "__main__":
         print('total time: ', total, ' average time: ', total/99)
     x = net(input)
     print(x.shape)
-
-    # calculate the inference time:
-    '''
