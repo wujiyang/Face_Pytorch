@@ -13,7 +13,7 @@ import torch.utils.data
 from torch.nn import DataParallel
 from datetime import datetime
 from backbone.mobilefacenet import MobileFaceNet
-from backbone.cbam import CBAMResNet_IR
+from backbone.cbam import CBAMResNet
 from backbone.spherenet import SphereNet
 from margin.ArcMarginProduct import ArcMarginProduct
 from utils.visualize import Visualizer
@@ -71,17 +71,17 @@ def train(args):
     if args.backbone == 'MobileFace':
         net = MobileFaceNet()
     elif args.backbone == 'Res50_IR':
-        net = CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
+        net = CBAMResNet(50, feature_dim=args.feature_dim, mode='ir')
     elif args.backbone == 'SERes50_IR':
-        net = CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
+        net = CBAMResNet(50, feature_dim=args.feature_dim, mode='ir_se')
     elif args.backbone == 'CBAMRes50_IR':
-        net = CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='cbam_ir')
+        net = CBAMResNet(50, feature_dim=args.feature_dim, mode='ir_cbam')
     elif args.backbone == 'Res100_IR':
-        net = CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='ir')
+        net = CBAMResNet(100, feature_dim=args.feature_dim, mode='ir')
     elif args.backbone == 'SERes100_IR':
-        net = CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='se_ir')
+        net = CBAMResNet(100, feature_dim=args.feature_dim, mode='ir_se')
     elif args.backbone == 'CBAMRes100_IR':
-        net = CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='cbam_ir')
+        net = CBAMResNet(100, feature_dim=args.feature_dim, mode='ir_cbam')
     elif args.backbone == 'SphereNet':
         net = SphereNet(num_layers=64, feature_dim=args.feature_dim)
     else:
@@ -232,7 +232,7 @@ if __name__ == '__main__':
     parser.add_argument('--backbone', type=str, default='SERes100_IR', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR')
     parser.add_argument('--margin_type', type=str, default='ArcFace', help='ArcFace, CosFace, SphereFace')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
-    parser.add_argument('--scale_size', type=float, default=64.0, help='scale size')
+    parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
     parser.add_argument('--batch_size', type=int, default=128, help='batch size')
     parser.add_argument('--total_epoch', type=int, default=20, help='total epochs')
 
