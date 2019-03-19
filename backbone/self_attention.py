@@ -186,7 +186,6 @@ class LightChannelAttentionModule(nn.Module):
         out = self.gamma * refined + x
         return out
 
-
 class NaiveSpatialAttentionModule(nn.Module):
     def __init__(self, channels):
         super(NaiveSpatialAttentionModule, self).__init__()

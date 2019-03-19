@@ -56,6 +56,36 @@ class CAModule(nn.Module):
 
         return input * x
 
+class CAModule_New(nn.Module):
+    '''Channel Attention Module New'''
+    def __init__(self, channels, reduction):
+        super(CAModule_New, self).__init__()
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        self.max_pool = nn.AdaptiveMaxPool2d(1)
+        self.conv = nn.Sequential(nn.Conv2d(channels, channels, kernel_size=1, padding=0, bias=False),
+                                  nn.BatchNorm2d(channels),
+                                  nn.PReLU(channels))
+
+        self.gamma = torch.nn.Parameter(torch.zeros(1))
+        self.softmax = nn.Softmax(dim=-1)
+
+    def forward(self, x):
+        batchsize, c, height, width = x.size()
+        avg_pool = self.avg_pool(x)
+        max_pool = self.max_pool(x)
+
+        pool = self.conv(avg_pool + max_pool)
+        pool = pool.view(batchsize, c, -1)
+
+        matrix = torch.bmm(pool, pool.permute(0, 2, 1))
+        attention = self.softmax(matrix)
+
+        refined = torch.bmm(attention, x.view(batchsize, c, -1))
+        refined = refined.view(batchsize, c, height, width)
+
+        return refined * self.gamma + x
+        #return refined + x
+
 class SAModule(nn.Module):
     '''Spatial Attention Module'''
     def __init__(self):
@@ -71,6 +101,34 @@ class SAModule(nn.Module):
         x = self.conv(x)
         x = self.sigmoid(x)
         return input * x
+
+class SAModule_New(nn.Module):
+    '''Spatial Attention Module'''
+    def __init__(self):
+        super(SAModule_New, self).__init__()
+        self.conv = nn.Sequential(nn.Conv2d(2, 1, kernel_size=3, padding=1, bias=False),
+                                  nn.ReLU(inplace=True),
+                                  nn.BatchNorm2d(1))
+
+        self.softmax = nn.Softmax(dim=-1)
+
+    def forward(self, x):
+        batchsize, c, height, width = x.size()
+
+        avg_c = torch.mean(x, 1, True)
+        max_c, _ = torch.max(x, 1, True)
+
+        pool = torch.cat((avg_c, max_c), 1)
+        pool = self.conv(pool)
+        pool = pool.view(batchsize, 1, -1)
+
+        matrix = nn.bmm(pool.permute(0, 2, 1), pool)
+        attention = self.softmax(matrix)
+
+        refined = nn.bmm(x.view(batchsize, c, -1), attention.permute(0, 2, 1))
+        refined = refined.view(batchsize, c, height, width)
+
+        return refined
 
 class BottleNeck_IR(nn.Module):
     '''Improved Residual Bottlenecks'''
@@ -284,7 +342,7 @@ class CBAMResNet(nn.Module):
 
 if __name__ == '__main__':
     input = torch.Tensor(2, 3, 112, 112)
-    net = CBAMResNet(50, mode='ir_cbam')
+    net = CBAMResNet(100, mode='ir')
 
     out = net(input)
     print(out.shape)

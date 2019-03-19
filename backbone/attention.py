@@ -19,6 +19,7 @@ class Flatten(nn.Module):
         return input.view(input.size(0), -1)
 
 class ResidualBlock(nn.Module):
+
     def __init__(self, in_channel, out_channel, stride=1):
         super(ResidualBlock, self).__init__()
         self.in_channel = in_channel
@@ -45,8 +46,8 @@ class ResidualBlock(nn.Module):
         out += res
         return out
 
-
 class AttentionModule_stage1(nn.Module):
+
     # input size is 56*56
     def __init__(self, in_channel, out_channel, size1=(56, 56), size2=(28, 28), size3=(14, 14)):
         super(AttentionModule_stage1, self).__init__()
@@ -114,9 +115,8 @@ class AttentionModule_stage1(nn.Module):
 
         return out_last
 
-
-
 class AttentionModule_stage2(nn.Module):
+
     # input image size is 28*28
     def __init__(self, in_channels, out_channels, size1=(28, 28), size2=(14, 14)):
         super(AttentionModule_stage2, self).__init__()
@@ -172,8 +172,8 @@ class AttentionModule_stage2(nn.Module):
 
         return out_last
 
-
 class AttentionModule_stage3(nn.Module):
+
     # input image size is 14*14
     def __init__(self, in_channels, out_channels, size1=(14, 14)):
         super(AttentionModule_stage3, self).__init__()
@@ -217,8 +217,8 @@ class AttentionModule_stage3(nn.Module):
 
         return out_last
 
-
 class ResidualAttentionNet_56(nn.Module):
+
     # for input size 112
     def __init__(self, feature_dim=512, drop_ratio=0.4):
         super(ResidualAttentionNet_56, self).__init__()
@@ -261,9 +261,8 @@ class ResidualAttentionNet_56(nn.Module):
 
         return out
 
-
-
 class ResidualAttentionNet_92(nn.Module):
+
     # for input size 112
     def __init__(self, feature_dim=512, drop_ratio=0.4):
         super(ResidualAttentionNet_92, self).__init__()
@@ -313,10 +312,9 @@ class ResidualAttentionNet_92(nn.Module):
         return out
 
 
-
 if __name__ == '__main__':
     input = torch.Tensor(2, 3, 112, 112)
-    net = ResidualAttentionNet_92()
+    net = ResidualAttentionNet_56()
     print(net)
 
     x = net(input)

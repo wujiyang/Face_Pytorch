@@ -74,15 +74,11 @@ def train(args):
         net = CBAMResNet(50, feature_dim=args.feature_dim, mode='ir')
     elif args.backbone == 'SERes50_IR':
         net = CBAMResNet(50, feature_dim=args.feature_dim, mode='ir_se')
-    elif args.backbone == 'CBAMRes50_IR':
-        net = CBAMResNet(50, feature_dim=args.feature_dim, mode='ir_cbam')
     elif args.backbone == 'Res100_IR':
         net = CBAMResNet(100, feature_dim=args.feature_dim, mode='ir')
     elif args.backbone == 'SERes100_IR':
         net = CBAMResNet(100, feature_dim=args.feature_dim, mode='ir_se')
-    elif args.backbone == 'CBAMRes100_IR':
-        net = CBAMResNet(100, feature_dim=args.feature_dim, mode='ir_cbam')
-    elif args.backbone == 'SphereNet':
+    elif args.backbone == 'Attention_56':
         net = SphereNet(num_layers=64, feature_dim=args.feature_dim)
     else:
         print(args.backbone, ' is not available!')
@@ -229,7 +225,7 @@ if __name__ == '__main__':
     parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/cfp_fp_aligned_112', help='agedb image root')
     parser.add_argument('--cfpfp_file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='agedb pair file list')
 
-    parser.add_argument('--backbone', type=str, default='SERes100_IR', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR')
+    parser.add_argument('--backbone', type=str, default='SERes100_IR', help='MobileFace, Res50_IR, SERes50_IR, Res100_IR, SERes100_IR, Attention_56, Attention_92')
     parser.add_argument('--margin_type', type=str, default='ArcFace', help='ArcFace, CosFace, SphereFace')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
