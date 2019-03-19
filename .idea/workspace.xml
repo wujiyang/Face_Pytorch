@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet">
-      <change afterPath="$PROJECT_DIR$/backbone/cbam.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/train_cbam.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/train_self_attention.py" afterDir="false" />
     </list>
@@ -96,15 +95,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="18" />
-          <entry key="py" value="45651" />
+          <entry key="dummy" value="22" />
+          <entry key="py" value="45655" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="31" />
-          <entry key="Python" value="45650" />
+          <entry key="PLAIN_TEXT" value="35" />
+          <entry key="Python" value="45654" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -124,13 +123,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_cbam.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="136" column="42" lean-forward="true" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
+            <state relative-caret-position="209">
+              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
               <folding>
-                <element signature="e#147#156#0" expanded="true" />
+                <element signature="e#1006#12554#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -175,11 +174,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backbone/cbam_new.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="237" column="30" lean-forward="true" selection-start-line="237" selection-start-column="30" selection-end-line="237" selection-end-column="30" />
+            <state relative-caret-position="120">
+              <caret line="224" lean-forward="true" selection-start-line="224" selection-end-line="224" />
               <folding>
                 <element signature="e#336#406#0" />
                 <element signature="e#439#1087#0" />
@@ -190,16 +198,8 @@
                 <element signature="e#6842#8047#0" />
                 <element signature="e#8089#9279#0" />
                 <element signature="e#9322#10647#0" />
+                <element signature="e#11027#13038#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backbone/cbam_new.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="36" column="24" lean-forward="true" selection-end-line="367" />
             </state>
           </provider>
         </entry>
@@ -310,10 +310,10 @@
         <option value="$PROJECT_DIR$/eval_megaface.py" />
         <option value="$PROJECT_DIR$/train_self_attention.py" />
         <option value="$PROJECT_DIR$/backbone/self_attention.py" />
-        <option value="$PROJECT_DIR$/train_cbam.py" />
         <option value="$PROJECT_DIR$/backbone/attention.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/backbone/cbam.py" />
+        <option value="$PROJECT_DIR$/train_cbam.py" />
       </list>
     </option>
   </component>
@@ -506,7 +506,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_cbam.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\wujiyang\Desktop\Face_Pytorch\train_cbam_new.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -589,13 +589,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14285715" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14285715" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.21041214" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3449024" />
+      <window_info active="true" anchor="bottom" id="Find" order="2" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3449024" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5466378" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1022,12 +1022,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_cbam.py">
+    <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="136" column="42" lean-forward="true" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
+        <state relative-caret-position="120">
+          <caret line="224" lean-forward="true" selection-start-line="224" selection-end-line="224" />
           <folding>
-            <element signature="e#147#156#0" expanded="true" />
+            <element signature="e#336#406#0" />
+            <element signature="e#439#1087#0" />
+            <element signature="e#1120#1912#0" />
+            <element signature="e#3047#3496#0" />
+            <element signature="e#4445#5550#0" />
+            <element signature="e#5591#6800#0" />
+            <element signature="e#6842#8047#0" />
+            <element signature="e#8089#9279#0" />
+            <element signature="e#9322#10647#0" />
+            <element signature="e#11027#13038#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1055,25 +1064,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backbone/cbam_new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="36" column="24" lean-forward="true" selection-end-line="367" />
+        <state relative-caret-position="266">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/cbam.py">
+    <entry file="file://$PROJECT_DIR$/train_cbam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="237" column="30" lean-forward="true" selection-start-line="237" selection-start-column="30" selection-end-line="237" selection-end-column="30" />
+        <state relative-caret-position="209">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
           <folding>
-            <element signature="e#336#406#0" />
-            <element signature="e#439#1087#0" />
-            <element signature="e#1120#1912#0" />
-            <element signature="e#3047#3496#0" />
-            <element signature="e#4445#5550#0" />
-            <element signature="e#5591#6800#0" />
-            <element signature="e#6842#8047#0" />
-            <element signature="e#8089#9279#0" />
-            <element signature="e#9322#10647#0" />
+            <element signature="e#1006#12554#0" expanded="true" />
           </folding>
         </state>
       </provider>
