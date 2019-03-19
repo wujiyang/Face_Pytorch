@@ -8,6 +8,10 @@
 @desc: train script for my attention net and center loss
 '''
 
+'''
+Pleause use the train.py for your training process.
+'''
+
 import os
 import torch.utils.data
 from torch.nn import DataParallel

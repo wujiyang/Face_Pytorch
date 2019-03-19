@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet">
-      <change afterPath="$PROJECT_DIR$/train_cbam.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train_self_attention.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_center.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_center.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_softmax.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_softmax.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,27 +83,27 @@
         <counts>
           <entry key="_bootstrap&gt;" value="2" />
           <entry key="md" value="1" />
-          <entry key="py" value="184" />
+          <entry key="py" value="186" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
           <entry key="PyRemoteDebug" value="2" />
-          <entry key="Python" value="184" />
+          <entry key="Python" value="186" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="22" />
-          <entry key="py" value="45655" />
+          <entry key="py" value="45720" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="35" />
-          <entry key="Python" value="45654" />
+          <entry key="Python" value="45719" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -123,13 +123,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/train_cbam.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train_cbam_new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+            <state relative-caret-position="361">
+              <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
               <folding>
                 <element signature="e#1006#12554#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/train_softmax.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="e#1026#10655#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train_center.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" selection-start-line="10" selection-end-line="12" selection-end-column="3" />
+              <folding>
+                <element signature="e#200#209#0" expanded="true" />
+                <element signature="e#1080#11540#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -290,10 +315,8 @@
         <option value="$PROJECT_DIR$/margin/visualize.py" />
         <option value="$PROJECT_DIR$/utils/visdom_test.py" />
         <option value="$PROJECT_DIR$/visdom_test.py" />
-        <option value="$PROJECT_DIR$/train_softmax.py" />
         <option value="$PROJECT_DIR$/utils/visualize.py" />
         <option value="$PROJECT_DIR$/backbone/spherenet.py" />
-        <option value="$PROJECT_DIR$/train_center.py" />
         <option value="$PROJECT_DIR$/lossfunctions/centerloss.py" />
         <option value="$PROJECT_DIR$/backbone/mobilefacenet.py" />
         <option value="$PROJECT_DIR$/train_center_local.py" />
@@ -314,6 +337,8 @@
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/backbone/cbam.py" />
         <option value="$PROJECT_DIR$/train_cbam.py" />
+        <option value="$PROJECT_DIR$/train_center.py" />
+        <option value="$PROJECT_DIR$/train_softmax.py" />
       </list>
     </option>
   </component>
@@ -358,26 +383,6 @@
             <path>
               <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
               <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="backbone" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="dataset" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="margin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Face_Pytorch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Face_Pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -589,13 +594,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14285715" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14285715" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.21041214" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info active="true" anchor="bottom" id="Find" order="2" visible="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3449024" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3449024" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5466378" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -741,20 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="322" selection-start-line="322" selection-end-line="322" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_center.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="247" column="65" selection-start-line="247" selection-start-column="65" selection-end-line="247" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_softmax.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="213" column="68" lean-forward="true" selection-start-line="213" selection-start-column="68" selection-end-line="213" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -1069,12 +1060,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_cbam.py">
+    <entry file="file://$PROJECT_DIR$/train_cbam_new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        <state relative-caret-position="361">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
           <folding>
             <element signature="e#1006#12554#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_center.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" selection-start-line="10" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="e#200#209#0" expanded="true" />
+            <element signature="e#1080#11540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_softmax.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#1026#10655#0" expanded="true" />
           </folding>
         </state>
       </provider>

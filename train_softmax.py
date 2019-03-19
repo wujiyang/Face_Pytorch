@@ -7,6 +7,9 @@
 @time: 2019/1/7 8:33
 @desc: original softmax training with Casia-Webface
 '''
+'''
+Pleause use the train.py for your training process.
+'''
 
 import os
 import torch.utils.data
