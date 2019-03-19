@@ -15,6 +15,7 @@ from datetime import datetime
 from backbone.mobilefacenet import MobileFaceNet
 from backbone.cbam import CBAMResNet
 from backbone.spherenet import SphereNet
+from backbone.attention import ResidualAttentionNet_56, ResidualAttentionNet_92
 from margin.ArcMarginProduct import ArcMarginProduct
 from utils.visualize import Visualizer
 from utils.logging import init_log
@@ -79,7 +80,9 @@ def train(args):
     elif args.backbone == 'SERes100_IR':
         net = CBAMResNet(100, feature_dim=args.feature_dim, mode='ir_se')
     elif args.backbone == 'Attention_56':
-        net = SphereNet(num_layers=64, feature_dim=args.feature_dim)
+        net = ResidualAttentionNet_56(feature_dim=args.feature_dim)
+    elif args.backbone == 'Attention_92':
+        net = ResidualAttentionNet_92(feature_dim=args.feature_dim)
     else:
         print(args.backbone, ' is not available!')
 
@@ -225,11 +228,11 @@ if __name__ == '__main__':
     parser.add_argument('--cfpfp_test_root', type=str, default='/media/sda/CFP-FP/cfp_fp_aligned_112', help='agedb image root')
     parser.add_argument('--cfpfp_file_list', type=str, default='/media/sda/CFP-FP/cfp_fp_pair.txt', help='agedb pair file list')
 
-    parser.add_argument('--backbone', type=str, default='SERes100_IR', help='MobileFace, Res50_IR, SERes50_IR, Res100_IR, SERes100_IR, Attention_56, Attention_92')
+    parser.add_argument('--backbone', type=str, default='Attention_56', help='MobileFace, Res50_IR, SERes50_IR, Res100_IR, SERes100_IR, Attention_56, Attention_92')
     parser.add_argument('--margin_type', type=str, default='ArcFace', help='ArcFace, CosFace, SphereFace')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
-    parser.add_argument('--batch_size', type=int, default=128, help='batch size')
+    parser.add_argument('--batch_size', type=int, default=256, help='batch size')
     parser.add_argument('--total_epoch', type=int, default=20, help='total epochs')
 
     parser.add_argument('--save_freq', type=int, default=5000, help='save frequency')

@@ -4,10 +4,6 @@
     <list default="true" id="b858bf2b-fcb3-4bcb-acac-0f503fa91cf1" name="Default Changelist" comment="mobilefacenet">
       <change afterPath="$PROJECT_DIR$/train_cbam.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/train_self_attention.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backbone/attention.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/attention.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backbone/cbam.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/cbam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backbone/self_attention.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/self_attention.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,14 +97,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="18" />
-          <entry key="py" value="45596" />
+          <entry key="py" value="45651" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="31" />
-          <entry key="Python" value="45595" />
+          <entry key="Python" value="45650" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -184,16 +180,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+            <state relative-caret-position="342">
+              <caret line="240" column="80" lean-forward="true" selection-start-line="240" selection-start-column="80" selection-end-line="240" selection-end-column="80" />
               <folding>
                 <element signature="e#187#196#0" expanded="true" />
-                <marker date="1552983139341" expanded="true" signature="895:898" ph="..." />
-                <marker date="1552983139341" expanded="true" signature="914:919" ph="..." />
-                <marker date="1552983139341" expanded="true" signature="914:9779" ph="..." />
+                <element signature="e#919#10009#0" expanded="true" />
+                <marker date="1552984040075" expanded="true" signature="975:978" ph="..." />
+                <marker date="1552984040075" expanded="true" signature="994:999" ph="..." />
+                <marker date="1552984040075" expanded="true" signature="994:9968" ph="..." />
               </folding>
             </state>
           </provider>
@@ -221,23 +218,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backbone/attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="317" column="14" lean-forward="true" selection-start-line="317" selection-start-column="14" selection-end-line="317" selection-end-column="14" />
+            <state relative-caret-position="355">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
               <folding>
                 <element signature="e#251#263#0" expanded="true" />
                 <element signature="e#336#406#0" />
-                <element signature="e#450#1717#0" />
                 <element signature="e#507#1481#0" expanded="true" />
                 <element signature="e#1517#1703#0" expanded="true" />
                 <element signature="e#1878#3727#0" expanded="true" />
                 <element signature="e#3763#4773#0" expanded="true" />
                 <element signature="e#4830#7185#0" />
                 <element signature="e#7237#8852#0" />
-                <element signature="e#8905#10741#0" />
-                <element signature="e#10794#13003#0" />
+                <element signature="e#8975#10164#0" expanded="true" />
+                <element signature="e#10200#10725#0" expanded="true" />
                 <element signature="e#12327#12984#0" expanded="true" />
                 <marker date="1552983698832" expanded="true" signature="440:445" ph="..." />
                 <marker date="1552983698832" expanded="true" signature="1747:1752" ph="..." />
@@ -330,8 +326,8 @@
         <option value="$PROJECT_DIR$/backbone/self_attention.py" />
         <option value="$PROJECT_DIR$/train_cbam.py" />
         <option value="$PROJECT_DIR$/backbone/cbam.py" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/backbone/attention.py" />
+        <option value="$PROJECT_DIR$/train.py" />
       </list>
     </option>
   </component>
@@ -607,13 +603,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14285715" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14285715" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="File Transfer" order="0" weight="0.21041214" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.2451193" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.2451193" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5466378" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -979,32 +975,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="204" column="55" lean-forward="true" selection-start-line="204" selection-start-column="8" selection-end-line="204" selection-end-column="55" />
-          <folding>
-            <element signature="e#217#229#0" expanded="true" />
-            <element signature="e#417#2234#0" />
-            <element signature="e#1488#2234#0" expanded="true" />
-            <element signature="e#2288#4023#0" />
-            <element signature="e#4077#5812#0" />
-            <element signature="e#4115#5042#0" expanded="true" />
-            <element signature="e#5078#5812#0" expanded="true" />
-            <element signature="e#5864#7731#0" />
-            <element signature="e#5902#6917#0" expanded="true" />
-            <element signature="e#8864#9499#0" expanded="true" />
-            <marker date="1552286920741" expanded="true" signature="17942:26201" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train_cbam.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="127" column="43" lean-forward="true" selection-start-line="127" selection-start-column="43" selection-end-line="127" selection-end-column="43" />
           <folding>
             <element signature="e#147#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1032735531/208177666/torch/nn/modules/upsampling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="141" column="36" lean-forward="true" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
+          <folding>
+            <element signature="e#5907#6098#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1051,48 +1037,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/backbone/self_attention.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="10">
+          <caret line="204" column="55" lean-forward="true" selection-start-line="204" selection-start-column="8" selection-end-line="204" selection-end-column="55" />
           <folding>
-            <element signature="e#187#196#0" expanded="true" />
-            <marker date="1552983139341" expanded="true" signature="895:898" ph="..." />
-            <marker date="1552983139341" expanded="true" signature="914:919" ph="..." />
-            <marker date="1552983139341" expanded="true" signature="914:9779" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1032735531/208177666/torch/nn/modules/upsampling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="141" column="36" lean-forward="true" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
-          <folding>
-            <element signature="e#5907#6098#0" expanded="true" />
+            <element signature="e#217#229#0" expanded="true" />
+            <element signature="e#417#2234#0" />
+            <element signature="e#1488#2234#0" expanded="true" />
+            <element signature="e#2288#4023#0" />
+            <element signature="e#4077#5812#0" />
+            <element signature="e#4115#5042#0" expanded="true" />
+            <element signature="e#5078#5812#0" expanded="true" />
+            <element signature="e#5864#7731#0" />
+            <element signature="e#5902#6917#0" expanded="true" />
+            <element signature="e#8864#9499#0" expanded="true" />
+            <marker date="1552286920741" expanded="true" signature="17942:26201" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backbone/attention.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="317" column="14" lean-forward="true" selection-start-line="317" selection-start-column="14" selection-end-line="317" selection-end-column="14" />
+        <state relative-caret-position="355">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
           <folding>
             <element signature="e#251#263#0" expanded="true" />
             <element signature="e#336#406#0" />
-            <element signature="e#450#1717#0" />
             <element signature="e#507#1481#0" expanded="true" />
             <element signature="e#1517#1703#0" expanded="true" />
             <element signature="e#1878#3727#0" expanded="true" />
             <element signature="e#3763#4773#0" expanded="true" />
             <element signature="e#4830#7185#0" />
             <element signature="e#7237#8852#0" />
-            <element signature="e#8905#10741#0" />
-            <element signature="e#10794#13003#0" />
+            <element signature="e#8975#10164#0" expanded="true" />
+            <element signature="e#10200#10725#0" expanded="true" />
             <element signature="e#12327#12984#0" expanded="true" />
             <marker date="1552983698832" expanded="true" signature="440:445" ph="..." />
             <marker date="1552983698832" expanded="true" signature="1747:1752" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="240" column="80" lean-forward="true" selection-start-line="240" selection-start-column="80" selection-end-line="240" selection-end-column="80" />
+          <folding>
+            <element signature="e#187#196#0" expanded="true" />
+            <element signature="e#919#10009#0" expanded="true" />
+            <marker date="1552984040075" expanded="true" signature="975:978" ph="..." />
+            <marker date="1552984040075" expanded="true" signature="994:999" ph="..." />
+            <marker date="1552984040075" expanded="true" signature="994:9968" ph="..." />
           </folding>
         </state>
       </provider>
