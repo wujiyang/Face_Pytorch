@@ -106,7 +106,7 @@ def train(args):
         {'params': net.parameters(), 'weight_decay': 5e-4},
         {'params': margin.parameters(), 'weight_decay': 5e-4}
     ], lr=0.1, momentum=0.9, nesterov=True)
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[6, 12, 17], gamma=0.1)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[3, 6, 9], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -232,11 +232,11 @@ if __name__ == '__main__':
     parser.add_argument('--margin_type', type=str, default='ArcFace', help='ArcFace, CosFace, SphereFace')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
-    parser.add_argument('--batch_size', type=int, default=256, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=20, help='total epochs')
+    parser.add_argument('--batch_size', type=int, default=128, help='batch size')
+    parser.add_argument('--total_epoch', type=int, default=11, help='total epochs')
 
-    parser.add_argument('--save_freq', type=int, default=5000, help='save frequency')
-    parser.add_argument('--test_freq', type=int, default=5000, help='test frequency')
+    parser.add_argument('--save_freq', type=int, default=3000, help='save frequency')
+    parser.add_argument('--test_freq', type=int, default=3000, help='test frequency')
     parser.add_argument('--resume', type=int, default=False, help='resume model')
     parser.add_argument('--net_path', type=str, default='', help='resume model')
     parser.add_argument('--margin_path', type=str, default='', help='resume model')

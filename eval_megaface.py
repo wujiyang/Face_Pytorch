@@ -11,7 +11,7 @@ import numpy as np
 import struct
 import os
 import torch.utils.data
-from backbone import mobilefacenet, resnet, arcfacenet, cbam, self_attention
+from backbone import mobilefacenet, cbam, self_attention
 from dataset.megaface import MegaFace
 import torchvision.transforms as transforms
 import argparse
@@ -49,30 +49,12 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
     if backbone_net == 'MobileFace':
         net = mobilefacenet.MobileFaceNet()
-    elif backbone_net == 'Res50_IR':
-        net = cbam.CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='ir')
-    elif backbone_net == 'SERes50_IR':
-        net = cbam.CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='se_ir')
-    elif backbone_net == 'CBAMRes50_IR':
-        net = cbam.CBAMResNet_IR(50, feature_dim=args.feature_dim, mode='cbam_ir')
-    elif backbone_net == 'Res100_IR':
-        net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='ir')
-    elif backbone_net == 'SERes100_IR':
-        net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='se_ir')
-    elif backbone_net == 'CBAMRes100_IR':
-        net = cbam.CBAMResNet_IR(100, feature_dim=args.feature_dim, mode='cbam_ir')
-    elif backbone_net == 'SRA_50':
-        net = self_attention.SRAMResNet_IR(50, mode='ir')
-    elif backbone_net == 'SRA_50_SCA':
-        net = self_attention.SRAMResNet_IR(50, mode='ir_sca')
-    elif backbone_net == 'SRA_50_SCA_Tiny':
-        net = self_attention.SRAMResNet_IR(50, mode='ir_sca_tiny')
-    elif backbone_net == 'SRA_50_SSA':
-        net = self_attention.SRAMResNet_IR(50, mode='ir_ssa')
-    elif backbone_net == 'SRA_50_SSA_Tiny':
-        net = self_attention.SRAMResNet_IR(50, mode='ir_ssa_tiny')
-    elif backbone_net == 'SRA_50_SRAM':
-        net = self_attention.SRAMResNet_IR(50, mode='ir_sram')
+    elif backbone_net == 'CBAM_50':
+        net = cbam.CBAMResNet(50, feature_dim=args.feature_dim, mode='ir')
+    elif backbone_net == 'CBAM_50_SE':
+        net = cbam.CBAMResNet(50, feature_dim=args.feature_dim, mode='ir_se')
+    elif backbone_net == 'CBAM_100':
+        net = cbam.CBAMResNet(100, feature_dim=args.feature_dim, mode='ir')
     else:
         print(args.backbone, ' is not available!')
 
@@ -119,8 +101,8 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='/home/wujiyang/Iter_033000_net.ckpt', help='The path of trained model')
-    parser.add_argument('--backbone_net', type=str, default='SRA_50', help='MobileFace, Res50_IR, SERes50_IR, CBAMRes50_IR, Res100_IR, SERes100_IR, CBAMRes100_IR, SRA_50, SRA_50_SCA, SRA_50_SCA_Tiny, SRA_50_SSA, SRA_50_SSA_Tiny, SRA_50_SRAM')
+    parser.add_argument('--model_path', type=str, default='./model/InsightFace_ArcFace_CBAM_100_20190319_165001/Iter_015000_net.ckpt', help='The path of trained model')
+    parser.add_argument('--backbone_net', type=str, default='CBAM_100', help='MobileFace, CBAM_50, CBAM_50_SE, CBAM_100')
     parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
     parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
     parser.add_argument('--batch_size', type=int, default=1024, help='batch size')
