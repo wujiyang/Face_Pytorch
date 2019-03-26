@@ -284,26 +284,7 @@ class CBAMResNet(nn.Module):
 
 if __name__ == '__main__':
     input = torch.Tensor(2, 3, 112, 112)
-    net = CBAMResNet(100, mode='ir')
+    net = CBAMResNet(50, mode='ir')
 
     out = net(input)
     print(out.shape)
-
-    '''
-    device = torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')
-    input, net = input.to(device), net.to(device)
-
-    # calculate the inference time:
-    net.eval()
-    with torch.no_grad():
-        start = time.time()
-        for i in range(100):
-            t1 = time.time()
-            x = net(input)
-            t2 = time.time()
-            print('current_time: %04d: ' % i, t2 - t1)
-        end = time.time()
-        print('total time: ', end - start, ' average time: ', (end - start) / 100)
-    x = net(input)
-    print(x.shape)
-    '''

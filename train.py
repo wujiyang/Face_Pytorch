@@ -105,8 +105,8 @@ def train(args):
     optimizer_ft = optim.SGD([
         {'params': net.parameters(), 'weight_decay': 5e-4},
         {'params': margin.parameters(), 'weight_decay': 5e-4}
-    ], lr=0.1, momentum=0.9, nesterov=True)
-    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[3, 6, 9], gamma=0.1)
+    ], lr=0.00001, momentum=0.9, nesterov=True)
+    exp_lr_scheduler = lr_scheduler.MultiStepLR(optimizer_ft, milestones=[5, 8, 11], gamma=0.1)
 
     if multi_gpus:
         net = DataParallel(net).to(device)
@@ -233,13 +233,13 @@ if __name__ == '__main__':
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension, 128 or 512')
     parser.add_argument('--scale_size', type=float, default=32.0, help='scale size')
     parser.add_argument('--batch_size', type=int, default=128, help='batch size')
-    parser.add_argument('--total_epoch', type=int, default=11, help='total epochs')
+    parser.add_argument('--total_epoch', type=int, default=13, help='total epochs')
 
     parser.add_argument('--save_freq', type=int, default=3000, help='save frequency')
     parser.add_argument('--test_freq', type=int, default=3000, help='test frequency')
-    parser.add_argument('--resume', type=int, default=False, help='resume model')
-    parser.add_argument('--net_path', type=str, default='', help='resume model')
-    parser.add_argument('--margin_path', type=str, default='', help='resume model')
+    parser.add_argument('--resume', type=int, default=True, help='resume model')
+    parser.add_argument('--net_path', type=str, default='./model/MSCeleb_ATTENTION_56_20190325_084001/Iter_099000_net.ckpt', help='resume model')
+    parser.add_argument('--margin_path', type=str, default='./model/MSCeleb_ATTENTION_56_20190325_084001/Iter_099000_margin.ckpt', help='resume model')
     parser.add_argument('--save_dir', type=str, default='./model', help='model save dir')
     parser.add_argument('--model_pre', type=str, default='MSCeleb_', help='model prefix')
     parser.add_argument('--gpus', type=str, default='0,1,2,3', help='model prefix')
