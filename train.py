@@ -16,7 +16,7 @@ from backbone.mobilefacenet import MobileFaceNet
 from backbone.cbam import CBAMResNet
 from backbone.attention import ResidualAttentionNet_56, ResidualAttentionNet_92
 from margin.ArcMarginProduct import ArcMarginProduct
-from margin.MultiMarginProduct import MultiMarginProduct
+#from margin.MultiMarginProduct import MultiMarginProduct
 from margin.CosineMarginProduct import CosineMarginProduct
 from margin.InnerProduct import InnerProduct
 from utils.visualize import Visualizer
