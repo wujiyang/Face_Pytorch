@@ -232,15 +232,15 @@ class ResidualAttentionNet_56(nn.Module):
         self.attention_module1 = AttentionModule_stage1(256, 256)
         self.residual_block2 = ResidualBlock(256, 512, 2)
         self.attention_module2 = AttentionModule_stage2(512, 512)
-        self.residual_block3 = ResidualBlock(512, 1024, 2)
-        self.attention_module3 = AttentionModule_stage3(1024, 1024)
-        self.residual_block4 = ResidualBlock(1024, 2048, 2)
-        self.residual_block5 = ResidualBlock(2048, 2048)
-        self.residual_block6 = ResidualBlock(2048, 2048)
-        self.output_layer = nn.Sequential(nn.BatchNorm2d(2048),
+        self.residual_block3 = ResidualBlock(512, 512, 2)
+        self.attention_module3 = AttentionModule_stage3(512, 512)
+        self.residual_block4 = ResidualBlock(512, 512, 2)
+        self.residual_block5 = ResidualBlock(512, 512)
+        self.residual_block6 = ResidualBlock(512, 512)
+        self.output_layer = nn.Sequential(nn.BatchNorm2d(512),
                                           nn.Dropout(drop_ratio),
                                           Flatten(),
-                                          nn.Linear(2048 * 7 * 7, feature_dim),
+                                          nn.Linear(512 * 7 * 7, feature_dim),
                                           nn.BatchNorm1d(feature_dim))
 
     def forward(self, x):

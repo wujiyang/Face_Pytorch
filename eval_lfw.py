@@ -69,8 +69,10 @@ def loadModel(data_root, file_list, backbone_net, gpus='0', resume=None):
         net = cbam.CBAMResNet(50, feature_dim=args.feature_dim, mode='ir_se')
     elif backbone_net == 'CBAM_100':
         net = cbam.CBAMResNet(100, feature_dim=args.feature_dim, mode='ir')
+    elif backbone_net == 'CBAM_100_SE':
+        net = cbam.CBAMResNet(100, feature_dim=args.feature_dim, mode='ir_se')
     else:
-        print(args.backbone, ' is not available!')
+        print(backbone_net, ' is not available!')
 
     # gpu init
     multi_gpus = False
@@ -125,15 +127,15 @@ def getFeatureFromTorch(feature_save_dir, net, device, data_set, data_loader):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--root', type=str, default='/media/sda/insightface_emore/lfw_align_112', help='The path of lfw data')
-    parser.add_argument('--file_list', type=str, default='/media/sda/insightface_emore/pair_lfw.txt', help='The path of lfw data')
-    parser.add_argument('--backbone_net', type=str, default='CBAM_50', help='MobileFace, CBAM_50, CBAM_50_SE, CBAM_100')
+    parser.add_argument('--root', type=str, default='/media/sda/lfw/lfw_align_112', help='The path of lfw data')
+    parser.add_argument('--file_list', type=str, default='/media/sda/lfw/pairs.txt', help='The path of lfw data')
+    parser.add_argument('--backbone_net', type=str, default='CBAM_100_SE', help='MobileFace, CBAM_50, CBAM_50_SE, CBAM_100, CBAM_100_SE')
     parser.add_argument('--feature_dim', type=int, default=512, help='feature dimension')
-    parser.add_argument('--resume', type=str, default='./model/InsightFace_ArcFace_CBAM_50_20190309_182135/Iter_260000_net.ckpt',
+    parser.add_argument('--resume', type=str, default='./model/SERES100_SERES100_IR_20190528_132635/Iter_342000_net.ckpt',
                         help='The path pf save model')
     parser.add_argument('--feature_save_path', type=str, default='./result/cur_epoch_lfw_result.mat',
                         help='The path of the extract features save, must be .mat file')
-    parser.add_argument('--gpus', type=str, default='2,3', help='gpu list')
+    parser.add_argument('--gpus', type=str, default='1,3', help='gpu list')
     args = parser.parse_args()
 
     net, device, lfw_dataset, lfw_loader = loadModel(args.root, args.file_list, args.backbone_net, args.gpus, args.resume)

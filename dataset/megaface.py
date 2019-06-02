@@ -53,6 +53,9 @@ class MegaFace(data.Dataset):
         img_path = self.image_list[index]
         img = self.loader(img_path)
 
+        #水平翻转图像
+        #img = cv2.flip(img, 1)
+
         if self.transform is not None:
             img = self.transform(img)
         else:

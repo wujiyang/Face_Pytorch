@@ -55,6 +55,8 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
         net = cbam.CBAMResNet(50, feature_dim=args.feature_dim, mode='ir_se')
     elif backbone_net == 'CBAM_100':
         net = cbam.CBAMResNet(100, feature_dim=args.feature_dim, mode='ir')
+    elif backbone_net == 'CBAM_100_SE':
+        net = cbam.CBAMResNet(100, feature_dim=args.feature_dim, mode='ir_se')
     else:
         print(args.backbone, ' is not available!')
 
@@ -101,8 +103,8 @@ def extract_feature(model_path, backbone_net, face_scrub_path, megaface_path, ba
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testing')
-    parser.add_argument('--model_path', type=str, default='./model/InsightFace_ArcFace_CBAM_100_20190319_165001/Iter_015000_net.ckpt', help='The path of trained model')
-    parser.add_argument('--backbone_net', type=str, default='CBAM_100', help='MobileFace, CBAM_50, CBAM_50_SE, CBAM_100')
+    parser.add_argument('--model_path', type=str, default='./model/RES100_RES100_IR_20190423_100728/Iter_333000_net.ckpt', help='The path of trained model')
+    parser.add_argument('--backbone_net', type=str, default='CBAM_100', help='MobileFace, CBAM_50, CBAM_50_SE, CBAM_100, CBAM_100_SE')
     parser.add_argument('--facescrub_dir', type=str, default='/media/sda/megaface_test_kit/facescrub_align_112/', help='facescrub data')
     parser.add_argument('--megaface_dir', type=str, default='/media/sda/megaface_test_kit/megaface_align_112/', help='megaface data')
     parser.add_argument('--batch_size', type=int, default=1024, help='batch size')
