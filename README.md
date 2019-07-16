@@ -1,3 +1,5 @@
+>Currently, I have graduated from campus and doing another kind of research job. So this project may not be updated again.
+
 ## Face_Pytorch
 The implementation of  popular face recognition algorithms in pytorch framework, including arcface, cosface and sphereface and so on.
 
